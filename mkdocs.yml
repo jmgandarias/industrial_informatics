@@ -18,8 +18,8 @@ theme:
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
-      primary: "#0099cc"
-      accent: custom
+      primary: "#cc0066"
+      accent: "#0099cc"
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
