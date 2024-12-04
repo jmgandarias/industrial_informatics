@@ -1,6 +1,6 @@
 # MQTT
 
-* [**Getting Started**: "A hands-on introduction to MQTT"](./mqtt/README.md).
+* [**Getting Started**: "A hands-on introduction to MQTT"](./getting_stared/README.md).
 
     *Here you will start working with MQTT.*
 

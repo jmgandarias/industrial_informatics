@@ -2,9 +2,7 @@
 title: "Version History"
 ---
 
-## Version History
-
-### Iteration 1
+## Iteration 1
 
 **Academic Year**: 2024-2025
 

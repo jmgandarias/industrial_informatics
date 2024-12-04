@@ -1,5 +1,5 @@
-site_name: "Advanced Robotics Course"
-site_url: https://jmgandarias.com/advanced_robotics
+site_name: "Industrial Informatics Course"
+site_url: https://jmgandarias.com/industrial_informatics
 site_description: Teaching material for the Advanced Robotics Course at The University of Málaga. 
 theme:
   name: material
@@ -18,7 +18,7 @@ theme:
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
-      primary: custom
+      primary: "#0099cc"
       accent: custom
       toggle:
         icon: material/brightness-4
