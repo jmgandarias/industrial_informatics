@@ -6,9 +6,9 @@ hide:
 
 <center>
 
-# COM2009 ROS Labs
+# Industrial Informatics
 
-*ROS Labs for the COM2009-3009 Robotics Course at The University of Sheffield (and [more](./others/amr31001/README.md))* 
+*Course material for the second part and Lab sesions of the Industrial Informatics course at The University of Málaga.* 
 
 ![A picture of a TurtleBot3 Waffle in the Diamond Computer Room 3 Robot Arena](./images/waffle/arena_shot.jpg){width=1000} 
 

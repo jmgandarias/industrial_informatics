@@ -1,4 +1,0 @@
-nav:
-  - README.md
-  - "Installing WSL-ROS on your Own Machine": install.md
-  - "Accessing WSL-ROS from A University Managed Desktop Computer on Campus": on-campus.md

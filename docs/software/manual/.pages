@@ -1,4 +1,0 @@
-nav:
-  - "Manual ROS Installation": README.md
-  - "Windows (via WSL)": windows.md
-  - "Linux (Ubuntu 20.04)": linux.md

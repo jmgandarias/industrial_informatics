@@ -1,7 +1,3 @@
 nav:
   - "About": about
-  - "Accessing ROS": software
-  - "COM2009": com2009
-  - "The Waffles": waffles
-  - "ROS Extras": extras
-  - "Other Courses": others
+  - "MQTT": mqtt
