@@ -1,0 +1,4 @@
+nav:
+  - "COM2009": README.md
+  - "Assignment #1: An Introduction to ROS": assignment1
+  - "Assignment #2: Team Robotics Project": assignment2

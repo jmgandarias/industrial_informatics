@@ -1,0 +1,4 @@
+nav:
+  - "Launch Files": launch-files
+  - "Creating Your Own Custom ROS Messages": ros-msgs.md
+  - "The Course Repo": tuos-ros.md
