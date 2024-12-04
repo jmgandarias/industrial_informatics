@@ -6,32 +6,32 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Teaching material for the Advanced Robotics Course at The University of Málaga.">
+        <meta name="description" content="En esta parte vamos a installar mosquitto. Mosquitto is an open source MQTT message broker service. It uses MQTT protocol for Machine-to-Machine (M2M) communication by sending and receiving messages.">
       
       
       
-        <link rel="canonical" href="https://jmgandarias.com/advanced_robotics/about/license/">
+        <link rel="canonical" href="https://jmgandarias.com/advanced_robotics/mqtt/getting_started/install_mosquitto/">
       
       
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../acknowledgements/">
+        <link rel="next" href="../../exercise1/">
       
       
-      <link rel="icon" href="../../assets/logo_uma_blanco.svg">
+      <link rel="icon" href="../../../assets/logo_uma_blanco.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
     
     
       
-        <title>License - Advanced Robotics Course</title>
+        <title>Install mosquitto - Advanced Robotics Course</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -45,16 +45,16 @@
         
         
         
-        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.c3479dc1.css">
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.c3479dc1.css">
         <style>:root{--md-text-font:"Source Sans Pro";--md-code-font:"Source Code Pro"}</style>
       
     
     
-      <link rel="stylesheet" href="../../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#license" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Skip to content
         </a>
       
@@ -104,9 +104,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Advanced Robotics Course" class="md-header__button md-logo" aria-label="Advanced Robotics Course" data-md-component="logo">
+    <a href="../../.." title="Advanced Robotics Course" class="md-header__button md-logo" aria-label="Advanced Robotics Course" data-md-component="logo">
       
-  <img src="../../assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              License
+              Install mosquitto
             
           </span>
         </div>
@@ -228,13 +228,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../about/" class="md-tabs__link">
           
   
     
@@ -250,11 +248,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../mqtt/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
     
@@ -289,9 +289,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Advanced Robotics Course" class="md-nav__button md-logo" aria-label="Advanced Robotics Course" data-md-component="logo">
+    <a href="../../.." title="Advanced Robotics Course" class="md-nav__button md-logo" aria-label="Advanced Robotics Course" data-md-component="logo">
       
-  <img src="../../assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     Advanced Robotics Course
@@ -310,6 +310,138 @@
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../about/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/acknowledgements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acknowledgements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
       
@@ -345,7 +477,65 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MQTT
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            MQTT
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           
@@ -354,23 +544,23 @@
               
   
   <span class="md-ellipsis">
-    About
+    Getting Started: A hands-on introduction to MQTT
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
-            About
+            Getting Started: A hands-on introduction to MQTT
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -394,7 +584,7 @@
           
   
   <span class="md-ellipsis">
-    License
+    Install mosquitto
   </span>
   
 
@@ -405,7 +595,7 @@
         
   
   <span class="md-ellipsis">
-    License
+    Install mosquitto
   </span>
   
 
@@ -425,9 +615,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      License
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-mosquitto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start Mosquitto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firewall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-environment-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path Environment Variable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
     </span>
   </a>
   
@@ -437,196 +672,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../acknowledgements/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Acknowledgements
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../changelog/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Version History
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../mqtt/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    MQTT
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            MQTT
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../mqtt/getting_started/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Getting Started: A hands-on introduction to MQTT
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            Getting Started: A hands-on introduction to MQTT
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mqtt/getting_started/install_mosquitto/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Install mosquitto
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -670,7 +715,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mqtt/exercise1/" class="md-nav__link ">
+            <a href="../../exercise1/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -729,7 +774,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mqtt/lab1/" class="md-nav__link ">
+            <a href="../../lab1/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -790,9 +835,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      License
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-mosquitto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start Mosquitto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firewall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-environment-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path Environment Variable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
     </span>
   </a>
   
@@ -813,7 +903,7 @@
                   
 
   
-    <a href="https://github.com/jmgandarias/industrial_informatics/edit/main/docs/about/license.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/jmgandarias/industrial_informatics/edit/main/docs/mqtt/getting_started/install_mosquitto.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -822,23 +912,69 @@
     
       
     
-    <a href="https://github.com/jmgandarias/industrial_informatics/raw/main/docs/about/license.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/jmgandarias/industrial_informatics/raw/main/docs/mqtt/getting_started/install_mosquitto.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-  <h1>License</h1>
+  <h1>Install mosquitto</h1>
 
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p align="center">
-  <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="../../assets/external/i.creativecommons.org/l/by-nc/4.0/88x31.png"></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
-</p>
-
-<p align="center"><em>You are free to distribute, remix, adapt, and build upon this work (for non-commercial purposes only) as long as credit is given to the original author.</em></p>
-
-<p>For more information, check <a href="https://github.com/jmgandarias/industrial_informatics/tree/main?tab=License-1-ov-file#readme">this link</a>.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p><a href="https://mosquitto.org/">Eclipse Mosquitto</a> is an Open Source Broker from the Eclipse Foundation distributed under EPL/EDL license that implements MQTT protocol. It is lightweight and is suitable for use on all devices from low power single board computers to full servers. It is programmed in C and is compatible with most OS. The code can be found in <a href="https://github.com/eclipse/mosquitto">this repo</a>.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>To install mosquitto in Windows, you can follow the next steps.</p>
+<ol>
+<li>Download the installer from the <a href="https://mosquitto.org/download/">official website</a>. Check the corresponding type of your processor architecture <em>(most probably 64-bit)</em>. Once you have the <code>.exe</code>, execute it to start the installation process.</li>
+<li>During the installation, install all the components.</li>
+<li>When the installer asks you for the Destination Folder, leave the default one (most probably: <code>C:\Program Files\mosquitto</code>).</li>
+</ol>
+<h2 id="start-mosquitto">Start Mosquitto<a class="headerlink" href="#start-mosquitto" title="Permanent link">&para;</a></h2>
+<p>Now, you can start mosquitto through windows services. You can open the services by clicking the <span class="keys"><kbd class="key-windows">Win</kbd></span> button and typing <code>Services</code>. 
+<a href="https://www.digitalcitizen.life/ways-access-services-windows/"><em>Here you can check the multiple ways to open windows services</em></a>.</p>
+<p>Once you have find the <em>mosquito broker service</em>, you can click on <em>Start the service</em> to start and enable the port where the mosquito will start listening for requests.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It may happen that when you open the windows services, mosquitto is already running.</p>
+</div>
+<p>You can check in the terminal (<span class="keys"><kbd class="key-windows">Win</kbd></span> <code>cmd</code>) if the service is active and the port enabled with the following command.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>netstat<span class="w"> </span>-an
+</code></pre></div>
+<p>Then you will see a list of enabling ports. Port 1883 is the one used by mosquitto for communication.</p>
+<h2 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">&para;</a></h2>
+<p>As mosquitto requires external communication, it is necessary to enable the windows firewall for incoming and outgoing requests on port 1883 (this way, the firewall does not block the mosquitto service).</p>
+<p>You need to go to <code>Control panel (control panel) &gt; Windows defender firewall</code>. Then, go yo <code>advanced setting</code>.</p>
+<p>It will open the Advanced Configuration of Firewall window where you have to look for inbound rules and click on new rule.</p>
+<ol>
+<li>The first step is to select the type of rule. In this case it is a port, so select it and click on next.</li>
+<li>Then, you select the rule for <code>tcp</code> and we write the corresponding port: <code>1883</code>. Click on <code>next</code> and allow all the connections.</li>
+<li>Apply the rule to all the network profiles and place a name to identify it. Click on finish and the rule will be created.</li>
+</ol>
+<p>Now you can create the outbound rule. Click on outbound rule and do the same steps you did before.</p>
+<h2 id="path-environment-variable">Path Environment Variable<a class="headerlink" href="#path-environment-variable" title="Permanent link">&para;</a></h2>
+<p>Once you have mosquitos running as a service and the firewall is configured, you need to configure the environment variable.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This is actually not necessary since the programs that use mosquitto will access it through the service. However, if you want to test it with the command console, you will need it.</p>
+</div>
+<p>You need to acced the <code>environment variables</code> and search for the variable path to place the route <code>Control Panel &gt; System and security &gt; System</code>. Then, open the advanced system configuration and click on <code>environment variables</code>.</p>
+<p>In the path variable we put the path where mosquitto was installed (remember step 3 of <a href="#installation">installation</a><code>C:\Program Files\mosquitto</code>), with this the execution files from mosquitto are already recognized from the command console.</p>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p>Now you can test mosquitto broker in your local machine. Open two terminals (<span class="keys"><kbd class="key-windows">Win</kbd></span> + <code>cmd</code>). Go to the route where mosquitto was installed</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>C:<span class="se">\P</span>rogram<span class="w"> </span>Files<span class="se">\m</span>osquitto
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If you have already configured the variable path, the previous step should not be necessary.</p>
+</div>
+<p>The first terminal will act as a <em>subscriber</em> and will receive the messages published in the topic <code>/test</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mosquitto_sub<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-t<span class="w"> </span>/test
+</code></pre></div>
+<p>This command will create a topic called <code>/test</code>, which will listen for any call from any <em>publisher</em> that publish in that topic.</p>
+<p>The second command terminal will act as a <em>publisher</em> that will publish the message <em>This is a testing message: Hello, MQTT!</em> in the topic <code>/test</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mosquitto_pub<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-t<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;This is a testing message: Hello, MQTT!&quot;</span>
+</code></pre></div>
 
 
 
@@ -871,7 +1007,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-12-04T15:50:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-12-04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-12-04T18:32:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-12-04</span>
   </span>
 
     
@@ -908,7 +1044,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: About">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Started: A hands-on introduction to MQTT">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -918,20 +1054,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                About
+                Getting Started: A hands-on introduction to MQTT
               </div>
             </div>
           </a>
         
         
           
-          <a href="../acknowledgements/" class="md-footer__link md-footer__link--next" aria-label="Next: Acknowledgements">
+          <a href="../../exercise1/" class="md-footer__link md-footer__link--next" aria-label="Next: Exercise #1: MQTT with ESP32 in wokwi">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Acknowledgements
+                Exercise #1: MQTT with ESP32 in wokwi
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1044,20 +1180,20 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-        <script src="../../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
-        <script src="../../https:/polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script src="../../../https:/polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="../../assets/external/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../assets/external/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
