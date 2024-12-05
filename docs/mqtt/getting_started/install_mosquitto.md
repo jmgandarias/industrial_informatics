@@ -13,14 +13,23 @@ To install mosquitto in Windows, you can follow the next steps.
 
 1. Download the installer from the [official website](https://mosquitto.org/download/). Check the corresponding type of your processor architecture _(most probably 64-bit)_. Once you have the `.exe`, execute it to start the installation process.
 2. During the installation, install all the components.
+
+![install all the components](installation_1.png)
+
 3. When the installer asks you for the Destination Folder, leave the default one (most probably: `C:\Program Files\mosquitto`).
+
+![Destination folder](installation_2.png)
 
 ## Start Mosquitto
 
 Now, you can start mosquitto through windows services. You can open the services by clicking the ++windows++ button and typing `Services`. 
 [_Here you can check the multiple ways to open windows services_](https://www.digitalcitizen.life/ways-access-services-windows/).
 
+![Open services](start_1.png)
+
 Once you have find the _mosquito broker service_, you can click on _Start the service_ to start and enable the port where the mosquito will start listening for requests.
+
+![Start service](start_2.png)
 
 !!! info  
     It may happen that when you open the windows services, mosquitto is already running.
@@ -31,13 +40,23 @@ You can check in the terminal (++windows++ `cmd`) if the service is active and t
 netstat -an
 ```
 
+![Open cmd](cmd.png)
+
 Then you will see a list of enabling ports. Port 1883 is the one used by mosquitto for communication.
+
+![Port 1883 running](start_3.png)
 
 ## Firewall
 
 As mosquitto requires external communication, it is necessary to enable the windows firewall for incoming and outgoing requests on port 1883 (this way, the firewall does not block the mosquitto service).
 
-You need to go to `Control panel (control panel) > Windows defender firewall`. Then, go yo `advanced setting`.
+You need to go to `Control panel > Windows defender firewall`. Then, go yo `advanced setting`.
+
+![alt text](image.png)
+
+![alt text](image-3.png)
+
+
 
 It will open the Advanced Configuration of Firewall window where you have to look for inbound rules and click on new rule.
 

@@ -9,4 +9,4 @@ TBD
 ## The Course
 
 
-* [Part 1: Getting Started](./getting_started.md)
+* [Part 1: Install Mosquitto](./install_mosquitto.md)
