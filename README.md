@@ -13,12 +13,21 @@ If you want to create your own website, you need to do the following:
 
 ```bash
 pip install mkdocs
-pip install mkdocs-awesome-pages-plugin
+pip install mkdocs-material
 pip install mkdocs-awesome-pages-plugin
 pip install mkdocs-git-revision-date-localized-plugin
 pip install mkdocs-redirects
-
 ```
+
+> [!WARNING]  
+> If you want to install it in WSL, you'll probably receive a _WARNING_ saying that the directory `YOUR_USER_DIRECTORY/.local/bin` is not included in the PATH. 
+> If this happen, you won't be able to run mkdocs serve to see the changes locally. To solve that, you need to modify your `.bashrc` file as follows
+>  ```bash
+> cd ~/
+> sudo gedit .bashrc
+> ```
+> Add the following line to the end of the file:
+> `export PATH="YOUR_USER_DIRECTORY/.local/bin:$PATH"`
 
 3. See the changes locally
    
