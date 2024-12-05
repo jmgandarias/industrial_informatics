@@ -20,7 +20,7 @@ pip install mkdocs-redirects
 ```
 
 > [!WARNING]  
-> If you want to install it in WSL, you'll probably receive a _WARNING_ saying that the directory `YOUR_USER_DIRECTORY/.local/bin` is not included in the PATH. 
+> If you want to install it in WSL, you'll probably receive a <span style="color:orange">**_WARNING_**</span> displaying that the directory `YOUR_USER_DIRECTORY/.local/bin` is not included in the PATH. 
 > If this happen, you won't be able to run mkdocs serve to see the changes locally. To solve that, you need to modify your `.bashrc` file as follows
 >  ```bash
 > cd ~/
