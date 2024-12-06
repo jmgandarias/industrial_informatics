@@ -6,26 +6,32 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Teaching material for the Advanced Robotics Course at The University of Málaga.">
+        <meta name="description" content="How to Open Mosquitto to External Connections and Enable Authentication">
       
       
       
+        <link rel="canonical" href="https://jmgandarias.com/industrial_informatics/mqtt/getting_started/part3_external_connections/">
       
       
+        <link rel="prev" href="../part2_testing_mosquitto_terminal/">
       
-      <link rel="icon" href="/industrial_informatics/assets/logo_uma_blanco.svg">
+      
+        <link rel="next" href="../../exercise1/">
+      
+      
+      <link rel="icon" href="../../../assets/logo_uma_blanco.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
     
     
       
-        <title>Industrial Informatics Course</title>
+        <title>Part 3: Allow External Connections - Industrial Informatics Course</title>
       
     
     
-      <link rel="stylesheet" href="/industrial_informatics/assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="/industrial_informatics/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -39,16 +45,16 @@
         
         
         
-        <link rel="stylesheet" href="/industrial_informatics/assets/external/fonts.googleapis.com/css.c3479dc1.css">
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.c3479dc1.css">
         <style>:root{--md-text-font:"Source Sans Pro";--md-code-font:"Source Code Pro"}</style>
       
     
     
-      <link rel="stylesheet" href="/industrial_informatics/css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="/industrial_informatics/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/industrial_informatics/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -83,6 +89,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-allow-external-connections" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,9 +104,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/industrial_informatics/." title="Industrial Informatics Course" class="md-header__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
+    <a href="../../.." title="Industrial Informatics Course" class="md-header__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
       
-  <img src="/industrial_informatics/assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -112,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Part 3: Allow External Connections
             
           </span>
         </div>
@@ -221,7 +232,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/industrial_informatics/about/" class="md-tabs__link">
+        <a href="../../../about/" class="md-tabs__link">
           
   
     
@@ -237,11 +248,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/industrial_informatics/mqtt/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
     
@@ -276,9 +289,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/industrial_informatics/." title="Industrial Informatics Course" class="md-nav__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
+    <a href="../../.." title="Industrial Informatics Course" class="md-nav__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
       
-  <img src="/industrial_informatics/assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     Industrial Informatics Course
@@ -334,7 +347,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/industrial_informatics/about/" class="md-nav__link ">
+            <a href="../../../about/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -367,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/industrial_informatics/about/license/" class="md-nav__link">
+      <a href="../../../about/license/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -388,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/industrial_informatics/about/acknowledgements/" class="md-nav__link">
+      <a href="../../../about/acknowledgements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -409,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/industrial_informatics/about/changelog/" class="md-nav__link">
+      <a href="../../../about/changelog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -434,6 +447,8 @@
       
   
   
+    
+  
   
   
     
@@ -452,21 +467,22 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/industrial_informatics/mqtt/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -477,13 +493,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             MQTT
@@ -496,6 +512,8 @@
                 
   
   
+    
+  
   
   
     
@@ -517,18 +535,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/industrial_informatics/mqtt/getting_started/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -545,7 +561,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Getting Started: A hands-on introduction to MQTT
@@ -561,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/industrial_informatics/mqtt/getting_started/part1_install_mosquitto/" class="md-nav__link">
+      <a href="../part1_install_mosquitto/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -582,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/industrial_informatics/mqtt/getting_started/part2_testing_mosquitto_terminal/" class="md-nav__link">
+      <a href="../part2_testing_mosquitto_terminal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -600,10 +616,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/industrial_informatics/mqtt/getting_started/part3_external_connections/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Part 3: Allow External Connections
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -612,6 +646,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-allow-external-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Allow External Connections
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-enable-username-and-password-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Enable Username and Password Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-firewall-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Firewall Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-testing-external-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Testing External Access
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-key-configuration-file-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Key Configuration File Changes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -655,7 +752,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/industrial_informatics/mqtt/exercise1/" class="md-nav__link ">
+            <a href="../../exercise1/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -714,7 +811,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/industrial_informatics/mqtt/lab1/" class="md-nav__link ">
+            <a href="../../lab1/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -768,6 +865,59 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-allow-external-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Allow External Connections
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-enable-username-and-password-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Enable Username and Password Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-firewall-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Firewall Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-testing-external-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Testing External Access
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-key-configuration-file-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Key Configuration File Changes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -778,8 +928,219 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+    <a href="https://github.com/jmgandarias/industrial_informatics/edit/main/docs/mqtt/getting_started/part3_external_connections.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/jmgandarias/industrial_informatics/raw/main/docs/mqtt/getting_started/part3_external_connections.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>Part 3: Allow External Connections</h1>
+
+<h2 id="1-allow-external-connections">1. Allow External Connections<a class="headerlink" href="#1-allow-external-connections" title="Permanent link">&para;</a></h2>
+<p>By default, Mosquitto listens only on <code>localhost</code>. To allow external connections:</p>
+<ol>
+<li>
+<p>Open the <strong>Mosquitto configuration file</strong> (<code>mosquitto.conf</code>). The file is typically located in:</p>
+<ul>
+<li><strong>Linux</strong>: <code>/etc/mosquitto/mosquitto.conf</code></li>
+<li><strong>Windows</strong>: Wherever you installed Mosquitto, e.g., <code>C:\Program Files\mosquitto\mosquitto.conf</code></li>
+</ul>
+</li>
+<li>
+<p>Add or edit the following line to bind Mosquitto to all network interfaces:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>listener 1883
+</code></pre></div></p>
+<p><img alt="" src="../image-2.png" /></p>
+<ul>
+<li><code>1883</code> is the default MQTT port. If you want a custom port, specify it here.</li>
+<li>To restrict it to a specific IP, replace <code>listener 1883</code> with <code>listener 1883 &lt;IP Address&gt;</code>.</li>
+</ul>
+</li>
+<li>
+<p>Restart the Mosquitto service for changes to take effect:</p>
+<ul>
+<li><strong>Linux</strong>:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo systemctl restart mosquitto
+</code></pre></div></li>
+<li><strong>Windows</strong>: Restart Mosquitto from the Windows Services
+<img alt="" src="../image-8.png" /></li>
+</ul>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To edit a file inside <code>C:\Program Files\mosquitto\</code>, you'll need administrator rights. To change the <code>mosquitto.conf</code>file, you can open it with VSCode (or any other) text editor if you open it as administrator.</p>
+<p><img alt="" src="../image-4.png" /></p>
+</div>
+<hr />
+<h2 id="2-enable-username-and-password-authentication">2. Enable Username and Password Authentication<a class="headerlink" href="#2-enable-username-and-password-authentication" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Create a password file</strong>:  </p>
+<ul>
+<li>
+<p><strong>Linux</strong>:</p>
+<p>Use the <code>mosquitto_passwd</code> utility to generate the password file:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mosquitto_passwd -c /etc/mosquitto/passwords.txt &lt;username&gt;
+</code></pre></div>
+Replace <code>&lt;username&gt;</code> with your desired username. You will be prompted to enter a password.</p>
+<p>Example:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mosquitto_passwd -c /etc/mosquitto/passwords.txt user1
+</code></pre></div>
+<code>-c</code> creates a new password file. If you want to add more users later, use:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mosquitto_passwd /etc/mosquitto/passwords.txt &lt;new-username&gt;
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Windows</strong>:</p>
+<p>Use the <code>mosquitto_passwd</code> utility to generate the password file:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mosquitto_passwd -c C:\Program Files\mosquitto\passwords.txt &lt;username&gt;
+</code></pre></div>
+Replace <code>&lt;username&gt;</code> with your desired username. You will be prompted to enter a password.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To edit a file inside <code>C:\Program Files\mosquitto\</code>, you'll need administrator rights. If you run the previous command, you'll write in the <code>C:\Program Files\mosquitto\passwords.txt</code> file. To do so, you can open the terminal as administrator.</p>
+<p><img alt="" src="../image-5.png" /></p>
+</div>
+<p>Example:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mosquitto_passwd -c C:\Program Files\mosquitto\passwords.txt user1
+</code></pre></div></p>
+<p><img alt="" src="../image-6.png" /></p>
+<p><code>-c</code> creates a new password file. If you want to add more users later, use:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mosquitto_passwd C:\Program Files\mosquitto\passwords.txt &lt;new-username&gt;
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Update the configuration file</strong> to use the password file:</p>
+<ul>
+<li>
+<p><strong>Linux</strong>:</p>
+<p>Open <code>mosquitto.conf</code> and add or edit the following lines:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>allow_anonymous false
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>password_file /etc/mosquitto/passwords.txt
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Windows</strong>:</p>
+<p>Open <code>mosquitto.conf</code> and add or edit the following lines:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>allow_anonymous false
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>password_file C:\Program Files\mosquitto\passwords.txt
+</code></pre></div></p>
+</li>
+</ul>
+<p><img alt="" src="../image-3.png" /></p>
+</li>
+<li>
+<p>Restart the Mosquitto service:</p>
+<ul>
+<li><strong>Linux</strong>:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo systemctl restart mosquitto
+</code></pre></div></li>
+<li><strong>Windows</strong>: Restart as mentioned earlier.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="3-firewall-rules">3. Firewall Rules<a class="headerlink" href="#3-firewall-rules" title="Permanent link">&para;</a></h2>
+<p>If Mosquitto is running on a remote machine, make sure the firewall allows connections to the MQTT port (1883 by default).</p>
+<ul>
+<li>
+<p><strong>Linux</strong> (using UFW):
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo ufw allow 1883
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Windows</strong>: Open "Windows Defender Firewall," and allow inbound traffic for port 1883.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This was already done in <a href="../part1_install_mosquitto/">Part 1</a></p>
+</div>
+<hr />
+<h2 id="4-testing-external-access">4. Testing External Access<a class="headerlink" href="#4-testing-external-access" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Subscribe</strong> from an external device:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mosquitto_sub -h &lt;server-ip&gt; -t test -u &lt;username&gt; -P &lt;password&gt;
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Publish</strong> from an external device:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>mosquitto_pub -h &lt;server-ip&gt; -t test -m &quot;Hello, MQTT!&quot; -u &lt;username&gt; -P &lt;password&gt;
+</code></pre></div></p>
+</li>
+</ol>
+<p>Replace <code>&lt;server-ip&gt;</code> with the server's IP address, <code>&lt;username&gt;</code> with your chosen username, and <code>&lt;password&gt;</code> with the associated password.</p>
+<hr />
+<h2 id="summary-of-key-configuration-file-changes">Summary of Key Configuration File Changes<a class="headerlink" href="#summary-of-key-configuration-file-changes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>listener 1883
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>allow_anonymous false
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>password_file /etc/mosquitto/passwords.txt
+</code></pre></div>
+<p>After completing these steps, Mosquitto will accept external connections on port 1883, and only users with valid credentials can publish or subscribe.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-12-06T11:39:52+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-12-06</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-12-06T11:39:52+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-12-06</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
               </article>
             </div>
           
@@ -797,6 +1158,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../part2_testing_mosquitto_terminal/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Part 2: Testing Mosquitto from the terminal">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Part 2: Testing Mosquitto from the terminal
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../exercise1/" class="md-footer__link md-footer__link--next" aria-label="Next: Exercise #1: MQTT with ESP32 in wokwi">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Exercise #1: MQTT with ESP32 in wokwi
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -900,20 +1299,20 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "/industrial_informatics/", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "/industrial_informatics/assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/industrial_informatics/assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-        <script src="/industrial_informatics/js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="/industrial_informatics/js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="/industrial_informatics/javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
-        <script src="/industrial_informatics/https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script src="../../../https:/polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="/industrial_informatics/assets/external/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../assets/external/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
