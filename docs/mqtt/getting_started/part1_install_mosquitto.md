@@ -1,6 +1,6 @@
 ---
-title: "Install mosquitto" 
-description: En esta parte vamos a installar mosquitto. Mosquitto is an open source MQTT message broker service. It uses MQTT protocol for Machine-to-Machine (M2M) communication by sending and receiving messages. 
+title: "Part 1: Install Mosquitto" 
+description: In this part you will install Mosquitto.
 ---
 
 ## Introduction
@@ -9,27 +9,30 @@ description: En esta parte vamos a installar mosquitto. Mosquitto is an open sou
 
 ## Installation
 
-To install mosquitto in Windows, you can follow the next steps.
+To install Mosquitto, you can follow the next steps.
+
+!!! info  
+    "The steps below outline the Mosquitto installation process for Windows. If you are using Ubuntu, the installation process is much easier. You can find the steps for Ubuntu installation [here](https://www.luisllamas.es/como-instalar-mosquitto-el-broker-mqtt/). 
 
 1. Download the installer from the [official website](https://mosquitto.org/download/). Check the corresponding type of your processor architecture _(most probably 64-bit)_. Once you have the `.exe`, execute it to start the installation process.
 2. During the installation, install all the components.
 
-![install all the components](installation_1.png)
+![](images_part1/installation_1.png)
 
 3. When the installer asks you for the Destination Folder, leave the default one (most probably: `C:\Program Files\mosquitto`).
 
-![Destination folder](installation_2.png)
+![](images_part1/installation_2.png)
 
 ## Start Mosquitto
 
 Now, you can start mosquitto through windows services. You can open the services by clicking the ++windows++ button and typing `Services`. 
 [_Here you can check the multiple ways to open windows services_](https://www.digitalcitizen.life/ways-access-services-windows/).
 
-![Open services](start_1.png)
+![](images_part1/start_1.png)
 
 Once you have find the _mosquito broker service_, you can click on _Start the service_ to start and enable the port where the mosquito will start listening for requests.
 
-![Start service](start_2.png)
+![](images_part1/start_2.png)
 
 !!! info  
     It may happen that when you open the windows services, mosquitto is already running.
@@ -40,11 +43,11 @@ You can check in the terminal (++windows++ `cmd`) if the service is active and t
 netstat -an
 ```
 
-![Open cmd](cmd.png)
+![](images_part1/start_3.png)
 
 Then you will see a list of enabling ports. Port 1883 is the one used by mosquitto for communication.
 
-![Port 1883 running](start_3.png)
+![](images_part1/start_4.png)
 
 ## Firewall
 
@@ -52,11 +55,9 @@ As mosquitto requires external communication, it is necessary to enable the wind
 
 You need to go to `Control panel > Windows defender firewall`. Then, go yo `advanced setting`.
 
-![alt text](image.png)
+![](images_part1/firewall_1.png)
 
-![alt text](image-3.png)
-
-
+![](images_part1/firewall_2.png)
 
 It will open the Advanced Configuration of Firewall window where you have to look for inbound rules and click on new rule.
 
@@ -68,36 +69,20 @@ Now you can create the outbound rule. Click on outbound rule and do the same ste
 
 ## Path Environment Variable
 
-Once you have mosquitos running as a service and the firewall is configured, you need to configure the environment variable.
+Once you have Mosquitto running as a service and the firewall is correctly configured, you need to configure the environment variable.
 
 !!! info  
-    This is actually not necessary since the programs that use mosquitto will access it through the service. However, if you want to test it with the command console, you will need it.
+    This is not strictly required but highly recommended. If you don't do this, you can only run Mosquitto commands in the terminal from the root installation folder `C:\Program Files\mosquitto`. If you add this folder to the Path, then you'll be able to run those commands from any location on your system. 
 
-You need to acced the `environment variables` and search for the variable path to place the route `Control Panel > System and security > System`. Then, open the advanced system configuration and click on `environment variables`.
+You need to acced the `environment variables` and search for the variable path to place the route `Control Panel > System and security > System`. 
 
-In the path variable we put the path where mosquitto was installed (remember step 3 of [installation](#installation )`C:\Program Files\mosquitto`), with this the execution files from mosquitto are already recognized from the command console.
+![](images_part1/path_1.png)
 
-## Testing
+Then, open the advanced system configuration and click on `environment variables`.
 
-Now you can test mosquitto broker in your local machine. Open two terminals (++windows++ + `cmd`). Go to the route where mosquitto was installed
+![](images_part1/path_2.png)
 
-```bash
-cd C:\Program Files\mosquitto
-```
+Include the path where mosquitto was installed (remember step 3 of [installation](#installation )`C:\Program Files\mosquitto`). 
 
-!!! info  
-    If you have already configured the variable path, the previous step should not be necessary.
+![](images_part1/path_3.png)![](images_part1/path_4.png)
 
-The first terminal will act as a _subscriber_ and will receive the messages published in the topic `/test`.
-
-```bash
-mosquitto_sub -h localhost -t /test
-```
-
-This command will create a topic called `/test`, which will listen for any call from any _publisher_ that publish in that topic.
-
-The second command terminal will act as a _publisher_ that will publish the message _This is a testing message: Hello, MQTT!_ in the topic `/test`
-
-```bash
-mosquitto_pub -h localhost -t test -m "This is a testing message: Hello, MQTT!"
-```

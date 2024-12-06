@@ -1,3 +1,5 @@
 nav:
   - README.md
-  - install_mosquitto.md
+  - part1_install_mosquitto.md
+  - part2_testing_mosquitto_terminal.md
+  - part3_external_connections.md
