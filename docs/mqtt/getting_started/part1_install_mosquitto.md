@@ -17,18 +17,18 @@ To install Mosquitto, you can follow the next steps.
 1. Download the installer from the [official website](https://mosquitto.org/download/). Check the corresponding type of your processor architecture _(most probably 64-bit)_. Once you have the `.exe`, execute it to start the installation process.
 2. During the installation, install all the components.
 
-![](images_part1/installation_1.png)
+![](images_part1/installation_1.png){: style="height:300px"}
 
 3. When the installer asks you for the Destination Folder, leave the default one (most probably: `C:\Program Files\mosquitto`).
 
-![](images_part1/installation_2.png)
+![](images_part1/installation_2.png){: style="height:300px"}
 
 ## Start Mosquitto
 
 Now, you can start mosquitto through windows services. You can open the services by clicking the ++windows++ button and typing `Services`. 
 [_Here you can check the multiple ways to open windows services_](https://www.digitalcitizen.life/ways-access-services-windows/).
 
-![](images_part1/start_1.png)
+![](images_part1/start_1.png){: style="height:400px"}
 
 Once you have find the _mosquito broker service_, you can click on _Start the service_ to start and enable the port where the mosquito will start listening for requests.
 
@@ -43,7 +43,7 @@ You can check in the terminal (++windows++ `cmd`) if the service is active and t
 netstat -an
 ```
 
-![](images_part1/start_3.png)
+![](images_part1/start_3.png){: style="height:400px"}
 
 Then you will see a list of enabling ports. Port 1883 is the one used by mosquitto for communication.
 
@@ -55,9 +55,9 @@ As mosquitto requires external communication, it is necessary to enable the wind
 
 You need to go to `Control panel > Windows defender firewall`. Then, go yo `advanced setting`.
 
-![](images_part1/firewall_1.png)
+![](images_part1/firewall_1.png){: style="height:400px"}
 
-![](images_part1/firewall_2.png)
+![](images_part1/firewall_2.png){: style="height:400px"}
 
 It will open the Advanced Configuration of Firewall window where you have to look for inbound rules and click on new rule.
 
@@ -76,7 +76,7 @@ Once you have Mosquitto running as a service and the firewall is correctly confi
 
 You need to acced the `environment variables` and search for the variable path to place the route `Control Panel > System and security > System`. 
 
-![](images_part1/path_1.png)
+![](images_part1/path_1.png){: style="height:400px"}
 
 Then, open the advanced system configuration and click on `environment variables`.
 
@@ -84,5 +84,5 @@ Then, open the advanced system configuration and click on `environment variables
 
 Include the path where mosquitto was installed (remember step 3 of [installation](#installation )`C:\Program Files\mosquitto`). 
 
-![](images_part1/path_3.png)![](images_part1/path_4.png)
+![](images_part1/path_3.png){: style="height:350px"}![](images_part1/path_4.png){: style="height:350px"}
 
