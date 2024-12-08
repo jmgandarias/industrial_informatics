@@ -1,5 +1,5 @@
 ---
-title: "Part 2: Testing Mosquitto from the terminal" 
+title: "2. Testing Mosquitto from the terminal" 
 description: You will test Mosquitto in your local PC using the terminal
 ---
 

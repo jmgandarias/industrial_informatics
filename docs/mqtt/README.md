@@ -4,7 +4,11 @@
 
     *Here you will start working with MQTT.*
 
-* [**Exercise #1:**: "MQTT with ESP32 in wokwi"](./exercise1/README.md).
+* [**Exercise 1:**: "MQTT with ESP32 in wokwi"](./exercise1/README.md).
+  
+    *TBD*
+
+* [**Exercise 2:**: "MQTT with ESP32 in the real world"](./exercise2/README.md).
   
     *TBD*
 

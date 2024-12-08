@@ -1,10 +1,10 @@
 ---
-title: "Part 3: Allow External Connections" 
+title: "3. Allow External Connections" 
 description: How to Open Mosquitto to External Connections and Enable Authentication
 ---
 
 !!! danger "Connection from an external network"
-    This section allows you to connect **external devices within a local network** to the broker that you have created in [Part1](./part1_install_mosquitto.md). When this section talks about IP address, it refers to the *private IP address* (i.e., the one assigned by the router that creates the network and that is only accessible by the devices that are on the network). If you want to work with devices outside the network, you need to work with the *public IP address* (which is unique and visible to everyone). If you would like to configure a broker to allow **connections through the internet from external networks**, you would have to **configure port forwarding on the router** (similarly to what you did in [Part1](./part1_install_mosquitto.md) with the windows firewall). This could pose several **security risks** and would require taking precautions such as using TLS/SSL Encryption or a MQTT Proxy. **This is outside the scope of this course, so it will not be explained here.**
+    This section allows you to connect **external devices within a local network** to the broker that you have created in [Part1](./part1_install_mosquitto.md). When this section talks about IP address, it refers to the *private IP address* (i.e., the one assigned by the router that creates the network and that is only accessible by the devices that are on the network). If you want to work with devices outside the network, you need to work with the *public IP address* (which is unique and visible to everyone). If you would like to configure a broker to allow **connections through the internet from external networks**, you would have to **configure port forwarding on the router** (similarly to what you did in [Part1](./part1_install_mosquitto.md) with the windows firewall). This could pose several **security risks** and would require taking precautions such as using TLS/SSL Encryption or a MQTT Proxy. **This is out of the scope of this course, so it will not be explained here.**
 
 
 ## 1. Allow External Connections
@@ -20,7 +20,7 @@ By default, Mosquitto listens only on `localhost`. To allow external connections
     listener 1883
     ```
 
-    ![](images_part3/mosquitto_conf_1.png){: style="height:500px"}
+    ![](images_part3/mosquitto_conf_1.png){width=500}
 
     - `1883` is the default MQTT port. If you want a custom port, specify it here.
     - To restrict it to a specific IP, replace `listener 1883` with `listener 1883 <IP Address>`.
@@ -37,7 +37,7 @@ By default, Mosquitto listens only on `localhost`. To allow external connections
 !!! warning
     To edit a file inside `C:\Program Files\mosquitto\`, you'll need administrator rights. To change the `mosquitto.conf`file, you can open it with VSCode (or any other text editor, e.g., notepad or gedit) if you open it as administrator.
 
-    ![](images_part3/mosquitto_conf_3.png){: style="height:400px"}
+    ![](images_part3/mosquitto_conf_3.png){width=400}
 
 
 
@@ -74,14 +74,14 @@ By default, Mosquitto listens only on `localhost`. To allow external connections
         !!! warning
             To edit a file inside `C:\Program Files\mosquitto\`, you'll need administrator rights. If you run the previous command, you'll write in the `C:\Program Files\mosquitto\password` file. To do so, you can open the terminal as administrator.
 
-            ![](images_part3/mosquitto_conf_4.png){: style="height:400px"}
+            ![](images_part3/mosquitto_conf_4.png){width=400}
 
         Example:
         ```
         mosquitto_passwd -c C:\Program Files\mosquitto\password user1
         ```
 
-        ![](images_part3/mosquitto_conf_5.png){: style="height:400px"}
+        ![](images_part3/mosquitto_conf_5.png){width=400}
 
         `-c` creates a new password file. If you want to add more users later, use:
         
@@ -107,7 +107,7 @@ By default, Mosquitto listens only on `localhost`. To allow external connections
         password_file C:\Program Files\mosquitto\password
         ```
 
-    ![](images_part3/mosquitto_conf_6.png){: style="height:300px"}
+    ![](images_part3/mosquitto_conf_6.png){width=500}
 
 3. Restart the Mosquitto service:
     - **Linux**:
@@ -120,7 +120,7 @@ By default, Mosquitto listens only on `localhost`. To allow external connections
 
     If you receive this error when you try to restart the Mosquitto service
 
-    ![](images_part3/mosquitto_conf_7.png){: style="height:400px"}
+    ![](images_part3/mosquitto_conf_7.png){width=500}
 
     you must change the permissions of the `password` file. 
     
@@ -130,15 +130,15 @@ By default, Mosquitto listens only on `localhost`. To allow external connections
     
     - Click on Edit and then on Add.  
 
-    ![](images_part3/mosquitto_conf_8.png){: style="height:400px"}![](images_part3/mosquitto_conf_9.png){: style="height:400px"}
+    ![](images_part3/mosquitto_conf_8.png){width=300}![](images_part3/mosquitto_conf_9.png){width=300}
 
     - Add the group SYSTEM and give it permissions to modify the file and click on **apply (this is very important)**.
 
-    ![](images_part3/mosquitto_conf_10.png){: style="height:200px"}![](images_part3/mosquitto_conf_11.png){: style="height:300px"}
+    ![](images_part3/mosquitto_conf_10.png){width=400}![](images_part3/mosquitto_conf_11.png){width=300}
 
     The result should look like this
 
-    ![alt text](images_part3/mosquitto_conf_12.png){: style="height:400px"}
+    ![alt text](images_part3/mosquitto_conf_12.png){width=300}
 
 ---
 
@@ -176,17 +176,17 @@ You can test the connection from a generic MQTT Client like MQTT Explorer.
         ifconfig
         ```
 
-    ![](images_part3/mosquitto_conf_13.png){: style="height:400px"}
+    ![](images_part3/mosquitto_conf_13.png){width=600}
 
     You need to annotate the IPv4 address. In my case: `192.168.0.12`
 
 -  Launch MQTT Explorer and fill the IP, user and password
 
-    ![](images_part3/mosquitto_conf_14.png){: style="height:400px"}
+    ![](images_part3/mosquitto_conf_14.png){width=500}
 
 - Publish in a topic from MQTT Explorer
 
-    ![](images_part3/mosquitto_conf_15.png){: style="height:400px"}
+    ![](images_part3/mosquitto_conf_15.png){width=500}
 
 
 
@@ -213,11 +213,11 @@ You can test the connection from a Smartphone in the network that has installed 
 1. Install [MyMQTT](https://mymqtt.app/en)
 - Connect to the broker
 
-    ![](images_part3/mosquitto_conf_16.jpg){: style="height:500px"}
+    ![](images_part3/mosquitto_conf_16.jpg){width=300}
 
 - Subscribe to topic `/test` and go to the Dashboard
 
-    ![](images_part3/mosquitto_conf_17.jpg){: style="height:500px"}
+    ![](images_part3/mosquitto_conf_17.jpg){width=300}
 
 - Publish a message in `/test`from another device in the newtork (e.g., from a terminal in your PC) 
     ```
@@ -225,7 +225,7 @@ You can test the connection from a Smartphone in the network that has installed 
     ```
 - The message should be visible in the MyMQTT Dashboard
 
-    ![](images_part3/mosquitto_conf_18.jpg){: style="height:500px"}
+    ![](images_part3/mosquitto_conf_18.jpg){width=300}
 
 
 ---
