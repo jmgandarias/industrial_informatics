@@ -2,6 +2,6 @@ nav:
   - README.md
   - part1_connect_wifi.md
   - part2_client_connect.md
-  - part3_subscriber.md
-  - part4_publisher.md
+  - part3_publisher.md
+  - part4_subscriber.md
   - part5_exercise.md
