@@ -1130,9 +1130,9 @@
 
   <h1>1. Install Mosquitto</h1>
 
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div><h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
 <p><a href="https://mosquitto.org/">Eclipse Mosquitto</a> is an Open Source Broker from the Eclipse Foundation distributed under EPL/EDL license that implements MQTT protocol. It is lightweight and is suitable for use on all devices from low power single board computers to full servers. It is programmed in C and is compatible with most OS. The code can be found in <a href="https://github.com/eclipse/mosquitto">this repo</a>.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h2>
 <p>To install Mosquitto, you can follow the next steps.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1142,17 +1142,17 @@
 <li>Download the installer from the <a href="https://mosquitto.org/download/">official website</a>. Check the corresponding type of your processor architecture <em>(most probably 64-bit)</em>. Once you have the <code>.exe</code>, execute it to start the installation process.</li>
 <li>During the installation, install all the components.</li>
 </ol>
-<p><img alt="" src="../images_part1/installation_1.png" width="350" /></p>
+<p><img alt="" src="../images_part1/installation_1.png" width="350"></p>
 <ol>
 <li>When the installer asks you for the Destination Folder, leave the default one (most probably: <code>C:\Program Files\mosquitto</code>).</li>
 </ol>
-<p><img alt="" src="../images_part1/installation_2.png" width="350" /></p>
-<h2 id="start-mosquitto">Start Mosquitto<a class="headerlink" href="#start-mosquitto" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../images_part1/installation_2.png" width="350"></p>
+<h2 id="start-mosquitto">Start Mosquitto<a class="headerlink" href="#start-mosquitto" title="Permanent link">¶</a></h2>
 <p>Now, you can start mosquitto through windows services. You can open the services by clicking the <span class="keys"><kbd class="key-windows">Win</kbd></span> button and typing <code>Services</code>. 
 <a href="https://www.digitalcitizen.life/ways-access-services-windows/"><em>Here you can check the multiple ways to open windows services</em></a>.</p>
-<p><img alt="" src="../images_part1/start_1.png" width="400" /></p>
+<p><img alt="" src="../images_part1/start_1.png" width="400"></p>
 <p>Once you have find the <em>mosquito broker service</em>, you can click on <em>Start the service</em> to start and enable the port where the mosquito will start listening for requests.</p>
-<p><img alt="" src="../images_part1/start_2.png" /></p>
+<p><img alt="" src="../images_part1/start_2.png"></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>It may happen that when you open the windows services, mosquitto is already running.</p>
@@ -1160,13 +1160,13 @@
 <p>You can check in the terminal (<span class="keys"><kbd class="key-windows">Win</kbd></span> <code>cmd</code>) if the service is active and the port enabled with the following command.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>netstat<span class="w"> </span>-an
 </code></pre></div>
-<p><img alt="" src="../images_part1/start_3.png" width="400" /></p>
+<p><img alt="" src="../images_part1/start_3.png" width="400"></p>
 <p>Then you will see a list of enabling ports. Port 1883 is the one used by mosquitto for communication.</p>
-<p><img alt="" src="../images_part1/start_4.png" /></p>
-<h2 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../images_part1/start_4.png"></p>
+<h2 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">¶</a></h2>
 <p>As mosquitto requires external communication, it is necessary to enable the windows firewall for incoming and outgoing requests on port 1883 (this way, the firewall does not block the mosquitto service).</p>
 <p>You need to go to <code>Control panel &gt; Windows defender firewall</code>. Then, go yo <code>advanced setting</code>.</p>
-<p><img alt="" src="../images_part1/firewall_1.png" width="400" /><img alt="" src="../images_part1/firewall_2.png" width="500" /></p>
+<p><img alt="" src="../images_part1/firewall_1.png" width="400"><img alt="" src="../images_part1/firewall_2.png" width="500"></p>
 <p>It will open the Advanced Configuration of Firewall window where you have to look for inbound rules and click on new rule.</p>
 <ol>
 <li>The first step is to select the type of rule. In this case it is a port, so select it and click on next.</li>
@@ -1174,18 +1174,18 @@
 <li>Apply the rule to all the network profiles and place a name to identify it. Click on finish and the rule will be created.</li>
 </ol>
 <p>Now you can create the outbound rule. Click on outbound rule and do the same steps you did before.</p>
-<h2 id="path-environment-variable">Path Environment Variable<a class="headerlink" href="#path-environment-variable" title="Permanent link">&para;</a></h2>
+<h2 id="path-environment-variable">Path Environment Variable<a class="headerlink" href="#path-environment-variable" title="Permanent link">¶</a></h2>
 <p>Once you have Mosquitto running as a service and the firewall is correctly configured, you need to configure the environment variable.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>This is not strictly required but highly recommended. If you don't do this, you can only run Mosquitto commands in the terminal from the root installation folder <code>C:\Program Files\mosquitto</code>. If you add this folder to the Path, then you'll be able to run those commands from any location on your system. </p>
 </div>
 <p>You need to acced the <code>environment variables</code> and search for the variable path to place the route <code>Control Panel &gt; System and security &gt; System</code>. </p>
-<p><img alt="" src="../images_part1/path_1.png" width="400" /></p>
+<p><img alt="" src="../images_part1/path_1.png" width="400"></p>
 <p>Then, open the advanced system configuration and click on <code>environment variables</code>.</p>
-<p><img alt="" src="../images_part1/path_2.png" width="300" /></p>
+<p><img alt="" src="../images_part1/path_2.png" width="300"></p>
 <p>Include the path where mosquitto was installed (remember step 3 of <a href="#installation">installation</a><code>C:\Program Files\mosquitto</code>). </p>
-<p><img alt="" src="../images_part1/path_3.png" width="350" /><img alt="" src="../images_part1/path_4.png" width="350" /></p>
+<p><img alt="" src="../images_part1/path_3.png" width="350"><img alt="" src="../images_part1/path_4.png" width="350"></p></div>
 
 
 
