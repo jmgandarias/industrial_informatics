@@ -37,7 +37,7 @@ Let's do it in [Wokwi](https://wokwi.com/)!
 
 3. If you have done it correctly, you should see the following
 
-![](images/part1_1.png)
+    ![](images/part1_1.png)
 
 !!! success "CONGRATULATIONS!"
     Now you're able to connect an ESP32 to a WiFi network

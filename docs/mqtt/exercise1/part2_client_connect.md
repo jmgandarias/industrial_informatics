@@ -41,3 +41,13 @@ Let's extend the code from the previous entry and connect the ESP32 to a broker.
     10. This function handles the connection to the broker. If the connection is lost, it calls the `ConnectMqtt()` function. If the client is connected, it uses the `mqtt.loop()` to check for new messages.
     11. The function `InitMqtt()` is called in the `setup()`.
     12. The funcion `HandleMqtt()` is called in the loop to keep the client connected and constantly check for new messages.
+
+3. If you have done it correctly, you should see the following
+
+    ![](images/part2_1.png)
+
+    !!! warning "Cannot connect to broker"
+        It is possible that you've found problems when connecting to the broker `test.mosquitto.org`. Keep in mind that this server is public and is used by thousands of people simultaneously, so sometimes it doesn't work properly. Alternatively, you can use other free public brokers (e.g., the one used in the image above: `mqtt.eclipseprojects.io`).
+
+!!! success "CONGRATULATIONS!"
+    Now you're able to connect a MQTT client with an ESP32 and connect it to a broker
