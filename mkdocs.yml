@@ -1,6 +1,6 @@
 site_name: "Industrial Informatics Course"
 site_url: https://jmgandarias.com/industrial_informatics
-site_description: Teaching material for the Advanced Robotics Course at The University of Málaga. 
+site_description: Teaching material for the Industrial Informatics course at The University of Málaga. 
 theme:
   name: material
   icon:
@@ -57,7 +57,15 @@ plugins:
   - privacy:
       enabled: !ENV [CI, false]
   - redirects:
-      redirect_maps:    
+      redirect_maps:   
+  - mkdocs-video:
+      is_video: True
+      video_muted: True
+      video_controls: False
+      video_loop: True
+      video_autoplay: True
+      css_style:
+        width: "100%"
 
 markdown_extensions:
   - admonition

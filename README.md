@@ -1,8 +1,8 @@
 # Indsutrial Informatics
 
-Teaching material for [the Industrial Informatics course](https://jmgandarias.github.io/industrial_informatics), last year B.S. in Electronic Engineering at the University of Málaga
+Teaching material for [the Industrial Informatics course](https://jmgandarias.github.io/industrial_informatics), last year B.S. in Electronic Engineering at [the University of Málaga](https://www.uma.es)
 
-Developed by [Juan M. Gandarias]([hr](https://jmgandarias.github.io/))
+Developed by [Juan M. Gandarias](https://jmgandarias.github.io/)
 
 ## Create your own material website
 
@@ -17,6 +17,7 @@ pip install mkdocs-material
 pip install mkdocs-awesome-pages-plugin
 pip install mkdocs-git-revision-date-localized-plugin
 pip install mkdocs-redirects
+pip install mkdocs-video
 ```
 
 > [!WARNING]  

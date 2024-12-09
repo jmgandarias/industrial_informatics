@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "Juan M. Gandarias",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -124.8,
+      "left": -187.16,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -3.4,
+      "left": -326.4,
+      "attrs": { "color": "green", "bounce": "0" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "btn1:1.r", "esp:14", "green", [ "v0" ] ],
+    [ "btn1:2.r", "esp:GND.1", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
