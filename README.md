@@ -35,3 +35,9 @@ pip install mkdocs-video
 ```bash
 mkdocs serve
 ```
+
+> [!CAUTION]  
+> If, after installing the required plugins correctly, you receive an <span style="color:red">**_ERROR_**</span> about *Jinja2* (something like ```jinja2.exceptions.TemplateAssertionError: No filter named 'items'```) when running ```mmkdocs serve``` you'll need to upgrade *jinja2* running the following command:
+>  ```bash
+> sudo pip install --upgrade jinja2
+> ```
