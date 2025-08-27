@@ -8,6 +8,7 @@ This is the home of the Industrial Informatics course: A fourth-year undergradua
 
 ## Course content
 
+- [Intro to microcontrollers programming](../intro/README.md)
 - [Real-Time in Embedded Systems](../real-time/README.md)
 - [Human-Machine Interfaces](../hmi/README.md)
 - [Internet of Things with MQTT](../mqtt/README.md)

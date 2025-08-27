@@ -1,5 +1,6 @@
 nav:
   - "About": about
+  - "Introduction": intro
   - "Real-Time": real-time
   - "HMI": hmi
   - "MQTT": mqtt
