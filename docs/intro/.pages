@@ -2,3 +2,4 @@ nav:
   - "Introduction": README.md
   - "Getting Started": getting_started
   - "Lab 0: Simulation with wokwi": lab0
+  - "Lab 1: Microcontrollers programming": lab1

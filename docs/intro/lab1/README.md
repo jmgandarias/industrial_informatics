@@ -1,6 +1,72 @@
-# Lab Session 0: Microcontrollers simulation with Wokwi
+# Lab Session 1: Microcontrollers programming
 
 **Estimated time:** 1.5h (1 session)
+
+## 1. Prepare the Arduino IDE
+
+Follow the installation steps described in this guide.
+
+1. Install Arduino IDE: Download it from [this link](https://www.arduino.cc/en/software/).
+2. Install the M5Stack board family:
+
+    <img src="images/board_install_1.png" width="70%"/>
+
+    You need to copy/paste this text to download the board package
+
+    ```txt
+    https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json 
+    ```
+
+    <img src="images/board_install_2.png" width="70%"/>
+
+    Once the board package address is set, you can install it from the *boards manager*.
+    <img src="images/board_install_3.png" width="70%"/>
+
+    !!! info
+        This process may take a few minutes. Once installed, select M5Core2 from the board selection menu.
+
+1. Install the Arduino library for M5Core2 (instructions are here.)
+2. Install the CP2104 driver. Download it from this link (Step 2: USB driver installation).
+3. Compile and upload the ```hello_world.ino``` example as described in the documentation.
+
+!!! tip "Additional resources"
+    Basic functions for M5Core2
+
+Pinout and Important Notes
+Below is the M5Core2 pinout. The pins marked in red are the ones we will use in the exercises.
+
+!!! warning
+    - Some *pins* on the M5Core2 are preconfigured, so pay attention when connecting external components.
+    - The ESP32 inside the M5Core2 has 3 serial ports:
+          - ```Serial1``` is reserved for the display (do not use it).
+          - ```Serial0``` can be configured (pins G3 – RXD0 and G1 – TXD0), but it is reserved for USB connection to the PC.
+          - ```Serial2``` is free and can be configured (pins G13 – RXD2 and G14 – TXD2) as regular GPIO using pinMode().
+
+## 2. Turn an LED ON and OFF
+Connect an LED as follows:
+
+Run the following program:
+```Arduino
+#include <M5Core2.h>
+#define LED_PIN 14
+
+void setup() {
+  M5.begin(); // Initialize M5Core2
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH);
+  delay(500);
+  digitalWrite(LED_PIN, LOW);
+  delay(500);
+}
+```
+
+!!! question
+    Note that you had to include the ```#include <M5Core2.h>``` and the ```M5.begin(); // Initialize M5Core```
+    Why did you have to do that? what are these instructions for?
+
 
 ## 1. Launch an example
 
@@ -14,7 +80,7 @@
         Open the ESP32 template from ```Starter Templates```, not from ```ESP-IDF Templates```. The former is based on the Arduino IDE while the latter is based on the ESP-IDF environment that will not be used in the course.
 
 
-- Connect an LED to ```GPIO 21``` with a resistor, as shown in the diagram (rotate - ++r++ and flip - ++p++ components if necessary).
+- Connect an LED to ```GPIO 21``` with a resistor, as shown in the diagram (rotate - ```R``` and flip - ```P``` components if necessary).
 
     <img src="images/circuito_1.png" width="40%"/>
 
