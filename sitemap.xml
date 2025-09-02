@@ -2,118 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/about/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/about/acknowledgements/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/about/changelog/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/about/license/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/hmi/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/intro/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/intro/getting_started/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/intro/lab0/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/intro/lab1/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/exercise1/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/exercise1/part1_connect_wifi/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/exercise1/part2_client_connect/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/exercise1/part3_publisher/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/exercise1/part4_subscriber/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/exercise1/part5_exercise/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/exercise2/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/getting_started/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/getting_started/part1_install_mosquitto/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/getting_started/part2_testing_mosquitto_terminal/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/getting_started/part3_external_connections/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/mqtt/lab1/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/real-time/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/real-time/event-driven/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/real-time/external_data/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/real-time/freeRTOS/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/real-time/lab1/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://jmgandarias.com/industrial_informatics/real-time/lab2/</loc>
-         <lastmod>2025-08-28</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
 </urlset>
