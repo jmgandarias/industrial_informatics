@@ -1,4 +1,4 @@
-# Lab Session 1: Microcontrollers programming
+# Lab Session 1: Intro to microcontrollers programming
 
 **Estimated time:** 1.5h (1 session)
 

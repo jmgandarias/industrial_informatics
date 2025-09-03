@@ -9,6 +9,6 @@
     *In this exercise you will learn how to simulate microcontrollers with Wokwi.*
 
 
-* [**Lab Session 1:** Microcontrollers programming](./lab1/README.md).
+* [**Lab Session 1:** Intro to microcontrollers programming](./lab1/README.md).
   
     *Here, you will explore the fundamentals of programming microcontrollers.*
