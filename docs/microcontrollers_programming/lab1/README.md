@@ -68,7 +68,7 @@ Follow the installation steps described in this guide.
 
 
 !!! tip "Additional resources"
-    [Here]([http://docs.m5](https://docs.m5stack.com/en/core/core2)) you can find more documentation about some of the basic functions of M5Core2.  
+    [Here](https://docs.m5stack.com/en/core/core2) you can find more documentation about some of the basic functions of M5Core2.  
 
 **Pinout and Important Notes**
 Below is the M5Core2 pinout. The pins marked in red are the ones we will use in the exercises.

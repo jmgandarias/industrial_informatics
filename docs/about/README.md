@@ -4,12 +4,15 @@ title: "Welcome"
  
 ## Welcome
 
-This is the home of the Industrial Informatics course: A fourth-year undergraduate course for Electronics Engineering students in [the School of Industrial Engineering](https://www.uma.es/escuela-de-ingenierias-industriales/) at [the University of Málaga](https://www.uma.es). The lab course is developed by [Dr Juan M. Gandarias](https://jmgandarias.com), an Assistant Professor in the [Systems Engineering and Automation Department](https://www.uma.es/isa).
+This is the home of the Industrial Informatics course: A fourth-year undergraduate course for Electronics Engineering students in [the School of Industrial Engineering](https://www.uma.es/escuela-de-ingenierias-industriales/) at [the University of Málaga](https://www.uma.es). 
+The content of this website is being developed by [Prof. Juan M. Gandarias](https://jmgandarias.com), an Assistant Professor in the [Systems Engineering and Automation Department](https://www.uma.es/isa). The course of Industrial Informatics and its content is being given by [Prof. Carlos Pérez-de-Pulgar](https://www.uma.es/isa/info/76432/cperez/)
 
 ## Course content
 
-- [Intro to microcontrollers programming](../intro/README.md)
-- [Real-Time in Embedded Systems](../real-time/README.md)
+- [Intro to the course](../intro/README.md)
+- [Microcontrollers programming](../microcontrollers_programming/README.md)
+- [Real-Time Control Systems](../real-time_control_systems/README.md)
+- [Real-Time in Embedded Systems](../real-time_embedded_systems/README.md)
 - [Human-Machine Interfaces](../hmi/README.md)
 - [Internet of Things with MQTT](../mqtt/README.md)
 
