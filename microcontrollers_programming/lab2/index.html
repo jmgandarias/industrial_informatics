@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/logo_uma_blanco.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -2271,9 +2271,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-title" class="md-nav__link">
+  <a href="#1-description" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Title
+      1. Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-use-of-an-external-library-ticker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Use of an external library - Ticker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-use-hardware-timers" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Use hardware timers
     </span>
   </a>
   
@@ -2313,7 +2331,50 @@
 
 <div><h1 id="lab-session-2-timers">Lab Session 2: Timers<a class="headerlink" href="#lab-session-2-timers" title="Permanent link">¶</a></h1>
 <p><strong>Estimated time:</strong> 1.5h (1 session)</p>
-<h2 id="1-title">1. Title<a class="headerlink" href="#1-title" title="Permanent link">¶</a></h2></div>
+<h2 id="1-description">1. Description<a class="headerlink" href="#1-description" title="Permanent link">¶</a></h2>
+<p>The goal of this session is to learn the different ways a microcontroller can perform timing operations. As seen previously, the <code>delay()</code> function can be used to create a wait for the required amount of time. However, to solve slightly more complex problems, it becomes necessary to use <em>timers</em>, which allow us to interrupt the normal execution of the program in order to handle a periodic event.</p>
+<h2 id="2-use-of-an-external-library-ticker">2. Use of an external library - <em>Ticker</em><a class="headerlink" href="#2-use-of-an-external-library-ticker" title="Permanent link">¶</a></h2>
+<p>The <a href="https://github.com/sstaub/Ticker?tab=readme-ov-file">Arduino Ticker Library</a> allows you to create easily Ticker callbacks, which can call a function in a predetermined interval
+The following example shows how to perform timing operations using the <em>Ticker</em> library and the <code>attach()</code> or <code>attach_ms()</code> functions.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;M5Core2.h&gt;</span><span class="c1">   // M5Stack Core2 library</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Ticker.h&gt;</span><span class="c1">    // Ticker library</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cp">#define LED_PIN 14     </span><span class="c1">// GPIO pin where the LED is connected on the M5Core2</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">Ticker</span><span class="w"> </span><span class="n">blinker</span><span class="p">;</span><span class="w">        </span><span class="c1">// Create a Ticker object. It will call a function at regular intervals.</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="cm">/*</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cm">  This function (callback) will be called by the Ticker at the configured time interval.</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="cm">  It simply toggles the LED state:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="cm">    - digitalRead(LED_PIN) reads the current state (HIGH/LOW)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="cm">    - ! inverts that state</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="cm">    - digitalWrite writes the inverted state back to the pin</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="cm">*/</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kr">void</span><span class="w"> </span><span class="nf">changeState</span><span class="p">()</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">{</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="nf">digitalRead</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">)));</span><span class="w"> </span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">}</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">{</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="n">M5</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span><span class="w">          </span><span class="c1">// Initialize the M5Core2 hardware (display, I2C, etc.)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">// Configure the LED pin as an output</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="c1">// Initialize the Ticker to call changeState() periodically.</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="c1">// attach() accepts time in seconds (here 0.5 s = 500 ms).</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="c1">// If you prefer milliseconds, use attach_ms(milliseconds, callback).</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="n">blinker</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">changeState</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="p">}</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="p">{</span><span class="w">      </span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="c1">// Empty: the Ticker handles the periodic LED toggling asynchronously.</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="p">}</span>
+</code></pre></div>
+<p>Connect an LED to <em>pin 14</em> of the <em>M5Core2</em> and modify this example so that the LED blinks every second instead of every 500 ms.</p>
+<p><img src="images/LED_M5Core2.png" width="60%"></p>
+<h2 id="3-use-hardware-timers">3. Use hardware timers<a class="headerlink" href="#3-use-hardware-timers" title="Permanent link">¶</a></h2>
+<p>However, as stated in the library documentation, "The library use no interupts of the hardware timers and works with the micros() / millis() function."</p></div>
 
 
 
@@ -2336,7 +2397,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 5, 2025 15:37:42 UTC"><span class="timeago" datetime="2025-09-05T15:37:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 5, 2025 15:37:42 UTC">2025-09-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 8, 2025 16:45:54 UTC"><span class="timeago" datetime="2025-09-08T16:45:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 8, 2025 16:45:54 UTC">2025-09-08</span>
   </span>
 
     
