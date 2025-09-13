@@ -5,7 +5,7 @@ title: "Welcome"
 ## Welcome
 
 This is the home of the Industrial Informatics course: A fourth-year undergraduate course for Electronics Engineering students in [the School of Industrial Engineering](https://www.uma.es/escuela-de-ingenierias-industriales/) at [the University of Málaga](https://www.uma.es). 
-The content of this website is being developed by [Prof. Juan M. Gandarias](https://jmgandarias.com), an Assistant Professor in the [Systems Engineering and Automation Department](https://www.uma.es/isa). The course of Industrial Informatics and its content is being given by [Prof. Carlos Pérez-de-Pulgar](https://www.uma.es/isa/info/76432/cperez/)
+The content of this website is being developed by [Prof. Juan M. Gandarias](https://jmgandarias.com), an Assistant Professor in the [Systems Engineering and Automation Department](https://www.uma.es/isa). The course of Industrial Informatics and its content at the University is given by [Prof. Carlos Pérez-de-Pulgar](https://www.uma.es/isa/info/76432/cperez/) and [Prof. Juan M. Gandarias](https://jmgandarias.com).
 
 ## Course content
 

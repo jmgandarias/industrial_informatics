@@ -1,8 +1,8 @@
----
+<!-- ---
 hide:
   - toc 
   - navigation
----
+--- -->
 
 <center>
 

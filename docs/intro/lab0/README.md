@@ -4,7 +4,7 @@
 
 ## 1. Microcontrollers simulation
 
-### Launch and example
+### Launch an example
 
 - Access the Wokwi simulation environment via [this link](https://wokwi.com/).
 - Select the ESP32 template.
