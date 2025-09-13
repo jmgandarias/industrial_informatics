@@ -24,7 +24,7 @@
     
     
       
-        <title>Lab Session 0: Microcontrollers simulation with Wokwi - Industrial Informatics Course</title>
+        <title>Lab Session 0: Initial steps - Industrial Informatics Course</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-session-0-microcontrollers-simulation-with-wokwi" class="md-skip">
+        <a href="#lab-session-0-initial-steps" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab Session 0: Microcontrollers simulation with Wokwi
+              Lab Session 0: Initial steps
             
           </span>
         </div>
@@ -731,7 +731,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 0: Simulation with wokwi
+    Lab 0: Initial steps
     
   </span>
   
@@ -743,7 +743,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
-            Lab 0: Simulation with wokwi
+            Lab 0: Initial steps
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2271,46 +2271,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-launch-an-example" class="md-nav__link">
+  <a href="#1-microcontrollers-simulation" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Launch an example
+      1. Microcontrollers simulation
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-control-the-led-state-with-a-push-button" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Control the LED state with a push button
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-additional-exercises" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Additional exercises
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Additional exercises">
+    <nav class="md-nav" aria-label="1. Microcontrollers simulation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-blink" class="md-nav__link">
+  <a href="#launch-and-example" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1. Blink
+      Launch and example
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-short-press-vs-long-press" class="md-nav__link">
+  <a href="#add-hardware-components" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2. Short press vs long press
+      Add hardware components
     </span>
   </a>
   
@@ -2318,6 +2300,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-prepare-the-arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Prepare the Arduino IDE
+    </span>
+  </a>
   
 </li>
       
@@ -2353,109 +2344,162 @@
   
 
 
-<div><h1 id="lab-session-0-microcontrollers-simulation-with-wokwi">Lab Session 0: Microcontrollers simulation with Wokwi<a class="headerlink" href="#lab-session-0-microcontrollers-simulation-with-wokwi" title="Permanent link">¶</a></h1>
+<div><h1 id="lab-session-0-initial-steps">Lab Session 0: Initial steps<a class="headerlink" href="#lab-session-0-initial-steps" title="Permanent link">¶</a></h1>
 <p><strong>Estimated time:</strong> 1.5h (1 session)</p>
-<h2 id="1-launch-an-example">1. Launch an example<a class="headerlink" href="#1-launch-an-example" title="Permanent link">¶</a></h2>
+<h2 id="1-microcontrollers-simulation">1. Microcontrollers simulation<a class="headerlink" href="#1-microcontrollers-simulation" title="Permanent link">¶</a></h2>
+<h3 id="launch-and-example">Launch and example<a class="headerlink" href="#launch-and-example" title="Permanent link">¶</a></h3>
 <ul>
 <li>Access the Wokwi simulation environment via <a href="https://wokwi.com/">this link</a>.</li>
 <li>
 <p>Select the ESP32 template.</p>
-<p><img src="images/select_esp32_1.png" width="29%">
-<img src="images/select_esp32_2.png" width="50%"></p>
+<p><img src="images/select_esp32_1.png" width="55%">
+<img src="images/select_esp32_2.png" width="80%"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Open the ESP32 template from <code>Starter Templates</code>, not from <code>ESP-IDF Templates</code>. The former is based on the Arduino IDE while the latter is based on the ESP-IDF environment that will not be used in the course.</p>
 </div>
 </li>
 <li>
-<p>Connect an LED to <code>GPIO 21</code> with a resistor, as shown in the diagram (rotate - <span class="keys"><kbd class="key-r">R</kbd></span> and flip - <span class="keys"><kbd class="key-p">P</kbd></span> components if necessary).</p>
-<p><img src="images/circuito_1.png" width="40%"></p>
-</li>
-<li>
-<p>Simulate the following sketch:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#define LED_PIN 21</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#define BUTTON_PIN 35</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT_PULLUP</span><span class="p">);</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+<p>Simulate the example sketch:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">// put your setup code here, to run once:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Hello, ESP32!"</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1">// put your main code here, to run repeatedly:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nf">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// this speeds up the simulation</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Here you are <em>simulating</em> the behavior of the system including the code, you are not <em>compiling</em> the code (i.e., we're not generating the machine-readable code that will be executed by a processor). But the code MUST be compliable (i.e., it will be verified to check that I would compile )</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>Note that the real-time factor at the top right corner should be as close as possible to 100%. This value is a simulation performance metric. The closer it gets to 100%, the better is the simulation. A value of 100% means the simulation is running in real-time. If the value drops, the times in the simulation are no longer reliable.</li>
+<li>Note the instruction <code>delay(10); // this speeds up the simulation</code>. Try to comment this line and see what happens. What if you put <code>delay(1);</code> or <code>delay(5);</code>?</li>
+</ul>
+</div>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
+</div>
 <ul>
 <li>What is the purpose of the <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/setup/"><code>setup()</code></a> function?</li>
 <li>What is the purpose of the <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/loop/"><code>loop()</code></a> function?</li>
-<li>What does the <a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/define/"><code>#define</code></a> do?</li>
-<li>What does the <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/pinMode/"><code>pinMode()</code></a> function do?</li>
-<li>What does the <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalwrite/"><code>digitalWrite()</code></a> function do?</li>
 <li>What does the <a href="https://docs.arduino.cc/language-reference/en/functions/time/delay/"><code>delay()</code></a> function do?</li>
+<li>Why do we need to put the <code>delay(10)</code> inside the <code>loop()</code> function?</li>
 </ul>
-</div>
 </li>
 </ul>
-<h2 id="2-control-the-led-state-with-a-push-button">2. Control the LED state with a push button<a class="headerlink" href="#2-control-the-led-state-with-a-push-button" title="Permanent link">¶</a></h2>
+<h3 id="add-hardware-components">Add hardware components<a class="headerlink" href="#add-hardware-components" title="Permanent link">¶</a></h3>
 <ul>
 <li>
-<p>Implement the circuit shown in the following diagram and simulate a program that:</p>
-<ul>
-<li>Turns the LED ON when the button is pressed.</li>
-<li>Turns the LED OFF when the button is not pressed.</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<ul>
-<li>Use the function <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/"><code>digitalRead()</code></a> to get the status of the button.</li>
-<li>You may need to use the <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a> condition.</li>
-</ul>
+<p>First of all, check the <code>diagram.json</code> file . What information do you see there?</p>
+</li>
+<li>
+<p>Connect an LED to <code>GPIO 21</code> with a resistor, as shown in the diagram (rotate - <span class="keys"><kbd class="key-r">R</kbd></span> and flip - <span class="keys"><kbd class="key-p">P</kbd></span> components if necessary).</p>
+<p><img src="images/circuito_1.png" width="40%"></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
 </div>
-<p><img src="images/button_diagram.png" width="50%"></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>When you place the button, don’t forget to deselect the <em>bounce</em> option to avoid <a href="https://www.luisllamas.es/en/debouncing-arduino-interrupts/">bouncing issues</a>.
-<img src="images/bounce.png" width="30%"></p>
-</div>
+<ul>
+<li>What is the purpose of the <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/setup/"><code>setup()</code></a> function?</li>
+<li>What is the purpose of the <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/loop/"><code>loop()</code></a> function?</li>
+<li>What does the <a href="https://docs.arduino.cc/language-reference/en/functions/time/delay/"><code>delay()</code></a> function do?</li>
+<li>Why do we need to put the <code>delay(10)</code> inside the <code>loop()</code> function?</li>
+</ul>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <ul>
-<li>What information is included in the <code>diagram.json</code>? Did it change with respect to the previous exercise?  </li>
-<li>Can you do the exercise without using the <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a> condition? How?</li>
+<li>Check again the <code>diagram.json</code>. What happened? Can you change the color of the LED to <em>green</em> from this file?</li>
+<li>What do you think you can do with the <em>Library Manager</em>?</li>
 </ul>
 </div>
 </li>
 </ul>
-<h2 id="3-additional-exercises">3. Additional exercises<a class="headerlink" href="#3-additional-exercises" title="Permanent link">¶</a></h2>
-<h3 id="31-blink">3.1. Blink<a class="headerlink" href="#31-blink" title="Permanent link">¶</a></h3>
-<ul>
+<h2 id="2-prepare-the-arduino-ide">2. Prepare the Arduino IDE<a class="headerlink" href="#2-prepare-the-arduino-ide" title="Permanent link">¶</a></h2>
+<p>Follow the installation steps described in this guide.</p>
+<ol>
+<li>Install Arduino IDE: Download it from <a href="https://www.arduino.cc/en/software/">this link</a>.</li>
 <li>
-<p>Using the same circuit as in the previous exercise, write a script that Blinks the LED while the button is pushed.</p>
+<p>Install the M5Stack board family:</p>
+<p><img src="images/board_install_1.png" width="80%"></p>
+<p>You need to copy/paste this text to download the board package</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json 
+</code></pre></div>
+<p><img src="images/board_install_2.png" width="80%"></p>
+<p>Once the board package address is set, you can install it from the <em>boards manager</em>.
+<img src="images/board_install_3.png" width="80%"></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This process may take a few minutes.</p>
+</div>
+<p>Once installed, you can select M5Core2 from the board selection menu.</p>
+<p><img src="images/board_selection.png" width="100%"></p>
+</li>
+<li>
+<p>Install the Arduino libraries for M5Core2:</p>
+<p><img src="images/m5core2_library.png" width="130%"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you press <em>Install</em>, you'll see the list of dependencies. You <em>MUST</em> install all the dependencies too.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This is a long process that may take several minutes. Be patient...</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You may need to use the <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/"><code>millis()</code></a> function.</p>
+<p>In case the list of dependencies is that large that you cannot see the <em>Install All</em> button, you can press the tab key <span class="keys"><kbd class="key-tab">Tab</kbd></span> twice to put the cursor over the button and then press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to install all the dependencies.</p>
 </div>
 </li>
-</ul>
-<h3 id="32-short-press-vs-long-press">3.2. Short press vs long press<a class="headerlink" href="#32-short-press-vs-long-press" title="Permanent link">¶</a></h3>
-<ul>
 <li>
-<p>Using the same circuit as in the previous exercise, write a script that does the following:</p>
+<p>Install the CP2104 driver (USB driver):</p>
+<p>Download it from <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip">this link</a> if you're using Windows, from <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip">this link</a> if you're using MacOS, or from <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip">this other link</a> if you're using Linux.</p>
+<p>More info about USB driver installation <a href="https://docs.m5stack.com/en/arduino/m5core2/program#2.usb%20driver%20installation">here</a>.</p>
+<p>Now, when you connect the M5Core2 devide to the PC with the USB cable, you can select the port in the Arduino IDE.</p>
+<p><img src="images/select_serial_port.png" width="80%"></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <ul>
-<li>Short press (&lt; 500 ms): Toggle LED (if the LED is ON, turns it OFF, and viceversa).</li>
-<li>Long press (≥ 500 ms): Blink LED.</li>
+<li>In windows, the port is called <em>COMX</em>, where <em>X</em> is a number that can vary from time to time, e.g., <em>COM5</em>.</li>
+<li>In linux, the port is called "ttyUSBX" or "ttyACMX", where <em>X</em> is a number that can vary from time to time, e.g., <em>ttyUSB2</em>.</li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You may need to use the <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/"><code>millis()</code></a> function, and the  <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a> condition.</p>
 </div>
 </li>
-</ul></div>
+<li>
+<p>Compile and upload the <code>hello_world.ino</code> example from <em>M5Core2</em> library:</p>
+<p><img src="images/open_hello_world_example.png" width="80%"></p>
+<p>You can press the <em>Upload</em> (in red) button to compile and load the program to the device. Note that the button on the left (<em>Verify</em> - in green) compiles the program but doesn't upload it to the device.</p>
+<p><img src="images/compile.png" width="80%"></p>
+</li>
+<li>
+<p><em>OPTIONAL (do it</em> <strong>ONLY if you have finished all the exercises</strong> <em>of the lab session):</em> You can open other examples if you want to see the potential of M5Core2. You can try this one:</p>
+<p><img src="images/open_floppybird_example.png" width="80%"></p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Additional resources</p>
+<p><a href="https://docs.m5stack.com/en/core/core2">Here</a> you can find more documentation about some of the basic functions of M5Core2.  </p>
+</div>
+<p><strong>Pinout and Important Notes</strong>
+Below is the M5Core2 pinout. The pins marked in red are the ones we will use in the exercises.</p>
+<p><img src="images/pinout_M5Core2.png" width="30%"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>Some <em>pins</em> on the M5Core2 are preconfigured, so pay attention when connecting external components.</li>
+<li>The ESP32 inside the M5Core2 has 3 serial ports:<ul>
+<li><code>Serial1</code> is reserved for the display (do not use it).</li>
+<li><code>Serial0</code> can be configured (pins G3 – RXD0 and G1 – TXD0), but it is reserved for USB connection to the PC.</li>
+<li><code>Serial2</code> is free and can be configured (pins G13 – RXD2 and G14 – TXD2) as regular GPIO using pinMode().</li>
+</ul>
+</li>
+</ul>
+</div></div>
 
 
 
@@ -2478,7 +2522,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 28, 2025 15:49:07 UTC"><span class="timeago" datetime="2025-08-28T15:49:07+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 28, 2025 15:49:07 UTC">2025-08-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 13, 2025 15:58:08 UTC"><span class="timeago" datetime="2025-09-13T15:58:08+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 13, 2025 15:58:08 UTC">2025-09-13</span>
   </span>
 
     
