@@ -13,7 +13,7 @@
     <img src="images/select_esp32_2.png" width="80%"/>
 
     !!! warning
-        Open the ESP32 template from ```Starter Templates```, not from ```ESP-IDF Templates```. The former is based on the Arduino IDE while the latter is based on the ESP-IDF environment that will not be used in the course.
+        Open the ESP32 template from `Starter Templates`, not from `ESP-IDF Templates`. The former is based on the Arduino IDE while the latter is based on the ESP-IDF environment that will not be used in the course.
 
 - Simulate the example sketch:
   
@@ -35,33 +35,25 @@
 
     !!! info
         - Note that the real-time factor at the top right corner should be as close as possible to 100%. This value is a simulation performance metric. The closer it gets to 100%, the better is the simulation. A value of 100% means the simulation is running in real-time. If the value drops, the times in the simulation are no longer reliable.
-        - Note the instruction ```delay(10); // this speeds up the simulation```. Try to comment this line and see what happens. What if you put ```delay(1);``` or ```delay(5);```?
+        - Note the instruction `delay(10); // this speeds up the simulation`. Try to comment this line and see what happens. What if you put `delay(1);` or `delay(5);`?
 
     !!! question
-      - What is the purpose of the [```setup()```](https://docs.arduino.cc/language-reference/en/structure/sketch/setup/) function?
-      - What is the purpose of the [```loop()```](https://docs.arduino.cc/language-reference/en/structure/sketch/loop/) function?
-      - What does the [```delay()```](https://docs.arduino.cc/language-reference/en/functions/time/delay/) function do?
-      - Why do we need to put the ```delay(10)``` inside the ```loop()``` function?
+        - What is the purpose of the [`setup()`](https://docs.arduino.cc/language-reference/en/structure/sketch/setup/) function?
+        - What is the purpose of the [`loop()`](https://docs.arduino.cc/language-reference/en/structure/sketch/loop/) function?
+        - What does the [`delay()`](https://docs.arduino.cc/language-reference/en/functions/time/delay/) function do?
+        - Why do we need to put the `delay(10)` inside the `loop()` function?
 
 ### Add hardware components
 
-- First of all, check the ```diagram.json``` file . What information do you see there?
+- First of all, check the `diagram.json` file . What information do you see there?
 
-- Connect an LED to ```GPIO 21``` with a resistor, as shown in the diagram (rotate - ++r++ and flip - ++p++ components if necessary).
+- Connect an LED to `GPIO 21` with a resistor, as shown in the diagram (rotate - ++r++ and flip - ++p++ components if necessary).
 
     <img src="images/circuito_1.png" width="40%"/>
 
     !!! question
-      - What is the purpose of the [```setup()```](https://docs.arduino.cc/language-reference/en/structure/sketch/setup/) function?
-      - What is the purpose of the [```loop()```](https://docs.arduino.cc/language-reference/en/structure/sketch/loop/) function?
-      - What does the [```delay()```](https://docs.arduino.cc/language-reference/en/functions/time/delay/) function do?
-      - Why do we need to put the ```delay(10)``` inside the ```loop()``` function?
-
-    !!! question
-        - Check again the ```diagram.json```. What happened? Can you change the color of the LED to *green* from this file?
+        - Check again the `diagram.json`. What happened? Can you change the color of the LED to *green* from this file?
         - What do you think you can do with the *Library Manager*?
-
-
 
 ## 2. Prepare the Arduino IDE
 
@@ -115,7 +107,7 @@ Follow the installation steps described in this guide.
         - In windows, the port is called *COMX*, where *X* is a number that can vary from time to time, e.g., *COM5*.
         - In linux, the port is called "ttyUSBX" or "ttyACMX", where *X* is a number that can vary from time to time, e.g., *ttyUSB2*.
 
-5. Compile and upload the ```hello_world.ino``` example from *M5Core2* library:
+5. Compile and upload the `hello_world.ino` example from *M5Core2* library:
 
     <img src="images/open_hello_world_example.png" width="80%"/>
 
@@ -139,6 +131,6 @@ Below is the M5Core2 pinout. The pins marked in red are the ones we will use in 
 !!! warning
     - Some *pins* on the M5Core2 are preconfigured, so pay attention when connecting external components.
     - The ESP32 inside the M5Core2 has 3 serial ports:
-          - ```Serial1``` is reserved for the display (do not use it).
-          - ```Serial0``` can be configured (pins G3 – RXD0 and G1 – TXD0), but it is reserved for USB connection to the PC.
-          - ```Serial2``` is free and can be configured (pins G13 – RXD2 and G14 – TXD2) as regular GPIO using pinMode().
+          - `Serial1` is reserved for the display (do not use it).
+          - `Serial0` can be configured (pins `G3 – RXD0` and `G1 – TXD0`), but it is reserved for USB connection to the PC.
+          - `Serial2` is free and can be configured (pins `G13 – RXD2` and `G14 – TXD2`) as regular GPIO using `pinMode()`.
