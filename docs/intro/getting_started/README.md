@@ -353,3 +353,5 @@ In [this website](https://www.learncpp.com/) you have all the necessary informat
     - [Concurrency and Paralellism (we'll see it in Lecture 6)](https://www.luisllamas.es/en/asynchrony-concurrency-parallelism/) -->
 
 ## 4. Additional ESP32 Material
+
+More material about how to program microcontrollers (ESP32, in particular) can be found in Luis Llamas' website, [here](https://www.luisllamas.es/en/esp8266-esp32-course/) and [here](https://www.luisllamas.es/en/arduino-tutorials/). Some of this material will be covered in our course.
