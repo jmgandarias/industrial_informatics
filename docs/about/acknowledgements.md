@@ -4,9 +4,34 @@ title: "Acknowledgements"
 
 The delivery of these materials following this format has been inspired by the work done by [Dr. Tom Howard](https://www.sheffield.ac.uk/engineering/diamond-engineering/our-staff/tom-howard) in [the COM2009-3009 Robotics Course](https://tom-howard.github.io/ros/) at The University of Sheffield. In addition, the content presented has been inspired by various sources listed below.
 
-## MQTT
+## General
 
 * [Luis LLamas Tutorials](https://www.luisllamas.es/).
+* [Arduino](https://www.arduino.cc/).
+* [ESP-IDF](https://idf.espressif.com/).
+* [M5Stack](https://m5stack.com/).
+* [Wokwi](https://wokwi.com/).
+* [FreeRTOS](https://www.freertos.org/).
+
+## Real-Time Control Systems
+
+* W. Bolton, “Mecatrónica, Sistemas de control electrónico en la ingeniería mecánica y eléctrica”, Ed. Marcombo, 2010.​
+* S. Bennett, “Real-Time Computer Control, An Introduction”, Ed. Prentice Hall, 1994.​
+* A. Alonso y A. Crespo Lorente, “Una panorámica de los Sistemas de Tiempo Real,” Revista Iberoamericana de Automática e Informática Industrial, vol. 3, n.o 2, págs. 7-18, 2010.
+
+## Real-Time Embedded Systems
+
+* J. R. Z. Flores, “Planificación estática de procesos en sistemas de tiempo real crítico,” Tesis doct., Universidad Politécnica de Madrid, 1995.​
+* A. Burns y A. J. Wellings, Real-time systems and programming languages: Ada 95, real-time Java, and real-time POSIX. 2001.​
+* J. W. Liu, Real-time systems. 2006.​
+
+## HMI
+
+* J. Raskin, The humane interface: new directions for designing interactive systems. Addison-Wesley Professional, 2000. ​
+* J. W. Satzinger y L. Olfman, “User interface consistency across end-user applications: the effects on mental models,” Journal of Management Information Systems, vol. 14, n.o 4, págs. 167-193, 1998.
+
+## MQTT
+
 * R. Buyya y A. V. Dastjerdi, Internet of Things: Principles and paradigms. Elsevier, 2016.
 * K. Ashton et al., “That ‘internet of things’ thing,” RFID journal, vol. 22, n.o 7, págs. 97-114, 2009.
 * Fremantle et al., “A reference architecture for the internet of things,” WSO2 White paper, págs. 02-04, 2015.

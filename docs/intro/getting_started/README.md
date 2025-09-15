@@ -60,15 +60,15 @@ There are several sources of information in the internet you could use for free.
 
 In [this website](https://www.learncpp.com/) you have all the necessary information on how to program in C++. Including many elements that go beyond the content of this course.
 
-### 3.2. Luis Llamas Introduction to Programming Course
+### 3.2. Luis Llamas' Introduction to Programming Course
 
 [This is a course](https://www.luisllamas.es/en/development-course/) that covers general topics of programming (you can find it in Engish and Spanish). In many of the entries you can find examples in different languages (don't forget to select C/C++). The list below shows:
 
-1. The **Minimum Concepts** you should know before taking this course. Without this knowledge, it'd be hard for you to follow this course.
-2. The **Desired Concepts** to have before taking this course. It completes the previous list and if you have them, you'll be able to follow the course without any problem.
-3. The **Advanced Concepts**. It completes the two preivious lists. If you have the, your code knowdlege exceedes the required for this course.
+1. The **Minimum concepts** you should know before taking this course. Without this knowledge, it'd be hard for you to follow this course.
+2. The **Desired concepts** to have before taking this course. It completes the previous list and if you have them, you'll be able to follow the course without any problem.
+3. The **Advanced concepts**. It completes the two preivious lists. If you have the, your code knowdlege exceedes the required for this course.
 
-#### 3.2.1. Minimum Concepts
+#### 3.2.1. Minimum concepts
 
 1. Introduction
       - [What is programming](https://www.luisllamas.es/en/what-is-programming/)
@@ -137,8 +137,99 @@ In [this website](https://www.learncpp.com/) you have all the necessary informat
 13. Functions
     - [What is a function](https://www.luisllamas.es/en/programming-what-is-a-function/)
 
-
 #### 3.2.2. Desired concepts
+
+1. Fundamentals
+    - [Machine code](https://www.luisllamas.es/en/programming-machine-code/)
+
+2. Tools
+    - [Top IDEs](https://www.luisllamas.es/en/programming-best-ides/)
+    - [Source code control](https://www.luisllamas.es/en/programming-what-is-source-code-control/)
+
+3. Variables
+    - [Variable scope](https://www.luisllamas.es/en/programming-scope-of-variables/)
+
+4. References
+    - [What is a reference](https://www.luisllamas.es/en/what-is-a-reference/)
+    - [Type value and reference](https://www.luisllamas.es/en/type-value-and-reference/)
+    - [Parameters by value or reference](https://www.luisllamas.es/en/value-or-reference-parameters/)
+  
+5. Conditionals
+    - [Nested conditionals](https://www.luisllamas.es/en/nested-conditionals-programming/)
+
+6. Loops
+    - [Nested loops](https://www.luisllamas.es/en/nesting-loops-programming/)
+
+7. Functions
+    - [Function Parameters](https://www.luisllamas.es/en/programming-function-parameters/)
+    - [Function return value](https://www.luisllamas.es/en/programming-function-returns/)
+    - [Function overloading](https://www.luisllamas.es/en/function-overloading/)
+
+8. Collections
+    - [Arrays](https://www.luisllamas.es/en/what-is-an-array/)
+  
+9. Data Structures
+    - [Structs](https://www.luisllamas.es/en/what-is-a-struct/)
+
+#### 3.2.3. Advanced concepts
+
+1. Fundamentals
+    - [Assembly language](https://www.luisllamas.es/en/programming-assembly-language/)
+
+2. Tools
+    - [Visual Studio Code](https://www.luisllamas.es/en/what-is-visual-studio-code/)
+    - [Node.js](https://www.luisllamas.es/en/what-is-node-js/)
+    - [NPM](https://www.luisllamas.es/en/what-is-and-how-to-use-npm/)
+
+3. Variables
+    - [Destructuring](https://www.luisllamas.es/en/destructuring-programming/)
+
+4. Data Types
+    - [Type deduction](https://www.luisllamas.es/en/type-deduction-by-context-programming/)
+  
+5. Common types
+    - [Time](https://www.luisllamas.es/en/programming-time-types/)
+    - [Enums](https://www.luisllamas.es/en/programming-enums/)
+    - [Collection](https://www.luisllamas.es/en/programming-collections/)
+    - [Grouping](https://www.luisllamas.es/en/programming-groupings/)
+  
+6. References
+    - [Function references](https://www.luisllamas.es/en/programming-references-to-functions/)
+
+7. Control Flow
+    - [Exceptions and Try-Catch](https://www.luisllamas.es/en/exception-handling-try-catch/)
+  
+8. Conditionals
+    - [Ternary operator](https://www.luisllamas.es/en/programming-ternary-operator/)
+
+9. Loops
+    - [Foreach](https://www.luisllamas.es/en/programming-foreach-loop/)
+
+10. Functions
+    - [Lambda functions](https://www.luisllamas.es/en/programming-lambda-functions/)
+    - [Recursive functions](https://www.luisllamas.es/en/recursive-functions-programming/)
+    - [Passing functions as parameters](https://www.luisllamas.es/en/passing-functions-as-parameters/)
+
+11. Collections
+    - [Dynamic arrays](https://www.luisllamas.es/en/what-is-a-dynamic-array/)
+    - [HashSet](https://www.luisllamas.es/en/what-is-a-hashset/)
+    - [Dictionaries](https://www.luisllamas.es/en/what-is-a-dictionary/)
+    - [LinkedLists](https://www.luisllamas.es/en/what-is-a-linked-list/)
+    - [Stacks](https://www.luisllamas.es/en/what-is-a-stack/)
+    - [Queue](https://www.luisllamas.es/en/what-is-a-queue/)
+    - [Efficiency of collections](https://www.luisllamas.es/en/collection-efficiency-in-programming/)
+
+12. Data Structures
+    - [Objects](https://www.luisllamas.es/en/what-is-an-object/)
+    - [Object oriented programming](https://www.luisllamas.es/en/object-oriented-programming-course/)
+    - [Tuples](https://www.luisllamas.es/en/what-is-a-tuple/)
+    - [Graphs](https://www.luisllamas.es/en/what-is-a-graph/)
+    - [Trees](https://www.luisllamas.es/en/what-is-a-tree/)
+
+13. Asynchrony
+    - [Asynchronous programming (we'll see it in Lecture 6)](https://www.luisllamas.es/en/programming-asynchrony-concurrency/)
+    - [Concurrency and Paralellism (we'll see it in Lecture 6)](https://www.luisllamas.es/en/asynchrony-concurrency-parallelism/)
+  
 
 <!-- 1. Introduction
       - [What is programming](https://www.luisllamas.es/en/what-is-programming/)
