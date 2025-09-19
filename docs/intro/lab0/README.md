@@ -75,6 +75,13 @@ Follow the installation steps described in this guide.
     Once the board package address is set, you can install it from the *boards manager*.
     <img src="images/board_install_3.png" width="80%"/>
 
+    !!! warning
+        Remember to install the version 2.1.4. If you try to install version 3.X you won't be able to do exercises of the lab sessions. We'll talk about the versions 2.X and 3.X later and how to migrate our code from one to another. For now, just use the 2.X version.
+
+    !!! danger
+        Once you've done this, if you open the Arduino IDE later, a message will pop up letting you know that there are updates available for some libraries and asking whether you want to install the updates or not.
+        **Don't update the libraries**
+
     !!! info
         This process may take a few minutes.
 

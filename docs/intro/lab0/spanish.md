@@ -75,6 +75,12 @@ Sigue los pasos de instalación descritos en esta guía.
     
     <img src="images/board_install_3.png" width="80%"/>
 
+
+    **IMPORTANTE:** Recuerda instalar la versión 2.1.4. Si intentas instalar la versión 3.X, no podrás realizar los ejercicios de las sesiones de laboratorio. Más adelante hablaremos sobre las versiones 2.X y 3.X y cómo migrar nuestro código de una a otra. Por ahora, utiliza únicamente la versión 2.X.
+
+    **IMPORTANTE:** Una vez que hayas hecho esto, si más adelante abres el Arduino IDE, aparecerá un mensaje informándote de que hay actualizaciones disponibles para algunas bibliotecas y preguntándote si deseas instalarlas o no.
+        No actualices las bibliotecas.
+
     **INFO:** Este proceso puede tardar unos minutos.
 
     Una vez instalado, puedes seleccionar M5Core2 desde el menú de selección de placas.
