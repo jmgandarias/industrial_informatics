@@ -42,7 +42,7 @@
     - ¿Por qué necesitamos poner delay(10) dentro de la función loop()?
 
 ### Añadir componentes de hardware
-- Primero, revisa el archivo ```diagram.json```. ¿Qué información ves allí?
+- Primero, revisa el archivo ```diagram.json```. ¿Qué información tiene?
 
 - Conecta un LED al ```GPIO 21``` con una resistencia, como se muestra en el diagrama (rota - *tecla R* y voltea - *tecla P* los componentes si es necesario).
 
@@ -99,7 +99,9 @@ Sigue los pasos de instalación descritos en esta guía.
 
 4. Instala el driver CP2104 (controlador USB):
 
-    Descárgalo desde [este enlace](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip) si usas Windows, desde [este enlace](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip) si usas MacOS, o desde [este otro enlace](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip) si usas Linux.
+    - [Enlace para Windows](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip)
+    - [Enlace para MacOS](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip)
+    - [Enlace para Linux](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip)
 
     Más información sobre la instalación del controlador USB [aquí](https://docs.m5stack.com/en/arduino/m5core2/program#2.usb%20driver%20installation).
 
