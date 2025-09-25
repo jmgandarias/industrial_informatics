@@ -2271,27 +2271,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-description" class="md-nav__link">
+  <a href="#1-working-with-real-hardware" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Description
+      1. Working with real hardware
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-use-of-an-external-library-ticker" class="md-nav__link">
+  <a href="#11-using-an-external-library-ticker" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Use of an external library - Ticker
+      1.1. Using an external library - Ticker
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-use-hardware-timers" class="md-nav__link">
+  <a href="#12-use-hardware-timers" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Use hardware timers
+      1.2. Use hardware timers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-working-in-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Working in simulation
     </span>
   </a>
   
@@ -2331,9 +2340,10 @@
 
 <div><h1 id="lab-session-2-timers">Lab Session 2: Timers<a class="headerlink" href="#lab-session-2-timers" title="Permanent link">¶</a></h1>
 <p><strong>Estimated time:</strong> 1.5h (1 session)</p>
-<h2 id="1-description">1. Description<a class="headerlink" href="#1-description" title="Permanent link">¶</a></h2>
+<p><strong>Description</strong></p>
 <p>The goal of this session is to learn the different ways a microcontroller can perform timing operations. As seen previously, the <code>delay()</code> function can be used to create a wait for the required amount of time. However, to solve slightly more complex problems, it becomes necessary to use <em>timers</em>, which allow us to interrupt the normal execution of the program in order to handle a periodic event.</p>
-<h2 id="2-use-of-an-external-library-ticker">2. Use of an external library - <em>Ticker</em><a class="headerlink" href="#2-use-of-an-external-library-ticker" title="Permanent link">¶</a></h2>
+<h2 id="1-working-with-real-hardware">1. Working with real hardware<a class="headerlink" href="#1-working-with-real-hardware" title="Permanent link">¶</a></h2>
+<h2 id="11-using-an-external-library-ticker">1.1. Using an external library - <em>Ticker</em><a class="headerlink" href="#11-using-an-external-library-ticker" title="Permanent link">¶</a></h2>
 <p>The <a href="https://github.com/sstaub/Ticker?tab=readme-ov-file">Arduino Ticker Library</a> allows you to create easily Ticker callbacks, which can call a function in a predetermined interval
 The following example shows how to perform timing operations using the <em>Ticker</em> library and the <code>attach()</code> or <code>attach_ms()</code> functions.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;M5Core2.h&gt;</span><span class="c1">   // M5Stack Core2 library</span>
@@ -2373,8 +2383,11 @@ The following example shows how to perform timing operations using the <em>Ticke
 </code></pre></div>
 <p>Connect an LED to <em>pin 14</em> of the <em>M5Core2</em> and modify this example so that the LED blinks every second instead of every 500 ms.</p>
 <p><img src="images/LED_M5Core2.png" width="60%"></p>
-<h2 id="3-use-hardware-timers">3. Use hardware timers<a class="headerlink" href="#3-use-hardware-timers" title="Permanent link">¶</a></h2>
-<p>However, as stated in the library documentation, "The library use no interupts of the hardware timers and works with the micros() / millis() function."</p></div>
+<h2 id="12-use-hardware-timers">1.2. Use hardware timers<a class="headerlink" href="#12-use-hardware-timers" title="Permanent link">¶</a></h2>
+<p>However, as stated in the <em>Ticker</em> library documentation, "The library use no interupts of the hardware timers and works with the micros() / millis() function." This means that our ability to develop an application using different timer configurations or to implement multitasking applications would be highly limited if we restrict ourselves to using this library.</p>
+<p>Perform the previous exercise again, but in this case use an interrupt generated directly by the timer, and configure it so that the LED turns ON and OFF every second. Verify with a watch that it works correctly.</p>
+<h2 id="2-working-in-simulation">2. Working in simulation<a class="headerlink" href="#2-working-in-simulation" title="Permanent link">¶</a></h2>
+<p>You can do exactly the same exercises in simulation. Just use the same circuit with the LED we used in the previous lab sessions.</p></div>
 
 
 
@@ -2397,7 +2410,7 @@ The following example shows how to perform timing operations using the <em>Ticke
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 8, 2025 16:45:54 UTC"><span class="timeago" datetime="2025-09-08T16:45:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 8, 2025 16:45:54 UTC">2025-09-08</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 25, 2025 18:11:57 UTC"><span class="timeago" datetime="2025-09-25T18:11:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 25, 2025 18:11:57 UTC">2025-09-25</span>
   </span>
 
     
