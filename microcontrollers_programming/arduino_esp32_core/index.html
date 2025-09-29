@@ -10,28 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://jmgandarias.com/industrial_informatics/microcontrollers_programming/lab1/spanish/">
+        <link rel="canonical" href="https://jmgandarias.com/industrial_informatics/microcontrollers_programming/arduino_esp32_core/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../lab4/">
       
       
-        <link rel="next" href="../../lab2/">
+        <link rel="next" href="../../real-time_control_systems/">
       
       
-      <link rel="icon" href="../../../assets/logo_uma_blanco.svg">
+      <link rel="icon" href="../../assets/logo_uma_blanco.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>Sesión de Laboratorio 1: Introducción a la programación de microcontroladores - Industrial Informatics Course</title>
+        <title>Arduino ESP32 core 2.x and 3.x - Industrial Informatics Course</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -45,18 +45,18 @@
         
         
         
-        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.c3479dc1.css">
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.c3479dc1.css">
         <style>:root{--md-text-font:"Source Sans Pro";--md-code-font:"Source Code Pro"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../css/timeago.css">
+      <link rel="stylesheet" href="../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../assets/external/unpkg.com/katex@0/dist/katex.min.css">
+      <link rel="stylesheet" href="../../assets/external/unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sesion-de-laboratorio-1-introduccion-a-la-programacion-de-microcontroladores" class="md-skip">
+        <a href="#arduino-esp32-core-2x-and-3x" class="md-skip">
           Skip to content
         </a>
       
@@ -106,9 +106,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Industrial Informatics Course" class="md-header__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
+    <a href="../.." title="Industrial Informatics Course" class="md-header__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
       
-  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sesión de Laboratorio 1: Introducción a la programación de microcontroladores
+              Arduino ESP32 core 2.x and 3.x
             
           </span>
         </div>
@@ -238,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../about/" class="md-tabs__link">
+        <a href="../../about/" class="md-tabs__link">
           
   
   
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../intro/" class="md-tabs__link">
+        <a href="../../intro/" class="md-tabs__link">
           
   
   
@@ -284,7 +284,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -306,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../real-time_control_systems/" class="md-tabs__link">
+        <a href="../../real-time_control_systems/" class="md-tabs__link">
           
   
   
@@ -328,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../real-time_embedded_systems/" class="md-tabs__link">
+        <a href="../../real-time_embedded_systems/" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../hmi/" class="md-tabs__link">
+        <a href="../../hmi/" class="md-tabs__link">
           
   
   
@@ -372,7 +372,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../mqtt/" class="md-tabs__link">
+        <a href="../../mqtt/" class="md-tabs__link">
           
   
   
@@ -408,9 +408,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Industrial Informatics Course" class="md-nav__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
+    <a href="../.." title="Industrial Informatics Course" class="md-nav__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
       
-  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     Industrial Informatics Course
@@ -466,7 +466,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../about/" class="md-nav__link ">
+            <a href="../../about/" class="md-nav__link ">
               
   
   
@@ -501,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/license/" class="md-nav__link">
+      <a href="../../about/license/" class="md-nav__link">
         
   
   
@@ -524,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/acknowledgements/" class="md-nav__link">
+      <a href="../../about/acknowledgements/" class="md-nav__link">
         
   
   
@@ -547,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/changelog/" class="md-nav__link">
+      <a href="../../about/changelog/" class="md-nav__link">
         
   
   
@@ -604,7 +604,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../intro/" class="md-nav__link ">
+            <a href="../../intro/" class="md-nav__link ">
               
   
   
@@ -662,7 +662,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../intro/getting_started/" class="md-nav__link ">
+            <a href="../../intro/getting_started/" class="md-nav__link ">
               
   
   
@@ -723,7 +723,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../intro/lab0/" class="md-nav__link ">
+            <a href="../../intro/lab0/" class="md-nav__link ">
               
   
   
@@ -804,7 +804,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -836,8 +836,6 @@
                 
   
   
-    
-  
   
   
     
@@ -854,15 +852,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../lab1/" class="md-nav__link ">
               
   
   
@@ -876,7 +876,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Lab 1: Intro to microcontrollers programming
@@ -923,7 +923,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../lab2/" class="md-nav__link ">
+            <a href="../lab2/" class="md-nav__link ">
               
   
   
@@ -984,7 +984,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../lab3/" class="md-nav__link ">
+            <a href="../lab3/" class="md-nav__link ">
               
   
   
@@ -1045,7 +1045,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../lab4/" class="md-nav__link ">
+            <a href="../lab4/" class="md-nav__link ">
               
   
   
@@ -1080,6 +1080,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1096,17 +1098,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../arduino_esp32_core/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -1120,7 +1120,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             Arduino ESP32 core: 2.x and 3.x versions
@@ -1176,7 +1176,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_control_systems/" class="md-nav__link ">
+            <a href="../../real-time_control_systems/" class="md-nav__link ">
               
   
   
@@ -1234,7 +1234,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_control_systems/lab5/" class="md-nav__link ">
+            <a href="../../real-time_control_systems/lab5/" class="md-nav__link ">
               
   
   
@@ -1312,7 +1312,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/" class="md-nav__link ">
               
   
   
@@ -1370,7 +1370,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/external_data/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/external_data/" class="md-nav__link ">
               
   
   
@@ -1431,7 +1431,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/event-driven/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/event-driven/" class="md-nav__link ">
               
   
   
@@ -1492,7 +1492,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/lab1/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/lab1/" class="md-nav__link ">
               
   
   
@@ -1553,7 +1553,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/freeRTOS/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/freeRTOS/" class="md-nav__link ">
               
   
   
@@ -1614,7 +1614,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/lab2/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/lab2/" class="md-nav__link ">
               
   
   
@@ -1684,7 +1684,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hmi/" class="md-nav__link ">
+            <a href="../../hmi/" class="md-nav__link ">
               
   
   
@@ -1742,7 +1742,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hmi/lab7/" class="md-nav__link ">
+            <a href="../../hmi/lab7/" class="md-nav__link ">
               
   
   
@@ -1818,7 +1818,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../mqtt/" class="md-nav__link ">
+            <a href="../../mqtt/" class="md-nav__link ">
               
   
   
@@ -1882,7 +1882,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../mqtt/getting_started/" class="md-nav__link ">
+            <a href="../../mqtt/getting_started/" class="md-nav__link ">
               
   
   
@@ -1917,7 +1917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mqtt/getting_started/part1_install_mosquitto/" class="md-nav__link">
+      <a href="../../mqtt/getting_started/part1_install_mosquitto/" class="md-nav__link">
         
   
   
@@ -1940,7 +1940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mqtt/getting_started/part2_testing_mosquitto_terminal/" class="md-nav__link">
+      <a href="../../mqtt/getting_started/part2_testing_mosquitto_terminal/" class="md-nav__link">
         
   
   
@@ -1963,7 +1963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mqtt/getting_started/part3_external_connections/" class="md-nav__link">
+      <a href="../../mqtt/getting_started/part3_external_connections/" class="md-nav__link">
         
   
   
@@ -2027,7 +2027,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../mqtt/exercise1/" class="md-nav__link ">
+            <a href="../../mqtt/exercise1/" class="md-nav__link ">
               
   
   
@@ -2062,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mqtt/exercise1/part1_connect_wifi/" class="md-nav__link">
+      <a href="../../mqtt/exercise1/part1_connect_wifi/" class="md-nav__link">
         
   
   
@@ -2085,7 +2085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mqtt/exercise1/part2_client_connect/" class="md-nav__link">
+      <a href="../../mqtt/exercise1/part2_client_connect/" class="md-nav__link">
         
   
   
@@ -2108,7 +2108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mqtt/exercise1/part3_publisher/" class="md-nav__link">
+      <a href="../../mqtt/exercise1/part3_publisher/" class="md-nav__link">
         
   
   
@@ -2131,7 +2131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mqtt/exercise1/part4_subscriber/" class="md-nav__link">
+      <a href="../../mqtt/exercise1/part4_subscriber/" class="md-nav__link">
         
   
   
@@ -2154,7 +2154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mqtt/exercise1/part5_exercise/" class="md-nav__link">
+      <a href="../../mqtt/exercise1/part5_exercise/" class="md-nav__link">
         
   
   
@@ -2208,7 +2208,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../mqtt/exercise2/" class="md-nav__link ">
+            <a href="../../mqtt/exercise2/" class="md-nav__link ">
               
   
   
@@ -2269,7 +2269,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../mqtt/lab1/" class="md-nav__link ">
+            <a href="../../mqtt/lab1/" class="md-nav__link ">
               
   
   
@@ -2334,47 +2334,89 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-trabajando-con-hardware-real" class="md-nav__link">
+  <a href="#timers" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Trabajando con hardware real
+      Timers
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Trabajando con hardware real">
+    <nav class="md-nav" aria-label="Timers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-encender-y-apagar-un-led" class="md-nav__link">
+  <a href="#using-arduino-esp32-core-2x" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1. Encender y apagar un LED
+      Using Arduino ESP32 core 2.x
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Arduino ESP32 core 2.x">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-of-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      List of instructions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-ejercicios-adicionales" class="md-nav__link">
+  <a href="#minimal-example" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2. Ejercicios adicionales
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1.2. Ejercicios adicionales">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#121-parpadear-a-una-cierta-frecuencia" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2.1. Parpadear a una cierta frecuencia
+      Minimal example
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#122-parpadear-y-detener" class="md-nav__link">
+  <a href="#full-example" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2.2. Parpadear y detener
+      Full example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-arduino-esp32-core-3x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Arduino ESP32 core 3.x
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Arduino ESP32 core 3.x">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-of-instructions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      List of instructions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimal-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimal example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full example
     </span>
   </a>
   
@@ -2391,63 +2433,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-trabajando-en-simulacion" class="md-nav__link">
+  <a href="#pwm-ledc" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Trabajando en simulación
+      PWM (LEDC)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Trabajando en simulación">
+    <nav class="md-nav" aria-label="PWM (LEDC)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-encender-y-apagar-un-led" class="md-nav__link">
+  <a href="#using-arduino-esp32-core-2x_1" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1. Encender y apagar un LED
+      Using Arduino ESP32 core 2.x
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-controlar-el-estado-del-led-con-un-pulsador" class="md-nav__link">
+  <a href="#using-arduino-esp32-core-3x_1" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2. Controlar el estado del LED con un pulsador
+      Using Arduino ESP32 core 3.x
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-ejercicios-adicionales" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3. Ejercicios adicionales
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.3. Ejercicios adicionales">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#231-parpadear" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3.1. Parpadear
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#232-pulsacion-corta-vs-pulsacion-larga" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3.2. Pulsación corta vs pulsación larga
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2472,7 +2481,7 @@
 
 
   
-    <a href="https://github.com/jmgandarias/industrial_informatics/edit/main/docs/microcontrollers_programming/lab1/spanish.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/jmgandarias/industrial_informatics/edit/main/docs/microcontrollers_programming/arduino_esp32_core/README.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2481,132 +2490,261 @@
     
       
     
-    <a href="https://github.com/jmgandarias/industrial_informatics/raw/main/docs/microcontrollers_programming/lab1/spanish.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/jmgandarias/industrial_informatics/raw/main/docs/microcontrollers_programming/arduino_esp32_core/README.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<div><h1 id="sesion-de-laboratorio-1-introduccion-a-la-programacion-de-microcontroladores">Sesión de Laboratorio 1: Introducción a la programación de microcontroladores<a class="headerlink" href="#sesion-de-laboratorio-1-introduccion-a-la-programacion-de-microcontroladores" title="Permanent link">¶</a></h1>
-<p><strong>Tiempo estimado:</strong> 1.5h (1 sesión)</p>
-<h2 id="1-trabajando-con-hardware-real">1. Trabajando con hardware real<a class="headerlink" href="#1-trabajando-con-hardware-real" title="Permanent link">¶</a></h2>
-<h3 id="11-encender-y-apagar-un-led">1.1. Encender y apagar un LED<a class="headerlink" href="#11-encender-y-apagar-un-led" title="Permanent link">¶</a></h3>
-<p>Conecta un LED como se muestra:</p>
-<p><img src="images/LED_M5Core2.png" width="60%"></p>
-<p>Ejecuta el siguiente programa:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;M5Core2.h&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#define LED_PIN 14</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="n">M5</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span><span class="w"> </span><span class="c1">// Initialize M5Core2</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+<div><h1 id="arduino-esp32-core-2x-and-3x">Arduino ESP32 core 2.x and 3.x<a class="headerlink" href="#arduino-esp32-core-2x-and-3x" title="Permanent link">¶</a></h1>
+<p>In 2024, the Arduino‑ESP32 core upgraded, from versions 2.x (based on ESP-IDF 4.4) to version 3.x (based on ESP-IDF 5.1), the underlying API and build system and changed some behaviour around several functionalities.</p>
+<p>As you'll use PWM and timers extensively in this course, which suffered breaking changes from this update, it's necessary to . Below are the most relevant points, practical guidance and short code examples you can use when porting or writing lab code.</p>
+<p>For more information about this migration you can check <a href="https://docs.espressif.com/projects/arduino-esp32/en/latest/migration_guides/2.x_to_3.0.html">this website</a>.</p>
+<p>First of all, you need to know that even if the code sinatxis and structure has suffered some changed, the results in reality that can be achieved using one or the other (at least for this course) are not being affected by this migration (considering that the code is well developed independently of the API version).</p>
+<h2 id="timers">Timers<a class="headerlink" href="#timers" title="Permanent link">¶</a></h2>
+<h3 id="using-arduino-esp32-core-2x">Using Arduino ESP32 core 2.x<a class="headerlink" href="#using-arduino-esp32-core-2x" title="Permanent link">¶</a></h3>
+<h4 id="list-of-instructions">List of instructions<a class="headerlink" href="#list-of-instructions" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">hw_timer_t</span><span class="w"> </span><span class="o">*</span><span class="n">timer_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </code></pre></div>
-<p><strong>PREGUNTA:</strong></p>
 <ul>
-<li>¿Qué hace <a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/define/"><code>#define</code></a>?</li>
-<li>¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/pinMode/"><code>pinMode()</code></a>?</li>
-<li>¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalwrite/"><code>digitalWrite()</code></a>?</li>
+<li>Here you just need to change the <em>timer_name</em> (don't delete the *).</li>
 </ul>
-<p><strong>PREGUNTA:</strong></p>
-<ul>
-<li>Te habrás dado cuenta de que has tenido que incluir <code>#include &lt;M5Core2.h&gt;</code> y <code>M5.begin(); // Initialize M5Core</code> ¿Por qué tuviste que hacerlo? ¿Para qué sirven estas instrucciones?</li>
-</ul>
-<h3 id="12-ejercicios-adicionales">1.2. Ejercicios adicionales<a class="headerlink" href="#12-ejercicios-adicionales" title="Permanent link">¶</a></h3>
-<h4 id="121-parpadear-a-una-cierta-frecuencia">1.2.1. Parpadear a una cierta frecuencia<a class="headerlink" href="#121-parpadear-a-una-cierta-frecuencia" title="Permanent link">¶</a></h4>
-<ul>
-<li>Usando el mismo circuito del ejercicio anterior, escribe un script que haga parpadear el LED a una frecuencia de 10 Hz.</li>
-</ul>
-<p><strong>PREGUNTA:</strong></p>
-<ul>
-<li>¿Durante cuánto tiempo debe estar ENCENDIDO o APAGADO el LED en cada ciclo?</li>
-</ul>
-<h4 id="122-parpadear-y-detener">1.2.2. Parpadear y detener<a class="headerlink" href="#122-parpadear-y-detener" title="Permanent link">¶</a></h4>
-<ul>
-<li>Usando el mismo circuito del ejercicio anterior, escribe un script que haga parpadear el LED a una frecuencia de 2 Hz y detenga el parpadeo después de 5 segundos.</li>
-</ul>
-<p><strong>PREGUNTA:</strong></p>
-<ul>
-<li>¿Cuántas veces parpadea el LED?</li>
-<li>¿Cuál es el estado final del LED cuando se detiene el parpadeo, permanece ENCENDIDO o APAGADO?</li>
-</ul>
-<p><strong>PISTA:</strong></p>
-<ul>
-<li>Puede que necesites usar el bucle <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/for/"><code>for</code></a>, o la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.</li>
-</ul>
-<h2 id="2-trabajando-en-simulacion">2. Trabajando en simulación<a class="headerlink" href="#2-trabajando-en-simulacion" title="Permanent link">¶</a></h2>
-<h3 id="21-encender-y-apagar-un-led">2.1. Encender y apagar un LED<a class="headerlink" href="#21-encender-y-apagar-un-led" title="Permanent link">¶</a></h3>
-<p>Conecta un LED como se muestra:</p>
-<p><img src="images/circuito_1.png" width="40%"></p>
-<p>Ejecuta el siguiente programa:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#define LED_PIN 21</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#define BUTTON_PIN 35</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT_PULLUP</span><span class="p">);</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">timerBegin</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">timer_index</span><span class="p">,</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">prescaler</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">count_up</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="22-controlar-el-estado-del-led-con-un-pulsador">2.2. Controlar el estado del LED con un pulsador<a class="headerlink" href="#22-controlar-el-estado-del-led-con-un-pulsador" title="Permanent link">¶</a></h3>
 <ul>
-<li>Implementa el circuito mostrado en el siguiente diagrama y simula un programa que:<ul>
-<li>Encienda el LED cuando se pulse el botón.</li>
-<li>Apague el LED cuando el botón no esté pulsado.</li>
+<li>timer_index: ESP32 has 4 timers. The timer index can be 0,1,2,3.</li>
+<li>prescaler: The default ESP32 clock runs at 80MHz. If you put <code>prescaler=80</code> you can count every µs.</li>
+<li>count_up: If you set <code>count_up=true</code>, the timer will count upwards (you'll usually use this mode).</li>
 </ul>
-</li>
-</ul>
-<p><strong>PISTA:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">timerAttachInterrupt</span><span class="p">(</span><span class="n">hw_timer_t</span><span class="w"> </span><span class="o">*</span><span class="n">timer_name</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">&amp;</span><span class="n">timer_ISR_name</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">edge</span><span class="err">‑</span><span class="n">triggered</span><span class="p">);</span>
+</code></pre></div>
 <ul>
-<li>Usa la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/"><code>digitalRead()</code></a> para obtener el estado del botón.</li>
-<li>Puede que necesites usar la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.</li>
+<li>timer_name: The first parameter is the same timer name.</li>
+<li>timer_ISR_name: is the name of the timer callback (don't forget the &amp;).</li>
+<li>edge‑triggered: If you set <code>edge‑triggered=true</code>, the timer callback will be edge-triggered, otherwise, it'll be level-triggered (you'll usually use the first one).</li>
 </ul>
-<p><img src="images/button_diagram.png" width="50%"></p>
-<p><strong>INFO:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">timerAlarmWrite</span><span class="p">(</span><span class="n">hw_timer_t</span><span class="w"> </span><span class="n">timer_name</span><span class="p">,</span><span class="w"> </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">num_ticks</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">autoreload</span><span class="p">);</span>
+</code></pre></div>
 <ul>
-<li>Al colocar el botón, no olvides deseleccionar la opción <em>bounce</em> para evitar problemas de <a href="https://www.luisllamas.es/en/debouncing-arduino-interrupts/">rebotes</a>.</li>
+<li>timer_name: The first parameter is the same timer name.</li>
+<li>num_ticks: number of timer ticks before the alarm fires (NOT necessarily microseconds; it is in ticks determined by your prescaler).</li>
+<li>autoreload: bool: true = automatic reload (periodic), false = one‑shot (you'll usually set it to true)</li>
 </ul>
-<p><img src="images/bounce.png" width="30%"></p>
-<p><strong>PREGUNTA:</strong></p>
+<h4 id="minimal-example">Minimal example<a class="headerlink" href="#minimal-example" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">hw_timer_t</span><span class="w"> </span><span class="o">*</span><span class="n">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pointer to the hardware timer.</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// I called it "timer" for simplicity, but it could be named anything. e.g.:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">// hw_timer_t *temporizador_0 = NULL;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// ...some code...</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">// setup function</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="c1">// ...some code...</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="c1">// Initialize the timer</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="c1">// Parameter 1: Timer index to use. ESP32 has 4 timers =&gt; valid values 0,1,2,3</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="c1">// Parameter 2: Prescaler. The default ESP32 clock runs at 80MHz. If we set 80, we divide the clock by 80, giving 1,000,000 ticks/s (i.e., 1 tick per µs)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="c1">// Parameter 3: true indicates the timer counts up, false would count down</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="n">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timerBegin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w">                    </span><span class="c1">// Timer 0, clock divider 80</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="n">timerAttachInterrupt</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">timerInterrupt</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// Attach the interrupt handler</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="n">timerAlarmWrite</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span><span class="w"> </span><span class="mf">5e5</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w">                  </span><span class="c1">// Interrupt every 500ms (500000 µs), auto-reload</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="c1">// ...some code...</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="p">}</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="c1">// ...some code...</span>
+</code></pre></div>
+<h4 id="full-example">Full example<a class="headerlink" href="#full-example" title="Permanent link">¶</a></h4>
+<p>When you pressed the button, the LED will blink five times every 1s (i.e., 500ms ON, 500ms OFF).
+You can find a full example <a href="https://wokwi.com/projects/413650184825290753">here</a>.</p>
+<h3 id="using-arduino-esp32-core-3x">Using Arduino ESP32 core 3.x<a class="headerlink" href="#using-arduino-esp32-core-3x" title="Permanent link">¶</a></h3>
+<h4 id="list-of-instructions_1">List of instructions<a class="headerlink" href="#list-of-instructions_1" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">hw_timer_t</span><span class="w"> </span><span class="o">*</span><span class="n">timer_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</code></pre></div>
 <ul>
-<li>¿Qué información se incluye en el <code>diagram.json</code>? ¿Cambió con respecto al ejercicio anterior?  </li>
-<li>¿Se puede hacer el ejercicio sin usar la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>? ¿Cómo?</li>
+<li>Here you just need to change the <em>timer_name</em> (don't delete the *).</li>
 </ul>
-<h3 id="23-ejercicios-adicionales">2.3. Ejercicios adicionales<a class="headerlink" href="#23-ejercicios-adicionales" title="Permanent link">¶</a></h3>
-<h4 id="231-parpadear">2.3.1. Parpadear<a class="headerlink" href="#231-parpadear" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">timer_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timerBegin</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">timer_frequency</span><span class="p">);</span>
+</code></pre></div>
 <ul>
-<li>Usando el mismo circuito del ejercicio anterior, escribe un script que haga parpadear el LED mientras se mantiene pulsado el botón.</li>
+<li>timer_frequency: desired timer tick frequency in Hz (how fast the timer counts).</li>
 </ul>
-<p><strong>PISTA:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">timerAttachInterrupt</span><span class="p">(</span><span class="n">hw_timer_t</span><span class="w"> </span><span class="o">*</span><span class="n">timer_name</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">&amp;</span><span class="n">timerInterrupt</span><span class="p">);</span>
+</code></pre></div>
 <ul>
-<li>Puede que necesites usar la función <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/"><code>millis()</code></a>.</li>
+<li>timer_name: The first parameter is the same timer name.</li>
+<li>timer_ISR_name: is the name of the timer callback (don't forget the &amp;).</li>
 </ul>
-<h4 id="232-pulsacion-corta-vs-pulsacion-larga">2.3.2. Pulsación corta vs pulsación larga<a class="headerlink" href="#232-pulsacion-corta-vs-pulsacion-larga" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">timerAlarm</span><span class="p">(</span><span class="n">hw_timer_t</span><span class="w"> </span><span class="o">*</span><span class="n">timer_name</span><span class="p">,</span><span class="w"> </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">num_ticks</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">autoreload</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">repeat_count</span><span class="p">);</span>
+</code></pre></div>
 <ul>
-<li>Usando el mismo circuito del ejercicio anterior, escribe un script que haga lo siguiente:<ul>
-<li>Pulsación corta (&lt; 500 ms): Alternar el LED (si el LED está ENCENDIDO, apagarlo, y viceversa).</li>
-<li>Pulsación larga (≥ 500 ms): Hacer parpadear el LED.</li>
+<li>timer_name: The first parameter is the same timer name.</li>
+<li>num_ticks: number of timer ticks before the alarm fires (NOT necessarily microseconds; it is in ticks determined by your prescaler).</li>
+<li>autoreload: bool: true = automatic reload (periodic), false = one‑shot (you'll usually set it to true).</li>
+<li>repeat_count: 0 = run indefinitely, &gt;0 = number of repeats.</li>
 </ul>
-</li>
-</ul>
-<p><strong>PISTA:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">timerStart</span><span class="p">(</span><span class="n">timer_name</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div>
 <ul>
-<li>Puede que necesites usar la función <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/"><code>millis()</code></a> y la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.</li>
-</ul></div>
+<li>Starts the timer.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">timerStop</span><span class="p">(</span><span class="n">timer_name</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div>
+<ul>
+<li>Stops the timer.</li>
+</ul>
+<h4 id="minimal-example_1">Minimal example<a class="headerlink" href="#minimal-example_1" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">hw_timer_t</span><span class="w"> </span><span class="o">*</span><span class="n">temporizador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pointer to the hardware timer.</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1">// I named it "temporizador" for simplicity, but it can be any valid identifier. e.g.: hw_timer_t *my_timer_0 = NULL;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">timer_frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// Timer frequency in Hz (how fast the timer counts)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1">// ...some code...</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">{</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="c1">// ...some code...</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="n">temporizador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timerBegin</span><span class="p">(</span><span class="n">timer_frequency</span><span class="p">);</span><span class="w">          </span><span class="c1">// Initialize the timer that will count at timer_frequency</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="n">timerAttachInterrupt</span><span class="p">(</span><span class="n">temporizador</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">timerInterrupt</span><span class="p">);</span><span class="w"> </span><span class="c1">// Attach the interrupt handler</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="c1">// Set the timer alarm (param 1) so it calls timerInterrupt every half second (param 2 - value in microseconds)</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="c1">// Set true to repeat the alarm (param 3) and 0 to run indefinitely (param 4 - 0 = indefinite)</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="n">timerAlarm</span><span class="p">(</span><span class="n">temporizador</span><span class="p">,</span><span class="w"> </span><span class="mi">500000</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="c1">// ...some code...</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="p">}</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="c1">// ...some code...</span>
+</code></pre></div>
+<h4 id="full-example_1">Full example<a class="headerlink" href="#full-example_1" title="Permanent link">¶</a></h4>
+<p>When you pressed the button, the LED will blink five times every 500ms (i.e., 250ms ON, 250ms OFF).
+You can find a full example <a href="https://wokwi.com/projects/413651733967519745">here</a>.</p>
+<h2 id="pwm-ledc">PWM (LEDC)<a class="headerlink" href="#pwm-ledc" title="Permanent link">¶</a></h2>
+<h3 id="using-arduino-esp32-core-2x_1">Using Arduino ESP32 core 2.x<a class="headerlink" href="#using-arduino-esp32-core-2x_1" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ledChannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8000</span><span class="p">;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">// ...some code...</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="c1">// Configure the LEDC PWM channel with specified frequency and resolution</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="n">ledcSetup</span><span class="p">(</span><span class="n">ledChannel</span><span class="p">,</span><span class="w"> </span><span class="n">frequency</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="p">);</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="c1">// Attach the configured PWM channel to the LED pin</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="n">ledcAttachPin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">ledChannel</span><span class="p">);</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="c1">// Example: write an initial duty value to the channel</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="c1">// ledcWrite(channel, duty) accepts values in range 0..(2^resolution - 1)</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">ledChannel</span><span class="p">,</span><span class="w"> </span><span class="n">duty</span><span class="p">);</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="p">}</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="c1">// ...some code...</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="cp">#define LED_PIN 26          </span><span class="c1">// GPIO pin used for the LED</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ledChannel2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// LEDC channel used in the example</span>
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">frequency2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8000</span><span class="p">;</span>
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">resolution2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>
+<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="kt">int</span><span class="w"> </span><span class="n">duty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                </span><span class="c1">// Current PWM duty (0 .. 4095 for 12-bit resolution)</span>
+<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>
+<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="w">    </span><span class="c1">// Initialize PWM channel and attach pin</span>
+<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="w">    </span><span class="n">ledcSetup</span><span class="p">(</span><span class="n">ledChannel2</span><span class="p">,</span><span class="w"> </span><span class="n">frequency2</span><span class="p">,</span><span class="w"> </span><span class="n">resolution2</span><span class="p">);</span>
+<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="w">    </span><span class="n">ledcAttachPin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">ledChannel2</span><span class="p">);</span>
+<a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="p">}</span>
+<a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>
+<a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a><span class="w">    </span><span class="c1">// Compute maximum duty for the chosen resolution (12 bits =&gt; 4095)</span>
+<a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxDuty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">resolution2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a>
+<a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a><span class="w">    </span><span class="c1">// Ramp the duty from 0 to maxDuty in steps to change LED brightness</span>
+<a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">duty</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxDuty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a><span class="w">        </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">ledChannel2</span><span class="p">,</span><span class="w"> </span><span class="n">duty</span><span class="p">);</span><span class="w"> </span><span class="c1">// Apply duty value to the PWM channel</span>
+<a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a><span class="w">        </span><span class="n">duty</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">                  </span><span class="c1">// Increase duty (step size controls smoothness/speed)</span>
+<a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a><span class="w">        </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">ledChannel2</span><span class="p">,</span><span class="w"> </span><span class="n">maxDuty</span><span class="p">);</span><span class="w"> </span><span class="c1">// Ensure max is set (optional)</span>
+<a id="__codelineno-12-45" name="__codelineno-12-45" href="#__codelineno-12-45"></a><span class="w">        </span><span class="n">duty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                         </span><span class="c1">// Reset duty to start ramp again</span>
+<a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-47" name="__codelineno-12-47" href="#__codelineno-12-47"></a>
+<a id="__codelineno-12-48" name="__codelineno-12-48" href="#__codelineno-12-48"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// Wait between updates (controls ramp speed)</span>
+<a id="__codelineno-12-49" name="__codelineno-12-49" href="#__codelineno-12-49"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="using-arduino-esp32-core-3x_1">Using Arduino ESP32 core 3.x<a class="headerlink" href="#using-arduino-esp32-core-3x_1" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// PWM configuration for Arduino-ESP32 v3.x example</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LEDC_FREQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8000</span><span class="p">;</span><span class="w">         </span><span class="c1">// PWM frequency in Hz</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LEDC_RESOLUTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="w">     </span><span class="c1">// PWM resolution in bits (0..(2^resolution - 1))</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1">// ...some code...</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="c1">// Attach/configure PWM on LED_PIN using the new ledc attach API</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="c1">// Parameters: (pin, frequency, resolution)</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="c1">// After this call the pin is configured for PWM with the specified frequency/resolution.</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="n">ledcAttach</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LEDC_FREQ</span><span class="p">,</span><span class="w"> </span><span class="n">LEDC_RESOLUTION</span><span class="p">);</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">    </span><span class="c1">// Write an initial duty value to the PWM channel tied to LED_PIN.</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">    </span><span class="c1">// The valid duty range is 0 .. (2^LEDC_RESOLUTION - 1). For 12-bit resolution that is 0..4095.</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">duty</span><span class="p">);</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">    </span><span class="c1">// ...some code...</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="p">}</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="c1">// ...some code...</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="cp">#define LED_PIN 26</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LEDC_FREQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8000</span><span class="p">;</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LEDC_RESOLUTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>
+<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="kt">int</span><span class="w"> </span><span class="n">duty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>
+<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>
+<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="w">    </span><span class="c1">// Attach PWM to pin with frequency and resolution</span>
+<a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="w">    </span><span class="n">ledcAttach</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LEDC_FREQ</span><span class="p">,</span><span class="w"> </span><span class="n">LEDC_RESOLUTION</span><span class="p">);</span>
+<a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>
+<a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a><span class="p">}</span>
+<a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a>
+<a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>
+<a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a><span class="w">    </span><span class="c1">// For 12-bit resolution the maximum duty is 4095 (2^12 - 1).</span>
+<a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a><span class="w">    </span><span class="c1">// The code ramps duty from 0 up to 4095 in steps, then resets to 0 to repeat.</span>
+<a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">duty</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">4095</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a><span class="w">        </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">duty</span><span class="p">);</span><span class="w"> </span><span class="c1">// Apply current duty to the PWM output</span>
+<a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a><span class="w">        </span><span class="n">duty</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">              </span><span class="c1">// Increase duty (step size controls ramp smoothness/speed)</span>
+<a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a><span class="w">        </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">duty</span><span class="p">);</span><span class="w"> </span><span class="c1">// Ensure final duty is written (optional)</span>
+<a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a><span class="w">        </span><span class="n">duty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                 </span><span class="c1">// Reset duty to start the ramp again</span>
+<a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a>
+<a id="__codelineno-13-49" name="__codelineno-13-49" href="#__codelineno-13-49"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// Pause between updates; controls how fast the brightness changes</span>
+<a id="__codelineno-13-50" name="__codelineno-13-50" href="#__codelineno-13-50"></a><span class="p">}</span>
+</code></pre></div>
+<!-- 
+
+## Working in real Hardware
+
+### Using the M5Core2
+
+### Using the ESP32
+
+## Working in Simulation
+
+
+
+## Troubleshooting
+
+### Using the wrong builder in simulation
+
+### Using the wrong builder with M5Core2 real hardware
+
+### Using the wrong builder with ESP32 real hardware
+
+ --></div>
 
 
 
@@ -2629,7 +2767,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 25, 2025 18:11:57 UTC"><span class="timeago" datetime="2025-09-25T18:11:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 25, 2025 18:11:57 UTC">2025-09-25</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 29, 2025 17:57:19 UTC"><span class="timeago" datetime="2025-09-29T17:57:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 29, 2025 17:57:19 UTC">2025-09-29</span>
   </span>
 
     
@@ -2639,7 +2777,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 25, 2025 18:11:57 UTC"><span class="timeago" datetime="2025-09-25T18:11:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 25, 2025 18:11:57 UTC">2025-09-25</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 29, 2025 17:57:19 UTC"><span class="timeago" datetime="2025-09-29T17:57:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 29, 2025 17:57:19 UTC">2025-09-29</span>
   </span>
 
     
@@ -2676,7 +2814,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab Session 1: Intro to microcontrollers programming">
+          <a href="../lab4/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab Session 2: Incremental Encoders">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2686,20 +2824,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Lab Session 1: Intro to microcontrollers programming
+                Lab Session 2: Incremental Encoders
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../lab2/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab Session 2: Timers">
+          <a href="../../real-time_control_systems/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Lab Session 2: Timers
+                Introduction
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2815,20 +2953,20 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
-        <script src="../../../js/timeago.min.js"></script>
+        <script src="../../js/timeago.min.js"></script>
       
-        <script src="../../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../../javascripts/katex.js"></script>
+        <script src="../../javascripts/katex.js"></script>
       
-        <script src="../../../assets/external/unpkg.com/katex@0/dist/katex.min.js"></script>
+        <script src="../../assets/external/unpkg.com/katex@0/dist/katex.min.js"></script>
       
-        <script src="../../../assets/external/unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+        <script src="../../assets/external/unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
