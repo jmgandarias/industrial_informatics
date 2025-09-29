@@ -4,3 +4,4 @@ nav:
   - "Lab 2: Timers": lab2
   - "Lab 3: PWM": lab3
   - "Lab 4: Incremental Encoders": lab4
+  - "Arduino ESP32 core: 2.x and 3.x versions": arduino_esp32_core

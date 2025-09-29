@@ -15,3 +15,7 @@
 * [**Lab Session 4:** Incremental Encoders](./lab4/README.md).
   
     *Here, you will explore how to use external interruptions to read incremental encoders.*
+
+* [**Arduino ESP32 core::** 2.x and 3.x versions](./arduino_esp32_core/README.md).
+  
+    *Here, you will explore how to use external interruptions to read incremental encoders.*
