@@ -10,7 +10,7 @@ First of all, you need to know that even if the code sinatxis and structure has 
 
 ## Timers
 
-In this course you'll need to program hardware timers. Although the functionalities when using API 2.x or 3.x are the same, the code sintaxis and structure changes a bit.
+In this course you'll need to program hardware timers. Although the functionalities when using the API versions 2.x or 3.x are basically the same, the code sintaxis and structure changes a bit.
 
 ### Using Arduino ESP32 core 2.x
 
@@ -94,7 +94,7 @@ You can find a full example [here](https://wokwi.com/projects/413650184825290753
 hw_timer_t *timer_name = NULL;
 ```
 
-- Here you just need to change the *timer_name* (don't delete the *).
+- Declares a pointer named `timer_name` whose type is `hw_timer_t` (a handle/opaque struct representing a hardware timer on the ESP32) and initializes it to NULL to avoid an uninitialized/dangling pointer. Typical usage: assign the pointer the value returned by `timerBegin(...)`, then use it with API calls such as `timerAttachInterrupt(...)` or `timerAlarmWrite(...)`. Here you just need to change the *timer_name* (don't forget the *).
 
 ```cpp
 timer_name = timerBegin(uint32_t timer_frequency);
@@ -167,6 +167,8 @@ When you pressed the button, the LED will blink five times every 500ms (i.e., 25
 You can find a full example [here](https://wokwi.com/projects/413651733967519745).
 
 ## PWM (LEDC)
+
+In this course you'll need to use PWM signals. 
 
 ### Using Arduino ESP32 core 2.x
 
