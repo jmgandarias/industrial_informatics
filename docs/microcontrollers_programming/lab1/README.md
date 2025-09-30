@@ -2,7 +2,6 @@
 
 **Estimated time:** 1.5h (1 session)
 
-
 ## 1. Working with real hardware
 
 ### 1.1. Turn an LED ON and OFF

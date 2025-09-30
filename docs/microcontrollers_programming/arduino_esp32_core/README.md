@@ -1,14 +1,16 @@
 # Arduino ESP32 core 2.x and 3.x
 
- In 2024, the Arduino‑ESP32 core upgraded, from versions 2.x (based on ESP-IDF 4.4) to version 3.x (based on ESP-IDF 5.1), the underlying API and build system and changed some behaviour around several functionalities.
+ In 2024, the Arduino‑ESP32 core was upgraded from versions 2.x (based on ESP-IDF 4.4) to versions 3.x (based on ESP-IDF 5.1). The underlying API and build system (usually called API or builder) changed some behaviour around several functionalities.
 
- As you'll use PWM and timers extensively in this course, which suffered breaking changes from this update, it's necessary to . Below are the most relevant points, practical guidance and short code examples you can use when porting or writing lab code.
+ As you'll use PWM and timers extensively in this course, which suffered breaking changes from this update, it's necessary to consider which version are you using when developing your programs. Below are the most relevant points, practical guidance and short code examples you can use when porting or writing your code.
 
 For more information about this migration you can check [this website](https://docs.espressif.com/projects/arduino-esp32/en/latest/migration_guides/2.x_to_3.0.html).
 
-First of all, you need to know that even if the code sinatxis and structure has suffered some changed, the results in reality that can be achieved using one or the other (at least for this course) are not being affected by this migration (considering that the code is well developed independently of the API version).
+First of all, you need to know that even if the code sinatxis and structure has suffered some changes, the results in reality that can be achieved using one or another (at least, for what you'll do in this course) are not affected by this migration (considering that the code is well developed independently of the API version).
 
 ## Timers
+
+In this course you'll need to program hardware timers. Although the functionalities when using API 2.x or 3.x are the same, the code sintaxis and structure changes a bit.
 
 ### Using Arduino ESP32 core 2.x
 
@@ -18,10 +20,10 @@ First of all, you need to know that even if the code sinatxis and structure has 
 hw_timer_t *timer_name = NULL;
 ```
 
-- Here you just need to change the *timer_name* (don't delete the *).
+- Declares a pointer named `timer_name` whose type is `hw_timer_t` (a handle/opaque struct representing a hardware timer on the ESP32) and initializes it to NULL to avoid an uninitialized/dangling pointer. Typical usage: assign the pointer the value returned by `timerBegin(...)`, then use it with API calls such as `timerAttachInterrupt(...)` or `timerAlarmWrite(...)`. Here you just need to change the *timer_name* (don't forget the *).
 
 ```cpp
-timerBegin(uint8_t timer_index, uint16_t prescaler, bool count_up);
+timer_name = timerBegin(uint8_t timer_index, uint16_t prescaler, bool count_up);
 ```
 
 - timer_index: ESP32 has 4 timers. The timer index can be 0,1,2,3.
@@ -52,6 +54,12 @@ hw_timer_t *timer = NULL; // Pointer to the hardware timer.
 // hw_timer_t *temporizador_0 = NULL;
 
 // ...some code...
+
+// ISR callback for timer interrupt
+void IRAM_ATTR timerInterrupt()
+{
+    // ...some code...
+}
 
 // setup function
 void setup()
@@ -95,14 +103,14 @@ timer_name = timerBegin(uint32_t timer_frequency);
 - timer_frequency: desired timer tick frequency in Hz (how fast the timer counts).
 
 ```cpp
-timerAttachInterrupt(hw_timer_t *timer_name, void &timerInterrupt);
+timerAttachInterrupt(hw_timer_t timer_name, void &timerInterrupt);
 ```
 
 - timer_name: The first parameter is the same timer name.
 - timer_ISR_name: is the name of the timer callback (don't forget the &).
 
 ```cpp
-timerAlarm(hw_timer_t *timer_name, uint64_t num_ticks, bool autoreload, uint32_t repeat_count);
+timerAlarm(hw_timer_t timer_name, uint64_t num_ticks, bool autoreload, uint32_t repeat_count);
 ```
 
 - timer_name: The first parameter is the same timer name.
@@ -130,6 +138,12 @@ hw_timer_t *temporizador = NULL; // Pointer to the hardware timer.
 int timer_frequency = 1000000; // Timer frequency in Hz (how fast the timer counts)
 
 // ...some code...
+
+// ISR callback for timer interrupt
+void IRAM_ATTR timerInterrupt()
+{
+    // ...some code...
+}
 
 void setup()
 {
@@ -217,8 +231,8 @@ const int LEDC_FREQ = 8000;         // PWM frequency in Hz
 const int LEDC_RESOLUTION = 12;     // PWM resolution in bits (0..(2^resolution - 1))
 
 // ...some code...
-void setup() {
 
+void setup() {
     // Attach/configure PWM on LED_PIN using the new ledc attach API
     // Parameters: (pin, frequency, resolution)
     // After this call the pin is configured for PWM with the specified frequency/resolution.
@@ -229,7 +243,6 @@ void setup() {
     ledcWrite(LED_PIN, duty);
 
     // ...some code...
-
 }
 // ...some code...
 
@@ -242,14 +255,11 @@ const int LEDC_RESOLUTION = 12;
 int duty = 0;
 
 void setup() {
-
     // Attach PWM to pin with frequency and resolution
     ledcAttach(LED_PIN, LEDC_FREQ, LEDC_RESOLUTION);
-
 }
 
 void loop() {
-
     // For 12-bit resolution the maximum duty is 4095 (2^12 - 1).
     // The code ramps duty from 0 up to 4095 in steps, then resets to 0 to repeat.
     if (duty <= 4095) {
