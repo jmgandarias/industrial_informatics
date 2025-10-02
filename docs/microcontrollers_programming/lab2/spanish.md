@@ -8,7 +8,7 @@ El objetivo de esta sesión es aprender las diferentes formas en que un microcon
 
 ## 1. Trabajando con hardware real
 
-## 1.1. Usando una biblioteca externa - _Ticker_
+### 1.1. Usando una biblioteca externa - _Ticker_
 
 La [Biblioteca Ticker de Arduino](https://github.com/sstaub/Ticker?tab=readme-ov-file) permite crear fácilmente callbacks de Ticker, que pueden llamar a una función en un intervalo predeterminado. El siguiente ejemplo muestra cómo realizar operaciones de temporización utilizando la biblioteca _Ticker_ y las funciones ```attach()``` o ```attach_ms()```.
 
@@ -53,7 +53,7 @@ Conecta una LED al _pin 14_ del _M5Core2_ y modifica este ejemplo para que la LE
 
 <img src="images/LED_M5Core2.png" width="60%"/>
 
-## 1.2. Usar temporizadores de hardware
+### 1.2. Usar temporizadores de hardware
 
 Sin embargo, como se indica en la documentación de la biblioteca _Ticker_, "La biblioteca no utiliza interrupciones de los temporizadores de hardware y funciona con las funciones micros() / millis()". Esto significa que nuestra capacidad para desarrollar una aplicación utilizando diferentes configuraciones de temporizador o para implementar aplicaciones multitarea estaría muy limitada si nos restringimos a usar esta biblioteca.
 
@@ -61,4 +61,4 @@ Realiza el ejercicio anterior nuevamente, pero en este caso utiliza una interrup
 
 ## 2. Trabajando en simulación
 
-Puedes realizar exactamente los mismos ejercicios en simulación. Simplemente utiliza el mismo circuito con la LED que usamos en las sesiones de laboratorio anteriores.V
+Puedes realizar exactamente los mismos ejercicios en simulación. Simplemente utiliza el mismo circuito con la LED que usamos en las sesiones de laboratorio anteriores.

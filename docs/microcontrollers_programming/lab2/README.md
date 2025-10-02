@@ -8,7 +8,7 @@ The goal of this session is to learn the different ways a microcontroller can pe
 
 ## 1. Working with real hardware
 
-## 1.1. Using an external library - _Ticker_
+### 1.1. Using an external library - _Ticker_
 
 The [Arduino Ticker Library](https://github.com/sstaub/Ticker?tab=readme-ov-file) allows you to create easily Ticker callbacks, which can call a function in a predetermined interval
 The following example shows how to perform timing operations using the _Ticker_ library and the ```attach()``` or ```attach_ms()``` functions.
@@ -54,7 +54,7 @@ Connect an LED to _pin 14_ of the _M5Core2_ and modify this example so that the 
 
 <img src="images/LED_M5Core2.png" width="60%"/>
 
-## 1.2. Use hardware timers
+### 1.2. Use hardware timers
 
 However, as stated in the _Ticker_ library documentation, "The library use no interupts of the hardware timers and works with the micros() / millis() function." This means that our ability to develop an application using different timer configurations or to implement multitasking applications would be highly limited if we restrict ourselves to using this library.
 
