@@ -4,49 +4,41 @@
 
 ## Descripción
 
-El objetivo de esta práctica es la generación de una señal PWM, así como el control de
-un motor mediante esta señal, junto con otra que permita ajustar el sentido de giro del
-motor. Para esto, se cuenta con un motor de CC, una controladora de motores basada en
-el LM18200, y un M5Core2.ç
+El objetivo de esta práctica es entender la generación y uso de las señales PWM, así como el control de un motor utilizando este tipo de señales. Para esto, se cuenta con un motor de Corriente Continua (CC o DC - Direct Current - en inglés), una controladora de motores (también conocido comúnmente como driver) basada en el puente H L298n, y un M5Core2.
 
 ## 1. Trabajando con hardware real
 
 ### Parte 1 - Generación de PWM con LED
 
 Realizar una prueba de generación de una señal PWM para iluminar más o menos un
-LED conectado al pin 14 del M5Core2. \href{https://www.luisllamas.es/esp32-pwm/}{Este tutorial} explica cómo se puede realizar.
+LED conectado al pin 14 del M5Core2. [Este tutorial](https://www.luisllamas.es/esp32-pwm/) explica cómo se puede realizar.
 
-El LED se tienem que encender de forma progresiva desde el estado completamente apagado (PWM de 0%) hasta el estado completamente encendido (PWM de 100%). Una vez en el 100%, deberá apagarse también de forma progresiva (desde un PWM de 100% hasta un PWM de 0%), siguiendo en ambos casos un perfil tipo "rampa", primero creciente y luego decreciente.
+El LED se tiene que encender de forma progresiva desde el estado completamente apagado (PWM de 0%) hasta el estado completamente encendido (PWM de 100%). Una vez en el 100%, deberá apagarse también de forma progresiva (desde un PWM de 100% hasta un PWM de 0%), siguiendo en ambos casos un perfil tipo "rampa", primero creciente y luego decreciente, como el de la siguiente figura:
+
+<img src="images/PWM_profile.svg" width="80%"/>
 
 ### Parte 2 - Generación de PWM con motor CC
 
-El esquema de la controladora empleada en el laboratorio es el siguiente:
-\begin{figure}[h!]
-        \centering
-    \includegraphics[width=0.7\linewidth]{images/p3/esquema_controladora.png}
-\end{figure}
+La siguiente figura muestra la ubicación de los conectores de la controladora:
 
-El dibujo de la PCB muestra la ubicación de los conectores:
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/p3/ubicacion_conectores.png}
-\end{figure}
+<img src="images/L298n.png" width="60%"/>
 
+Esta controladora permite controlar hasta 2 motores CC de forma simultánea. En la figura anterior, 
 
 Realizar el conexionado del M5Core2 con la controladora de motores (puente H L298N) de la siguiente
 manera:
 
-- GPIO14 a pin IN1 en controladora. Esta salida digital permitirá establecer el sentido del giro del motor.
-- GPIO13 a pin IN2 en controladora. Esta será la salida en la que se generará la señal PWM.
-- GND y VS (en controladora) conectado a una fuente de alimentación de 9-12V. Se puede utilizar también una pila petaca.
-- GND (M5Core2) a GND (Controladora). Imprescindible conectar las masas.
-- Conectar el motor a la controladora en los terminales J1 que aparecen a la derecha.
+- GPIO14 a pin IN1 en la controladora. Esta salida PWM permitirá establecer la potencia del sentido de giro positivo (sentido contrario a las agujas del reloj).
+- GPIO13 a pin IN2 en controladora. Esta salida PWM permitirá establecer la potencia del sentido de giro negativo (sentido de las agujas del reloj).
+- GND y VS (en controladora) conectado a una fuente de alimentación de 9-12V.
+- GND (M5Core2) a GND (Controladora). Es imprescindible conectar las masas de la controladora y del microcontrolador, de lo controlario no se conocería la referencia de las señales PWM.
+- Conectar el motor a la controladora en los terminales del motor A.
+- Es imprescindible que el pin ENA de la controladora esté alimentado, de lo contrario la salida del motor A estaría deshabilitada (para eso dispone de un [jumper](https://es.wikipedia.org/wiki/Jumper_(inform%C3%A1tica)) que nos facilita esto).
 
 Un tutorial sencillo sobre el uso de este driver puede encontrarse en [este enlace](https://naylampmechatronics.com/blog/11_tutorial-de-uso-del-modulo-l298n.html)
 
 Una vez conectado el microcontrolador con el motor, modificar el código del tutorial,
-para que la señal PWM se genere en la salida GPIO13 y hacer que el motor gire en un
-sentido y en el otro.
+para que el motor gire de forma progresiva en el sentido positivo
 
 
 En el \href{https://uma365-my.sharepoint.com/:v:/g/personal/carlosperez_uma_es/EXCrz4-S-dhBosXZ8PBce-sBWoLCzm-CRPONRCxCh5c1lA?e=ZdTElY}{este vídeo} se puede apreciar el resultado esperado de esta práctica.

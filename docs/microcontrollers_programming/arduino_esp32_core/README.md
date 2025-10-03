@@ -276,6 +276,56 @@ void loop() {
 }
 ```
 
+## Working in Simulation with the Arduino ESP32 core 2.x
+
+When you open a new project in wokwi, by default the core 3.x is used. Therefore, if you try to use instructions that correspond to core 2.x, you'll receive a compilation error. 
+
+If you want to use core 2.x in wokwi you can do it by configuring the `diagram.json`. You need to include `"builder": "esp32-core-2.0.3"`in the `"attrs": { }`.
+
+**Example of `diagram.json` with builder 3.x in wokwi:**
+
+```json
+{
+  "version": 1,
+  "author": "Juan M. Gandarias",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -19.2,
+      "left": -33.56,
+      "attrs": { }
+    }
+  ],
+  "connections": [ [ "esp:TX", "$serialMonitor:RX", "", [] ], [ "esp:RX", "$serialMonitor:TX", "", [] ] ],
+  "dependencies": {}
+}
+```
+
+**Example of `diagram.json` with builder 2.x in wokwi:**
+
+```json
+{
+  "version": 1,
+  "author": "Juan M. Gandarias",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -19.2,
+      "left": -33.56,
+      "attrs": { "builder": "esp32-core-2.0.3" }
+    }
+  ],
+  "connections": [ [ "esp:TX", "$serialMonitor:RX", "", [] ], [ "esp:RX", "$serialMonitor:TX", "", [] ] ],
+  "dependencies": {}
+}
+```
+
+
+
 <!-- 
 
 ## Working in real Hardware
@@ -284,7 +334,7 @@ void loop() {
 
 ### Using the ESP32
 
-## Working in Simulation
+
 
 
 
