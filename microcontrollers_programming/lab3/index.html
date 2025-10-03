@@ -2334,11 +2334,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-title" class="md-nav__link">
+  <a href="#descripcion" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Title
+      Descripción
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-trabajando-con-hardware-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Trabajando con hardware real
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Trabajando con hardware real">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parte-1-generacion-de-pwm-con-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 1 - Generación de PWM con LED
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-2-generacion-de-pwm-con-motor-cc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 2 - Generación de PWM con motor CC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-trabajando-en-simulacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Trabajando en simulación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Trabajando en simulación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parte-1-generacion-de-pwm-con-led_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 1 - Generación de PWM con LED
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-2-generacion-de-pwm-con-motor-cc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 2 - Generación de PWM con motor CC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2376,7 +2442,59 @@
 
 <div><h1 id="lab-session-3-pwm">Lab Session 3: PWM<a class="headerlink" href="#lab-session-3-pwm" title="Permanent link">¶</a></h1>
 <p><strong>Estimated time:</strong> 1.5h (1 session)</p>
-<h2 id="1-title">1. Title<a class="headerlink" href="#1-title" title="Permanent link">¶</a></h2></div>
+<h2 id="descripcion">Descripción<a class="headerlink" href="#descripcion" title="Permanent link">¶</a></h2>
+<p>El objetivo de esta práctica es entender la generación y uso de las señales PWM, así como el control de un motor utilizando este tipo de señales. Para esto, se cuenta con un motor de Corriente Continua (CC o DC - Direct Current - en inglés), una controladora de motores basada en
+el el puente H L298n, y un M5Core2.</p>
+<h2 id="1-trabajando-con-hardware-real">1. Trabajando con hardware real<a class="headerlink" href="#1-trabajando-con-hardware-real" title="Permanent link">¶</a></h2>
+<h3 id="parte-1-generacion-de-pwm-con-led">Parte 1 - Generación de PWM con LED<a class="headerlink" href="#parte-1-generacion-de-pwm-con-led" title="Permanent link">¶</a></h3>
+<p>Realizar una prueba de generación de una señal PWM para iluminar más o menos un
+LED conectado al pin 14 del M5Core2. \href{https://www.luisllamas.es/esp32-pwm/}{Este tutorial} explica cómo se puede realizar.</p>
+<p>El LED se tienem que encender de forma progresiva desde el estado completamente apagado (PWM de 0%) hasta el estado completamente encendido (PWM de 100%). Una vez en el 100%, deberá apagarse también de forma progresiva (desde un PWM de 100% hasta un PWM de 0%), siguiendo en ambos casos un perfil tipo "rampa", primero creciente y luego decreciente, como el de la siguiente figura:</p>
+<p><img src="images/PWM_profile.svg" width="80%"></p>
+<h3 id="parte-2-generacion-de-pwm-con-motor-cc">Parte 2 - Generación de PWM con motor CC<a class="headerlink" href="#parte-2-generacion-de-pwm-con-motor-cc" title="Permanent link">¶</a></h3>
+<p>El esquema de la controladora empleada en el laboratorio es el siguiente:
+\begin{figure}[h!]
+        \centering
+    \includegraphics[width=0.7\linewidth]{images/p3/esquema_controladora.png}
+\end{figure}</p>
+<p>El dibujo de la PCB muestra la ubicación de los conectores:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/p3/ubicacion_conectores.png}
+\end{figure}</p>
+<p>Realizar el conexionado del M5Core2 con la controladora de motores (puente H L298N) de la siguiente
+manera:</p>
+<ul>
+<li>GPIO14 a pin IN1 en controladora. Esta salida digital permitirá establecer el sentido del giro del motor.</li>
+<li>GPIO13 a pin IN2 en controladora. Esta será la salida en la que se generará la señal PWM.</li>
+<li>GND y VS (en controladora) conectado a una fuente de alimentación de 9-12V. Se puede utilizar también una pila petaca.</li>
+<li>GND (M5Core2) a GND (Controladora). Imprescindible conectar las masas.</li>
+<li>Conectar el motor a la controladora en los terminales J1 que aparecen a la derecha.</li>
+</ul>
+<p>Un tutorial sencillo sobre el uso de este driver puede encontrarse en <a href="https://naylampmechatronics.com/blog/11_tutorial-de-uso-del-modulo-l298n.html">este enlace</a></p>
+<p>Una vez conectado el microcontrolador con el motor, modificar el código del tutorial,
+para que la señal PWM se genere en la salida GPIO13 y hacer que el motor gire en un
+sentido y en el otro.</p>
+<p>En el \href{https://uma365-my.sharepoint.com/<img alt="✌" class="twemoji" src="../../assets/external/cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/270c.svg" title=":v:">/g/personal/carlosperez_uma_es/EXCrz4-S-dhBosXZ8PBce-sBWoLCzm-CRPONRCxCh5c1lA?e=ZdTElY}{este vídeo} se puede apreciar el resultado esperado de esta práctica.</p>
+<p>\end{document}</p>
+<h2 id="2-trabajando-en-simulacion">2. Trabajando en simulación<a class="headerlink" href="#2-trabajando-en-simulacion" title="Permanent link">¶</a></h2>
+<h3 id="parte-1-generacion-de-pwm-con-led_1">Parte 1 - Generación de PWM con LED<a class="headerlink" href="#parte-1-generacion-de-pwm-con-led_1" title="Permanent link">¶</a></h3>
+<p>El ejercicio se puede realizar exactamente igual en simulación y en real.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para comprobar el correcto funcionamiento del código, es muy importante comporbar que ambos LEDs no están encendidos al mismo tiempo</p>
+</div>
+<h3 id="parte-2-generacion-de-pwm-con-motor-cc_1">Parte 2 - Generación de PWM con motor CC<a class="headerlink" href="#parte-2-generacion-de-pwm-con-motor-cc_1" title="Permanent link">¶</a></h3>
+<p>Este ejercicio no se puede realizar igual en simulación que en real porque en wokwi no existe el componente de motor de corriente continua. Sin embargo, existen varias formas de trabajar en simulación para hacer el prototipado del código para el motor.</p>
+<p>Una forma sencilla sería utilizar 2 LEDs, donde el LED1 simularía el comportamiento del motor cuando gira en sentido horario, mientras el LED2 simularía el comportamiento del motor cuando gira en sentido antihorario. De esta forma, se pueden programar las señales PWM de ambos LEDs de forma similar a las señales PWM que se van a enviar a IN1 e IN2 en la controladora (que harán que el motor gire en sentido horario o antihorario).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Para comprobar el correcto funcionamiento del código, es muy importante comporbar que ambos LEDs no están encendidos a la vez.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Al trabajar con PWM en wokwi, el factor de tiempo real puede disminuir considerablemnte, especialmente si se generan varias PWMs y se cambia el ciclo de trabajo en cada paso del loop. Para evitar esto, es aconsejable cambiar el ciclo de trabajo de forma escalonada cada varios varios pasos del loop o con un tiempo de espera lo suficientemente grande.</p>
+</div></div>
 
 
 
@@ -2399,7 +2517,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 2, 2025 06:02:42 UTC"><span class="timeago" datetime="2025-10-02T06:02:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 2, 2025 06:02:42 UTC">2025-10-02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 3, 2025 09:14:33 UTC"><span class="timeago" datetime="2025-10-03T09:14:33+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 3, 2025 09:14:33 UTC">2025-10-03</span>
   </span>
 
     
