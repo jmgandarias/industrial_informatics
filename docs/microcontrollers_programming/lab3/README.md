@@ -1,76 +1,63 @@
 # Lab Session 3: PWM
 
-**Estimated time:** 1.5h (1 session)
+**Estimated time:** 1.5 h (1 session)
 
-## Descripción
+## Description
 
-El objetivo de esta práctica es entender la generación y uso de las señales PWM, así como el control de un motor utilizando este tipo de señales. Para esto, se cuenta con un motor de Corriente Continua (CC o DC - Direct Current - en inglés), una controladora de motores basada en
-el el puente H L298n, y un M5Core2.
+The goal of this lab session is to understand the generation and use of PWM signals, as well as controlling a DC motor using these signals. For this lab you have a DC motor, a motor driver based on the L298N H-bridge, and an M5Core2.
 
-## 1. Trabajando con hardware real
+## 1. Working with real hardware
 
-### Parte 1 - Generación de PWM con LED
+### Part 1 - Generating PWM with an LED
 
-Realizar una prueba de generación de una señal PWM para iluminar más o menos un
-LED conectado al pin 14 del M5Core2. \href{https://www.luisllamas.es/esp32-pwm/}{Este tutorial} explica cómo se puede realizar.
+Perform a test that generates a PWM signal to vary the brightness of an LED connected to pin 14 of the M5Core2. [This tutorial](https://www.luisllamas.es/esp32-pwm/) explains how to do it.
 
-El LED se tienem que encender de forma progresiva desde el estado completamente apagado (PWM de 0%) hasta el estado completamente encendido (PWM de 100%). Una vez en el 100%, deberá apagarse también de forma progresiva (desde un PWM de 100% hasta un PWM de 0%), siguiendo en ambos casos un perfil tipo "rampa", primero creciente y luego decreciente, como el de la siguiente figura:
+The LED must smoothly increase brightness from completely off (0% PWM) to fully on (100% PWM). Once at 100%, it must smoothly dim back down to 0% PWM. Both the rising and falling phases should follow a "ramp" profile, like the figure below:
 
 <img src="images/PWM_profile.svg" width="80%"/>
 
-### Parte 2 - Generación de PWM con motor CC
+### Part 2 - Generating PWM for a DC motor
 
-El esquema de la controladora empleada en el laboratorio es el siguiente:
-\begin{figure}[h!]
-        \centering
-    \includegraphics[width=0.7\linewidth]{images/p3/esquema_controladora.png}
-\end{figure}
+The image below shows the connector layout of the motor driver:
 
-El dibujo de la PCB muestra la ubicación de los conectores:
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/p3/ubicacion_conectores.png}
-\end{figure}
+<img src="images/L298n.png" width="60%"/>
 
+This driver can control up to two DC motors simultaneously. In the previous image, the green ports correspond to motor A and the yellow ports to motor B.
 
-Realizar el conexionado del M5Core2 con la controladora de motores (puente H L298N) de la siguiente
-manera:
+Wire the M5Core2 to the L298N motor driver as follows:
 
-- GPIO14 a pin IN1 en controladora. Esta salida digital permitirá establecer el sentido del giro del motor.
-- GPIO13 a pin IN2 en controladora. Esta será la salida en la que se generará la señal PWM.
-- GND y VS (en controladora) conectado a una fuente de alimentación de 9-12V. Se puede utilizar también una pila petaca.
-- GND (M5Core2) a GND (Controladora). Imprescindible conectar las masas.
-- Conectar el motor a la controladora en los terminales J1 que aparecen a la derecha.
+- `GPIO14` to `IN1` on the driver. This PWM output will set the power for the positive rotation direction (counterclockwise).
+- `GPIO13` to `IN2` on the driver. This PWM output will set the power for the negative rotation direction (clockwise).
+- Connect `GND` and `VS` (on the driver) to a 9–12 V power supply.
+- Connect `GND` (M5Core2) to `GND` (driver). It is essential to share grounds; otherwise the PWM signal reference is undefined.
+- Connect the motor to the motor A terminals on the driver.
+- Ensure the `ENA` pin on the driver is powered/enabled; otherwise motor A output will be disabled. The driver includes a [jumper](https://es.wikipedia.org/wiki/Jumper_(inform%C3%A1tica)) that can power `ENA` from its onboard 5 V regulator.
 
-Un tutorial sencillo sobre el uso de este driver puede encontrarse en [este enlace](https://naylampmechatronics.com/blog/11_tutorial-de-uso-del-modulo-l298n.html)
+A simple tutorial on using this driver can be found [here](https://naylampmechatronics.com/blog/11_tutorial-de-uso-del-modulo-l298n.html).
 
-Una vez conectado el microcontrolador con el motor, modificar el código del tutorial,
-para que la señal PWM se genere en la salida GPIO13 y hacer que el motor gire en un
-sentido y en el otro.
+After wiring the microcontroller to the motor, modify the tutorial code so that the motor accelerates in the positive direction from 0% PWM to 100% PWM, then decelerates from 100% back to 0% PWM. After completing accelerate/decelerate in the positive direction, repeat the same sequence in the negative direction, then loop this sequence indefinitely. The profile should be similar to the following image:
 
+<img src="images/motor_profile.svg" width="80%"/>
 
-En el \href{https://uma365-my.sharepoint.com/:v:/g/personal/carlosperez_uma_es/EXCrz4-S-dhBosXZ8PBce-sBWoLCzm-CRPONRCxCh5c1lA?e=ZdTElY}{este vídeo} se puede apreciar el resultado esperado de esta práctica.
+!!! question
+    - What happens when the PWM frequency is changed? Test frequencies between 1 kHz and 10 kHz.
+    - What happens when the PWM resolution is changed? Test resolutions between 8 and 10 bits.
+    - If the resolution is changed, is any other code change required or is it sufficient to update the resolution value passed to ledcSetup?
 
-\end{document}
+## 2. Working in simulation
 
+### Part 1 - Generating PWM with an LED
 
-## 2. Trabajando en simulación
+This exercise can be performed the same way in simulation as on real hardware.
 
-### Parte 1 - Generación de PWM con LED
+### Part 2 - Generating PWM for a DC motor
 
-El ejercicio se puede realizar exactamente igual en simulación y en real.
+This exercise cannot be performed exactly the same in simulation because Wokwi does not include a DC motor component. However, there are ways to prototype motor code in simulation.
 
-!!! tip
-    Para comprobar el correcto funcionamiento del código, es muy importante comporbar que ambos LEDs no están encendidos al mismo tiempo
+A simple approach is to use two LEDs: LED1 simulates the motor behavior when rotating clockwise, and LED2 simulates rotation counterclockwise. Program the PWM signals for both LEDs in the same way you would for IN1 and IN2 on the driver. This lets you validate the PWM logic that will be used for the real motor.
 
-### Parte 2 - Generación de PWM con motor CC
-
-Este ejercicio no se puede realizar igual en simulación que en real porque en wokwi no existe el componente de motor de corriente continua. Sin embargo, existen varias formas de trabajar en simulación para hacer el prototipado del código para el motor.
-
-Una forma sencilla sería utilizar 2 LEDs, donde el LED1 simularía el comportamiento del motor cuando gira en sentido horario, mientras el LED2 simularía el comportamiento del motor cuando gira en sentido antihorario. De esta forma, se pueden programar las señales PWM de ambos LEDs de forma similar a las señales PWM que se van a enviar a IN1 e IN2 en la controladora (que harán que el motor gire en sentido horario o antihorario).
-
-!!! warning
-    Para comprobar el correcto funcionamiento del código, es muy importante comporbar que ambos LEDs no están encendidos a la vez.
+!!! info
+    - To verify correct operation, ensure both simulated motor LEDs are never on at the same time.
 
 !!! tip
-    Al trabajar con PWM en wokwi, el factor de tiempo real puede disminuir considerablemnte, especialmente si se generan varias PWMs y se cambia el ciclo de trabajo en cada paso del loop. Para evitar esto, es aconsejable cambiar el ciclo de trabajo de forma escalonada cada varios varios pasos del loop o con un tiempo de espera lo suficientemente grande.
+    - When using PWM in Wokwi, real-time performance may degrade significantly if many PWM updates occur each loop iteration. To avoid this, change duty cycle in steps every several loop iterations or add a sufficiently large delay between updates. I.e., use a steps-like signal instead of a ramp-like signal.
