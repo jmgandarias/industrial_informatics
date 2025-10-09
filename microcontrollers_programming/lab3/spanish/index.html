@@ -2453,7 +2453,7 @@ LED conectado al pin 14 del M5Core2. <a href="https://www.luisllamas.es/esp32-pw
 <h3 id="parte-2-generacion-de-pwm-con-motor-cc">Parte 2 - Generación de PWM con motor CC<a class="headerlink" href="#parte-2-generacion-de-pwm-con-motor-cc" title="Permanent link">¶</a></h3>
 <p>La siguiente figura muestra la ubicación de los conectores de la controladora:</p>
 <p><img src="images/L298n.png" width="60%"></p>
-<p>Esta controladora permite controlar hasta 2 motores CC de forma simultánea. En la figura anterior, </p>
+<p>Esta controladora permite controlar hasta 2 motores CC de forma simultánea. En la figura anterior, los puertos en verde se corresponderían con el motor A y los amarillos con el motor B.</p>
 <p>Realizar el conexionado del M5Core2 con la controladora de motores (puente H L298N) de la siguiente
 manera:</p>
 <ul>
@@ -2462,31 +2462,32 @@ manera:</p>
 <li>GND y VS (en controladora) conectado a una fuente de alimentación de 9-12V.</li>
 <li>GND (M5Core2) a GND (Controladora). Es imprescindible conectar las masas de la controladora y del microcontrolador, de lo controlario no se conocería la referencia de las señales PWM.</li>
 <li>Conectar el motor a la controladora en los terminales del motor A.</li>
-<li>Es imprescindible que el pin ENA de la controladora esté alimentado, de lo contrario la salida del motor A estaría deshabilitada (para eso dispone de un <a href="https://es.wikipedia.org/wiki/Jumper_(inform%C3%A1tica)">jumper</a> que nos facilita esto).</li>
+<li>Es imprescindible que el pin ENA de la controladora esté alimentado, de lo contrario la salida del motor A estaría deshabilitada (para eso se dispone de un <a href="https://es.wikipedia.org/wiki/Jumper_(inform%C3%A1tica)">jumper</a> que permite alimentar el pin ENA con el regulador de 5V que incluye el propio driver).</li>
 </ul>
 <p>Un tutorial sencillo sobre el uso de este driver puede encontrarse en <a href="https://naylampmechatronics.com/blog/11_tutorial-de-uso-del-modulo-l298n.html">este enlace</a></p>
 <p>Una vez conectado el microcontrolador con el motor, modificar el código del tutorial,
-para que el motor gire de forma progresiva en el sentido positivo</p>
-<p>En el \href{https://uma365-my.sharepoint.com/<img alt="✌" class="twemoji" src="../../../assets/external/cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/270c.svg" title=":v:">/g/personal/carlosperez_uma_es/EXCrz4-S-dhBosXZ8PBce-sBWoLCzm-CRPONRCxCh5c1lA?e=ZdTElY}{este vídeo} se puede apreciar el resultado esperado de esta práctica.</p>
-<p>\end{document}</p>
+para que el motor gire acelerando en el sentido de giro positivo desde un PWM de 0% hasta uno de 100%, y luego decelerando desde el PWM de 100% hasta el 0%. Cuando se haya hecho la aceleración y deceleración en el sentido de giro positivo, se deberá hacer lo mismo pero en sentido negativo de giro y seguir realizando esta secuencia de forma indefinida en el tiempo. Como se indica en la siguiente imagen:</p>
+<p><img src="images/motor_profile.svg" width="80%"></p>
+<p><strong>PREGUNTA:</strong></p>
+<ul>
+<li>¿Qué ocurre cuando se cambia la frecuencia del PWM? Probar con frecuencias entre 1 y 10 kHz.</li>
+<li>¿Qué ocurre cuando se cambia la resolución del PWM? Probar con resoluciones entre 8 y 10 bits. </li>
+<li>Si se cambia la resolución, ¿hay que cambiar algo más del código o basta con cambiar el valor de la resolución en la función <code>ledcSetup</code>?</li>
+</ul>
 <h2 id="2-trabajando-en-simulacion">2. Trabajando en simulación<a class="headerlink" href="#2-trabajando-en-simulacion" title="Permanent link">¶</a></h2>
 <h3 id="parte-1-generacion-de-pwm-con-led_1">Parte 1 - Generación de PWM con LED<a class="headerlink" href="#parte-1-generacion-de-pwm-con-led_1" title="Permanent link">¶</a></h3>
 <p>El ejercicio se puede realizar exactamente igual en simulación y en real.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Para comprobar el correcto funcionamiento del código, es muy importante comporbar que ambos LEDs no están encendidos al mismo tiempo</p>
-</div>
 <h3 id="parte-2-generacion-de-pwm-con-motor-cc_1">Parte 2 - Generación de PWM con motor CC<a class="headerlink" href="#parte-2-generacion-de-pwm-con-motor-cc_1" title="Permanent link">¶</a></h3>
 <p>Este ejercicio no se puede realizar igual en simulación que en real porque en wokwi no existe el componente de motor de corriente continua. Sin embargo, existen varias formas de trabajar en simulación para hacer el prototipado del código para el motor.</p>
 <p>Una forma sencilla sería utilizar 2 LEDs, donde el LED1 simularía el comportamiento del motor cuando gira en sentido horario, mientras el LED2 simularía el comportamiento del motor cuando gira en sentido antihorario. De esta forma, se pueden programar las señales PWM de ambos LEDs de forma similar a las señales PWM que se van a enviar a IN1 e IN2 en la controladora (que harán que el motor gire en sentido horario o antihorario).</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Para comprobar el correcto funcionamiento del código, es muy importante comporbar que ambos LEDs no están encendidos a la vez.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Al trabajar con PWM en wokwi, el factor de tiempo real puede disminuir considerablemnte, especialmente si se generan varias PWMs y se cambia el ciclo de trabajo en cada paso del loop. Para evitar esto, es aconsejable cambiar el ciclo de trabajo de forma escalonada cada varios varios pasos del loop o con un tiempo de espera lo suficientemente grande.</p>
-</div></div>
+<p><strong>INFO:</strong></p>
+<ul>
+<li>Para comprobar el correcto funcionamiento del código, es muy importante comporbar que ambos LEDs no están encendidos a la vez.</li>
+</ul>
+<p><strong>PISTA:</strong></p>
+<ul>
+<li>Al trabajar con PWM en wokwi, el factor de tiempo real puede disminuir considerablemnte, especialmente si se generan varias PWMs y se cambia el ciclo de trabajo en cada paso del loop. Para evitar esto, es aconsejable cambiar el ciclo de trabajo de forma escalonada cada varios varios pasos del loop o con un tiempo de espera lo suficientemente grande.</li>
+</ul></div>
 
 
 
@@ -2509,7 +2510,7 @@ para que el motor gire de forma progresiva en el sentido positivo</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 3, 2025 09:14:33 UTC"><span class="timeago" datetime="2025-10-03T09:14:33+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 3, 2025 09:14:33 UTC">2025-10-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 9, 2025 18:21:32 UTC"><span class="timeago" datetime="2025-10-09T18:21:32+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 9, 2025 18:21:32 UTC">2025-10-09</span>
   </span>
 
     
