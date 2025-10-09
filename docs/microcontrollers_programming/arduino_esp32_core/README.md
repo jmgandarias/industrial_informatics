@@ -168,69 +168,93 @@ You can find a full example [here](https://wokwi.com/projects/413651733967519745
 
 ## PWM (LEDC)
 
-In this course you'll need to use PWM signals. 
+In this course you'll need to use PWM signals. Although the functionalities when using the API versions 2.x or 3.x are basically the same, the code sintaxis and structure changes a bit.
 
 ### Using Arduino ESP32 core 2.x
 
+#### List of instructions
+
 ```cpp
-const int ledChannel = 0;
+void ledcSetup(uint8_t channel, uint32_t frequency, uint8_t resolution);
+```
+
+- channel: LEDC channel number (use a free channel, typically 0..15).
+- frequency: PWM frequency in Hz.
+- resolution: PWM resolution in bits; duty values range 0 .. ($2^{resolution} - 1$).
+
+```cpp
+void ledcAttachPin(uint8_t pin, uint8_t channel);
+```
+
+Connects (maps) the specified GPIO `pin` to the given LEDC PWM `channel` so the channel's PWM output is driven on that pin.
+
+```cpp
+void ledcWrite(uint8_t channel, uint32_t duty);
+```
+
+Sets the PWM `duty` cycle (from 0 to $2^{resolution} - 1$)  for a configured LEDC output — updates the output on the `channel` so the pin associated to that channel changes its PWM duty cycle.
+
+
+#### Minimal example
+
+```cpp
+#define LED_PIN 26
+
+const int led_channel = 0;
 const int frequency = 8000;
 const int resolution = 12;
+
+int duty = 0;
 
 // ...some code...
 
 void setup() {
     // Configure the LEDC PWM channel with specified frequency and resolution
-    ledcSetup(ledChannel, frequency, resolution);
+    ledcSetup(led_channel, frequency, resolution);
 
     // Attach the configured PWM channel to the LED pin
-    ledcAttachPin(LED_PIN, ledChannel);
+    ledcAttachPin(LED_PIN, led_channel);
 
     // Example: write an initial duty value to the channel
     // ledcWrite(channel, duty) accepts values in range 0..(2^resolution - 1)
-    ledcWrite(ledChannel, duty);
+    ledcWrite(led_channel, duty);
 }
 
 // ...some code...
 
-#define LED_PIN 26          // GPIO pin used for the LED
-
-const int ledChannel2 = 0;  // LEDC channel used in the example
-const int frequency2 = 8000;
-const int resolution2 = 12;
-
-int duty = 0;                // Current PWM duty (0 .. 4095 for 12-bit resolution)
-
-void setup() {
-    // Initialize PWM channel and attach pin
-    ledcSetup(ledChannel2, frequency2, resolution2);
-    ledcAttachPin(LED_PIN, ledChannel2);
-}
-
-void loop() {
-    // Compute maximum duty for the chosen resolution (12 bits => 4095)
-    const int maxDuty = (1 << resolution2) - 1;
-
-    // Ramp the duty from 0 to maxDuty in steps to change LED brightness
-    if (duty <= maxDuty) {
-        ledcWrite(ledChannel2, duty); // Apply duty value to the PWM channel
-        duty += 100;                  // Increase duty (step size controls smoothness/speed)
-    } else {
-        ledcWrite(ledChannel2, maxDuty); // Ensure max is set (optional)
-        duty = 0;                         // Reset duty to start ramp again
-    }
-
-    delay(100); // Wait between updates (controls ramp speed)
-}
 ```
 
+#### Full example
+
+You can find a full example [here](https://wokwi.com/projects/443448920632974337).
 
 ### Using Arduino ESP32 core 3.x
 
+#### List of instructions
+
 ```cpp
+void ledcAttach(uint8_t pin, uint32_t frequency, uint8_t resolution);
+```
+
+- pin: GPIO pin number to use for PWM (can be treated as int in sketches).
+- frequency: PWM frequency in Hz.
+- resolution: PWM resolution in bits (duty range 0 .. $2^{resolution} - 1$).
+
+```cpp
+void ledcWrite(uint8_t pin, uint32_t duty); 
+```
+
+- Sets the PWM `duty` cycle (from 0 to $2^{resolution} - 1$)  for a configured LEDC output — updates the output on the the pin and changes its PWM duty cycle.
+
+#### Minimal example
+
+```cpp
+#define LED_PIN 26
+
 // PWM configuration for Arduino-ESP32 v3.x example
-const int LEDC_FREQ = 8000;         // PWM frequency in Hz
-const int LEDC_RESOLUTION = 12;     // PWM resolution in bits (0..(2^resolution - 1))
+const int ledc_freq = 8000;         // PWM frequency in Hz
+const int ledc_resolution = 12;     // PWM resolution in bits (0..(2^resolution - 1))
+int duty = 0;
 
 // ...some code...
 
@@ -238,10 +262,10 @@ void setup() {
     // Attach/configure PWM on LED_PIN using the new ledc attach API
     // Parameters: (pin, frequency, resolution)
     // After this call the pin is configured for PWM with the specified frequency/resolution.
-    ledcAttach(LED_PIN, LEDC_FREQ, LEDC_RESOLUTION);
+    ledcAttach(LED_PIN, ledc_freq, ledc_resolution);
 
     // Write an initial duty value to the PWM channel tied to LED_PIN.
-    // The valid duty range is 0 .. (2^LEDC_RESOLUTION - 1). For 12-bit resolution that is 0..4095.
+    // The valid duty range is 0 .. (2^ledc_resolution - 1). For 12-bit resolution that is 0..4095.
     ledcWrite(LED_PIN, duty);
 
     // ...some code...
@@ -249,32 +273,12 @@ void setup() {
 // ...some code...
 
 
-#define LED_PIN 26
-
-const int LEDC_FREQ = 8000;
-const int LEDC_RESOLUTION = 12;
-
-int duty = 0;
-
-void setup() {
-    // Attach PWM to pin with frequency and resolution
-    ledcAttach(LED_PIN, LEDC_FREQ, LEDC_RESOLUTION);
-}
-
-void loop() {
-    // For 12-bit resolution the maximum duty is 4095 (2^12 - 1).
-    // The code ramps duty from 0 up to 4095 in steps, then resets to 0 to repeat.
-    if (duty <= 4095) {
-        ledcWrite(LED_PIN, duty); // Apply current duty to the PWM output
-        duty += 100;              // Increase duty (step size controls ramp smoothness/speed)
-    } else {
-        ledcWrite(LED_PIN, duty); // Ensure final duty is written (optional)
-        duty = 0;                 // Reset duty to start the ramp again
-    }
-
-    delay(100); // Pause between updates; controls how fast the brightness changes
-}
 ```
+
+#### Full example
+
+You can find a full example [here](https://wokwi.com/projects/443449136939563009).
+
 
 ## Working in Simulation with the Arduino ESP32 core 2.x
 
