@@ -24,7 +24,7 @@
     
     
       
-        <title>Lab Session 4: Encóder - Industrial Informatics Course</title>
+        <title>Lab Session 4: Encoder - Industrial Informatics Course</title>
       
     
     
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab Session 4: Encóder
+              Lab Session 4: Encoder
             
           </span>
         </div>
@@ -2397,46 +2397,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#descripcion" class="md-nav__link">
+  <a href="#description" class="md-nav__link">
     <span class="md-ellipsis">
-      Descripción
+      Description
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#trabajando-con-el-hardware-real" class="md-nav__link">
+  <a href="#working-with-real-hardware" class="md-nav__link">
     <span class="md-ellipsis">
-      Trabajando con el hardware real
+      Working with real hardware
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Trabajando con el hardware real">
+    <nav class="md-nav" aria-label="Working with real hardware">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#parte-1-identificacion-de-senales" class="md-nav__link">
+  <a href="#part-1-signal-identification" class="md-nav__link">
     <span class="md-ellipsis">
-      Parte 1 - Identificación de señales
+      Part 1 - Signal identification
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#parte-2-contador-de-pulsos-en-el-encoder" class="md-nav__link">
+  <a href="#part-2-counting-encoder-pulses" class="md-nav__link">
     <span class="md-ellipsis">
-      Parte 2 - Contador de pulsos en el encoder
+      Part 2 - Counting encoder pulses
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#parte-3-contar-pulsos-por-vuelta" class="md-nav__link">
+  <a href="#part-3-pulses-per-revolution" class="md-nav__link">
     <span class="md-ellipsis">
-      Parte 3 - Contar pulsos por vuelta
+      Part 3 - Pulses per revolution
     </span>
   </a>
   
@@ -2448,9 +2448,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#trabajando-en-simulacion" class="md-nav__link">
+  <a href="#working-in-simulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Trabajando en simulación
+      Working in simulation
     </span>
   </a>
   
@@ -2488,65 +2488,87 @@
   
 
 
-<div><h1 id="lab-session-4-encoder">Lab Session 4: Encóder<a class="headerlink" href="#lab-session-4-encoder" title="Permanent link">¶</a></h1>
-<p><strong>Estimated time:</strong> 1.5h (1 session)</p>
-<h2 id="descripcion">Descripción<a class="headerlink" href="#descripcion" title="Permanent link">¶</a></h2>
-<p>Para conocer la posición en la que se encuentra el eje de un motor se suelen emplear encoders incrementales. El objetivo de esta práctica es la programación de la lectura de este tipo de sensores, de manera que podamos conocer la posición exacta (asumiendo el error debido a la resolución del propio sensor) en la que se encuentra el eje del motor en cada instante de tiempo.</p>
-<p>El encoder incremental, normalmente posee 4 señales:</p>
+<div><h1 id="lab-session-4-encoder">Lab Session 4: Encoder<a class="headerlink" href="#lab-session-4-encoder" title="Permanent link">¶</a></h1>
+<p><strong>Estimated time:</strong> 1.5 h (1 session)</p>
+<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">¶</a></h2>
+<p>To know the angular position of a motor shaft, incremental encoders are commonly used. The objective of this lab is to program the reading of this kind of sensor so we can know the exact position (subject to the encoder resolution) of the motor shaft at any instant.</p>
+<p>An incremental encoder usually provides 4 signals:</p>
 <ul>
-<li>GND: Masa.</li>
-<li>Vcc: Alimentación (3-5V).</li>
-<li>Canal A: Canal A del encoder</li>
-<li>Canal B: Canal B del encoder.</li>
+<li>GND: Ground.</li>
+<li>Vcc: Supply (3–5 V).</li>
+<li>Channel A: Encoder channel A.</li>
+<li>Channel B: Encoder channel B.</li>
 </ul>
-<p><strong>IMPORTANTE:</strong> En la práctica, el encóder se alimenta directamente desde un regulador interno de 5V del que dispone la electrónica del equipo. Eso quiere decir que no es necesario alimentar el encóder externamente. Sin embargo, sí es necesario tener en cuenta GND como referencia para las señales recibidas por los canales A y B.</p>
-<p>Si conectamos estos dos canales a un osciloscopio y movemos el eje del motor, podremos apreciar que la señal que se generan en estos dos canales es como la que se muestra en la imagen.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the lab, the encoder is powered directly from an internal 5 V regulator provided by the equipment electronics. That means it is not necessary to power the encoder externally. However, GND must be considered as the reference for the A and B signals.</p>
+</div>
+<p>If you connect both channels to an oscilloscope and rotate the motor shaft, you will see signals like those in the image:</p>
 <p><img src="images/osciloscopio.png" width="50%"></p>
-<p><strong>IMPORTANTE</strong>: Si no se mueve el eje del motor, no se verá ningún cambio en las señales.</p>
-<h2 id="trabajando-con-el-hardware-real">Trabajando con el hardware real<a class="headerlink" href="#trabajando-con-el-hardware-real" title="Permanent link">¶</a></h2>
-<h3 id="parte-1-identificacion-de-senales">Parte 1 - Identificación de señales<a class="headerlink" href="#parte-1-identificacion-de-senales" title="Permanent link">¶</a></h3>
-<p>Conectar el osciloscopio al encoder e identificar el color de cada una de señales descritas anteriormente en el motor que se va a emplear. Apuntar esta relación color-señal para poder usarla posteriormente con el microcontrolador. Conectar las señales de los canales A y B, así como la masa al osciloscopio y comprobar que la respuesta de los dos canales es como la de la imagen anterior. Se recomienda utilizar el botón <em>Run/Stop</em> del osciloscopio para detener la lectura mientras el motor se encuentra girando y así poder observarla bien.</p>
-<p>Conectar la masa del encoder (GND) al microcontrolador, y los canales A y B a las entradas digitales <code>GPIO 27</code> y <code>GPIO 19</code>. Esta conexión no se puede hacer directamente tal y como se describe a continuación.</p>
-<p><strong>IMPORTANTE:</strong> El encóder está alimentado a una tensión de 5V. Eso quiere decir que las señales de los canales A y B en estado alto y sin carga externa proporcionan una tensión de 5V. Sin embargo, la electrónica del ESP32 funciona a 3.3V. Es decir, no se deberían conectar los canales A y B a las entradas digitales del microcontrolador directamente. Para resolver este problema se puede utilizar un divisor de tensión. Para implementarlo, hay que tener en cuenta la electrónica interna del encóder (ver imagen siguiente).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the shaft is not moved, the signals will not change.</p>
+</div>
+<h2 id="working-with-real-hardware">Working with real hardware<a class="headerlink" href="#working-with-real-hardware" title="Permanent link">¶</a></h2>
+<h3 id="part-1-signal-identification">Part 1 - Signal identification<a class="headerlink" href="#part-1-signal-identification" title="Permanent link">¶</a></h3>
+<p>Connect the oscilloscope to the encoder and identify the colour of each signal on the motor to be used. Record this colour-to-signal mapping for later use with the microcontroller. Connect channels A and B and ground to the oscilloscope and verify that the responses match the image above. It is recommended to use the oscilloscope Run/Stop button to freeze the waveform while the motor is turning so you can inspect it.</p>
+<p>Connect the encoder ground (GND) to the microcontroller, and channels A and B to the digital inputs GPIO 27 and GPIO 19. This connection cannot be made directly as described below.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The encoder is powered at 5 V. That means the A and B signals, when high and unloaded, present 5 V. The ESP32 electronics works at 3.3 V, so you must not connect A and B directly to the microcontroller inputs. Use a voltage divider. Consider the encoder internal electronics (see image below).</p>
+</div>
 <p><img src="images/encoder_pull_up.png" width="60%"></p>
-<p>Los canales A y B ya disponen de una resistencia pull-up de <span class="arithmatex">\(3.3 k\Omega\)</span>. Por lo tanto, para realizar el divisor de tensión sólo será necesario incluir la resistencia de la parte baja del divisor de tensión.</p>
+<p>The A and B channels already include a 3.3 kΩ pull-up resistor. Therefore, to build the divider you only need to add the lower resistor of the divider.</p>
 <p><img src="images/encoder_electronics.svg" width="80%"></p>
-<p><strong>PREGUNTA:</strong> ¿Cuál es el valor teórico de la resistencia <span class="arithmatex">\(R\)</span> que hay que colocar en la parte baja del divisor de tensión para que la tensión de los canales A y B pase de 5V a 3.3V cuando estén en estado alto?</p>
-<p>Montar el circuito con el divisor de tensión y asegurarse midiendo con el osciloscopio que la tensión de los canales A y B en estado alto no supera los 3.3V.</p>
-<h3 id="parte-2-contador-de-pulsos-en-el-encoder">Parte 2 - Contador de pulsos en el encoder<a class="headerlink" href="#parte-2-contador-de-pulsos-en-el-encoder" title="Permanent link">¶</a></h3>
-<p>Desarrollar un código Arduino que permita contar los pulsos generados por ambas señales. Almacenar esta cuenta en una variable global, y tener en cuenta los cambios de sentido para incrementar o decrementar el contador. Emplear las interrupciones de las entradas digitales para ello.</p>
-<p>Para contar los pulsos es necesario tener en cuenta los flancos de subida y/o de bajada de cada canal. Además, será necesario ver el estado de los canales después del flanco. Por ejemplo: Si hay un flanco de subida de A, y tanto A como B están en estado alto, se está girando en un sentido (positivo, por ejemplo, por lo que hay que aumentar el contador). Si, por el contrario, después del flanco de subida de A, A está en estado alto pero B está en bajo, significa que se está girando en sentido contrario (negativo, en este caso, por lo que habría que disminuir el contador). A continuación se representa un ejemplo en el que se está girando en un sentido determinado. Se puede ver cómo la señal B va "adelantada" a la A. Si se girase en sentido contrario, se vería cómo A "adelanta" a B. Esto se puede comprobar en el osciloscopio y el motor real girándolo con la mano en un sentido u otro.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is the theoretical value of the resistor R to place as the lower resistor of the divider so that the channels A and B go from 5 V to 3.3 V when high?</p>
+</div>
+<p>Assemble the circuit with the divider and verify with the oscilloscope that the high-level voltage on channels A and B does not exceed 3.3 V.</p>
+<h3 id="part-2-counting-encoder-pulses">Part 2 - Counting encoder pulses<a class="headerlink" href="#part-2-counting-encoder-pulses" title="Permanent link">¶</a></h3>
+<p>Develop Arduino code to count pulses generated by both signals. Store the count in a global variable and account for direction changes to increment or decrement the counter. Use interrupts on the digital inputs.</p>
+<p>To count pulses you must consider rising and/or falling edges of each channel and read the state of the other channel after the edge. For example: if there is a rising edge on A, and both A and B are high after the edge, rotation is in one direction (positive — increment the counter). If after a rising edge on A, A is high and B is low, rotation is in the opposite direction (negative — decrement the counter). The figure below shows an example where B leads A (rotation in one direction). If rotation reversed, A would lead B. You can verify this on the oscilloscope or by turning the motor by hand.</p>
 <p><img src="images/encoder_signal.svg" width="80%"></p>
-<p>Ejemplo de implementación de manejador de interrupción:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">ICACHE_RAM_ATTR</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">ISR_Ejemplo</span><span class="p">()</span>
+<p>Example of an interrupt handler implementation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">ICACHE_RAM_ATTR</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">ISR_Example</span><span class="p">()</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p">...</span><span class="w">  </span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p">...</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
 </code></pre></div>
-<p>El valor del contador se puede enviar a través del Puerto Serie de la siguiente forma:</p>
+<p>You can send the counter value over the Serial port as follows:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p">...</span><span class="w">  </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p">...</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">{</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p">...</span><span class="w">  </span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">contador</span><span class="p">);</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">counter</span><span class="p">);</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="parte-3-contar-pulsos-por-vuelta">Parte 3 - Contar pulsos por vuelta<a class="headerlink" href="#parte-3-contar-pulsos-por-vuelta" title="Permanent link">¶</a></h3>
-<p>Comprobar los pulsos por vueltas que genera el encoder. Buscar esta información en los detalles técnicos del motor y el encoder y comprobarlo con el encóder real de forma experimental.</p>
-<p><strong>PREGUNTA:</strong>
-  - Si se tienen en cuenta los flancos de subida del canal A, ¿cuántos pulsos por vuelta podríamos medir? 
-  - ¿Y si se tienen en cuenta los flancos de subida de los canales A y B?
-  - ¿Y si se tienen en cuenta los flancos de subida y de bajada de los canales A y B?</p>
-<p><strong>PREGUNTA:</strong> ¿Podríamos mandar la posición en grados en vez de en pulsos del encóder por el puerto serie? ¿Cómo?</p>
-<h2 id="trabajando-en-simulacion">Trabajando en simulación<a class="headerlink" href="#trabajando-en-simulacion" title="Permanent link">¶</a></h2>
-<p>Se puede simular un encoder en wokwi utilizando el componente <a href="https://docs.wokwi.com/parts/wokwi-ky-040/">Rotatory Encoder</a>. El diagrama en simulación quedaría de la siguiente forma:</p>
+<h3 id="part-3-pulses-per-revolution">Part 3 - Pulses per revolution<a class="headerlink" href="#part-3-pulses-per-revolution" title="Permanent link">¶</a></h3>
+<p>Check the pulses per revolution produced by the encoder. Find this information in the motor/encoder technical details and verify experimentally with the real encoder.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ul>
+<li>If only the rising edges of channel A are considered, how many pulses per revolution could we measure?</li>
+<li>What if rising edges of channels A and B are considered?</li>
+<li>What if rising and falling edges of channels A and B are considered?</li>
+</ul>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Could we send the position in degrees instead of encoder pulses over the serial port? How?</p>
+</div>
+<h2 id="working-in-simulation">Working in simulation<a class="headerlink" href="#working-in-simulation" title="Permanent link">¶</a></h2>
+<p>You can simulate an encoder in Wokwi using the Rotatory Encoder component: https://docs.wokwi.com/parts/wokwi-ky-040/. The simulation diagram would look like this:</p>
 <p><img src="images/encoder_circuit.png" width="50%"></p>
-<p><strong>PREGUNTA:</strong> ¿Qué diferencias hay entre el funcionamiento de este encóder con el del motor de las prácticas?</p></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What differences exist between the operation of this encoder and the encoder used with the motor in the lab?</p>
+</div></div>
 
 
 
@@ -2569,7 +2591,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 15, 2025 16:01:23 UTC"><span class="timeago" datetime="2025-10-15T16:01:23+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 15, 2025 16:01:23 UTC">2025-10-15</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 15, 2025 16:05:05 UTC"><span class="timeago" datetime="2025-10-15T16:05:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 15, 2025 16:05:05 UTC">2025-10-15</span>
   </span>
 
     
