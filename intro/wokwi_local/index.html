@@ -2414,6 +2414,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wokwi-license" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wokwi license
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-wokwi-project-in-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your Wokwi project in VS Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2470,7 +2506,77 @@
 <li>You can also install it from <a href="https://marketplace.visualstudio.com/items?itemName=wokwi.wokwi-vscode">here</a>.</li>
 </ul>
 </li>
+<li>
+<p>Install the Arduino Community Edition for VS Code extension:</p>
+<p><img src="images/arduino_extension.svg" width="100%"></p>
+</li>
 </ol>
+<h2 id="wokwi-license">Wokwi license<a class="headerlink" href="#wokwi-license" title="Permanent link">¶</a></h2>
+<p>Wokwi is free, but to use it locally in your machine you need a licence. If you don't want (or can't) pay for it, you can use the 30-days free license. Don't worry, after these 30 days you can update the free license again </p>
+<h2 id="create-your-wokwi-project-in-vs-code">Create your Wokwi project in VS Code<a class="headerlink" href="#create-your-wokwi-project-in-vs-code" title="Permanent link">¶</a></h2>
+<p>As you may already know, when using Wokwi in the browser you need, at least, two files. These files are <code>sketch.ino</code> and the <code>diagram.json</code>. To use Wokwi in VS Code you'll need some more files. </p>
+<ol>
+<li>
+<p>First, create your project in your local computer. You can do this by hand or you can <a href="other/template_wokwi.zip">download a template here</a>. If you download that template, you need to unzip it.</p>
+</li>
+<li>
+<p>Open your project from VS Code</p>
+<p><img src="images/open_folder.svg" width="70%"></p>
+</li>
+<li>
+<p>Once the project is open, you should see the following:</p>
+<p><img src="images/project.png" width="60%"></p>
+<ul>
+<li><strong>build</strong>: This is an empty folder at this moment. Here is where the binaries will be storage when you compile your code.</li>
+<li>
+<p><strong>diagram.json</strong>: This is the same <code>diagram.json</code> as the one in the browser version. I.e., the definition of the system components and connections.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The best way to edit this file is to use thw GUI in the browser. I.e., create your diagram in the browser version, copy the code inside the <code>diagram.json</code> and then go to your local project and paste it there. This is because you don't have the GUI in VS Code (you can only edit the text).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It might happen that if you double-click this file aiming at editing it, you'll see the diagram instead of the code. If you press with the right-click on top of the file name and click on <em>Open with</em> and then <em>Text editor</em> you'll be able to see the code.</p>
+</div>
+</li>
+<li>
+<p><strong>template_wokwi.ino</strong>: This is the same as the <code>sketch.ino</code> in the browser. I.e., your arduino code.</p>
+</li>
+<li>
+<p><strong>wokwi.toml</strong>: This file contains the path of the binary files that wokwi needs to start the simulation. I.e., where the binaries after the compilation will go. If you open this file you will see the following:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[wokwi]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">firmware</span><span class="o">=</span><span class="s1">'build/template_wokwi.ino.bin'</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">elf</span><span class="o">=</span><span class="s1">'build/template_wokwi.ino.elf'</span>
+</code></pre></div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>As you may notice, this project is called <code>template_wokwi</code>. It is critical that the name of the project is the same as the name of the <code>.ino</code> file, and the one inside the <code>toml</code> file. </li>
+<li>Hence, if your project is called <code>project_test</code>, then you should have the following:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>project_test
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    |
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    |── build
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    |── diagram.json
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    |── project_test.ino
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    └── wokwi.toml
+</code></pre></div>
+<ul>
+<li>And inside the <code>.toml</code> you should have:</li>
+</ul>
+<p><code>toml
+[wokwi]
+version = 1
+firmware='build/project_test.ino.bin'
+elf='build/project_test.ino.elf'</code> </p>
+</div>
+</li>
+</ol>
+<h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<h2 id="_2"><a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>You can find an updated guide <a href="https://docs.Wokwi.com/vscode/getting-started">here</a>.</p></div>
 
 
@@ -2494,7 +2600,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 23, 2025 05:50:10 UTC"><span class="timeago" datetime="2025-10-23T05:50:10+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 23, 2025 05:50:10 UTC">2025-10-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 25, 2025 07:57:35 UTC"><span class="timeago" datetime="2025-10-25T07:57:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 25, 2025 07:57:35 UTC">2025-10-25</span>
   </span>
 
     
