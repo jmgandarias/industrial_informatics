@@ -2,7 +2,7 @@ nav:
   - "About": about
   - "Introduction": intro
   - "Microcontrollers Programming": microcontrollers_programming
-  - "Real-Time Control Systems": real-time_control_systems
+  - "Real-Time Systems Control": real-time_systems_control
   - "Real-Time Embedded Systems": real-time_embedded_systems
   - "HMI": hmi
   - "MQTT": mqtt
