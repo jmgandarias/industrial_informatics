@@ -11,7 +11,7 @@ The content of this website is being developed by [Prof. Juan M. Gandarias](http
 
 - [Intro to the course](../intro/README.md)
 - [Microcontrollers programming](../microcontrollers_programming/README.md)
-- [Real-Time Control Systems](../real-time_control_systems/README.md)
+- [Real-Time Systems Control](../real-time_systems_control/README.md)
 - [Real-Time in Embedded Systems](../real-time_embedded_systems/README.md)
 - [Human-Machine Interfaces](../hmi/README.md)
 - [Internet of Things with MQTT](../mqtt/README.md)
