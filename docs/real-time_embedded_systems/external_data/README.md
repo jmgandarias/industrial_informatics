@@ -20,3 +20,8 @@ Include a push button and an LED, and modify the script so that each time the bu
 Solution to Problem 1: Hardware interrupts 
 Modify the script so that each time the button is pressed, an interrupt is generated, preventing data loss.
 
+[Download the solution](exercises_solutions/03_solution1_interruption.zip)
+
+### Exercise 4:  Loss of timing requirements
+Change the button task so that each time it is pressed, an interrupt is generated and the LED blinks 5 times with a period of half a second.
+
