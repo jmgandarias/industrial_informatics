@@ -52,7 +52,7 @@ Para contar los pulsos es necesario tener en cuenta los flancos de subida y/o de
 Ejemplo de implementación de manejador de interrupción:
 
 ```cpp
-ICACHE_RAM_ATTR void ISR_Ejemplo()
+void IRAM_ATTR ISR_Ejemplo()
 {
   ...  
 }

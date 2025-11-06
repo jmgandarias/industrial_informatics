@@ -2,7 +2,7 @@
 
 * [**Lab Session 1:** Intro to microcontrollers programming](./lab1/README.md).
   
-    *Here, you will explore the fundamentals of programming microcontrollers.*
+    *Here, you will explore the fundamentals of programming microcontrollers. In this exercise you will learn how to simulate microcontrollers with Wokwi and how to setup the Arduino IDE for the course.**
 
 * [**Lab Session 2:** Timers](./lab2/README.md).
   

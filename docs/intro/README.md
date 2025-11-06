@@ -4,10 +4,6 @@
 
     *This page summarizes the prerequisites of the course*
 
-* [**Lab Session 0:** Initial steps](./lab0/README.md).
-  
-    *In this exercise you will learn how to simulate microcontrollers with Wokwi and how to setup the Arduino IDE for the course.*
-
 * [**Wokwi local**: Use wokwi in VSCode](./wokwi_local/README.md).
 
     *Here you can learn how to use wokwi in your PC (VSCode) instead of the browser*

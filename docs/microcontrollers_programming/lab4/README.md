@@ -56,7 +56,7 @@ To count pulses you must consider rising and/or falling edges of each channel an
 Example of an interrupt handler implementation:
 
 ```cpp
-ICACHE_RAM_ATTR void ISR_Example()
+void IRAM_ATTR ISR_Example()
 {
   ...
 }
