@@ -31,3 +31,4 @@ Change the button task so that each time it is pressed, an interrupt is generate
 Solution to Problem 2: Timer interrupts 
 Use a timer to make the LED blink with a half-second period and avoid loss of timing requirements.
 
+[Download the solution](exercises_solutions/05_solution2_timers.zip)
