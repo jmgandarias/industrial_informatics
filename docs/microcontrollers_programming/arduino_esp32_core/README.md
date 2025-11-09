@@ -46,6 +46,8 @@ timerAlarmWrite(hw_timer_t timer_name, uint64_t num_ticks, bool autoreload);
 - num_ticks: number of timer ticks before the alarm fires (NOT necessarily microseconds; it is in ticks determined by your prescaler).
 - autoreload: bool: true = automatic reload (periodic), false = one‑shot (you'll usually set it to true)
 
+More about the Timers in version 2 [here.](https://github.com/espressif/arduino-esp32/blob/release/v2.x/docs/source/api/timer.rst)
+
 #### Minimal example
 
 ```c++
@@ -130,6 +132,9 @@ timerStop(timer_name);
 
 - Stops the timer.
 
+More about the Timers in version 3 [here.](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/timer.html)
+
+
 #### Minimal example
 
 ```cpp
@@ -194,6 +199,7 @@ void ledcWrite(uint8_t channel, uint32_t duty);
 
 Sets the PWM `duty` cycle (from 0 to $2^{resolution} - 1$)  for a configured LEDC output — updates the output on the `channel` so the pin associated to that channel changes its PWM duty cycle.
 
+More about the PWM in version 2 [here.](https://github.com/espressif/arduino-esp32/blob/release/v2.x/docs/source/api/ledc.rst)
 
 #### Minimal example
 
@@ -245,6 +251,9 @@ void ledcWrite(uint8_t pin, uint32_t duty);
 ```
 
 - Sets the PWM `duty` cycle (from 0 to $2^{resolution} - 1$)  for a configured LEDC output — updates the output on the the pin and changes its PWM duty cycle.
+
+More about the PWM in version 3 [here.](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/ledc.html)
+
 
 #### Minimal example
 

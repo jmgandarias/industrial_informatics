@@ -22,6 +22,12 @@ Modify the script so that each time the button is pressed, an interrupt is gener
 
 [Download the solution](exercises_solutions/03_solution1_interruption.zip)
 
-### Exercise 4:  Loss of timing requirements
+### Exercise 4:  Problem 2: Loss of timing requirements
 Change the button task so that each time it is pressed, an interrupt is generated and the LED blinks 5 times with a period of half a second.
+
+[Download the solution](exercises_solutions/04_problem2_loss_timing_requirements.zip)
+
+### Exercise 5: Example of timer
+Solution to Problem 2: Timer interrupts 
+Use a timer to make the LED blink with a half-second period and avoid loss of timing requirements.
 
