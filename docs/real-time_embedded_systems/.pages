@@ -2,6 +2,6 @@ nav:
   - "Real-Time": README.md
   - "External data acquisition": external_data
   - "Event-driven multi-tasking": event-driven
-  - "Lab Session 1: Multi-tasking without OS": lab1
+  - "Lab Session 6-I: Multi-tasking without OS": lab6_1
   - "Multi-tasking with RTOS": freeRTOS
-  - "Lab Session 2: Multi-tasking in RTOS": lab2
+  - "Lab Session 6-II: Multi-tasking in RTOS": lab6_2

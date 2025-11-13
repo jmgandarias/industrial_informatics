@@ -8,7 +8,7 @@
   
     *Note 2.*
 
-* [**Lab Session 1:** "RT multi-tasking without OS"](./lab1/README.md).
+* [**Lab Session 6-I:** "RT multi-tasking without OS"](./lab6_1/README.md).
   
     *Note 3.*
 
@@ -16,6 +16,6 @@
   
     *Note 2.*
 
-* [**Lab Session 2:** "Multi-tasking with RTOS"](./lab2/README.md).
+* [**Lab Session 6-II:** "Multi-tasking with RTOS"](./lab6_2/README.md).
   
     *Note 3.*
