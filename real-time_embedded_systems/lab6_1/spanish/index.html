@@ -10,31 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/event-driven/">
+        <link rel="canonical" href="https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_1/spanish/">
       
       
-        <link rel="prev" href="../external_data/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../lab6_1/">
+        <link rel="next" href="../../lab6_2/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/logo_uma_blanco.svg">
+      <link rel="icon" href="../../../assets/logo_uma_blanco.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Event-driven multi-tasking - Industrial Informatics Course</title>
+        <title>Sesión de Laboratorio 6: Multitarea en sistemas de tiempo real de pequeña escala - Industrial Informatics Course</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -48,18 +48,18 @@
         
         
         
-        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.c3479dc1.css">
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.c3479dc1.css">
         <style>:root{--md-text-font:"Source Sans Pro";--md-code-font:"Source Code Pro"}</style>
       
     
     
-      <link rel="stylesheet" href="../../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../assets/external/unpkg.com/katex@0/dist/katex.min.css">
+      <link rel="stylesheet" href="../../../assets/external/unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -93,6 +93,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#sesion-de-laboratorio-6-multitarea-en-sistemas-de-tiempo-real-de-pequena-escala" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,9 +108,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Industrial Informatics Course" class="md-header__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
+    <a href="../../.." title="Industrial Informatics Course" class="md-header__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
       
-  <img src="../../assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -122,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Event-driven multi-tasking
+              Sesión de Laboratorio 6: Multitarea en sistemas de tiempo real de pequeña escala
             
           </span>
         </div>
@@ -235,7 +240,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../about/" class="md-tabs__link">
+        <a href="../../../about/" class="md-tabs__link">
           
   
   
@@ -257,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../intro/" class="md-tabs__link">
+        <a href="../../../intro/" class="md-tabs__link">
           
   
   
@@ -279,7 +284,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../microcontrollers_programming/" class="md-tabs__link">
+        <a href="../../../microcontrollers_programming/" class="md-tabs__link">
           
   
   
@@ -301,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../real-time_systems_control/" class="md-tabs__link">
+        <a href="../../../real-time_systems_control/" class="md-tabs__link">
           
   
   
@@ -325,7 +330,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -347,7 +352,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../hmi/" class="md-tabs__link">
+        <a href="../../../hmi/" class="md-tabs__link">
           
   
   
@@ -369,7 +374,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../mqtt/" class="md-tabs__link">
+        <a href="../../../mqtt/" class="md-tabs__link">
           
   
   
@@ -405,9 +410,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Industrial Informatics Course" class="md-nav__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
+    <a href="../../.." title="Industrial Informatics Course" class="md-nav__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
       
-  <img src="../../assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     Industrial Informatics Course
@@ -463,7 +468,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../about/" class="md-nav__link ">
+            <a href="../../../about/" class="md-nav__link ">
               
   
   
@@ -507,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/license/" class="md-nav__link">
+      <a href="../../../about/license/" class="md-nav__link">
         
   
   
@@ -535,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/acknowledgements/" class="md-nav__link">
+      <a href="../../../about/acknowledgements/" class="md-nav__link">
         
   
   
@@ -563,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/changelog/" class="md-nav__link">
+      <a href="../../../about/changelog/" class="md-nav__link">
         
   
   
@@ -625,7 +630,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../intro/" class="md-nav__link ">
+            <a href="../../../intro/" class="md-nav__link ">
               
   
   
@@ -692,7 +697,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../intro/getting_started/" class="md-nav__link ">
+            <a href="../../../intro/getting_started/" class="md-nav__link ">
               
   
   
@@ -762,7 +767,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../intro/wokwi_local/" class="md-nav__link ">
+            <a href="../../../intro/wokwi_local/" class="md-nav__link ">
               
   
   
@@ -849,7 +854,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../microcontrollers_programming/" class="md-nav__link ">
+            <a href="../../../microcontrollers_programming/" class="md-nav__link ">
               
   
   
@@ -916,7 +921,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../microcontrollers_programming/lab1/" class="md-nav__link ">
+            <a href="../../../microcontrollers_programming/lab1/" class="md-nav__link ">
               
   
   
@@ -986,7 +991,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../microcontrollers_programming/lab2/" class="md-nav__link ">
+            <a href="../../../microcontrollers_programming/lab2/" class="md-nav__link ">
               
   
   
@@ -1056,7 +1061,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../microcontrollers_programming/lab3/" class="md-nav__link ">
+            <a href="../../../microcontrollers_programming/lab3/" class="md-nav__link ">
               
   
   
@@ -1126,7 +1131,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../microcontrollers_programming/lab4/" class="md-nav__link ">
+            <a href="../../../microcontrollers_programming/lab4/" class="md-nav__link ">
               
   
   
@@ -1196,7 +1201,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../microcontrollers_programming/arduino_esp32_core/" class="md-nav__link ">
+            <a href="../../../microcontrollers_programming/arduino_esp32_core/" class="md-nav__link ">
               
   
   
@@ -1275,7 +1280,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../real-time_systems_control/" class="md-nav__link ">
+            <a href="../../../real-time_systems_control/" class="md-nav__link ">
               
   
   
@@ -1342,7 +1347,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../real-time_systems_control/lab5/" class="md-nav__link ">
+            <a href="../../../real-time_systems_control/lab5/" class="md-nav__link ">
               
   
   
@@ -1432,7 +1437,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1499,7 +1504,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../external_data/" class="md-nav__link ">
+            <a href="../../external_data/" class="md-nav__link ">
               
   
   
@@ -1543,8 +1548,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1561,15 +1564,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../event-driven/" class="md-nav__link ">
               
   
   
@@ -1588,7 +1593,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1613,6 +1618,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1629,17 +1636,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../lab6_1/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1658,7 +1663,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1709,7 +1714,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../freeRTOS/" class="md-nav__link ">
+            <a href="../../freeRTOS/" class="md-nav__link ">
               
   
   
@@ -1779,7 +1784,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../lab6_2/" class="md-nav__link ">
+            <a href="../../lab6_2/" class="md-nav__link ">
               
   
   
@@ -1858,7 +1863,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hmi/" class="md-nav__link ">
+            <a href="../../../hmi/" class="md-nav__link ">
               
   
   
@@ -1925,7 +1930,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hmi/lab7/" class="md-nav__link ">
+            <a href="../../../hmi/lab7/" class="md-nav__link ">
               
   
   
@@ -2010,7 +2015,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mqtt/" class="md-nav__link ">
+            <a href="../../../mqtt/" class="md-nav__link ">
               
   
   
@@ -2083,7 +2088,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mqtt/getting_started/" class="md-nav__link ">
+            <a href="../../../mqtt/getting_started/" class="md-nav__link ">
               
   
   
@@ -2127,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mqtt/getting_started/part1_install_mosquitto/" class="md-nav__link">
+      <a href="../../../mqtt/getting_started/part1_install_mosquitto/" class="md-nav__link">
         
   
   
@@ -2155,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mqtt/getting_started/part2_testing_mosquitto_terminal/" class="md-nav__link">
+      <a href="../../../mqtt/getting_started/part2_testing_mosquitto_terminal/" class="md-nav__link">
         
   
   
@@ -2183,7 +2188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mqtt/getting_started/part3_external_connections/" class="md-nav__link">
+      <a href="../../../mqtt/getting_started/part3_external_connections/" class="md-nav__link">
         
   
   
@@ -2252,7 +2257,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mqtt/exercise1/" class="md-nav__link ">
+            <a href="../../../mqtt/exercise1/" class="md-nav__link ">
               
   
   
@@ -2296,7 +2301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mqtt/exercise1/part1_connect_wifi/" class="md-nav__link">
+      <a href="../../../mqtt/exercise1/part1_connect_wifi/" class="md-nav__link">
         
   
   
@@ -2324,7 +2329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mqtt/exercise1/part2_client_connect/" class="md-nav__link">
+      <a href="../../../mqtt/exercise1/part2_client_connect/" class="md-nav__link">
         
   
   
@@ -2352,7 +2357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mqtt/exercise1/part3_publisher/" class="md-nav__link">
+      <a href="../../../mqtt/exercise1/part3_publisher/" class="md-nav__link">
         
   
   
@@ -2380,7 +2385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mqtt/exercise1/part4_subscriber/" class="md-nav__link">
+      <a href="../../../mqtt/exercise1/part4_subscriber/" class="md-nav__link">
         
   
   
@@ -2408,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mqtt/exercise1/part5_exercise/" class="md-nav__link">
+      <a href="../../../mqtt/exercise1/part5_exercise/" class="md-nav__link">
         
   
   
@@ -2467,7 +2472,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mqtt/exercise2/" class="md-nav__link ">
+            <a href="../../../mqtt/exercise2/" class="md-nav__link ">
               
   
   
@@ -2537,7 +2542,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mqtt/lab1/" class="md-nav__link ">
+            <a href="../../../mqtt/lab1/" class="md-nav__link ">
               
   
   
@@ -2601,6 +2606,66 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-trabajando-con-hardware-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Trabajando con hardware real
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Trabajando con hardware real">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parte-1-interaccion-con-botones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parte 1 - Interacción con botones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-2-codigo-secreto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parte 2 - Código secreto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-trabajando-en-simulacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trabajando en simulación
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2617,7 +2682,7 @@
 
 
   
-    <a href="https://github.com/jmgandarias/industrial_informatics/edit/main/docs/real-time_embedded_systems/event-driven/README.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/jmgandarias/industrial_informatics/edit/main/docs/real-time_embedded_systems/lab6_1/spanish.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2626,16 +2691,51 @@
     
       
     
-    <a href="https://github.com/jmgandarias/industrial_informatics/raw/main/docs/real-time_embedded_systems/event-driven/README.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/jmgandarias/industrial_informatics/raw/main/docs/real-time_embedded_systems/lab6_1/spanish.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-  <h1>Event-driven multi-tasking</h1>
-
-<p>TBD</p>
+<div><h1 id="sesion-de-laboratorio-6-multitarea-en-sistemas-de-tiempo-real-de-pequena-escala">Sesión de Laboratorio 6: Multitarea en sistemas de tiempo real de pequeña escala<a class="headerlink" href="#sesion-de-laboratorio-6-multitarea-en-sistemas-de-tiempo-real-de-pequena-escala" title="Permanent link">¶</a></h1>
+<p><strong>Tiempo estimado:</strong> 1,5 h (1 sesión)</p>
+<h2 id="1-trabajando-con-hardware-real">1. Trabajando con hardware real<a class="headerlink" href="#1-trabajando-con-hardware-real" title="Permanent link">¶</a></h2>
+<h3 id="parte-1-interaccion-con-botones">Parte 1 - Interacción con botones<a class="headerlink" href="#parte-1-interaccion-con-botones" title="Permanent link">¶</a></h3>
+<p>El dispositivo M5Core2 tiene 3 botones táctiles definidos como <code>M5.BtnA</code>, <code>M5.BtnB</code> y <code>M5.BtnC</code>.</p>
+<ul>
+<li>Compila y prueba el programa de ejemplo <a href="https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_1/button_example/button_example.ino"><code>button_example.ino</code></a>.</li>
+<li>En <a href="https://docs.m5stack.com/en/arduino/m5core2/button">este enlace</a> puedes encontrar la documentación sobre las funciones que se pueden realizar con los botones.</li>
+</ul>
+<p><strong>Importante:</strong>
+La documentación del enlace anterior corresponde a la nueva librería <code>M5Unified.h</code>, que es muy reciente y no está demasiado probada.
+Algunas funciones de esa documentación no están incluidas en la librería antigua <code>M5Core2.h</code>. Concéntrate solo en las funciones usadas en <code>button_example.ino</code>.</p>
+<p><strong>Pregunta:</strong>
+- ¿Cómo se comportan los botones?
+- ¿Qué hacen las funciones <code>wasReleased</code> y <code>pressedFor</code>?</p>
+<h3 id="parte-2-codigo-secreto">Parte 2 - Código secreto<a class="headerlink" href="#parte-2-codigo-secreto" title="Permanent link">¶</a></h3>
+<p>El programa tendrá 4 estados:</p>
+<ul>
+<li>Estado 0: No se ha pulsado ningún botón.</li>
+<li>Estado 1: Se ha pulsado correctamente el primer botón.</li>
+<li>Estado 2: Se ha pulsado correctamente el segundo botón.</li>
+<li>Estado 3: Se ha pulsado correctamente el tercer botón.</li>
+</ul>
+<p>Los botones deben presionarse en la secuencia A, B, C.</p>
+<ul>
+<li>Si se pulsa el botón correcto, el programa avanza al siguiente estado.</li>
+<li>Si se pulsa un botón incorrecto, se vuelve al Estado 0.</li>
+</ul>
+<p><strong>Ejemplo:</strong>
+Cada vez que cambie el estado, debe imprimirse un mensaje en la pantalla. Por ejemplo:
+- Si el programa está en el Estado 1:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="n">M5</span><span class="p">.</span><span class="n">Lcd</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Primer botón correcto"</span><span class="p">);</span>
+</code></pre></div>
+- Si el programa está en el Estado 3:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">M5</span><span class="p">.</span><span class="n">Lcd</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"¡CÓDIGO CORRECTO!"</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="2-trabajando-en-simulacion">2. Trabajando en simulación<a class="headerlink" href="#2-trabajando-en-simulacion" title="Permanent link">¶</a></h2>
+<p>Puedes hacer un <a href="https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_1/enunciado_ejercicio_codigo_secreto.pdf">ejercicio similar</a> en simulación.</p></div>
 
 
 
@@ -2658,7 +2758,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 6, 2025 07:24:24 UTC"><span class="timeago" datetime="2025-08-06T07:24:24+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 6, 2025 07:24:24 UTC">2025-08-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 14, 2025 11:34:56 UTC"><span class="timeago" datetime="2025-11-14T11:34:56+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 14, 2025 11:34:56 UTC">2025-11-14</span>
   </span>
 
     
@@ -2668,7 +2768,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 6, 2025 07:24:24 UTC"><span class="timeago" datetime="2025-08-06T07:24:24+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 6, 2025 07:24:24 UTC">2025-08-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 14, 2025 11:34:56 UTC"><span class="timeago" datetime="2025-11-14T11:34:56+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 14, 2025 11:34:56 UTC">2025-11-14</span>
   </span>
 
     
@@ -2705,7 +2805,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../external_data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: External data acquisition">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab Session 6: Small-scale RT multitasking">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2715,20 +2815,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                External data acquisition
+                Lab Session 6: Small-scale RT multitasking
               </div>
             </div>
           </a>
         
         
           
-          <a href="../lab6_1/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab Session 6: Small-scale RT multitasking">
+          <a href="../../lab6_2/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab Session: Multi-tasking with RTOS">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Lab Session 6: Small-scale RT multitasking
+                Lab Session: Multi-tasking with RTOS
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2845,20 +2945,20 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../javascripts/katex.js"></script>
+        <script src="../../../javascripts/katex.js"></script>
       
-        <script src="../../assets/external/unpkg.com/katex@0/dist/katex.min.js"></script>
+        <script src="../../../assets/external/unpkg.com/katex@0/dist/katex.min.js"></script>
       
-        <script src="../../assets/external/unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+        <script src="../../../assets/external/unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
