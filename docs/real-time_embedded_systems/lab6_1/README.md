@@ -7,7 +7,7 @@
 ### Part 1 - Buttons interaction
 The M5Core2 device has 3 touch buttons defined as `M5.BtnA`, `M5.BtnB`, and `M5.BtnC`.
 
-- Compile and test the example program [`button_example.ino`](button_example/button_example.ino).
+- Compile and test the example program [`button_example.ino`](https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_1/button_example/button_example.ino).
 - At [this link](https://docs.m5stack.com/en/arduino/m5core2/button) you can find the documentation about the functions that can be performed with the buttons.
 
 !!! danger 
@@ -44,4 +44,4 @@ The buttons must be pressed in the sequence A, B, C.
 
 ## 2. Working in simulation
 
-You can do a [similar exercise](enunciado_ejercicio_codigo_secreto.pdf) in sumation. 
+You can do a [similar exercise](https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_1/enunciado_ejercicio_codigo_secreto.pdf) in sumation. 
