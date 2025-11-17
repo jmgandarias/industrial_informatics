@@ -90,19 +90,16 @@ void taskFunction(void *parameters)
 TickType_t xLastWakeTime;
 ```
 
-`TickType_t` is the unsigned integer type FreeRTOS uses for tick counts (system time in ticks). On ESP32 and most 32-bit ports it’s 32‑bit. Each tick is a fixed time quantum defined by the RTOS tick rate.
-
-`xLastWakeTime` is a variable that stores the reference tick for your task’s last wake-up. You initialize it once before your periodic loop and then pass it by reference to `vTaskDelayUntil()` so FreeRTOS can wake the task at precise intervals (reduces jitter and drift vs. `vTaskDelay()`).
+- `TickType_t` is the unsigned integer type FreeRTOS uses for tick counts (system time in ticks). On ESP32 and most 32-bit ports it’s 32‑bit. Each tick is a fixed time quantum defined by the RTOS tick rate.
+- `xLastWakeTime` is a variable that stores the reference tick for your task’s last wake-up. You initialize it once before your periodic loop and then pass it by reference to `vTaskDelayUntil()` so FreeRTOS can wake the task at precise intervals (reduces jitter and drift vs. `vTaskDelay()`).
 
 ```cpp
 const TickType_t xPeriod = period_in_ms / portTICK_PERIOD_MS
 ```
 
-`portTICK_PERIOD_MS` is A constant that equals the duration of one tick in milliseconds. It is derived from `configTICK_RATE_HZ`: `portTICK_PERIOD_MS = 1000 / configTICK_RATE_HZ`. E.g., if `configTICK_RATE_HZ = 1000`, then `portTICK_PERIOD_MS = 1 ms` (1 tick = 1 ms). If `configTICK_RATE_HZ = 100`, then `portTICK_PERIOD_MS = 10 ms` (1 tick = 10 ms). By default, 1 tick = 1ms.
-
-`xPeriod` is the period in ticks that you want the task to run at, computed from a desired period in milliseconds.
-
-`period_in_ms` is the period in ms (here you can write the period of the task in ms).
+- `portTICK_PERIOD_MS` is A constant that equals the duration of one tick in milliseconds. It is derived from `configTICK_RATE_HZ`: `portTICK_PERIOD_MS = 1000 / configTICK_RATE_HZ`. E.g., if `configTICK_RATE_HZ = 1000`, then `portTICK_PERIOD_MS = 1 ms` (1 tick = 1 ms). If `configTICK_RATE_HZ = 100`, then `portTICK_PERIOD_MS = 10 ms` (1 tick = 10 ms). By default, 1 tick = 1ms.
+- `xPeriod` is the period in ticks that you want the task to run at, computed from a desired period in milliseconds.
+- `period_in_ms` is the period in ms (here you can write the period of the task in ms).
 
 In practice, you can use the macro `pdMS_TO_TICKS(period_in_ms)` (preferred), which handles rounding and avoids integer mistakes:
 
@@ -114,7 +111,7 @@ const TickType_t xPeriod = pdMS_TO_TICKS(period_in_ms);
 vTaskDelayUntil(&xLastWakeTime, xPeriod);
 ``` 
 
-`vTaskDelayUntil(&xLastWakeTime, xPeriod)` is is a FreeRTOS API call used inside a task’s loop to make it run at a fixed, periodic rate with minimal drift. It puts the current task to sleep until the next absolute wake-up time based on `xLastWakeTime` and `xPeriod`. Unlike `vTaskDelay()` (which sleeps relative to “now”), `vTaskDelayUntil()` targets exact tick instants `(t0, t0 + T, t0 + 2T, …)`, keeping a stable cadence even if individual iterations vary slightly in execution time.
+- `vTaskDelayUntil(&xLastWakeTime, xPeriod)` is is a FreeRTOS API call used inside a task’s loop to make it run at a fixed, periodic rate with minimal drift. It puts the current task to sleep until the next absolute wake-up time based on `xLastWakeTime` and `xPeriod`. Unlike `vTaskDelay()` (which sleeps relative to “now”), `vTaskDelayUntil()` targets exact tick instants `(t0, t0 + T, t0 + 2T, …)`, keeping a stable cadence even if individual iterations vary slightly in execution time.
 
 #### Minimal example
 
