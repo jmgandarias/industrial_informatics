@@ -2845,19 +2845,25 @@ We'll only use priorities 0 or 1.
 <h3 id="periodic-tasks">Periodic tasks<a class="headerlink" href="#periodic-tasks" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">TickType_t</span><span class="w"> </span><span class="n">xLastWakeTime</span><span class="p">;</span>
 </code></pre></div>
-<p><code>TickType_t</code> is the unsigned integer type FreeRTOS uses for tick counts (system time in ticks). On ESP32 and most 32-bit ports it’s 32‑bit. Each tick is a fixed time quantum defined by the RTOS tick rate.</p>
-<p><code>xLastWakeTime</code> is a variable that stores the reference tick for your task’s last wake-up. You initialize it once before your periodic loop and then pass it by reference to <code>vTaskDelayUntil()</code> so FreeRTOS can wake the task at precise intervals (reduces jitter and drift vs. <code>vTaskDelay()</code>).</p>
+<ul>
+<li><code>TickType_t</code> is the unsigned integer type FreeRTOS uses for tick counts (system time in ticks). On ESP32 and most 32-bit ports it’s 32‑bit. Each tick is a fixed time quantum defined by the RTOS tick rate.</li>
+<li><code>xLastWakeTime</code> is a variable that stores the reference tick for your task’s last wake-up. You initialize it once before your periodic loop and then pass it by reference to <code>vTaskDelayUntil()</code> so FreeRTOS can wake the task at precise intervals (reduces jitter and drift vs. <code>vTaskDelay()</code>).</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="n">TickType_t</span><span class="w"> </span><span class="n">xPeriod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">period_in_ms</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">portTICK_PERIOD_MS</span>
 </code></pre></div>
-<p><code>portTICK_PERIOD_MS</code> is A constant that equals the duration of one tick in milliseconds. It is derived from <code>configTICK_RATE_HZ</code>: <code>portTICK_PERIOD_MS = 1000 / configTICK_RATE_HZ</code>. E.g., if <code>configTICK_RATE_HZ = 1000</code>, then <code>portTICK_PERIOD_MS = 1 ms</code> (1 tick = 1 ms). If <code>configTICK_RATE_HZ = 100</code>, then <code>portTICK_PERIOD_MS = 10 ms</code> (1 tick = 10 ms). By default, 1 tick = 1ms.</p>
-<p><code>xPeriod</code> is the period in ticks that you want the task to run at, computed from a desired period in milliseconds.</p>
-<p><code>period_in_ms</code> is the period in ms (here you can write the period of the task in ms).</p>
+<ul>
+<li><code>portTICK_PERIOD_MS</code> is A constant that equals the duration of one tick in milliseconds. It is derived from <code>configTICK_RATE_HZ</code>: <code>portTICK_PERIOD_MS = 1000 / configTICK_RATE_HZ</code>. E.g., if <code>configTICK_RATE_HZ = 1000</code>, then <code>portTICK_PERIOD_MS = 1 ms</code> (1 tick = 1 ms). If <code>configTICK_RATE_HZ = 100</code>, then <code>portTICK_PERIOD_MS = 10 ms</code> (1 tick = 10 ms). By default, 1 tick = 1ms.</li>
+<li><code>xPeriod</code> is the period in ticks that you want the task to run at, computed from a desired period in milliseconds.</li>
+<li><code>period_in_ms</code> is the period in ms (here you can write the period of the task in ms).</li>
+</ul>
 <p>In practice, you can use the macro <code>pdMS_TO_TICKS(period_in_ms)</code> (preferred), which handles rounding and avoids integer mistakes:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">const</span><span class="w"> </span><span class="n">TickType_t</span><span class="w"> </span><span class="n">xPeriod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">period_in_ms</span><span class="p">);</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span><span class="w"> </span><span class="n">xPeriod</span><span class="p">);</span>
 </code></pre></div>
-<p><code>vTaskDelayUntil(&amp;xLastWakeTime, xPeriod)</code> is is a FreeRTOS API call used inside a task’s loop to make it run at a fixed, periodic rate with minimal drift. It puts the current task to sleep until the next absolute wake-up time based on <code>xLastWakeTime</code> and <code>xPeriod</code>. Unlike <code>vTaskDelay()</code> (which sleeps relative to “now”), <code>vTaskDelayUntil()</code> targets exact tick instants <code>(t0, t0 + T, t0 + 2T, …)</code>, keeping a stable cadence even if individual iterations vary slightly in execution time.</p>
+<ul>
+<li><code>vTaskDelayUntil(&amp;xLastWakeTime, xPeriod)</code> is is a FreeRTOS API call used inside a task’s loop to make it run at a fixed, periodic rate with minimal drift. It puts the current task to sleep until the next absolute wake-up time based on <code>xLastWakeTime</code> and <code>xPeriod</code>. Unlike <code>vTaskDelay()</code> (which sleeps relative to “now”), <code>vTaskDelayUntil()</code> targets exact tick instants <code>(t0, t0 + T, t0 + 2T, …)</code>, keeping a stable cadence even if individual iterations vary slightly in execution time.</li>
+</ul>
 <h4 id="minimal-example_1">Minimal example<a class="headerlink" href="#minimal-example_1" title="Permanent link">¶</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">TaskHandle_t</span><span class="w"> </span><span class="n">HandleTaskName</span><span class="p">;</span><span class="w"> </span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
@@ -2930,7 +2936,7 @@ One the button is pressed, the LED changes its state.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 17, 2025 19:25:06 UTC"><span class="timeago" datetime="2025-11-17T19:25:06+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 17, 2025 19:25:06 UTC">2025-11-17</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 17, 2025 19:26:16 UTC"><span class="timeago" datetime="2025-11-17T19:26:16+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 17, 2025 19:26:16 UTC">2025-11-17</span>
   </span>
 
     
