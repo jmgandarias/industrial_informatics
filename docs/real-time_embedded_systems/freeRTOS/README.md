@@ -7,11 +7,9 @@
 TaskHandle_t handle_task_name; 
 ```
 
-`TaskHandle_t` is a typedef (alias) for a pointer type used by FreeRTOS to reference a task. It’s essentially a handle that uniquely identifies a task within the RTOS scheduler.
-
-`handle_task_name` is the variable name you’re declaring. It will store the handle of a task after you create it.
-
-You usually declare the handle as a global variable
+- `TaskHandle_t` is a typedef (alias) for a pointer type used by FreeRTOS to reference a task. It’s essentially a handle that uniquely identifies a task within the RTOS scheduler.
+- `handle_task_name` is the variable name you’re declaring. It will store the handle of a task after you create it.
+- You usually declare the handle as a global variable
 
 ```cpp
 BaseType_t xTaskCreatePinnedToCore(
@@ -24,6 +22,7 @@ BaseType_t xTaskCreatePinnedToCore(
     const BaseType_t core_ID     
 );
 ```
+
 - `task_function`: The task function (`void task_function(void *parameters)`). The entry point for the task. It usually contains an infinite loop (`while(1)`).
 - `task_description`: Descriptive task name (for debugging). E.g., `"Task 1"`.
 - `memory_in_words`: Stack size in words (on ESP32 - 32-bit words, 1 word = 4 bytes). If you think in bytes, divide by 4. Example: 4096 bytes → 4096 / 4 = 1024 words. It depends on what the task does (printf, floating point, deep call chains, libraries, etc.). If the memory is set too high, you'll waste RAM. If the memory is set two low you'll find an error like `***ERROR*** A stack overflow in task task_description has been detected.`
@@ -35,19 +34,6 @@ We'll only use priorities 0 or 1.
 - `handle_task_name`: Receives the created task’s handle. Use it to later suspend, resume, delete, change affinity (IDF APIs), or query stack.
 - `core_ID`: The CPU core the task is pinned to. On ESP32 0 or 1 to select the core. Arduino-ESP32 often runs the loopTask and Wi‑Fi on core 1; pinning your real-time/control task to core 0 can improve determinism.
 
-```cpp
-void task_function(void *parameters)
-{
-  // Local constants/variables for this task (can share names across tasks without interfering)
-
-  // some code...
-
-  while (1) // infinite loop
-  {
-    // some code...
-  }
-}
-```
 
 #### Minimal example
 
@@ -100,8 +86,7 @@ const TickType_t xPeriod = period_in_ms / portTICK_PERIOD_MS
 - `portTICK_PERIOD_MS` is A constant that equals the duration of one tick in milliseconds. It is derived from `configTICK_RATE_HZ`: `portTICK_PERIOD_MS = 1000 / configTICK_RATE_HZ`. E.g., if `configTICK_RATE_HZ = 1000`, then `portTICK_PERIOD_MS = 1 ms` (1 tick = 1 ms). If `configTICK_RATE_HZ = 100`, then `portTICK_PERIOD_MS = 10 ms` (1 tick = 10 ms). By default, 1 tick = 1ms.
 - `xPeriod` is the period in ticks that you want the task to run at, computed from a desired period in milliseconds.
 - `period_in_ms` is the period in ms (here you can write the period of the task in ms).
-
-In practice, you can use the macro `pdMS_TO_TICKS(period_in_ms)` (preferred), which handles rounding and avoids integer mistakes:
+- In practice, you can use the macro `pdMS_TO_TICKS(period_in_ms)` (preferred), which handles rounding and avoids integer mistakes:
 
 ```cpp
 const TickType_t xPeriod = pdMS_TO_TICKS(period_in_ms);
