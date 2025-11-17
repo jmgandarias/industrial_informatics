@@ -27,7 +27,7 @@
     
     
       
-        <title>Introduction to RTOS - Industrial Informatics Course</title>
+        <title>Introduction to RTOS with embedded systems - Industrial Informatics Course</title>
       
     
     
@@ -93,6 +93,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#introduction-to-rtos-with-embedded-systems" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -122,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction to RTOS
+              Introduction to RTOS with embedded systems
             
           </span>
         </div>
@@ -2601,6 +2606,139 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#freertos-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FreeRTOS Instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FreeRTOS Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task definition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#periodic-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Periodic tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Periodic tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-8-multicore-app-reading-from-two-analog-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 8: Multicore app reading from two analog sensors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-9-simple-multicore-app-reading-with-two-buttons-and-two-leds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 9: Simple multicore app reading with two buttons and two LEDs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-10-complex-multicore-app-reading-with-two-buttons-and-two-leds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 10: Complex multicore app reading with two buttons and two LEDs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2633,9 +2771,143 @@
   
 
 
-  <h1>Introduction to RTOS</h1>
-
-<p>TBD</p>
+<div><h1 id="introduction-to-rtos-with-embedded-systems">Introduction to RTOS with embedded systems<a class="headerlink" href="#introduction-to-rtos-with-embedded-systems" title="Permanent link">¶</a></h1>
+<h2 id="freertos-instructions">FreeRTOS Instructions<a class="headerlink" href="#freertos-instructions" title="Permanent link">¶</a></h2>
+<h3 id="task-definition">Task definition<a class="headerlink" href="#task-definition" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">TaskHandle_t</span><span class="w"> </span><span class="n">handle_task_name</span><span class="p">;</span><span class="w"> </span>
+</code></pre></div>
+<p><code>TaskHandle_t</code> is a typedef (alias) for a pointer type used by FreeRTOS to reference a task. It’s essentially a handle that uniquely identifies a task within the RTOS scheduler.</p>
+<p><code>handle_task_name</code> is the variable name you’re declaring. It will store the handle of a task after you create it.</p>
+<p>You usually declare the handle as a global variable</p>
+<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">BaseType_t</span><span class="w"> </span><span class="nf">xTaskCreatePinnedToCore</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">TaskFunction_t</span><span class="w"> </span><span class="n">task_function</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">task_description</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">memory_in_words</span><span class="p">,</span><span class="w">  </span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">parameters</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">UBaseType_t</span><span class="w"> </span><span class="n">task_priority</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">TaskHandle_t</span><span class="w"> </span><span class="o">*</span><span class="n">handle_task_name</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BaseType_t</span><span class="w"> </span><span class="n">core_ID</span><span class="w">     </span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">);</span>
+</code></pre></div>
+- <code>task_function</code>: The task function (<code>void task_function(void *parameters)</code>). The entry point for the task. It usually contains an infinite loop (<code>while(1)</code>).
+- <code>task_description</code>: Descriptive task name (for debugging). E.g., <code>"Task 1"</code>.
+- <code>memory_in_words</code>: Stack size in words (on ESP32 - 32-bit words, 1 word = 4 bytes). If you think in bytes, divide by 4. Example: 4096 bytes → 4096 / 4 = 1024 words. It depends on what the task does (printf, floating point, deep call chains, libraries, etc.). If the memory is set too high, you'll waste RAM. If the memory is set two low you'll find an error like <code>***ERROR*** A stack overflow in task task_description has been detected.</code>
+- <code>parameters</code>: Pointer passed to the task (or <code>NULL</code>). We'll always use <code>NULL</code> in the course.
+- <code>task_priority</code>: Task priority (higher number = higher priority). Guidelines: Keep typical app tasks around 1–5.
+Avoid competing with critical system tasks (Wi‑Fi/BLE) unless necessary. Only use very high priority for time-critical loops (e.g., your WNN control loop), and keep them efficient. 
+Pitfall: A high-priority task that doesn’t block can <a href="https://en.wikipedia.org/wiki/Starvation_(computer_science)"><em>starve</em></a> others. Ensure it yields via vTaskDelay, queues, or event groups.
+We'll only use priorities 0 or 1.
+- <code>handle_task_name</code>: Receives the created task’s handle. Use it to later suspend, resume, delete, change affinity (IDF APIs), or query stack.
+- <code>core_ID</code>: The CPU core the task is pinned to. On ESP32 0 or 1 to select the core. Arduino-ESP32 often runs the loopTask and Wi‑Fi on core 1; pinning your real-time/control task to core 0 can improve determinism.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">task_function</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">parameters</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="c1">// Local constants/variables for this task (can share names across tasks without interfering)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="c1">// some code...</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">// infinite loop</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// some code...</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="minimal-example">Minimal example<a class="headerlink" href="#minimal-example" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">TaskHandle_t</span><span class="w"> </span><span class="n">HandleTaskName</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">(){</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">taskFunction</span><span class="p">,</span><span class="w">           </span><span class="c1">// Function name that implements the task</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="s">"task description"</span><span class="p">,</span><span class="w">     </span><span class="c1">// Task description</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="mi">2048</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="w">                 </span><span class="c1">// Memory (in bytes) assigned to this task (don't set too high)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="nb">NULL</span><span class="p">,</span><span class="w">                   </span><span class="c1">// Task input parameter (none)</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="mi">0</span><span class="p">,</span><span class="w">                      </span><span class="c1">// Task priority 0</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="o">&amp;</span><span class="n">HandleTaskName</span><span class="p">,</span><span class="w">        </span><span class="c1">// Handle of the task</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="mi">0</span><span class="w">                       </span><span class="c1">// Core where task 1 will run (this one in core 0)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">(){</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="c1">// empty</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="p">}</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="kt">void</span><span class="w"> </span><span class="nf">taskFunction</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">parameters</span><span class="p">)</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">{</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="c1">// Local constants/variables for this task (can share names across tasks without interfering)</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="c1">// some code...</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">// infinite loop</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="c1">// some code...</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="periodic-tasks">Periodic tasks<a class="headerlink" href="#periodic-tasks" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">TickType_t</span><span class="w"> </span><span class="n">xLastWakeTime</span><span class="p">;</span>
+</code></pre></div>
+<p><code>TickType_t</code> is the unsigned integer type FreeRTOS uses for tick counts (system time in ticks). On ESP32 and most 32-bit ports it’s 32‑bit. Each tick is a fixed time quantum defined by the RTOS tick rate.</p>
+<p><code>xLastWakeTime</code> is a variable that stores the reference tick for your task’s last wake-up. You initialize it once before your periodic loop and then pass it by reference to <code>vTaskDelayUntil()</code> so FreeRTOS can wake the task at precise intervals (reduces jitter and drift vs. <code>vTaskDelay()</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="n">TickType_t</span><span class="w"> </span><span class="n">xPeriod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">period_in_ms</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">portTICK_PERIOD_MS</span>
+</code></pre></div>
+<p><code>portTICK_PERIOD_MS</code> is A constant that equals the duration of one tick in milliseconds. It is derived from <code>configTICK_RATE_HZ</code>: <code>portTICK_PERIOD_MS = 1000 / configTICK_RATE_HZ</code>. E.g., if <code>configTICK_RATE_HZ = 1000</code>, then <code>portTICK_PERIOD_MS = 1 ms</code> (1 tick = 1 ms). If <code>configTICK_RATE_HZ = 100</code>, then <code>portTICK_PERIOD_MS = 10 ms</code> (1 tick = 10 ms). By default, 1 tick = 1ms.</p>
+<p><code>xPeriod</code> is the period in ticks that you want the task to run at, computed from a desired period in milliseconds.</p>
+<p><code>period_in_ms</code> is the period in ms (here you can write the period of the task in ms).</p>
+<p>In practice, you can use the macro <code>pdMS_TO_TICKS(period_in_ms)</code> (preferred), which handles rounding and avoids integer mistakes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">const</span><span class="w"> </span><span class="n">TickType_t</span><span class="w"> </span><span class="n">xPeriod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">period_in_ms</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span><span class="w"> </span><span class="n">xPeriod</span><span class="p">);</span>
+</code></pre></div>
+<p><code>vTaskDelayUntil(&amp;xLastWakeTime, xPeriod)</code> is is a FreeRTOS API call used inside a task’s loop to make it run at a fixed, periodic rate with minimal drift. It puts the current task to sleep until the next absolute wake-up time based on <code>xLastWakeTime</code> and <code>xPeriod</code>. Unlike <code>vTaskDelay()</code> (which sleeps relative to “now”), <code>vTaskDelayUntil()</code> targets exact tick instants <code>(t0, t0 + T, t0 + 2T, …)</code>, keeping a stable cadence even if individual iterations vary slightly in execution time.</p>
+<h4 id="minimal-example_1">Minimal example<a class="headerlink" href="#minimal-example_1" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">TaskHandle_t</span><span class="w"> </span><span class="n">HandleTaskName</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">(){</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="n">taskFunction</span><span class="p">,</span><span class="w">           </span><span class="c1">// Function name that implements the task</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="s">"task description"</span><span class="p">,</span><span class="w">     </span><span class="c1">// Task description</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="mi">2048</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="w">                 </span><span class="c1">// Memory (in bytes) assigned to this task (don't set too high)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="nb">NULL</span><span class="p">,</span><span class="w">                   </span><span class="c1">// Task input parameter (none)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="mi">0</span><span class="p">,</span><span class="w">                      </span><span class="c1">// Task priority 0</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="o">&amp;</span><span class="n">HandleTaskName</span><span class="p">,</span><span class="w">        </span><span class="c1">// Handle of the task</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="mi">0</span><span class="w">                       </span><span class="c1">// Core where task 1 will run (this one in core 0)</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="p">);</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="p">}</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">(){</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="c1">// empty</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="kt">void</span><span class="w"> </span><span class="nf">taskFunction</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">parameters</span><span class="p">)</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="p">{</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="c1">// Local constants/variables for this task (can share names across tasks without interfering)</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TickType_t</span><span class="w"> </span><span class="n">xPeriod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">  </span><span class="c1">// 10 ms period</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="n">TickType_t</span><span class="w"> </span><span class="n">xLastWakeTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xTaskGetTickCount</span><span class="p">();</span><span class="w">  </span><span class="c1">// initialize once</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span><span class="c1">// some code...</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">// infinite loop</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">        </span><span class="c1">// some code...</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">        </span><span class="c1">// Sleep until the next absolute release time (no drift)</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">        </span><span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span><span class="w"> </span><span class="n">xPeriod</span><span class="p">);</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">¶</a></h2>
+<h3 id="exercise-8-multicore-app-reading-from-two-analog-sensors">Exercise 8: Multicore app reading from two analog sensors<a class="headerlink" href="#exercise-8-multicore-app-reading-from-two-analog-sensors" title="Permanent link">¶</a></h3>
+<p>Read from two analog sensors using both cores of the ESP32 (one sensor per core). One sensor is read at 1Hz, and the other at 2Hz.</p>
+<p><img src="images/exercise_08.png" width="50%"></p>
+<p>Download the solution <a href="exercises_solution/08_multicore.zip">here</a></p>
+<h3 id="exercise-9-simple-multicore-app-reading-with-two-buttons-and-two-leds">Exercise 9: Simple multicore app reading with two buttons and two LEDs<a class="headerlink" href="#exercise-9-simple-multicore-app-reading-with-two-buttons-and-two-leds" title="Permanent link">¶</a></h3>
+<p>Use one core to handle the red button and red LED, and the other core to handle the green button and green LED. 
+One the button is pressed, the LED changes its state.</p>
+<p><img src="images/exercise_09.png" width="50%"></p>
+<p>Download the solution <a href="exercises_solution/09_multicore_ISR_simple.zip">here</a></p>
+<h3 id="exercise-10-complex-multicore-app-reading-with-two-buttons-and-two-leds">Exercise 10: Complex multicore app reading with two buttons and two LEDs<a class="headerlink" href="#exercise-10-complex-multicore-app-reading-with-two-buttons-and-two-leds" title="Permanent link">¶</a></h3>
+<p>With the same diagram as in exercise 9, when the red button is pressed, the red LED blinks at 3Hz. When the green button is pressed, the green LED blinks at 2Hz. When a button is pressed again, its corresponding LED turns off.</p>
+<p>Download the solution <a href="exercises_solution/10_multicore_ISR_complex.zip">here</a></p></div>
 
 
 
@@ -2658,7 +2930,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 6, 2025 07:24:24 UTC"><span class="timeago" datetime="2025-08-06T07:24:24+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 6, 2025 07:24:24 UTC">2025-08-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 17, 2025 19:23:32 UTC"><span class="timeago" datetime="2025-11-17T19:23:32+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 17, 2025 19:23:32 UTC">2025-11-17</span>
   </span>
 
     
