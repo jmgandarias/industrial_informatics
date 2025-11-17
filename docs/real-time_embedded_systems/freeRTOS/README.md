@@ -166,7 +166,8 @@ Read from two analog sensors using both cores of the ESP32 (one sensor per core)
 <img src="images/exercise_08.png" width="50%"/>
 
 Download the solution [here](exercises_solution/08_multicore.zip)
-### Exercise 9: Simple multicore app reading with two buttons and two LEDs
+
+### Exercise 9: Simple multicore app with two buttons and two LEDs
 
 Use one core to handle the red button and red LED, and the other core to handle the green button and green LED. 
 One the button is pressed, the LED changes its state.
@@ -175,7 +176,7 @@ One the button is pressed, the LED changes its state.
 
 Download the solution [here](exercises_solution/09_multicore_ISR_simple.zip)
 
-### Exercise 10: Complex multicore app reading with two buttons and two LEDs
+### Exercise 10: Multicore app with two buttons and two LEDs, and periodic tasks
 
 With the same diagram as in exercise 9, when the red button is pressed, the red LED blinks at 3Hz. When the green button is pressed, the green LED blinks at 2Hz. When a button is pressed again, its corresponding LED turns off.
 
