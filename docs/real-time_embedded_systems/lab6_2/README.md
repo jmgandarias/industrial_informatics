@@ -6,11 +6,11 @@
 
 ### 1.1 Test the IMU (inertial sensor)
 
-Read and run the program [`IMU.ino`](https://jmgandarias.com/industrial_informatics/docs/real-time_embedded_systems/lab6_2/IMU/IMU.ino) to understand how to work with the M5Core2 sensor.
+Read and run the program [`IMU.ino`](https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_2/IMU/IMU.ino) to understand how to work with the M5Core2 sensor.
 
 ### 1.2 Test the vibration motor
 
-Read and run the program [`vibration.ino`](https://jmgandarias.com/industrial_informatics/docs/real-time_embedded_systems/lab6_2/vibration/vibration.ino) to understand how to work with the actuator on the M5Core2.
+Read and run the program [`vibration.ino`](https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_2/vibration/vibration.ino) to understand how to work with the actuator on the M5Core2.
 
 ### 1.3 Multitasking with sensor and actuator
 
