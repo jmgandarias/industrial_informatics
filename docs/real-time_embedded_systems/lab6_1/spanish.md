@@ -1,4 +1,4 @@
-# Sesión de Laboratorio 6: Multitarea en sistemas de tiempo real de pequeña escala
+# Sesión de Laboratorio 6-I: Multitarea en sistemas de tiempo real de pequeña escala
 
 **Tiempo estimado:** 1,5 h (1 sesión)
 

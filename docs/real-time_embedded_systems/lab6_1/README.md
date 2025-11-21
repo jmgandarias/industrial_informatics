@@ -1,4 +1,4 @@
-# Lab Session 6: Small-scale RT multitasking
+# Lab Session 6-I: Small-scale RT multitasking
 
 **Estimated time:** 1.5h (1 session)
 
