@@ -20,7 +20,7 @@ Create a sketch for the M5Core2 using FreeRTOS that does the following:
 2. Task 1 monitors button presses for buttons `A`, `B` and `C`. It has priority 2 and runs at 100 Hz.
 3. Task 2 writes IMU data to the M5 screen similarly to the program [`IMU.ino`](https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_2/IMU/IMU.ino). In this case, the data are displayed only when button `B` has been pressed. If pressed again, the screen remains in its current state (data are not updated). Pressing `B` again resumes updates, and so on. This task has priority 1 and runs at 25 Hz.
 4. Task 3 triggers a vibration pattern as an alarm if acceleration magnitude reaches or exceeds 2 G (sqrt(accX*accX + accY*accY + accZ*accZ) > 2). The pattern should make the motor vibrate 5 times with 200 ms intervals. This task has priority 3 and runs at 5 Hz.
-5. The final task writes to the serial port every change that occurs in the application. It only writes if an event has occurred (button `A`, `B` or `C` press, or a vibration alarm). The published data are:
+5. The final task writes to the serial port every change that occurs in the application. It only writes if an event has occurred (button `A`, `B` or `C` press, or a vibration alarm). This task has priority 0 and runs at 10 Hz. The published data are:
    - How many times `A` has been pressed.
    - How many times `C` has been pressed.
    - If `B` has been pressed and IMU data are currently being displayed, write: "Using IMU data". Otherwise write: "Not using IMU data".

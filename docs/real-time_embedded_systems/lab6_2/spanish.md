@@ -20,7 +20,7 @@ Haz un script para M5Core2 usando FreeRTOS que haga lo siguiente:
 2. La tarea 1 sirve para monitorizar la pulsación de los botones `A`, `B` y `C`. Tendrá prioridad 2 y se ejecutará con una frecuencia de 100Hz.
 3. La tarea 2 escribirá los datos de la IMU en la pantalla del M5, de forma similar al programa [`IMU.ino`](https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_2/IMU/IMU.ino). En este caso, los datos se escribirán cuando se haya pulsado el botón `B`. Si se vuelve a pulsar, la pantalla se queda en el estado actual. Es decir, los datos no se actualizan. Si se pulsa de nuevo, se volverán a mostrar. Y así, sucesivamente. Esta tarea tendrá prioridad 1 y se ejecutará con una frecuencia de 25Hz.
 4. La tarea 3 establece un patrón de vibración a modo de alarma si se ha alcanzado una aceleración igual o superior a 2G `sqrt(accX*accX + accY*accY + accZ*accZ > 2)`. El patrón hará que el motor vibre 5 veces con un intervalo de 200ms. Tendrá prioridad 3 y se ejecutará con una frecuencia de 5Hz.
-5. La última tarea escribirá por el puerto serie cada cambio ocurrido en la aplicación. Sólo escribirá si ha ocurrido algún evento (pulsación botón `A`, `B` o `C`, o vibración). Los datos a publicar son los siguientes:
+5. La última tarea escribirá por el puerto serie cada cambio ocurrido en la aplicación. Sólo escribirá si ha ocurrido algún evento (pulsación botón `A`, `B` o `C`, o vibración). Tendrá prioridad 0 y se ejecutará con una frecuencia de 10Hz. Los datos a publicar son los siguientes:
 
     - Cuántas veces se ha pulsado `A`.
     - Cuántas veces se ha pulsado `C`.
