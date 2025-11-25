@@ -2724,7 +2724,7 @@
 <li>La tarea 2 escribirá los datos de la IMU en la pantalla del M5, de forma similar al programa <a href="https://jmgandarias.com/industrial_informatics/real-time_embedded_systems/lab6_2/IMU/IMU.ino"><code>IMU.ino</code></a>. En este caso, los datos se escribirán cuando se haya pulsado el botón <code>B</code>. Si se vuelve a pulsar, la pantalla se queda en el estado actual. Es decir, los datos no se actualizan. Si se pulsa de nuevo, se volverán a mostrar. Y así, sucesivamente. Esta tarea tendrá prioridad 1 y se ejecutará con una frecuencia de 25Hz.</li>
 <li>La tarea 3 establece un patrón de vibración a modo de alarma si se ha alcanzado una aceleración igual o superior a 2G <code>sqrt(accX*accX + accY*accY + accZ*accZ &gt; 2)</code>. El patrón hará que el motor vibre 5 veces con un intervalo de 200ms. Tendrá prioridad 3 y se ejecutará con una frecuencia de 5Hz.</li>
 <li>
-<p>La última tarea escribirá por el puerto serie cada cambio ocurrido en la aplicación. Sólo escribirá si ha ocurrido algún evento (pulsación botón <code>A</code>, <code>B</code> o <code>C</code>, o vibración). Los datos a publicar son los siguientes:</p>
+<p>La última tarea escribirá por el puerto serie cada cambio ocurrido en la aplicación. Sólo escribirá si ha ocurrido algún evento (pulsación botón <code>A</code>, <code>B</code> o <code>C</code>, o vibración). Tendrá prioridad 0 y se ejecutará con una frecuencia de 10Hz. Los datos a publicar son los siguientes:</p>
 <ul>
 <li>Cuántas veces se ha pulsado <code>A</code>.</li>
 <li>Cuántas veces se ha pulsado <code>C</code>.</li>
@@ -2770,7 +2770,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 21, 2025 08:01:08 UTC"><span class="timeago" datetime="2025-11-21T08:01:08+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 21, 2025 08:01:08 UTC">2025-11-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 25, 2025 07:40:35 UTC"><span class="timeago" datetime="2025-11-25T07:40:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 25, 2025 07:40:35 UTC">2025-11-25</span>
   </span>
 
     
