@@ -27,7 +27,7 @@
     
     
       
-        <title>Lab Session 7: TFT LCD Screen - Industrial Informatics Course</title>
+        <title>Laboratory Session 7: TFT Screen Programming with M5Core2 - Industrial Informatics Course</title>
       
     
     
@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-session-7-tft-lcd-screen" class="md-skip">
+        <a href="#laboratory-session-7-tft-screen-programming-with-m5core2" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab Session 7: TFT LCD Screen
+              Laboratory Session 7: TFT Screen Programming with M5Core2
             
           </span>
         </div>
@@ -2616,10 +2616,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-title" class="md-nav__link">
+  <a href="#1-working-with-real-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Title
+        1. Working with real hardware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Working with real hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-register-the-pixel-that-was-touched" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Register the pixel that was touched
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-create-a-script-for-m5core2-that-allows-drawing-on-the-screen-with-your-finger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Create a script for M5Core2 that allows drawing on the screen with your finger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-add-the-option-to-clear-the-screen-content-when-button-a-is-pressed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Add the option to clear the screen content when button A is pressed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-in-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working in simulation
       
     </span>
   </a>
@@ -2659,9 +2709,85 @@
   
 
 
-<div><h1 id="lab-session-7-tft-lcd-screen">Lab Session 7: TFT LCD Screen<a class="headerlink" href="#lab-session-7-tft-lcd-screen" title="Permanent link">¶</a></h1>
-<p><strong>Estimated time:</strong> 1.5h (1 session)</p>
-<h2 id="1-title">1. Title<a class="headerlink" href="#1-title" title="Permanent link">¶</a></h2></div>
+<div><h1 id="laboratory-session-7-tft-screen-programming-with-m5core2">Laboratory Session 7: TFT Screen Programming with M5Core2<a class="headerlink" href="#laboratory-session-7-tft-screen-programming-with-m5core2" title="Permanent link">¶</a></h1>
+<p><strong>Estimated time:</strong> 1.5 h (1 session)</p>
+<h2 id="1-working-with-real-hardware">1. Working with real hardware<a class="headerlink" href="#1-working-with-real-hardware" title="Permanent link">¶</a></h2>
+<h3 id="part-1-register-the-pixel-that-was-touched">Part 1: Register the pixel that was touched<a class="headerlink" href="#part-1-register-the-pixel-that-was-touched" title="Permanent link">¶</a></h3>
+<ul>
+<li>The program must check whether the screen has been touched or not.</li>
+<li>If touched, obtain the X, Y coordinates of the pixel that was pressed. To do this, you will need to use the following functions:<ul>
+<li><code>bool screen_pressed = M5.Touch.ispressed()</code>: Returns <code>true</code> if the screen was touched and <code>false</code> otherwise.</li>
+<li><code>TouchPoint_t pixel_pos = M5.Touch.getPressPoint()</code>: Returns the coordinates of the pixel that was touched.</li>
+</ul>
+</li>
+<li>The pixel position has 2 coordinates (X,Y). To store both coordinates, you need to use the variable type <code>TouchPoint_t</code>. The coordinates are stored as follows:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>TouchPoint_t coordinates:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  int16_t coordinates.x
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  int16_t coordinates.y
+</code></pre></div>
+<ul>
+<li>
+<p>The following example code writes the touched pixels to the serial port:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;M5Core2.h&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">// Variable of type TouchPoint_t to store the pixel touched on the screen</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">TouchPoint_t</span><span class="w"> </span><span class="n">pixel_pos</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="c1">// Initialize serial port</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="n">M5</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="n">M5</span><span class="p">.</span><span class="n">Lcd</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span><span class="w"> </span><span class="n">BLACK</span><span class="p">);</span><span class="w"> </span><span class="c1">// Set text color to yellow</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="n">M5</span><span class="p">.</span><span class="n">Lcd</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w">              </span><span class="c1">// Set text size to 2</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="n">M5</span><span class="p">.</span><span class="n">Lcd</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Register pixel"</span><span class="p">);</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="c1">// Fill the screen background with black</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="n">M5</span><span class="p">.</span><span class="n">Lcd</span><span class="p">.</span><span class="n">fillScreen</span><span class="p">(</span><span class="n">BLACK</span><span class="p">);</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">}</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="p">{</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="n">M5</span><span class="p">.</span><span class="n">update</span><span class="p">();</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="c1">// If the screen has been touched</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">M5</span><span class="p">.</span><span class="n">Touch</span><span class="p">.</span><span class="n">ispressed</span><span class="p">())</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">        </span><span class="n">pixel_pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M5</span><span class="p">.</span><span class="n">Touch</span><span class="p">.</span><span class="n">getPressPoint</span><span class="p">();</span><span class="w"> </span><span class="c1">// Save the touched pixel</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">"x:%d, y:%d </span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">pixel_pos</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pixel_pos</span><span class="p">.</span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// Print the pixel position to the serial port</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>When testing the above code, you will notice that the same pixel is repeatedly printed. To fix this, modify the code to store the current touched pixel position and the last touched position. If they are the same, do not print.</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Don't forget to include the <code>M5.update();</code></p>
+</div>
+<h3 id="part-2-create-a-script-for-m5core2-that-allows-drawing-on-the-screen-with-your-finger">Part 2: Create a script for M5Core2 that allows drawing on the screen with your finger<a class="headerlink" href="#part-2-create-a-script-for-m5core2-that-allows-drawing-on-the-screen-with-your-finger" title="Permanent link">¶</a></h3>
+<p>Starting from the code in Part 1, once you have verified that the screen was pressed, that the pressed pixel is different from the one pressed in the previous loop iteration, and that it has been stored in a <code>TouchPoint_t</code> variable, you must:</p>
+<ul>
+<li>At that same position, draw using one of the following functions:</li>
+<li><code>M5.Lcd.drawPixel(int16_t x0, int16_t y0, uint16_t color);</code> Fills the pixel at coordinates (x0, y0) with a color (e.g., WHITE).</li>
+<li><code>M5.Lcd.fillCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color);</code> Draws a filled circle centered at point X0 and Y0, with radius r and a color (e.g., WHITE).</li>
+</ul>
+<h3 id="part-3-add-the-option-to-clear-the-screen-content-when-button-a-is-pressed">Part 3: Add the option to clear the screen content when button A is pressed<a class="headerlink" href="#part-3-add-the-option-to-clear-the-screen-content-when-button-a-is-pressed" title="Permanent link">¶</a></h3>
+<p>To do this, you will need to use the functions <code>M5.Lcd.fillScreen()</code> or <code>M5.Lcd.clear()</code>.</p>
+<h2 id="working-in-simulation">Working in simulation<a class="headerlink" href="#working-in-simulation" title="Permanent link">¶</a></h2>
+<p>To perform the exercise in simulation, you need to use a TFT screen in Wokwi.<br>
+<a href="https://wokwi.com/projects/415787025818634241">Here</a> is an example that solves Part 1 of the exercise in Wokwi using the <em>ILI9341</em> screen and its corresponding libraries.</p>
+<p>In that example, you can see the similarities in the code structure and the differences in syntax due to using libraries other than <code>M5Core2.h</code>.</p>
+<p>Modify the example to solve Parts 2 and 3 in simulation. For Part 3, you will need to add an external button.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Working with this screen is computationally expensive, so Wokwi does not achieve near 100% real-time performance.</p>
+</div></div>
 
 
 
@@ -2684,7 +2810,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 5, 2025 15:37:42 UTC"><span class="timeago" datetime="2025-09-05T15:37:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 5, 2025 15:37:42 UTC">2025-09-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 28, 2025 06:54:15 UTC"><span class="timeago" datetime="2025-11-28T06:54:15+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 28, 2025 06:54:15 UTC">2025-11-28</span>
   </span>
 
     
