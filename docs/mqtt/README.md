@@ -12,6 +12,6 @@
   
     *Example of MQTT application with a real ESP32.*
 
-* [**Lab Session:**: "MQTT with M5Core2"](./lab1/README.md).
+* [**Lab Session:**: "MQTT with M5Core2"](./lab8/README.md).
 
     *MQTT Lab Exercise with the M5 Core 2 device.*

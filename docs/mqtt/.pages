@@ -3,4 +3,4 @@ nav:
   - "Getting Started: A hands-on introduction to MQTT": getting_started
   - "Exercise 1: MQTT with ESP32 in wokwi": exercise1
   - "Exercise 2: MQTT with ESP32 in real world": exercise2
-  - "Lab Session: MQTT with M5Core2": lab1
+  - "Lab Session: MQTT with M5Core2": lab8
