@@ -17,8 +17,8 @@ In this lab session, an MQTT network will be implemented consisting of two M5Cor
 
 !!! warning 
     Be careful with names! If you are going to work on a public broker, you must be careful with the client name and topic names: 
-    - On the same broker, there cannot be two clients with the same name.
-    - If you use a very generic name on a public broker (e.g., "test" or "topic"), it is very likely that there is another client publishing or subscribing to those topics. In this case, it is advisable to use non-generic names (e.g., using your name) to avoid interfering with other network clients.
+        - On the same broker, there cannot be two clients with the same name.
+        - If you use a very generic name on a public broker (e.g., "test" or "topic"), it is very likely that there is another client publishing or subscribing to those topics. In this case, it is advisable to use non-generic names (e.g., using your name) to avoid interfering with other network clients.
 
 ### Part 1: Publisher
 
