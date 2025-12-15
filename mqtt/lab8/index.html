@@ -10,31 +10,29 @@
       
       
       
-        <link rel="canonical" href="https://jmgandarias.com/industrial_informatics/mqtt/exercise1/part1_connect_wifi/">
+        <link rel="canonical" href="https://jmgandarias.com/industrial_informatics/mqtt/lab8/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../exercise2/">
       
-      
-        <link rel="next" href="../part2_client_connect/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/logo_uma_blanco.svg">
+      <link rel="icon" href="../../assets/logo_uma_blanco.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>1. Connect to a network via WiFi  - Industrial Informatics Course</title>
+        <title>Lab Session 8: IoT with M5Core2 - Industrial Informatics Course</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -48,18 +46,18 @@
         
         
         
-        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.c3479dc1.css">
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.c3479dc1.css">
         <style>:root{--md-text-font:"Source Sans Pro";--md-code-font:"Source Code Pro"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../css/timeago.css">
+      <link rel="stylesheet" href="../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../assets/external/unpkg.com/katex@0/dist/katex.min.css">
+      <link rel="stylesheet" href="../../assets/external/unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -93,6 +91,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#lab-session-8-iot-with-m5core2" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,9 +106,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Industrial Informatics Course" class="md-header__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
+    <a href="../.." title="Industrial Informatics Course" class="md-header__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
       
-  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -122,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1. Connect to a network via WiFi 
+              Lab Session 8: IoT with M5Core2
             
           </span>
         </div>
@@ -235,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../about/" class="md-tabs__link">
+        <a href="../../about/" class="md-tabs__link">
           
   
   
@@ -257,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../intro/" class="md-tabs__link">
+        <a href="../../intro/" class="md-tabs__link">
           
   
   
@@ -279,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../microcontrollers_programming/" class="md-tabs__link">
+        <a href="../../microcontrollers_programming/" class="md-tabs__link">
           
   
   
@@ -301,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../real-time_systems_control/" class="md-tabs__link">
+        <a href="../../real-time_systems_control/" class="md-tabs__link">
           
   
   
@@ -323,7 +326,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../real-time_embedded_systems/" class="md-tabs__link">
+        <a href="../../real-time_embedded_systems/" class="md-tabs__link">
           
   
   
@@ -345,7 +348,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../hmi/" class="md-tabs__link">
+        <a href="../../hmi/" class="md-tabs__link">
           
   
   
@@ -369,7 +372,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -405,9 +408,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Industrial Informatics Course" class="md-nav__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
+    <a href="../.." title="Industrial Informatics Course" class="md-nav__button md-logo" aria-label="Industrial Informatics Course" data-md-component="logo">
       
-  <img src="../../../assets/logo_uma_blanco.png" alt="logo">
+  <img src="../../assets/logo_uma_blanco.png" alt="logo">
 
     </a>
     Industrial Informatics Course
@@ -463,7 +466,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../about/" class="md-nav__link ">
+            <a href="../../about/" class="md-nav__link ">
               
   
   
@@ -507,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/license/" class="md-nav__link">
+      <a href="../../about/license/" class="md-nav__link">
         
   
   
@@ -535,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/acknowledgements/" class="md-nav__link">
+      <a href="../../about/acknowledgements/" class="md-nav__link">
         
   
   
@@ -563,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/changelog/" class="md-nav__link">
+      <a href="../../about/changelog/" class="md-nav__link">
         
   
   
@@ -625,7 +628,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../intro/" class="md-nav__link ">
+            <a href="../../intro/" class="md-nav__link ">
               
   
   
@@ -692,7 +695,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../intro/getting_started/" class="md-nav__link ">
+            <a href="../../intro/getting_started/" class="md-nav__link ">
               
   
   
@@ -762,7 +765,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../intro/wokwi_local/" class="md-nav__link ">
+            <a href="../../intro/wokwi_local/" class="md-nav__link ">
               
   
   
@@ -849,7 +852,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../microcontrollers_programming/" class="md-nav__link ">
+            <a href="../../microcontrollers_programming/" class="md-nav__link ">
               
   
   
@@ -916,7 +919,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../microcontrollers_programming/lab1/" class="md-nav__link ">
+            <a href="../../microcontrollers_programming/lab1/" class="md-nav__link ">
               
   
   
@@ -986,7 +989,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../microcontrollers_programming/lab2/" class="md-nav__link ">
+            <a href="../../microcontrollers_programming/lab2/" class="md-nav__link ">
               
   
   
@@ -1056,7 +1059,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../microcontrollers_programming/lab3/" class="md-nav__link ">
+            <a href="../../microcontrollers_programming/lab3/" class="md-nav__link ">
               
   
   
@@ -1126,7 +1129,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../microcontrollers_programming/lab4/" class="md-nav__link ">
+            <a href="../../microcontrollers_programming/lab4/" class="md-nav__link ">
               
   
   
@@ -1196,7 +1199,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../microcontrollers_programming/arduino_esp32_core/" class="md-nav__link ">
+            <a href="../../microcontrollers_programming/arduino_esp32_core/" class="md-nav__link ">
               
   
   
@@ -1275,7 +1278,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_systems_control/" class="md-nav__link ">
+            <a href="../../real-time_systems_control/" class="md-nav__link ">
               
   
   
@@ -1342,7 +1345,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_systems_control/lab5/" class="md-nav__link ">
+            <a href="../../real-time_systems_control/lab5/" class="md-nav__link ">
               
   
   
@@ -1429,7 +1432,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/" class="md-nav__link ">
               
   
   
@@ -1496,7 +1499,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/external_data/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/external_data/" class="md-nav__link ">
               
   
   
@@ -1566,7 +1569,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/event-driven/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/event-driven/" class="md-nav__link ">
               
   
   
@@ -1636,7 +1639,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/lab6_1/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/lab6_1/" class="md-nav__link ">
               
   
   
@@ -1706,7 +1709,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/freeRTOS/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/freeRTOS/" class="md-nav__link ">
               
   
   
@@ -1776,7 +1779,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../real-time_embedded_systems/lab6_2/" class="md-nav__link ">
+            <a href="../../real-time_embedded_systems/lab6_2/" class="md-nav__link ">
               
   
   
@@ -1855,7 +1858,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hmi/" class="md-nav__link ">
+            <a href="../../hmi/" class="md-nav__link ">
               
   
   
@@ -1922,7 +1925,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hmi/lab7/" class="md-nav__link ">
+            <a href="../../hmi/lab7/" class="md-nav__link ">
               
   
   
@@ -2010,7 +2013,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -2083,7 +2086,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../getting_started/" class="md-nav__link ">
+            <a href="../getting_started/" class="md-nav__link ">
               
   
   
@@ -2127,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/part1_install_mosquitto/" class="md-nav__link">
+      <a href="../getting_started/part1_install_mosquitto/" class="md-nav__link">
         
   
   
@@ -2155,7 +2158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/part2_testing_mosquitto_terminal/" class="md-nav__link">
+      <a href="../getting_started/part2_testing_mosquitto_terminal/" class="md-nav__link">
         
   
   
@@ -2183,7 +2186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/part3_external_connections/" class="md-nav__link">
+      <a href="../getting_started/part3_external_connections/" class="md-nav__link">
         
   
   
@@ -2216,8 +2219,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2244,15 +2245,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../exercise1/" class="md-nav__link ">
               
   
   
@@ -2276,7 +2279,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2293,17 +2296,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../exercise1/part1_connect_wifi/" class="md-nav__link">
         
   
   
@@ -2319,7 +2315,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -2332,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../part2_client_connect/" class="md-nav__link">
+      <a href="../exercise1/part2_client_connect/" class="md-nav__link">
         
   
   
@@ -2360,7 +2355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../part3_publisher/" class="md-nav__link">
+      <a href="../exercise1/part3_publisher/" class="md-nav__link">
         
   
   
@@ -2388,7 +2383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../part4_subscriber/" class="md-nav__link">
+      <a href="../exercise1/part4_subscriber/" class="md-nav__link">
         
   
   
@@ -2416,7 +2411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../part5_exercise/" class="md-nav__link">
+      <a href="../exercise1/part5_exercise/" class="md-nav__link">
         
   
   
@@ -2475,7 +2470,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../exercise2/" class="md-nav__link ">
+            <a href="../exercise2/" class="md-nav__link ">
               
   
   
@@ -2519,6 +2514,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2535,17 +2532,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../lab8/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -2564,7 +2559,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2609,6 +2604,88 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-working-with-real-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Working with real hardware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Working with real hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-1-publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Publisher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Subscriber
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Extension
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-working-in-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Working in simulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2625,7 +2702,7 @@
 
 
   
-    <a href="https://github.com/jmgandarias/industrial_informatics/edit/main/docs/mqtt/exercise1/part1_connect_wifi.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/jmgandarias/industrial_informatics/edit/main/docs/mqtt/lab8/README.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2634,114 +2711,62 @@
     
       
     
-    <a href="https://github.com/jmgandarias/industrial_informatics/raw/main/docs/mqtt/exercise1/part1_connect_wifi.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/jmgandarias/industrial_informatics/raw/main/docs/mqtt/lab8/README.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-  <h1>1. Connect to a network via WiFi </h1>
-
-<div><p>In order to develop an IoT application using MQTT with an ESP32, the first thing we need to do is to connect the device to a network. Although this can be done in several ways, the most convenient way is to do it to a WiFi network. </p>
-<p>Let's do it in <a href="https://wokwi.com/">Wokwi</a>!</p>
+<div><h1 id="lab-session-8-iot-with-m5core2">Lab Session 8: IoT with M5Core2<a class="headerlink" href="#lab-session-8-iot-with-m5core2" title="Permanent link">¶</a></h1>
+<p><strong>Estimated time:</strong> 1.5h (1 session)</p>
+<h2 id="1-working-with-real-hardware">1. Working with real hardware<a class="headerlink" href="#1-working-with-real-hardware" title="Permanent link">¶</a></h2>
+<h3 id="general-considerations">General considerations<a class="headerlink" href="#general-considerations" title="Permanent link">¶</a></h3>
+<p>In this lab session, an MQTT network will be implemented consisting of two M5Core2 devices connected through a common broker. Within the network, one device will have the role of publisher and will publish to a topic when a button is pressed. The other device will act as a subscriber and, depending on the message received from the publisher, will change the screen color as described below.</p>
+<ul>
+<li>The WiFi network that the devices must connect to will be the local network:<ul>
+<li>SSID: InfInd</li>
+<li>Password: InfIndMQTT</li>
+</ul>
+</li>
+<li>As a broker, you can use one of the following options:<ul>
+<li>A public broker such as <code>test.mosquitto.org</code> or <code>mqtt.eclipseprojects.io</code>.</li>
+<li>A private broker created with <em>mosquitto</em> if you have followed the steps on <a href="../getting_started/">this page</a>.</li>
+</ul>
+</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>As we are working in wokwi remotely, the ESP32 will have to connect to a wifi network accessible from the wokwi servers (i.e., you cannot connect the device to your WiFi network). Wokwi simulates a WiFi network with full internet access and provides a virtual WiFi access point called Wokwi-GUEST. It is an open access point - no password is required. For more info about network access in wokwi, check <a href="https://docs.wokwi.com/guides/esp32-wifi">this link</a>.</p>
+<p>Be careful with names! If you are going to work on a public broker, you must be careful with the client name and topic names: 
+- On the same broker, there cannot be two clients with the same name.
+- If you use a very generic name on a public broker (e.g., "test" or "topic"), it is very likely that there is another client publishing or subscribing to those topics. In this case, it is advisable to use non-generic names (e.g., using your name) to avoid interfering with other network clients.</p>
 </div>
-<ol>
-<li>
-<p>Open a new project in wokwi and load the following diagram.json.</p>
-<p><details>
-    <summary>Show diagram.json</summary>
-    <div class="highlight"><span class="filename">diagram.json</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan M. Gandarias"</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">"editor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wokwi"</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">"parts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"board-esp32-devkit-c-v4"</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"esp"</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">"top"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">"left"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">"attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="nt">"connections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">[</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="s2">"esp:TX"</span><span class="p">,</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="s2">"$serialMonitor:RX"</span><span class="p">,</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="s2">""</span><span class="p">,</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="p">[]</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="p">],</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="p">[</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">      </span><span class="s2">"esp:RX"</span><span class="p">,</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="s2">"$serialMonitor:TX"</span><span class="p">,</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">      </span><span class="s2">""</span><span class="p">,</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">      </span><span class="p">[]</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="p">]</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">  </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="p">}</span>
-</code></pre></div>
-</details></p>
-</li>
-<li>
-<p>Run the following code</p>
-<div class="highlight"><span class="filename">wifi_connect.ino</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WiFi.h&gt;</span><span class="c1"> // (1)!</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cp">#define WIFI_SSID "Wokwi-GUEST" </span><span class="c1">// (2)!</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cp">#define WIFI_PASSWORD "" </span><span class="c1">// (3)!</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="cp">#define WIFI_CHANNEL 6 </span><span class="c1">// (4)!</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kr">void</span><span class="w"> </span><span class="nf">ConnectWiFi</span><span class="p">()</span><span class="w"> </span><span class="c1">// (5)!</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">{</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nf">WiFi</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="n">WIFI_SSID</span><span class="p">,</span><span class="w"> </span><span class="n">WIFI_PASSWORD</span><span class="p">,</span><span class="w"> </span><span class="n">WIFI_CHANNEL</span><span class="p">);</span><span class="w"> </span><span class="c1">// (6)!</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Connecting to WiFi "</span><span class="p">);</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">WIFI_SSID</span><span class="p">);</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nf">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">WL_CONNECTED</span><span class="p">)</span><span class="w"> </span><span class="c1">// (7)!</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"."</span><span class="p">);</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">" Connected!"</span><span class="p">);</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"IP address: "</span><span class="p">);</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="nf">WiFi</span><span class="p">.</span><span class="nf">localIP</span><span class="p">());</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">(</span><span class="kr">void</span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="p">{</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">  </span><span class="n">ConnectWiFi</span><span class="p">();</span><span class="w"> </span><span class="c1">// (8)!</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="p">}</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="p">{</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// (9)!</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="p">}</span>
-</code></pre></div>
-<ol>
-<li>The <a href="https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/src/WiFi.h">ESP32 WiFi library</a> is based on the <a href="https://docs.arduino.cc/libraries/wifi/">Arduino WiFi library</a> and enables network connection (local and Internet) via WiFi.</li>
-<li>Here we define the name of the wifi network to which we want the device to connect. If you want to use the ESP32 in the real world, you need to enter the name of your local network</li>
-<li>Introduce the password of the network</li>
-<li>This is required in wokwi only. According to the <a href="https://docs.wokwi.com/guides/esp32-wifi">documentation</a>: We specify the WiFi channel number (6) when calling WiFi.begin(). This skips the WiFi scanning phase and saves about 4 seconds when connecting to the WiFi.</li>
-<li>This function is used to connect to the WiFi network (you can reuse it in your projects).</li>
-<li>This method initializes the WiFi library's network settings. If you don't want to use WIFI_CHANNEL (i,e., in real world project), you can delete the third argument of the function.    </li>
-<li>Wait until the device has connected to the network, when it's connected, it will display it through the serial port.</li>
-<li>The function <code>ConnectWiFi()</code> is called from the <code>setup()</code> so that the device connects to the network at the beginning of the program.</li>
-<li>This scripts doesn't do anything else, so there's nothing inside the <code>loop()</code>. Don't forget the <code>delay(10)</code> to speed up the simulation in wokwi (this is not needed in real world applications)</li>
-</ol>
-</li>
-<li>
-<p>If you have done it correctly, you should see the following</p>
-<p><img alt="" src="../images/part1_1.png"></p>
-</li>
-</ol>
-<div class="admonition success">
-<p class="admonition-title">CONGRATULATIONS!</p>
-<p>Now you're able to connect an ESP32 to a WiFi network</p>
-</div></div>
+<h3 id="part-1-publisher">Part 1: Publisher<a class="headerlink" href="#part-1-publisher" title="Permanent link">¶</a></h3>
+<p>Create a script for M5Core2 (publisher) that does the following:</p>
+<ul>
+<li>If button A (<code>\texttt{M5.BtnA}</code>) is pressed, it publishes the message <em>"Red"</em> to a topic (e.g.: <code>\M5\color</code>).</li>
+<li>If button B (<code>\texttt{M5.BtnB}</code>) is pressed, it publishes the message <em>"Yellow"</em> to a topic (e.g.: <code>\M5\color</code>).</li>
+<li>If button C (<code>\texttt{M5.BtnC}</code>) is pressed, it publishes the message <em>"Green"</em> to a topic (e.g.: <code>\M5\color</code>).</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To check if a button has been pressed, you can use the <code>wasReleased()</code> function (e.g., <code>M5.BtnA.wasReleased()</code>).</p>
+</div>
+<h3 id="part-2-subscriber">Part 2: Subscriber<a class="headerlink" href="#part-2-subscriber" title="Permanent link">¶</a></h3>
+<p>Create a script for M5Core2 (subscriber) that does the following:</p>
+<ul>
+<li>Subscribe to the topic where the other M5Core2 publishes (e.g.: <code>\M5\color</code>)</li>
+<li>The screen changes to the color of the message that has been received. You can use the <code>\texttt{fillScreen()</code> function (e.g., <code>M5.Lcd.fillScreen(RED)</code>).</li>
+</ul>
+<h3 id="part-3-extension">Part 3: Extension<a class="headerlink" href="#part-3-extension" title="Permanent link">¶</a></h3>
+<ul>
+<li>On the publisher: The message is not published until button A is pressed for more than one second. That is, the last button that has been pressed (A, B, or C) must be stored, but the message is not sent until button A is pressed for more than one second. You can use the <code>pressedFor()</code> function.</li>
+<li>On the subscriber: If the message is none of the above, the screen turns black.</li>
+<li>On the subscriber: Publish to the topic <code>\confirmacion</code> the message <em>"Message received"</em> when a message has been received and the screen color has been changed. This way, the device will be both subscriber and publisher at the same time.</li>
+<li>On both: Write on the screen of the device acting as publisher the options (e.g.: <em>Press A for "Red"</em>, or <em>Message "Red" sent</em>). Write on the screen of the device acting as subscriber the status of received messages (e.g.: <em>Message "Red" received, color changed</em>).</li>
+</ul>
+<h2 id="2-working-in-simulation">2. Working in simulation<a class="headerlink" href="#2-working-in-simulation" title="Permanent link">¶</a></h2>
+<p>The exercise can be done in simulation following the instructions described on <a href="../exercise1/part5_exercise/">this page</a></p></div>
 
 
 
@@ -2764,7 +2789,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 9, 2024 12:29:39 UTC"><span class="timeago" datetime="2024-12-09T12:29:39+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 9, 2024 12:29:39 UTC">2024-12-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 15, 2025 19:22:31 UTC"><span class="timeago" datetime="2025-12-15T19:22:31+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 15, 2025 19:22:31 UTC">2025-12-15</span>
   </span>
 
     
@@ -2774,7 +2799,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 8, 2024 12:14:26 UTC"><span class="timeago" datetime="2024-12-08T12:14:26+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 8, 2024 12:14:26 UTC">2024-12-08</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 15, 2025 19:22:31 UTC"><span class="timeago" datetime="2025-12-15T19:22:31+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 15, 2025 19:22:31 UTC">2025-12-15</span>
   </span>
 
     
@@ -2811,7 +2836,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Exercise 1: MQTT with ESP32 in wokwi">
+          <a href="../exercise2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Exercise #2: MQTT with ESP32 in real world">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2821,27 +2846,11 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Exercise 1: MQTT with ESP32 in wokwi
+                Exercise #2: MQTT with ESP32 in real world
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../part2_client_connect/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Create a client and connect to a MQTT broker">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                2. Create a client and connect to a MQTT broker
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
@@ -2951,20 +2960,20 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../../../js/timeago.min.js"></script>
+        <script src="../../js/timeago.min.js"></script>
       
-        <script src="../../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../../javascripts/katex.js"></script>
+        <script src="../../javascripts/katex.js"></script>
       
-        <script src="../../../assets/external/unpkg.com/katex@0/dist/katex.min.js"></script>
+        <script src="../../assets/external/unpkg.com/katex@0/dist/katex.min.js"></script>
       
-        <script src="../../../assets/external/unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+        <script src="../../assets/external/unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
