@@ -1,3 +1,10 @@
 {
-    "idf.pythonInstallPath": "/usr/bin/python"
+    "idf.pythonInstallPath": "/usr/bin/python",
+    "markdown-pdf.displayHeaderFooter": true,
+    "markdown-pdf.headerTemplate": "<div></div>",
+    "markdown-pdf.footerTemplate": "<div style='width: 100%; font-size: 9px; text-align: center; color: #444;'><span class='pageNumber'></span></div>",
+    "markdown-pdf.styles": [
+        "docs/stylesheets/markdown-pdf.css"
+    ],
+    "markdown-pdf.stylesRelativePathFile": false
 }
