@@ -9,3 +9,11 @@
   --md-primary-bg-color:       white;
   --md-accent-fg-color:        #cc0066;
 }
+
+/* Justify main Markdown prose globally (keeps headings untouched). */
+.md-typeset p,
+.md-typeset li,
+.md-typeset blockquote {
+  text-align: justify;
+  text-justify: inter-word;
+}

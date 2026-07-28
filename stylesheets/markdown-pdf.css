@@ -1,0 +1,10 @@
+/* Styles used only by the Markdown PDF extension export. */
+.markdown-body p,
+.markdown-body li,
+.markdown-body blockquote,
+body p,
+body li,
+body blockquote {
+  text-align: justify;
+  text-justify: inter-word;
+}
