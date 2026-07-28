@@ -1,7 +1,7 @@
 ---
 title: Cheatsheet - ESP32 Programming
 author: Juan M. Gandarias
-institution: Bachelor Degree in Industrial Electronics Engineering - University of Málaga
+institution: University of Málaga
 ---
 
 # 📋 ESP32 Programming Cheatsheet
