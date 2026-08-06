@@ -25,14 +25,7 @@ Follow the installation steps described in this guide.
     <img src="images/board_install_3.png" width="80%"/>
 
     !!! warning
-        Remember to install the version 2.1.4. If you try to install version 3.X you won't be able to do exercises of the lab sessions. We'll talk about the versions 2.X and 3.X later and how to migrate our code from one to another. For now, just use the 2.X version.
-
-    !!! danger
-        Once you've done this, if you open the Arduino IDE later, a message will pop up letting you know that there are updates available for some libraries and asking whether you want to install the updates or not.
-        **Don't update the libraries**
-
-    !!! info
-        This process may take a few minutes.
+        Be warned about the recent updates in ESP32 Core library for Arduino: In 2024, the Arduino‑ESP32 core was upgraded from versions 2.X (based on ESP-IDF 4.4) to versions 3.X (based on ESP-IDF 5.1). The underlying API and build system (usually called API or builder) changed some behaviour around several functionalities. Most of the existing code that you can find in the internet was programmed with the old 2.X version. All the lab sessions and programs in this course has been updated to the most recent version. More about the versions 2.X and 3.X [here](../arduino_esp32_core).
 
     Once installed, you can select M5Core2 from the board selection menu.
 
