@@ -27,7 +27,7 @@
     
     
       
-        <title>P1 - Industrial Informatics Course</title>
+        <title>Sesión de laboratorio 1: Introducción a la programación de microcontroladores - Industrial Informatics Course</title>
       
     
     
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              P1
+              Sesión de laboratorio 1: Introducción a la programación de microcontroladores
             
           </span>
         </div>
@@ -2688,27 +2688,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-trabajando-con-hardware-real" class="md-nav__link">
+  <a href="#1-trabajar-con-hardware-real" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Trabajando con hardware real
+        1. Trabajar con hardware real
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Trabajar con hardware real">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-preparar-el-entorno-de-arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Preparar el entorno de Arduino IDE
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#11-preparar-el-ide-de-arduino" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.1. Preparar el IDE de Arduino
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1.1. Preparar el IDE de Arduino">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#12-encender-y-apagar-un-led" class="md-nav__link">
@@ -2734,10 +2734,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#131-parpadear-a-una-cierta-frecuencia" class="md-nav__link">
+  <a href="#131-parpadeo-a-una-frecuencia-determinada" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.1. Parpadear a una cierta frecuencia
+        1.3.1. Parpadeo a una frecuencia determinada
       
     </span>
   </a>
@@ -2745,10 +2745,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#132-parpadear-y-detener" class="md-nav__link">
+  <a href="#132-parpadeo-y-detenerse" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.2. Parpadear y detener
+        1.3.2. Parpadeo y detenerse
       
     </span>
   </a>
@@ -2766,15 +2766,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-trabajando-en-simulacion" class="md-nav__link">
+  <a href="#2-trabajar-en-simulacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Trabajando en simulación
+        2. Trabajar en simulación
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Trabajando en simulación">
+    <nav class="md-nav" aria-label="2. Trabajar en simulación">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2790,10 +2790,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ejecutar-un-ejemplo" class="md-nav__link">
+  <a href="#lanzar-un-ejemplo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ejecutar un ejemplo
+        Lanzar un ejemplo
       
     </span>
   </a>
@@ -2801,10 +2801,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#anadir-componentes-de-hardware" class="md-nav__link">
+  <a href="#anadir-componentes-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Añadir componentes de hardware
+        Añadir componentes hardware
       
     </span>
   </a>
@@ -2851,10 +2851,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#241-parpadear" class="md-nav__link">
+  <a href="#241-parpadeo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4.1. Parpadear
+        2.4.1. Parpadeo
       
     </span>
   </a>
@@ -2862,10 +2862,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#242-pulsacion-corta-vs-pulsacion-larga" class="md-nav__link">
+  <a href="#242-pulsacion-corta-frente-a-pulsacion-larga" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4.2. Pulsación corta vs pulsación larga
+        2.4.2. Pulsación corta frente a pulsación larga
       
     </span>
   </a>
@@ -2915,252 +2915,340 @@
   
 
 
-<div><p>Informática Industrial<br>
-Grado en Ingeniería Electrónica Industrial<br>
-Universidad de Málaga<br>
-<a href="https://jmgandarias.com">Juan M. Gandarias</a><br>
-<a href="mailto:jmgandarias@uma.es">jmgandarias@uma.es</a></p>
-<h1 id="sesion-de-laboratorio-1-introduccion-a-la-programacion-de-microcontroladores">Sesión de Laboratorio 1: Introducción a la programación de microcontroladores<a class="headerlink" href="#sesion-de-laboratorio-1-introduccion-a-la-programacion-de-microcontroladores" title="Permanent link">¶</a></h1>
-<p><strong>Tiempo estimado:</strong> 1.5h (1 sesión)</p>
-<h2 id="1-trabajando-con-hardware-real">1. Trabajando con hardware real<a class="headerlink" href="#1-trabajando-con-hardware-real" title="Permanent link">¶</a></h2>
-<h2 id="11-preparar-el-ide-de-arduino">1.1. Preparar el IDE de Arduino<a class="headerlink" href="#11-preparar-el-ide-de-arduino" title="Permanent link">¶</a></h2>
+<div><h1 id="sesion-de-laboratorio-1-introduccion-a-la-programacion-de-microcontroladores">Sesión de laboratorio 1: Introducción a la programación de microcontroladores<a class="headerlink" href="#sesion-de-laboratorio-1-introduccion-a-la-programacion-de-microcontroladores" title="Permanent link">¶</a></h1>
+<p><strong>Tiempo estimado:</strong> 1,5 horas (1 sesión)</p>
+<h2 id="1-trabajar-con-hardware-real">1. Trabajar con hardware real<a class="headerlink" href="#1-trabajar-con-hardware-real" title="Permanent link">¶</a></h2>
+<h3 id="11-preparar-el-entorno-de-arduino-ide">1.1. Preparar el entorno de Arduino IDE<a class="headerlink" href="#11-preparar-el-entorno-de-arduino-ide" title="Permanent link">¶</a></h3>
 <p>Sigue los pasos de instalación descritos en esta guía.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ten en cuenta que solo necesitas completar estos pasos una vez y únicamente en tu propio ordenador. Si vas a utilizar el PC del departamento, no necesitas seguir estos pasos.</p>
+</div>
 <ol>
-<li>Instala el IDE de Arduino: Descárgalo desde <a href="https://www.arduino.cc/en/software/">este enlace</a>:</li>
+<li>Instala Arduino IDE descargándolo desde <a href="https://www.arduino.cc/en/software/">este enlace</a>.</li>
 <li>
 <p>Instala la familia de placas M5Stack:</p>
-<p><img src="images/board_install_1.png" width="80%"></p>
-<p>Necesitas copiar/pegar este texto para descargar el paquete de placas:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json 
+<p><img src="images/board_install_1.png" width="70%"></p>
+<p>Necesitas copiar y pegar el siguiente texto para añadir la URL del paquete de la placa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://static-cdn.m5stack.com/resource/arduino/package_m5stack_index.json
 </code></pre></div>
 <p><img src="images/board_install_2.png" width="80%"></p>
-<p>Una vez configurada la dirección del paquete, puedes instalarlo desde el <em>gestor de placas</em>.</p>
+<p>Una vez configurada la URL del paquete de la placa, puedes instalarlo desde el Gestor de placas.</p>
 <p><img src="images/board_install_3.png" width="80%"></p>
-<p>::: warning
-Recuerda instalar la versión 2.1.4. Si intentas instalar la versión 3.X, no podrás realizar los ejercicios de las sesiones de laboratorio. Más adelante hablaremos sobre las versiones 2.X y 3.X y cómo migrar nuestro código de una a otra. Por ahora, utiliza únicamente la versión 2.X.
-:::</p>
-<p>::: danger
-Una vez que hayas hecho esto, si más adelante abres el Arduino IDE, aparecerá un mensaje informándote de que hay actualizaciones disponibles para algunas bibliotecas y preguntándote si deseas instalarlas o no.
-No actualices las bibliotecas.
-:::</p>
-<p>::: info
-Este proceso puede tardar unos minutos.
-:::</p>
-<p>Una vez instalado, puedes seleccionar M5Core2 desde el menú de selección de placas.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Puedes encontrar instrucciones actualizadas para la instalación de M5Core2 <a href="https://docs.m5stack.com/en/arduino/m5core2/program">aquí</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Por favor, ten en cuenta las actualizaciones recientes de la librería ESP32 Core para Arduino. En 2024, el núcleo Arduino-ESP32 se actualizó desde la versión 2.x (basada en ESP-IDF 4.4) a la versión 3.x (basada en ESP-IDF 5.1). La API subyacente y el sistema de compilación cambiaron varios comportamientos. Gran parte del código que puedas encontrar en internet fue escrito para la versión anterior 2.x. Todas las sesiones de laboratorio y los programas de este curso se han actualizado a la versión más reciente. Puedes encontrar más información sobre las versiones 2.x y 3.x <a href="../arduino_esp32_core">aquí</a>.</p>
+</div>
+<p>Una vez instalado, puedes seleccionar M5Core2 en el menú de selección de placas.</p>
 <p><img src="images/board_selection.png" width="100%"></p>
 </li>
 <li>
 <p>Instala las librerías de Arduino para M5Core2:</p>
-<p><img src="images/m5core2_library.png" width="130%"></p>
-<p>::: info
-Cuando pulses <em>Install</em>, verás la lista de dependencias. <em>DEBES</em> instalar también todas las dependencias.
-:::</p>
-<p>::: info
-Este es un proceso largo que puede tardar varios minutos. Ten paciencia...
-:::</p>
-<p>::: tip
-Si la lista de dependencias es tan grande que no puedes ver el botón <em>Install All</em>, puedes pulsar la tecla <em>tabulador dos veces para poner el cursor sobre el botón y luego pulsar </em>Enter* para instalar todas las dependencias.
-:::</p>
+<p><img src="images/m5core2_library.png" width="80%"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Cuando pulses <em>Install</em>, verás una lista de dependencias. <em>DEBES</em> instalar todas ellas también.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Si durante la instalación aparece el siguiente error, significa que no tienes permiso de escritura en la carpeta de librerías:</p>
+<p><img src="images/error_library_installation.png" width="100%"></p>
+<p>Puedes resolver este problema de una de estas dos formas:</p>
+<ol>
+<li>
+<p>Abre Arduino IDE como administrador:</p>
+<p><img src="images/open_IDE_admin.png" width="80%"></p>
 </li>
 <li>
-<p>Instala el driver CP2104 (controlador USB):</p>
-<ul>
-<li><a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip">Enlace para Windows</a></li>
-<li><a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip">Enlace para MacOS</a></li>
-<li><a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip">Enlace para Linux</a></li>
-</ul>
-<p>Más información sobre la instalación del controlador USB <a href="https://docs.m5stack.com/en/arduino/m5core2/program#2.usb%20driver%20installation">aquí</a>.</p>
-<p>Ahora, cuando conectes el dispositivo M5Core2 al PC con el cable USB, podrás seleccionar el puerto en el IDE de Arduino.</p>
-<p><img src="images/select_serial_port.png" width="80%"></p>
-<p>::: info
-- En Windows, el puerto se llama <em>COMX</em>, donde <em>X</em> es un número que puede variar, por ejemplo, <em>COM5</em>.
-- En Linux, el puerto se llama "ttyUSBX" o "ttyACMX", donde <em>X</em> es un número que puede variar, por ejemplo, <em>ttyUSB2</em>.
-:::</p>
-</li>
-<li>
-<p>Compila y sube el ejemplo <code>hello_world.ino</code> de la librería <em>M5Core2</em>:</p>
-<p><img src="images/open_hello_world_example.png" width="80%"></p>
-<p>Puedes pulsar el botón <em>Upload</em> (en rojo) para compilar y cargar el programa en el dispositivo. Observa que el botón de la izquierda (<em>Verify</em> - en verde) compila el programa pero no lo sube al dispositivo.</p>
-<p><img src="images/compile.png" width="80%"></p>
-</li>
-<li>
-<p><em>OPCIONAL (hazlo</em> <strong>SOLO si has terminado todos los ejercicios</strong> <em>de la sesión):</em> Puedes abrir otros ejemplos si quieres ver el potencial del M5Core2. Por ejemplo:</p>
-<p><img src="images/open_floppybird_example.png" width="80%"></p>
+<p>Cambia la carpeta de librerías a una ubicación donde tengas permisos de escritura:</p>
+<p><img src="images/change_library_location.png" width="100%"></p>
 </li>
 </ol>
-<p>::: tip "Recursos adicionales"
-<a href="https://docs.m5stack.com/en/core/core2">Aquí</a> puedes encontrar más documentación sobre algunas funciones básicas del M5Core2.
-:::</p>
-<p><strong>Pinout y notas importantes</strong>
-A continuación se muestra el pinout del M5Core2. Los pines marcados en rojo son los que usaremos en los ejercicios.</p>
-<p><img src="images/pinout_M5Core2.png" width="30%"></p>
-<p>::: info
-- Algunos <em>pines</em> del M5Core2 están preconfigurados, así que presta atención al conectar componentes externos.
-- El ESP32 dentro del M5Core2 tiene 3 puertos serie:
-    - <code>Serial1</code> está reservado para la pantalla (no lo uses).
-    - <code>Serial0</code> se puede configurar (pines <code>G3 – RXD0</code> y <code>G1 – TXD0</code>), pero está reservado para la conexión USB al PC.
-    - <code>Serial2</code> está libre y se puede configurar (pines G13 – RXD2 y G14 – TXD2) como GPIO normales usando <code>pinMode()</code>.
-:::</p>
-<h3 id="12-encender-y-apagar-un-led">1.2. Encender y apagar un LED<a class="headerlink" href="#12-encender-y-apagar-un-led" title="Permanent link">¶</a></h3>
-<p>Conecta un LED como se muestra:</p>
-<p><img src="images/LED_M5Core2.png" width="60%"></p>
-<p>Ejecuta el siguiente programa:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;M5Core2.h&gt;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#define LED_PIN 14</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="n">M5</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span><span class="w"> </span><span class="c1">// Initialize M5Core2</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</div>
+</li>
+<li>
+<p>Instala el controlador CP2104 (controlador USB):</p>
+<p>Descárgalo desde uno de los siguientes enlaces:
+- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip">Windows</a>  (Descomprime el archivo y ejecuta <code>CP210xVCPInstaller_Win7_v5.40.24.exe</code>)
+- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip">MacOS</a>  (Descomprime el archivo y ejecuta <code>SiLabsUSBDriverDisk.dmg</code>)
+- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip">Linux</a>  (Descomprime el archivo y sigue las instrucciones de compilación en <code>CP210x_VCP_Linux_4.x_Release_Notes.txt</code>)</p>
+<p>Puedes encontrar más información sobre la instalación del controlador USB <a href="https://docs.m5stack.com/en/arduino/m5core2/program#2.usb%20driver%20installation">aquí</a>.</p>
+<p>Ahora, cuando conectes el M5Core2 al PC mediante el cable USB, podrás seleccionar el puerto en Arduino IDE.</p>
+<p><img src="images/select_serial_port.png" width="80%"></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>En Windows, el puerto se llama <em>COMX</em>, donde <em>X</em> es un número que puede variar, por ejemplo <em>COM5</em>.</li>
+<li>En Linux, el puerto se llama <em>ttyUSBX</em> o <em>ttyACMX</em>, donde <em>X</em> es un número que puede variar, por ejemplo <em>ttyUSB2</em>.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Si ves varios dispositivos y no estás seguro de cuál es el M5Core2, puedes probar una de las siguientes opciones:</p>
+<ol>
+<li>Conecta y desconecta el dispositivo y comprueba cuál aparece y desaparece de la lista. Ten en cuenta que, para actualizar la lista de dispositivos conectados, debes cerrar y volver a abrir el menú <code>Tools</code> en Arduino IDE.</li>
+<li>
+<p>Comprueba los dispositivos conectados en el Administrador de dispositivos:</p>
+<p><img src="images/device_manager.png" width="70%"></p>
+<p><img src="images/device_COM.png" width="70%"></p>
+</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>También debes seleccionar la placa correcta, como en el paso 2. Recuerda que siempre debes comprobar la placa y el puerto antes de subir un programa al dispositivo.</p>
+</div>
+</li>
+<li>
+<p>Compila y sube el ejemplo <code>hello_world.ino</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="cpf">&lt;M5Unified.h&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">// Inicia M5Unified.</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">M5</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">// Escribe en la pantalla LCD.</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">M5</span><span class="p">.</span><span class="n">Display</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">);</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
 </code></pre></div>
-<p>::: tip
-- ¿Qué hace <a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/define/"><code>#define</code></a>?
-- ¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/pinMode/"><code>pinMode()</code></a>?
-- ¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalwrite/"><code>digitalWrite()</code></a>?
-:::</p>
-<p>::: tip
-- Te habrás dado cuenta de que has tenido que incluir <code>#include &lt;M5Core2.h&gt;</code> y <code>M5.begin(); // Initialize M5Core</code> ¿Por qué tuviste que hacerlo? ¿Para qué sirven estas instrucciones?
-:::</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La primera vez que compiles un programa para M5Core2, puede tardar un poco.</p>
+</div>
+<p>Puedes pulsar el botón <em>Upload</em> (en rojo) para compilar y cargar el programa en el dispositivo. Ten en cuenta que el botón <em>Verify</em> (en verde) compila el programa, pero no lo sube al dispositivo.</p>
+<p><img src="images/compile.png" width="70%"></p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Recursos adicionales</p>
+<p>Puedes encontrar más documentación sobre algunas de las funciones básicas de M5Core2 <a href="https://docs.m5stack.com/en/core/core2">aquí</a>.</p>
+</div>
+<p><strong>Pinout y notas importantes</strong>
+A continuación se muestra el pinout de M5Core2. Los pines marcados en rojo son los que usaremos en los ejercicios.</p>
+<p><img src="images/pinout_M5Core2.png" width="30%"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>Algunos pines de M5Core2 están preconfigurados, así que presta atención al conectar componentes externos.</li>
+<li>El ESP32 integrado en M5Core2 tiene tres puertos serie:<ul>
+<li><code>Serial1</code> está reservado para la pantalla (no lo uses).</li>
+<li><code>Serial0</code> se puede configurar (pines <code>G3 – RXD0</code> y <code>G1 – TXD0</code>), pero está reservado para la conexión USB al PC.</li>
+<li><code>Serial2</code> está libre y se puede configurar (pines <code>G13 – RXD2</code> y <code>G14 – TXD2</code>) como GPIO normal usando <code>pinMode()</code>.</li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="12-encender-y-apagar-un-led">1.2. Encender y apagar un LED<a class="headerlink" href="#12-encender-y-apagar-un-led" title="Permanent link">¶</a></h3>
+<p>Conecta un LED de la siguiente manera:</p>
+<p><img src="images/LED_M5Core2.png" width="60%"></p>
+<p>Ejecuta el siguiente programa:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="cpf">&lt;M5Unified.h&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#define LED_PIN 14</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="n">M5</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span><span class="w"> </span><span class="c1">// Inicializa M5Core2</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ul>
+<li>¿Qué hace la directiva <a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/define/"><code>#define</code></a>?</li>
+<li>¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/pinMode/"><code>pinMode()</code></a>?</li>
+<li>¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalwrite/"><code>digitalWrite()</code></a>?</li>
+</ul>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Ten en cuenta que tuviste que incluir la línea <code>#include &lt;M5Unified.h&gt;</code> y la instrucción <code>M5.begin(); // Initialize M5Core</code>.
+¿Por qué necesitaste hacer eso? ¿Para qué sirven estas instrucciones?</p>
+</div>
 <h3 id="13-ejercicios-adicionales">1.3. Ejercicios adicionales<a class="headerlink" href="#13-ejercicios-adicionales" title="Permanent link">¶</a></h3>
-<h4 id="131-parpadear-a-una-cierta-frecuencia">1.3.1. Parpadear a una cierta frecuencia<a class="headerlink" href="#131-parpadear-a-una-cierta-frecuencia" title="Permanent link">¶</a></h4>
+<h4 id="131-parpadeo-a-una-frecuencia-determinada">1.3.1. Parpadeo a una frecuencia determinada<a class="headerlink" href="#131-parpadeo-a-una-frecuencia-determinada" title="Permanent link">¶</a></h4>
 <ul>
-<li>Usando el mismo circuito del ejercicio anterior, escribe un script que haga parpadear el LED a una frecuencia de 10 Hz.</li>
-</ul>
-<p>::: tip
-- ¿Durante cuánto tiempo debe estar ENCENDIDO o APAGADO el LED en cada ciclo?
-:::</p>
-<h4 id="132-parpadear-y-detener">1.3.2. Parpadear y detener<a class="headerlink" href="#132-parpadear-y-detener" title="Permanent link">¶</a></h4>
+<li>
+<p>Usando el mismo circuito que en el ejercicio anterior, escribe un script que haga parpadear el LED a una frecuencia de 10 Hz.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
 <ul>
-<li>Usando el mismo circuito del ejercicio anterior, escribe un script que haga parpadear el LED a una frecuencia de 2 Hz y detenga el parpadeo después de 5 segundos.</li>
+<li>¿Durante cuánto tiempo debe estar el LED encendido o apagado en cada ciclo?</li>
 </ul>
-<p>::: tip
-- ¿Cuántas veces parpadea el LED?
-- ¿Cuál es el estado final del LED cuando se detiene el parpadeo, permanece ENCENDIDO o APAGADO?
-:::</p>
-<p>::: tip
-- Puede que necesites usar el bucle <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/for/"><code>for</code></a>, o la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.
-:::</p>
-<h2 id="2-trabajando-en-simulacion">2. Trabajando en simulación<a class="headerlink" href="#2-trabajando-en-simulacion" title="Permanent link">¶</a></h2>
+</div>
+</li>
+</ul>
+<h4 id="132-parpadeo-y-detenerse">1.3.2. Parpadeo y detenerse<a class="headerlink" href="#132-parpadeo-y-detenerse" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>Usando el mismo circuito que en el ejercicio anterior, escribe un script que haga parpadear el LED a una frecuencia de 2 Hz y deje de parpadear después de 5 segundos.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ul>
+<li>¿Cuántas veces parpadea el LED?</li>
+<li>¿Cuál es el estado final del LED cuando deja de parpadear: permanece encendido o apagado?</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Puede que necesites usar el bucle <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/for/"><code>for</code></a> o la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.</p>
+</div>
+</li>
+</ul>
+<h2 id="2-trabajar-en-simulacion">2. Trabajar en simulación<a class="headerlink" href="#2-trabajar-en-simulacion" title="Permanent link">¶</a></h2>
 <h3 id="21-simulacion-de-microcontroladores">2.1. Simulación de microcontroladores<a class="headerlink" href="#21-simulacion-de-microcontroladores" title="Permanent link">¶</a></h3>
-<h4 id="ejecutar-un-ejemplo">Ejecutar un ejemplo<a class="headerlink" href="#ejecutar-un-ejemplo" title="Permanent link">¶</a></h4>
+<h4 id="lanzar-un-ejemplo">Lanzar un ejemplo<a class="headerlink" href="#lanzar-un-ejemplo" title="Permanent link">¶</a></h4>
 <ul>
-<li>Accede al entorno de simulación Wokwi a través de <a href="https://wokwi.com/">este enlace</a> (también puedes utilizar la versión de VSCode).</li>
+<li>Accede al entorno de simulación Wokwi a través de <a href="https://wokwi.com/">este enlace</a>.</li>
 <li>
 <p>Selecciona la plantilla ESP32.</p>
 <p><img src="images/select_esp32_1.png" width="55%">
 <img src="images/select_esp32_2.png" width="80%"></p>
-<p>::: info
-Abre la plantilla ESP32 desde <code>Starter Templates</code>, no desde <code>ESP-IDF Templates</code>. La primera está basada en el IDE de Arduino, mientras que la segunda está basada en el entorno ESP-IDF que <strong>no</strong> se usará en el curso.
-:::</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Abre la plantilla ESP32 desde <code>Starter Templates</code>, no desde <code>ESP-IDF Templates</code>. La primera está basada en Arduino IDE, mientras que la segunda está basada en el entorno ESP-IDF, que no se usará en este curso.</p>
+</div>
 </li>
 <li>
-<p>Simula el sketch de ejemplo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// código de configuración, se ejecuta una sola vez:</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Hello, ESP32!"</span><span class="p">);</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">// código principal, se ejecuta repetidamente:</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nf">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// esto acelera la simulación</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+<p>Simula el ejemplo de sketch:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">// Pon tu código de configuración aquí, para ejecutarlo una vez:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Hello, ESP32!"</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// Pon tu código principal aquí, para ejecutarlo repetidamente:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nf">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// Esto acelera la simulación.</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
 </code></pre></div>
-<p>::: info
-Aquí estás <em>simulando</em> el comportamiento del sistema, incluido el código; no estás <em>compilando</em> el código (es decir, no se está generando el código máquina que ejecutará un procesador). Pero el código DEBE ser compilable (es decir, se verificará que podría compilar).
-:::</p>
-<p>::: info
-- Observa que el factor de tiempo real en la esquina superior derecha debe estar lo más cerca posible del 100%. Este valor es una métrica de rendimiento de la simulación. Cuanto más cerca esté de 100%, mejor será la simulación. Un valor del 100% significa que la simulación se ejecuta en tiempo real. Si el valor baja, los tiempos de la simulación dejan de ser fiables.
-- Observa la instrucción <code>delay(10); // esto acelera la simulación</code>. Prueba a comentar esta línea y observa qué ocurre. ¿Qué pasa si pones <code>delay(1);</code> o <code>delay(5);</code>?
-:::</p>
-<p>::: tip
-- ¿Cuál es el propósito de la función setup()?
-- ¿Cuál es el propósito de la función loop()?
-- ¿Qué hace la función delay()?
-- ¿Por qué necesitamos poner delay(10) dentro de la función loop()?
-:::</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Aquí estás <em>simulando</em> el comportamiento del sistema, incluyendo el código. No estás <em>compilando</em> el código, es decir, no estás generando el código legible por la máquina que ejecutará un procesador. Sin embargo, el código debe ser compilable, lo que significa que se verificará para asegurar que pueda compilar.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>Ten en cuenta que el factor de tiempo real en la esquina superior derecha debe ser lo más cercano posible a 100%. Este valor es una métrica del rendimiento de la simulación. Cuanto más cerca esté de 100%, mejor será la simulación. Un valor de 100% significa que la simulación se está ejecutando en tiempo real. Si baja, los tiempos de la simulación ya no serán fiables.</li>
+<li>Fíjate en la instrucción <code>delay(10); // esto acelera la simulación</code>. Prueba a comentar esta línea y observa qué pasa. ¿Qué ocurre si usas <code>delay(1);</code> o <code>delay(5);</code>?</li>
+</ul>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ul>
+<li>¿Cuál es el propósito de la función <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/setup/"><code>setup()</code></a>?</li>
+<li>¿Cuál es el propósito de la función <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/loop/"><code>loop()</code></a>?</li>
+<li>¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/time/delay/"><code>delay()</code></a>?</li>
+<li>¿Por qué necesitamos poner el <code>delay(10)</code> dentro de la función <code>loop()</code>?</li>
+</ul>
+</div>
 </li>
 </ul>
-<h4 id="anadir-componentes-de-hardware">Añadir componentes de hardware<a class="headerlink" href="#anadir-componentes-de-hardware" title="Permanent link">¶</a></h4>
+<h4 id="anadir-componentes-hardware">Añadir componentes hardware<a class="headerlink" href="#anadir-componentes-hardware" title="Permanent link">¶</a></h4>
 <ul>
 <li>
-<p>Primero, revisa el archivo <code>diagram.json</code>. ¿Qué información tiene?</p>
+<p>Primero, comprueba el archivo <code>diagram.json</code>. ¿Qué información ves ahí?</p>
 </li>
 <li>
-<p>Conecta un LED al <code>GPIO 21</code> con una resistencia, como se muestra en el diagrama (rota - <em>tecla R</em> y voltea - <em>tecla P</em> los componentes si es necesario).</p>
+<p>Conecta un LED a <code>GPIO 21</code> con una resistencia, como se muestra en el diagrama (gira los componentes con <code>r</code> y giéralos con <code>p</code> si es necesario).</p>
 <p><img src="images/circuito_1.png" width="40%"></p>
-<p>::: tip
-- Revisa de nuevo el <code>diagram.json</code>. ¿Qué ha cambiado? ¿Puedes cambiar el color del LED a <em>verde</em> desde este archivo?
-- ¿Qué crees que puedes hacer con el <em>Library Manager</em>?
-:::</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ul>
+<li>Comprueba de nuevo el <code>diagram.json</code>. ¿Qué ha pasado? ¿Puedes cambiar el color del LED a <em>verde</em> desde este archivo?</li>
+<li>¿Qué crees que puedes hacer con el <em>Library Manager</em>?</li>
+</ul>
+</div>
 </li>
 </ul>
 <h3 id="22-encender-y-apagar-un-led">2.2. Encender y apagar un LED<a class="headerlink" href="#22-encender-y-apagar-un-led" title="Permanent link">¶</a></h3>
-<p>Conecta un LED como se muestra:</p>
+<p>Conecta un LED de la siguiente manera:</p>
 <p><img src="images/circuito_1.png" width="40%"></p>
 <p>Ejecuta el siguiente programa:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#define LED_PIN 21</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#define BUTTON_PIN 35</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT_PULLUP</span><span class="p">);</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#define LED_PIN 21</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#define BUTTON_PIN 35</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT_PULLUP</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="23-controlar-el-estado-del-led-con-un-pulsador">2.3. Controlar el estado del LED con un pulsador<a class="headerlink" href="#23-controlar-el-estado-del-led-con-un-pulsador" title="Permanent link">¶</a></h3>
 <ul>
-<li>Implementa el circuito mostrado en el siguiente diagrama y simula un programa que:<ul>
+<li>
+<p>Implementa el circuito que se muestra en el siguiente diagrama y simula un programa que:</p>
+<ul>
 <li>Encienda el LED cuando se pulse el botón.</li>
-<li>Apague el LED cuando el botón no esté pulsado.</li>
+<li>Apague el LED cuando no se pulse el botón.</li>
 </ul>
-</li>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>Usa la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/"><code>digitalRead()</code></a> para leer el estado del botón.</li>
+<li>Puede que necesites usar la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.</li>
 </ul>
-<p>::: tip
-- Usa la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/"><code>digitalRead()</code></a> para obtener el estado del botón.
-- Puede que necesites usar la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.
-:::</p>
+</div>
 <p><img src="images/button_diagram.png" width="50%"></p>
-<p>::: info
-- Al colocar el botón, no olvides deseleccionar la opción <em>bounce</em> para evitar problemas de <a href="https://www.luisllamas.es/en/debouncing-arduino-interrupts/">rebotes</a>.</p>
-<p><img src="images/bounce.png" width="30%">
-:::</p>
-<p>::: tip
-- ¿Qué información se incluye en el <code>diagram.json</code>? ¿Cambió con respecto al ejercicio anterior?
-- ¿Se puede hacer el ejercicio sin usar la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>? ¿Cómo?
-:::</p>
-<h3 id="24-ejercicios-adicionales">2.4. Ejercicios adicionales<a class="headerlink" href="#24-ejercicios-adicionales" title="Permanent link">¶</a></h3>
-<h4 id="241-parpadear">2.4.1. Parpadear<a class="headerlink" href="#241-parpadear" title="Permanent link">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Cuando coloques el botón, no olvides desactivar la opción <em>bounce</em> para evitar <a href="https://www.luisllamas.es/en/debouncing-arduino-interrupts/">problemas de rebote</a>.</p>
+<p><img src="images/bounce.png" width="30%"></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
 <ul>
-<li>Usando el mismo circuito del ejercicio anterior, escribe un script que haga parpadear el LED mientras se mantiene pulsado el botón.</li>
+<li>¿Qué información se incluye en el archivo <code>diagram.json</code>? ¿Ha cambiado respecto al ejercicio anterior?</li>
+<li>¿Puedes completar el ejercicio sin usar la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>? ¿Cómo?</li>
 </ul>
-<p>::: tip
-- Puede que necesites usar la función <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/"><code>millis()</code></a>.
-:::</p>
-<h4 id="242-pulsacion-corta-vs-pulsacion-larga">2.4.2. Pulsación corta vs pulsación larga<a class="headerlink" href="#242-pulsacion-corta-vs-pulsacion-larga" title="Permanent link">¶</a></h4>
-<ul>
-<li>Usando el mismo circuito del ejercicio anterior, escribe un script que haga lo siguiente:<ul>
-<li>Pulsación corta (&lt; 500 ms): Alternar el LED (si el LED está ENCENDIDO, apagarlo, y viceversa).</li>
-<li>Pulsación larga (≥ 500 ms): Hacer parpadear el LED.</li>
-</ul>
+</div>
 </li>
 </ul>
-<p>::: tip
-- Puede que necesites usar la función <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/"><code>millis()</code></a> y la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.
-:::</p></div>
+<h3 id="24-ejercicios-adicionales">2.4. Ejercicios adicionales<a class="headerlink" href="#24-ejercicios-adicionales" title="Permanent link">¶</a></h3>
+<h4 id="241-parpadeo">2.4.1. Parpadeo<a class="headerlink" href="#241-parpadeo" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>Usando el mismo circuito que en el ejercicio anterior, escribe un script que haga parpadear el LED mientras el botón está pulsado.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Puede que necesites usar la función <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/"><code>millis()</code></a>.</p>
+</div>
+</li>
+</ul>
+<h4 id="242-pulsacion-corta-frente-a-pulsacion-larga">2.4.2. Pulsación corta frente a pulsación larga<a class="headerlink" href="#242-pulsacion-corta-frente-a-pulsacion-larga" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>Usando el mismo circuito que en el ejercicio anterior, escribe un script que haga lo siguiente:</p>
+<ul>
+<li>Pulsación corta (&lt; 500 ms): alterna el LED (si está encendido, lo apaga, y viceversa).</li>
+<li>Pulsación larga (≥ 500 ms): hace parpadear el LED.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Puede que necesites usar la función <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/"><code>millis()</code></a> y la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.</p>
+</div>
+</li>
+</ul></div>
 
 
 
@@ -3183,7 +3271,7 @@ Aquí estás <em>simulando</em> el comportamiento del sistema, incluido el códi
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 1, 2026 05:37:23 UTC"><span class="timeago" datetime="2026-08-01T05:37:23+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 1, 2026 05:37:23 UTC">2026-08-01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 7, 2026 07:06:20 UTC"><span class="timeago" datetime="2026-08-07T07:06:20+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 7, 2026 07:06:20 UTC">2026-08-07</span>
   </span>
 
     
@@ -3230,7 +3318,7 @@ Aquí estás <em>simulando</em> el comportamiento del sistema, incluido el códi
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab Session 1: Intro to microcontrollers programming">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab Session 1: Introduction to Microcontroller Programming">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3240,7 +3328,7 @@ Aquí estás <em>simulando</em> el comportamiento del sistema, incluido el códi
                 Previous
               </span>
               <div class="md-ellipsis">
-                Lab Session 1: Intro to microcontrollers programming
+                Lab Session 1: Introduction to Microcontroller Programming
               </div>
             </div>
           </a>
