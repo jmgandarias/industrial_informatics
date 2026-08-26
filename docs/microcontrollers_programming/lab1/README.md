@@ -2,6 +2,10 @@
 
 **Estimated time:** 1.5 hours (1 session)
 
+**Description**
+
+The goal of this session is to introduce the basics of microcontroller programming and timing control. We will learn how to configure digital pins, use the Arduino program structure (`setup()` and `loop()`), and control LEDs and push buttons with functions such as `delay()` and `millis()`. 
+
 ## 1. Working with Real Hardware
 
 ### 1.1. Prepare the Arduino IDE
