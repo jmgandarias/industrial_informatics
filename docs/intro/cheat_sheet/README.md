@@ -324,6 +324,95 @@ void loop() {
 }
 ```
 
+
+### 🔐 Synchronization and Mutex (Shared Resource Protection)
+
+#### 🛡️ Basic Concepts
+
+**Critical Section:** Code block where a task accesses a shared resource.
+
+**Mutex:** Mechanism allowing only ONE task to access a resource at a time.
+
+**Race Condition:** Problem occurring when two tasks simultaneously access the same resource without synchronization.
+
+#### 🔒 Mutex Functions
+
+| Function | Description |
+| :--- | :--- |
+| **`xSemaphoreCreateMutex()`** | Creates a mutex. Returns `SemaphoreHandle_t` or NULL if failed |
+| **`xSemaphoreTake(mutex, timeout)`** | Acquires mutex (waits if busy). Timeout: `portMAX_DELAY` = infinite wait |
+| **`xSemaphoreGive(mutex)`** | Releases mutex for other tasks to use |
+
+**Return values:**
+- `pdTRUE` (1): Operation successful
+- `pdFALSE` (0): Timeout reached without acquiring mutex
+
+#### ✅ Safe Pattern - With Mutex
+
+```cpp
+#include <Arduino.h>
+
+SemaphoreHandle_t xMutexSerial;
+
+void vTask1(void *pvParameters) {
+  for (;;) {
+    // Try to take mutex
+    if (xSemaphoreTake(xMutexSerial, portMAX_DELAY) == pdTRUE) {
+      
+      // --- PROTECTED CRITICAL SECTION ---
+      Serial.println("[TASK 1] Using Serial...");
+      vTaskDelay(pdMS_TO_TICKS(100));
+      Serial.println("[TASK 1] Finished");
+      // --------------------------------
+
+      // Release mutex
+      xSemaphoreGive(xMutexSerial);
+    }
+
+    vTaskDelay(pdMS_TO_TICKS(1000));
+  }
+}
+
+void vTask2(void *pvParameters) {
+  for (;;) {
+    if (xSemaphoreTake(xMutexSerial, portMAX_DELAY) == pdTRUE) {
+      
+      // --- PROTECTED CRITICAL SECTION ---
+      Serial.println("  [TASK 2] Writing...");
+      vTaskDelay(pdMS_TO_TICKS(50));
+      Serial.println("  [TASK 2] Done");
+      // --------------------------------
+
+      xSemaphoreGive(xMutexSerial);
+    }
+
+    vTaskDelay(pdMS_TO_TICKS(700));
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial);
+
+  // Create mutex BEFORE tasks
+  xMutexSerial = xSemaphoreCreateMutex();
+
+  if (xMutexSerial != NULL) {
+    xTaskCreatePinnedToCore(vTask1, "Task_1", 2048, NULL, 1, NULL, 0);
+    xTaskCreatePinnedToCore(vTask2, "Task_2", 2048, NULL, 1, NULL, 1);
+  }
+}
+
+void loop() {
+  vTaskDelete(NULL);
+}
+```
+
+**Advantages:**
+- ✅ Complete and unmixed Serial writes
+- ✅ Ordered resource access
+- ✅ Prevents data corruption
+
 ---
 
 ## 5️⃣ Connectivity (WiFi and MQTT)
@@ -463,7 +552,7 @@ void loop() {
 
 ## 6️⃣ M5Stack Core2: Hardware, Display and IMU
 
-The `#include <M5Core2.h>` library abstracts the integrated hardware of the M5Core2 development board.
+The `#include<M5Unified.h>` library abstracts the integrated hardware of the M5Core2 development board.
 
 ### 🔌 Initialization and Power Management
 
@@ -553,95 +642,6 @@ Serial.printf("Ori: P=%.1f° R=%.1f° Y=%.1f°\n", pitch, roll, yaw);
 
 ---
 
-## 🔐 Synchronization and Mutex (Shared Resource Protection)
-
-### 🛡️ Basic Concepts
-
-**Critical Section:** Code block where a task accesses a shared resource.
-
-**Mutex:** Mechanism allowing only ONE task to access a resource at a time.
-
-**Race Condition:** Problem occurring when two tasks simultaneously access the same resource without synchronization.
-
-### 🔒 Mutex Functions
-
-| Function | Description |
-| :--- | :--- |
-| **`xSemaphoreCreateMutex()`** | Creates a mutex. Returns `SemaphoreHandle_t` or NULL if failed |
-| **`xSemaphoreTake(mutex, timeout)`** | Acquires mutex (waits if busy). Timeout: `portMAX_DELAY` = infinite wait |
-| **`xSemaphoreGive(mutex)`** | Releases mutex for other tasks to use |
-
-**Return values:**
-- `pdTRUE` (1): Operation successful
-- `pdFALSE` (0): Timeout reached without acquiring mutex
-
-### ✅ Safe Pattern - With Mutex
-
-```cpp
-#include <Arduino.h>
-
-SemaphoreHandle_t xMutexSerial;
-
-void vTask1(void *pvParameters) {
-  for (;;) {
-    // Try to take mutex
-    if (xSemaphoreTake(xMutexSerial, portMAX_DELAY) == pdTRUE) {
-      
-      // --- PROTECTED CRITICAL SECTION ---
-      Serial.println("[TASK 1] Using Serial...");
-      vTaskDelay(pdMS_TO_TICKS(100));
-      Serial.println("[TASK 1] Finished");
-      // --------------------------------
-
-      // Release mutex
-      xSemaphoreGive(xMutexSerial);
-    }
-
-    vTaskDelay(pdMS_TO_TICKS(1000));
-  }
-}
-
-void vTask2(void *pvParameters) {
-  for (;;) {
-    if (xSemaphoreTake(xMutexSerial, portMAX_DELAY) == pdTRUE) {
-      
-      // --- PROTECTED CRITICAL SECTION ---
-      Serial.println("  [TASK 2] Writing...");
-      vTaskDelay(pdMS_TO_TICKS(50));
-      Serial.println("  [TASK 2] Done");
-      // --------------------------------
-
-      xSemaphoreGive(xMutexSerial);
-    }
-
-    vTaskDelay(pdMS_TO_TICKS(700));
-  }
-}
-
-void setup() {
-  Serial.begin(115200);
-  while (!Serial);
-
-  // Create mutex BEFORE tasks
-  xMutexSerial = xSemaphoreCreateMutex();
-
-  if (xMutexSerial != NULL) {
-    xTaskCreatePinnedToCore(vTask1, "Task_1", 2048, NULL, 1, NULL, 0);
-    xTaskCreatePinnedToCore(vTask2, "Task_2", 2048, NULL, 1, NULL, 1);
-  }
-}
-
-void loop() {
-  vTaskDelete(NULL);
-}
-```
-
-**Advantages:**
-- ✅ Complete and unmixed Serial writes
-- ✅ Ordered resource access
-- ✅ Prevents data corruption
-
----
 
 ## 🔧 Utility Functions
 
