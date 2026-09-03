@@ -199,6 +199,32 @@ void loop() {
 }
 ```
 
+⚠️ **Warning: real ESP32 timer limits**
+
+The ESP32 hardware timer does not accept any arbitrary frequency. In the Arduino ESP32 implementation, the divider used by the timer must stay between `2` and `65536`, and the timer source is typically `80 MHz` on ESP32.
+
+Therefore, the real range of `timerBegin(freq_hz)` is approximately:
+
+- Minimum practical frequency: `80,000,000 / 65536 ≈ 1220.7 Hz`
+- Maximum practical frequency: `80,000,000 / 2 = 40,000,000 Hz = 40 MHz`
+
+This means that a frequency like `500 Hz` is below the minimum supported range for a direct timer configuration. In other words, `timerBegin(500)` is not a valid direct hardware setting for the ESP32 timer.
+
+A valid approach is to configure the timer at a higher base frequency and then generate the desired period in software. For example:
+
+```cpp
+// Use 1 MHz timer resolution
+timer = timerBegin(1000000);
+
+// 500 Hz = 2 ms = 2000 us
+// Therefore the alarm period is 2000 microseconds
+timerAlarm(timer, 2000, true, 0);
+```
+
+So for a target of `500 Hz`, the correct configuration is usually `timerBegin(1000000)` and `timerAlarm(timer, 2000, true, 0)`, not `timerBegin(500)`.
+
+For `timerAlarm(...)`, the period is expressed in microseconds, so the same rule applies: the hardware timer is configured with a supported base frequency, and the desired period is produced by choosing the right alarm value.
+
 ---
 
 ## 3️⃣ Software Timers (`Ticker.h`)

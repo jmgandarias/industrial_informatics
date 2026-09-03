@@ -199,6 +199,32 @@ void loop() {
 }
 ```
 
+⚠️ **Advertencia: límites reales del temporizador ESP32**
+
+El temporizador hardware del ESP32 no acepta cualquier frecuencia arbitraria. En la implementación de Arduino ESP32, el divisor utilizado por el temporizador debe mantenerse entre `2` y `65536`, y la fuente de reloj suele ser de `80 MHz` en el ESP32.
+
+Por tanto, el rango real de `timerBegin(freq_hz)` es aproximadamente:
+
+- Frecuencia mínima práctica: `80,000,000 / 65536 ≈ 1220,7 Hz`
+- Frecuencia máxima práctica: `80,000,000 / 2 = 40,000,000 Hz = 40 MHz`
+
+Esto significa que una frecuencia como `500 Hz` está por debajo del rango mínimo soportado para una configuración directa del temporizador. En otras palabras, `timerBegin(500)` no es una configuración válida directamente en el temporizador hardware del ESP32.
+
+Un enfoque válido es configurar el temporizador a una frecuencia base más alta y luego generar el periodo deseado por software. Por ejemplo:
+
+```cpp
+// Usa una resolución de 1 MHz para el temporizador
+timer = timerBegin(1000000);
+
+// 500 Hz = 2 ms = 2000 us
+// Por tanto, la alarma debe durar 2000 microsegundos
+timerAlarm(timer, 2000, true, 0);
+```
+
+Así, para un objetivo de `500 Hz`, la configuración correcta suele ser `timerBegin(1000000)` y `timerAlarm(timer, 2000, true, 0)`, y no `timerBegin(500)`.
+
+Para `timerAlarm(...)`, el periodo se expresa en microsegundos, así que se aplica la misma regla: el temporizador hardware se configura con una frecuencia base soportada y el periodo deseado se obtiene eligiendo el valor adecuado de alarma.
+
 ---
 
 ## 3️⃣ Temporizadores software (`Ticker.h`)
