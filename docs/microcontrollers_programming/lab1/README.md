@@ -2,9 +2,9 @@
 
 **Estimated time:** 1.5 hours (1 session)
 
-**Description**
+## Description
 
-The goal of this session is to introduce the basics of microcontroller programming and timing control. We will learn how to configure digital pins, use the Arduino program structure (`setup()` and `loop()`), and control LEDs and push buttons with functions such as `delay()` and `millis()`. 
+The goal of this session is to introduce the fundamentals of microcontroller programming and timing control. We will learn how to configure digital pins, use the Arduino program structure (`setup()` and `loop()`), and control LEDs and push buttons with functions such as `delay()` and `millis()`.
 
 ## 1. Working with Real Hardware
 
@@ -37,7 +37,7 @@ Follow the installation steps described in this guide.
         Updated instructions for installing the M5Core2 can be found [here](https://docs.m5stack.com/en/arduino/m5core2/program).
 
     !!! warning
-        Please be aware of the recent updates to the ESP32 Core library for Arduino. In 2024, the Arduino-ESP32 core was upgraded from version 2.x (based on ESP-IDF 4.4) to version 3.x (based on ESP-IDF 5.1). The underlying API and build system changed several behaviors. Much of the code you may find online was written for the older 2.x version. All the lab sessions and programs in this course have been updated to the most recent version. More information about versions 2.x and 3.x can be found [here](../arduino_esp32_core).
+        Please be aware of the recent updates to the ESP32 Core library for Arduino. In 2024, the Arduino-ESP32 core was upgraded from version 2.x (based on ESP-IDF 4.4) to version 3.x (based on ESP-IDF 5.1). The underlying API and build system changed some behaviors. Much of the code you may find online was written for the older 2.x version. All the lab sessions and programs in this course have been updated to the most recent version. More information about versions 2.x and 3.x can be found [here](../arduino_esp32_core).
 
     Once installed, you can select M5Core2 from the board selection menu.
 
@@ -48,7 +48,7 @@ Follow the installation steps described in this guide.
     <img src="images/m5core2_library.png" width="80%"/>
 
     !!! warning
-        When you click *Install*, you will see a list of dependencies. You *MUST* install all of them as well.
+        When you click *Install*, you will see a list of dependencies. You must install all of them as well.
 
     !!! danger
         If you encounter the following error during installation, it means that you do not have write permission for the library folder:
@@ -66,12 +66,12 @@ Follow the installation steps described in this guide.
             <img src="images/change_library_location.png" width="100%"/>
 
 
-4. Install the CP2104 driver (USB driver):
+4. Install the CP2104 USB driver:
 
     Download it from one of the following links:  
-    - [Windows](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip)  (Unzip the file and launch the file `CP210xVCPInstaller_Win7_v5.40.24.exe`)  
-    - [MacOS](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip)  (Unzip the file and launch the file `SiLabsUSBDriverDisk.dmg`)  
-    - [Linux](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip)  (Unzip the file and follow the building instructions in the file `CP210x_VCP_Linux_4.x_Release_Notes.txt`)  
+    - [Windows](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip) (Unzip the file and run `CP210xVCPInstaller_Win7_v5.40.24.exe`.)
+    - [macOS](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip) (Unzip the file and open `SiLabsUSBDriverDisk.dmg`.)
+    - [Linux](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip) (Unzip the file and follow the build instructions in `CP210x_VCP_Linux_4.x_Release_Notes.txt`.)
 
     More information about USB driver installation can be found [here](https://docs.m5stack.com/en/arduino/m5core2/program#2.usb%20driver%20installation).
 
@@ -99,11 +99,11 @@ Follow the installation steps described in this guide.
 5. Compile and upload the `hello_world.ino` example:
 
     ```Arduino
-    #include<M5Unified.h>
+    #include <M5Unified.h>
 
     void setup() {
 
-    // Begin M5Unified.
+    // Initialize M5Core2.
     M5.begin();
 
     // Print to the LCD screen.
@@ -126,7 +126,7 @@ Follow the installation steps described in this guide.
 !!! tip "Additional resources"
     You can find more documentation about some of the basic functions of the M5Core2 [here](https://docs.m5stack.com/en/core/core2).
 
-**Pinout and Important Notes**
+### Pinout and Important Notes
 Below is the M5Core2 pinout. The pins marked in red are the ones we will use in the exercises.
 
 <img src="images/pinout_M5Core2.png" width="30%"/>
@@ -140,13 +140,13 @@ Below is the M5Core2 pinout. The pins marked in red are the ones we will use in 
 
 ### 1.2. Turn an LED On and Off
 
-Connect an LED as follows:
+Connect an LED as shown below:
 
 <img src="images/LED_M5Core2.png" width="60%"/>
 
 Run the following program:
 ```Arduino
-#include<M5Unified.h>
+#include <M5Unified.h>
 #define LED_PIN 14
 
 void setup() {
@@ -168,25 +168,25 @@ void loop() {
     - What does the [```digitalWrite()```](https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalwrite/) function do?
 
 !!! question
-    Note that you had to include the ```#include <M5Unified.h>``` line and the ```M5.begin(); // Initialize M5Core``` statement.
+    Note that you had to include the ```#include <M5Unified.h>``` line and the ```M5.begin(); // Initialize M5Core2``` statement.
     Why did you need to do that? What are these instructions for?
 
 ### 1.3. Additional Exercises
 
 #### 1.3.1. Blink at a Certain Frequency
 
-- Using the same circuit as in the previous exercise, write a script that blinks the LED at a frequency of 10 Hz.
+- Using the same circuit as in the previous exercise, write a program that blinks the LED at a frequency of 10 Hz.
 
     !!! question
-        - For how long should the LED be ON or OFF in each cycle?
+        - How long should the LED remain on or off during each cycle?
 
 #### 1.3.2. Blink and Stop
 
-- Using the same circuit as in the previous exercise, write a script that blinks the LED at a frequency of 2 Hz and stops blinking after 5 seconds.
+- Using the same circuit as in the previous exercise, write a program that blinks the LED at a frequency of 2 Hz and stops blinking after 5 seconds.
 
     !!! question
         - How many times does the LED blink?
-        - What is the final state of the LED when blinking stops: does it remain ON or OFF?
+        - What is the final state of the LED when blinking stops: does it remain on or off?
 
     !!! tip
         You may need to use the [```for```](https://docs.arduino.cc/language-reference/en/structure/control-structure/for/) loop, or the [```if...else```](https://docs.arduino.cc/language-reference/en/structure/control-structure/else/) condition.
@@ -206,7 +206,7 @@ void loop() {
     !!! warning
         Open the ESP32 template from `Starter Templates`, not from `ESP-IDF Templates`. The former is based on the Arduino IDE, while the latter is based on the ESP-IDF environment, which will not be used in this course.
 
-- Simulate the example sketch:
+- Simulate the example program:
 
     ```Arduino
     void setup() {
@@ -222,11 +222,11 @@ void loop() {
     ```
 
     !!! warning
-        Here you are *simulating* the behavior of the system, including the code. You are not *compiling* the code, meaning you are not generating the machine-readable code that will be executed by a processor. However, the code still MUST be compilable, meaning it will be verified to ensure that it can compile.
+        Here you are *simulating* the behavior of the system. Wokwi compiles the program and runs the resulting code in a virtual model of the microcontroller. Therefore, the code must be compilable for the simulation to run.
 
     !!! info
         - Note that the real-time factor in the top-right corner should be as close as possible to 100%. This value is a simulation performance metric. The closer it gets to 100%, the better the simulation. A value of 100% means the simulation is running in real time. If the value drops, the timing in the simulation is no longer reliable.
-        - Note the instruction `delay(10); // this speeds up the simulation`. Try commenting out this line and see what happens. What if you use `delay(1);` or `delay(5);`?
+        - Note the instruction `delay(10); // This speeds up the simulation.` Try commenting out this line and see what happens. What if you use `delay(1);` or `delay(5);`?
 
     !!! question
         - What is the purpose of the [`setup()`](https://docs.arduino.cc/language-reference/en/structure/sketch/setup/) function?
@@ -272,9 +272,9 @@ void loop() {
 
 ### 2.3. Control the LED State with a Push Button
 
-- Implement the circuit shown in the following diagram and simulate a program that:
-    - Turns the LED ON when the button is pressed.
-    - Turns the LED OFF when the button is not pressed.
+- Implement the circuit shown in the following diagram and write a program that:
+    - Turns the LED on when the button is pressed.
+    - Turns the LED off when the button is not pressed.
 
     !!! tip
         - Use the [```digitalRead()```](https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/) function to read the status of the button.
@@ -283,28 +283,28 @@ void loop() {
     <img src="images/button_diagram.png" width="50%"/>
 
     !!! warning
-        When you place the button, do not forget to deselect the *bounce* option to avoid [bouncing issues](https://www.luisllamas.es/en/debouncing-arduino-interrupts/).
+        When you place the button, do not forget to deselect the *bounce* option to avoid [contact bounce](https://www.luisllamas.es/en/debouncing-arduino-interrupts/).
 
         <img src="images/bounce.png" width="30%"/>
 
     !!! question
-        - What information is included in the `diagram.json` file? Did it change compared with the previous exercise?
+        - What information is included in the `diagram.json` file? Did it change compared to the previous exercise?
         - Can you complete the exercise without using the [```if...else```](https://docs.arduino.cc/language-reference/en/structure/control-structure/else/) condition? How?
 
 ### 2.4. Additional Exercises
 
 #### 2.4.1. Blink
 
-- Using the same circuit as in the previous exercise, write a script that blinks the LED while the button is pressed.
+- Using the same circuit as in the previous exercise, write a program that blinks the LED while the button is pressed.
 
     !!! tip
         You may need to use the [```millis()```](https://docs.arduino.cc/language-reference/en/functions/time/millis/) function.
 
 #### 2.4.2. Short Press vs. Long Press
 
-- Using the same circuit as in the previous exercise, write a script that does the following:
-    - Short press (< 500 ms): Toggle the LED (if the LED is ON, turn it OFF, and vice versa).
-    - Long press (≥ 500 ms): Blink the LED.
+- Using the same circuit as in the previous exercise, write a program that does the following:
+    - Short press (< 500 ms): toggle the LED (if the LED is on, turn it off, and vice versa).
+    - Long press (≥ 500 ms): blink the LED.
 
     !!! tip
         You may need to use the [```millis()```](https://docs.arduino.cc/language-reference/en/functions/time/millis/) function and the [```if...else```](https://docs.arduino.cc/language-reference/en/structure/control-structure/else/) condition.

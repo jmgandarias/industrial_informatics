@@ -1,17 +1,16 @@
 # Lab Session 2: Timers
 
-**Estimated time:** 1.5h (1 session)
+**Estimated time:** 1.5 hours (1 session)
 
-**Description**
+## Description
 
-The goal of this session is to learn the different ways a microcontroller can perform timing operations. As seen previously, the ```delay()``` function can be used to create a wait for the required amount of time. However, to solve slightly more complex problems, it becomes necessary to use *timers*, which allow us to interrupt the normal execution of the program in order to handle a periodic event.
+The goal of this session is to learn the different ways in which a microcontroller can perform timing operations. As seen previously, the `delay()` function can be used to wait for a specified amount of time. However, to solve slightly more complex problems, it becomes necessary to use *timers*, which allow us to handle periodic events and, in some cases, interrupt the normal execution of the program.
 
 ## 1. Working with real hardware
 
-### 1.1. Using an external library - _Ticker_ (software timers)
+### 1.1. Using an external library: _Ticker_ (software timers)
 
-The [Arduino Ticker Library](https://github.com/sstaub/Ticker?tab=readme-ov-file) allows you to create easily Ticker callbacks, which can call a function in a predetermined interval
-The following example shows how to perform timing operations using the _Ticker_ library and the ```attach()``` or ```attach_ms()``` functions.
+The [Arduino Ticker library](https://github.com/sstaub/Ticker?tab=readme-ov-file) allows you to easily create timer callbacks that call a function at a predetermined interval. The following example shows how to perform timing operations using the _Ticker_ library and the `attach()` or `attach_ms()` functions.
 
 ```Arduino
 #include <M5Core2.h>   // M5Stack Core2 library
@@ -50,16 +49,16 @@ void loop()
 }
 ```
 
-Connect an LED to _pin 14_ of the _M5Core2_ and modify this example so that the LED blinks every second instead of every 500 ms.
+Connect an LED to GPIO14 on the M5Core2 and modify this example so that the LED changes state every second instead of every 500 ms.
 
 <img src="images/LED_M5Core2.png" width="60%"/>
 
-### 1.2. Use hardware timers
+### 1.2. Using hardware timers
 
-However, as stated in the _Ticker_ library documentation, "The library use no interupts of the hardware timers and works with the micros() / millis() function." This means that our ability to develop an application using different timer configurations or to implement multitasking applications would be highly limited if we restrict ourselves to using this library.
+However, as stated in the _Ticker_ library documentation, the library does not use hardware timer interrupts; it relies on the `micros()` and `millis()` functions. This means that our ability to develop applications with different timer configurations or to implement multitasking applications would be highly limited if we restricted ourselves to using only this library.
 
-Perform the previous exercise again, but in this case use an interrupt generated directly by the timer, and configure it so that the LED turns ON and OFF every second. Verify with a watch that it works correctly.
+Perform the previous exercise again, but this time use an interrupt generated directly by a hardware timer. Configure the timer so that the LED changes state every second, and verify with a stopwatch that it works correctly.
 
 ## 2. Working in simulation
 
-You can do exactly the same exercises in simulation. Just use the same circuit with the LED we used in the previous lab sessions.
+You can perform exactly the same exercises in simulation. Use the same LED circuit as in the previous lab sessions.
