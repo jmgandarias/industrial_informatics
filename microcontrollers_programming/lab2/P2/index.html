@@ -2688,22 +2688,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-trabajando-con-hardware-real" class="md-nav__link">
+  <a href="#descripcion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Trabajando con hardware real
+        Descripción
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Trabajando con hardware real">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-trabajo-con-hardware-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Trabajo con hardware real
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Trabajo con hardware real">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-usar-una-biblioteca-externa-ticker-temporizadores-software" class="md-nav__link">
+  <a href="#11-uso-de-una-biblioteca-externa-ticker-temporizadores-de-software" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1. Usar una biblioteca externa - Ticker (temporizadores software)
+        1.1. Uso de una biblioteca externa: Ticker (temporizadores de software)
       
     </span>
   </a>
@@ -2711,10 +2722,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-usar-temporizadores-de-hardware" class="md-nav__link">
+  <a href="#12-uso-de-temporizadores-de-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2. Usar temporizadores de hardware
+        1.2. Uso de temporizadores de hardware
       
     </span>
   </a>
@@ -2727,10 +2738,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-trabajando-en-simulacion" class="md-nav__link">
+  <a href="#2-trabajo-en-simulacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Trabajando en simulación
+        2. Trabajo en simulación
       
     </span>
   </a>
@@ -2775,13 +2786,13 @@ Grado en Ingeniería Electrónica Industrial<br>
 Universidad de Málaga<br>
 <a href="https://jmgandarias.com">Juan M. Gandarias</a><br>
 <a href="https://www.uma.es/isa/info/76432/cperez/">Carlos J. Pérez del Pulgar</a></p>
-<h1 id="sesion-de-laboratorio-2-temporizadores">Sesión de Laboratorio 2: Temporizadores<a class="headerlink" href="#sesion-de-laboratorio-2-temporizadores" title="Permanent link">¶</a></h1>
-<p><strong>Tiempo estimado:</strong> 1.5h (1 sesión)</p>
-<p><strong>Descripción</strong></p>
-<p>El objetivo de esta sesión es aprender las diferentes formas en que un microcontrolador puede realizar operaciones de temporización. Como se vio anteriormente, la función <code>delay()</code> se puede utilizar para crear una espera durante el tiempo requerido. Sin embargo, para resolver problemas ligeramente más complejos, es necesario utilizar <em>temporizadores</em>, que nos permiten interrumpir la ejecución normal del programa para manejar un evento periódico.</p>
-<h2 id="1-trabajando-con-hardware-real">1. Trabajando con hardware real<a class="headerlink" href="#1-trabajando-con-hardware-real" title="Permanent link">¶</a></h2>
-<h3 id="11-usar-una-biblioteca-externa-ticker-temporizadores-software">1.1. Usar una biblioteca externa - <em>Ticker</em> (temporizadores software)<a class="headerlink" href="#11-usar-una-biblioteca-externa-ticker-temporizadores-software" title="Permanent link">¶</a></h3>
-<p>La <a href="https://github.com/sstaub/Ticker?tab=readme-ov-file">Biblioteca Ticker de Arduino</a> permite crear fácilmente callbacks de temporizador que pueden llamar a una función en un intervalo predeterminado. El siguiente ejemplo muestra cómo realizar operaciones de temporización utilizando la biblioteca <em>Ticker</em> y las funciones <code>attach()</code> o <code>attach_ms()</code>.</p>
+<h1 id="sesion-de-laboratorio-2-temporizadores">Sesión de laboratorio 2: Temporizadores<a class="headerlink" href="#sesion-de-laboratorio-2-temporizadores" title="Permanent link">¶</a></h1>
+<p><strong>Tiempo estimado:</strong> 1,5 h (una sesión)</p>
+<h2 id="descripcion">Descripción<a class="headerlink" href="#descripcion" title="Permanent link">¶</a></h2>
+<p>El objetivo de esta sesión es aprender las diferentes formas en que un microcontrolador puede realizar operaciones de temporización. Como se vio anteriormente, la función <code>delay()</code> se puede utilizar para crear una espera durante el tiempo requerido. Sin embargo, para resolver problemas algo más complejos, es necesario utilizar <em>temporizadores</em>, que permiten gestionar eventos periódicos sin bloquear necesariamente la ejecución del programa.</p>
+<h2 id="1-trabajo-con-hardware-real">1. Trabajo con hardware real<a class="headerlink" href="#1-trabajo-con-hardware-real" title="Permanent link">¶</a></h2>
+<h3 id="11-uso-de-una-biblioteca-externa-ticker-temporizadores-de-software">1.1. Uso de una biblioteca externa: <em>Ticker</em> (temporizadores de software)<a class="headerlink" href="#11-uso-de-una-biblioteca-externa-ticker-temporizadores-de-software" title="Permanent link">¶</a></h3>
+<p>La <a href="https://github.com/sstaub/Ticker?tab=readme-ov-file">biblioteca Ticker de Arduino</a> permite crear fácilmente funciones de retorno de llamada que se ejecutan en intervalos determinados. El siguiente ejemplo muestra cómo realizar operaciones de temporización utilizando la biblioteca <em>Ticker</em> y las funciones <code>attach()</code> o <code>attach_ms()</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;M5Core2.h&gt;</span><span class="w">   </span><span class="c1">// Biblioteca M5Stack Core2</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Ticker.h&gt;</span><span class="w">    </span><span class="c1">// Biblioteca Ticker</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -2817,13 +2828,13 @@ Universidad de Málaga<br>
 <a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="c1">// Vacío: el Ticker maneja el parpadeo periódico del LED de forma asíncrona.</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="p">}</span>
 </code></pre></div>
-<p>Conecta un LED al <em>pin 14</em> del <em>M5Core2</em> y modifica este ejemplo para que el LED parpadee cada segundo en lugar de cada 500 ms.</p>
+<p>Conecta un LED al GPIO14 del M5Core2 y modifica este ejemplo para que el LED cambie de estado cada segundo, en lugar de cada 500 ms.</p>
 <p><img src="images/LED_M5Core2.png" width="60%"></p>
-<h3 id="12-usar-temporizadores-de-hardware">1.2. Usar temporizadores de hardware<a class="headerlink" href="#12-usar-temporizadores-de-hardware" title="Permanent link">¶</a></h3>
-<p>Sin embargo, como se indica en la documentación de la biblioteca <em>Ticker</em>, "La biblioteca no utiliza interrupciones de los temporizadores de hardware y funciona con las funciones micros() / millis()". Esto significa que nuestra capacidad para desarrollar una aplicación utilizando diferentes configuraciones de temporizador o para implementar aplicaciones multitarea estaría muy limitada si nos restringimos a usar esta biblioteca.</p>
-<p>Realiza el ejercicio anterior nuevamente, pero en este caso utiliza una interrupción generada directamente por el temporizador de hardware y configúralo para que el LED se encienda y apague cada segundo. Verifica con un cronómetro que funcione correctamente.</p>
-<h2 id="2-trabajando-en-simulacion">2. Trabajando en simulación<a class="headerlink" href="#2-trabajando-en-simulacion" title="Permanent link">¶</a></h2>
-<p>Puedes realizar exactamente los mismos ejercicios en simulación con <a href="https://wokwi.com">Wokwi</a>. Simplemente utiliza el mismo circuito con el LED que usamos en las sesiones de laboratorio anteriores.</p></div>
+<h3 id="12-uso-de-temporizadores-de-hardware">1.2. Uso de temporizadores de hardware<a class="headerlink" href="#12-uso-de-temporizadores-de-hardware" title="Permanent link">¶</a></h3>
+<p>Sin embargo, como se indica en la documentación de la biblioteca <em>Ticker</em>, «la biblioteca no utiliza interrupciones de los temporizadores de hardware y funciona con las funciones <code>micros()</code> y <code>millis()</code>». Esto significa que nuestra capacidad para desarrollar aplicaciones con distintas configuraciones de temporizadores o para implementar aplicaciones multitarea estaría muy limitada si nos restringiéramos a utilizar únicamente esta biblioteca.</p>
+<p>Realiza de nuevo el ejercicio anterior, pero utiliza en este caso una interrupción generada directamente por un temporizador de hardware. Configura el temporizador para que el LED cambie de estado cada segundo y verifica con un cronómetro que funcione correctamente.</p>
+<h2 id="2-trabajo-en-simulacion">2. Trabajo en simulación<a class="headerlink" href="#2-trabajo-en-simulacion" title="Permanent link">¶</a></h2>
+<p>Puedes realizar exactamente los mismos ejercicios en simulación con <a href="https://wokwi.com">Wokwi</a>. Utiliza el mismo circuito con el LED que empleaste en las sesiones de laboratorio anteriores.</p></div>
 
 
 
@@ -2846,7 +2857,7 @@ Universidad de Málaga<br>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 26, 2026 07:35:55 UTC"><span class="timeago" datetime="2026-08-26T07:35:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 26, 2026 07:35:55 UTC">2026-08-26</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 7, 2026 17:58:07 UTC"><span class="timeago" datetime="2026-09-07T17:58:07+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 7, 2026 17:58:07 UTC">2026-09-07</span>
   </span>
 
     

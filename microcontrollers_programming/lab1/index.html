@@ -2688,6 +2688,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-working-with-real-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2704,6 +2715,17 @@
     <span class="md-ellipsis">
       
         1.1. Prepare the Arduino IDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pinout-and-important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinout and Important Notes
       
     </span>
   </a>
@@ -2917,8 +2939,8 @@
 
 <div><h1 id="lab-session-1-introduction-to-microcontroller-programming">Lab Session 1: Introduction to Microcontroller Programming<a class="headerlink" href="#lab-session-1-introduction-to-microcontroller-programming" title="Permanent link">¶</a></h1>
 <p><strong>Estimated time:</strong> 1.5 hours (1 session)</p>
-<p><strong>Description</strong></p>
-<p>The goal of this session is to introduce the basics of microcontroller programming and timing control. We will learn how to configure digital pins, use the Arduino program structure (<code>setup()</code> and <code>loop()</code>), and control LEDs and push buttons with functions such as <code>delay()</code> and <code>millis()</code>. </p>
+<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">¶</a></h2>
+<p>The goal of this session is to introduce the fundamentals of microcontroller programming and timing control. We will learn how to configure digital pins, use the Arduino program structure (<code>setup()</code> and <code>loop()</code>), and control LEDs and push buttons with functions such as <code>delay()</code> and <code>millis()</code>.</p>
 <h2 id="1-working-with-real-hardware">1. Working with Real Hardware<a class="headerlink" href="#1-working-with-real-hardware" title="Permanent link">¶</a></h2>
 <h3 id="11-prepare-the-arduino-ide">1.1. Prepare the Arduino IDE<a class="headerlink" href="#11-prepare-the-arduino-ide" title="Permanent link">¶</a></h3>
 <p>Follow the installation steps described in this guide.</p>
@@ -2943,7 +2965,7 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Please be aware of the recent updates to the ESP32 Core library for Arduino. In 2024, the Arduino-ESP32 core was upgraded from version 2.x (based on ESP-IDF 4.4) to version 3.x (based on ESP-IDF 5.1). The underlying API and build system changed several behaviors. Much of the code you may find online was written for the older 2.x version. All the lab sessions and programs in this course have been updated to the most recent version. More information about versions 2.x and 3.x can be found <a href="../arduino_esp32_core">here</a>.</p>
+<p>Please be aware of the recent updates to the ESP32 Core library for Arduino. In 2024, the Arduino-ESP32 core was upgraded from version 2.x (based on ESP-IDF 4.4) to version 3.x (based on ESP-IDF 5.1). The underlying API and build system changed some behaviors. Much of the code you may find online was written for the older 2.x version. All the lab sessions and programs in this course have been updated to the most recent version. More information about versions 2.x and 3.x can be found <a href="../arduino_esp32_core">here</a>.</p>
 </div>
 <p>Once installed, you can select M5Core2 from the board selection menu.</p>
 <p><img src="images/board_selection.png" width="100%"></p>
@@ -2953,7 +2975,7 @@
 <p><img src="images/m5core2_library.png" width="80%"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>When you click <em>Install</em>, you will see a list of dependencies. You <em>MUST</em> install all of them as well.</p>
+<p>When you click <em>Install</em>, you will see a list of dependencies. You must install all of them as well.</p>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
@@ -2973,11 +2995,11 @@
 </div>
 </li>
 <li>
-<p>Install the CP2104 driver (USB driver):</p>
+<p>Install the CP2104 USB driver:</p>
 <p>Download it from one of the following links:<br>
-- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip">Windows</a>  (Unzip the file and launch the file <code>CP210xVCPInstaller_Win7_v5.40.24.exe</code>)<br>
-- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip">MacOS</a>  (Unzip the file and launch the file <code>SiLabsUSBDriverDisk.dmg</code>)<br>
-- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip">Linux</a>  (Unzip the file and follow the building instructions in the file <code>CP210x_VCP_Linux_4.x_Release_Notes.txt</code>)  </p>
+- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip">Windows</a> (Unzip the file and run <code>CP210xVCPInstaller_Win7_v5.40.24.exe</code>.)
+- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip">macOS</a> (Unzip the file and open <code>SiLabsUSBDriverDisk.dmg</code>.)
+- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip">Linux</a> (Unzip the file and follow the build instructions in <code>CP210x_VCP_Linux_4.x_Release_Notes.txt</code>.)</p>
 <p>More information about USB driver installation can be found <a href="https://docs.m5stack.com/en/arduino/m5core2/program#2.usb%20driver%20installation">here</a>.</p>
 <p>Now, when you connect the M5Core2 to the PC with the USB cable, you can select the port in the Arduino IDE.</p>
 <p><img src="images/select_serial_port.png" width="80%"></p>
@@ -3007,11 +3029,11 @@
 </li>
 <li>
 <p>Compile and upload the <code>hello_world.ino</code> example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="cpf">&lt;M5Unified.h&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;M5Unified.h&gt;</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">// Begin M5Unified.</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">// Initialize M5Core2.</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">M5</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">// Print to the LCD screen.</span>
@@ -3034,8 +3056,8 @@
 <p class="admonition-title">Additional resources</p>
 <p>You can find more documentation about some of the basic functions of the M5Core2 <a href="https://docs.m5stack.com/en/core/core2">here</a>.</p>
 </div>
-<p><strong>Pinout and Important Notes</strong>
-Below is the M5Core2 pinout. The pins marked in red are the ones we will use in the exercises.</p>
+<h3 id="pinout-and-important-notes">Pinout and Important Notes<a class="headerlink" href="#pinout-and-important-notes" title="Permanent link">¶</a></h3>
+<p>Below is the M5Core2 pinout. The pins marked in red are the ones we will use in the exercises.</p>
 <p><img src="images/pinout_M5Core2.png" width="30%"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3050,10 +3072,10 @@ Below is the M5Core2 pinout. The pins marked in red are the ones we will use in 
 </ul>
 </div>
 <h3 id="12-turn-an-led-on-and-off">1.2. Turn an LED On and Off<a class="headerlink" href="#12-turn-an-led-on-and-off" title="Permanent link">¶</a></h3>
-<p>Connect an LED as follows:</p>
+<p>Connect an LED as shown below:</p>
 <p><img src="images/LED_M5Core2.png" width="60%"></p>
 <p>Run the following program:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="cpf">&lt;M5Unified.h&gt;</span>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;M5Unified.h&gt;</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#define LED_PIN 14</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -3078,18 +3100,18 @@ Below is the M5Core2 pinout. The pins marked in red are the ones we will use in 
 </div>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Note that you had to include the <code>#include &lt;M5Unified.h&gt;</code> line and the <code>M5.begin(); // Initialize M5Core</code> statement.
+<p>Note that you had to include the <code>#include &lt;M5Unified.h&gt;</code> line and the <code>M5.begin(); // Initialize M5Core2</code> statement.
 Why did you need to do that? What are these instructions for?</p>
 </div>
 <h3 id="13-additional-exercises">1.3. Additional Exercises<a class="headerlink" href="#13-additional-exercises" title="Permanent link">¶</a></h3>
 <h4 id="131-blink-at-a-certain-frequency">1.3.1. Blink at a Certain Frequency<a class="headerlink" href="#131-blink-at-a-certain-frequency" title="Permanent link">¶</a></h4>
 <ul>
 <li>
-<p>Using the same circuit as in the previous exercise, write a script that blinks the LED at a frequency of 10 Hz.</p>
+<p>Using the same circuit as in the previous exercise, write a program that blinks the LED at a frequency of 10 Hz.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <ul>
-<li>For how long should the LED be ON or OFF in each cycle?</li>
+<li>How long should the LED remain on or off during each cycle?</li>
 </ul>
 </div>
 </li>
@@ -3097,12 +3119,12 @@ Why did you need to do that? What are these instructions for?</p>
 <h4 id="132-blink-and-stop">1.3.2. Blink and Stop<a class="headerlink" href="#132-blink-and-stop" title="Permanent link">¶</a></h4>
 <ul>
 <li>
-<p>Using the same circuit as in the previous exercise, write a script that blinks the LED at a frequency of 2 Hz and stops blinking after 5 seconds.</p>
+<p>Using the same circuit as in the previous exercise, write a program that blinks the LED at a frequency of 2 Hz and stops blinking after 5 seconds.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <ul>
 <li>How many times does the LED blink?</li>
-<li>What is the final state of the LED when blinking stops: does it remain ON or OFF?</li>
+<li>What is the final state of the LED when blinking stops: does it remain on or off?</li>
 </ul>
 </div>
 <div class="admonition tip">
@@ -3126,7 +3148,7 @@ Why did you need to do that? What are these instructions for?</p>
 </div>
 </li>
 <li>
-<p>Simulate the example sketch:</p>
+<p>Simulate the example program:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">// Put your setup code here, to run once:</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
@@ -3140,13 +3162,13 @@ Why did you need to do that? What are these instructions for?</p>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Here you are <em>simulating</em> the behavior of the system, including the code. You are not <em>compiling</em> the code, meaning you are not generating the machine-readable code that will be executed by a processor. However, the code still MUST be compilable, meaning it will be verified to ensure that it can compile.</p>
+<p>Here you are <em>simulating</em> the behavior of the system. Wokwi compiles the program and runs the resulting code in a virtual model of the microcontroller. Therefore, the code must be compilable for the simulation to run.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
 <li>Note that the real-time factor in the top-right corner should be as close as possible to 100%. This value is a simulation performance metric. The closer it gets to 100%, the better the simulation. A value of 100% means the simulation is running in real time. If the value drops, the timing in the simulation is no longer reliable.</li>
-<li>Note the instruction <code>delay(10); // this speeds up the simulation</code>. Try commenting out this line and see what happens. What if you use <code>delay(1);</code> or <code>delay(5);</code>?</li>
+<li>Note the instruction <code>delay(10); // This speeds up the simulation.</code> Try commenting out this line and see what happens. What if you use <code>delay(1);</code> or <code>delay(5);</code>?</li>
 </ul>
 </div>
 <div class="admonition question">
@@ -3199,10 +3221,10 @@ Why did you need to do that? What are these instructions for?</p>
 <h3 id="23-control-the-led-state-with-a-push-button">2.3. Control the LED State with a Push Button<a class="headerlink" href="#23-control-the-led-state-with-a-push-button" title="Permanent link">¶</a></h3>
 <ul>
 <li>
-<p>Implement the circuit shown in the following diagram and simulate a program that:</p>
+<p>Implement the circuit shown in the following diagram and write a program that:</p>
 <ul>
-<li>Turns the LED ON when the button is pressed.</li>
-<li>Turns the LED OFF when the button is not pressed.</li>
+<li>Turns the LED on when the button is pressed.</li>
+<li>Turns the LED off when the button is not pressed.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -3214,13 +3236,13 @@ Why did you need to do that? What are these instructions for?</p>
 <p><img src="images/button_diagram.png" width="50%"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>When you place the button, do not forget to deselect the <em>bounce</em> option to avoid <a href="https://www.luisllamas.es/en/debouncing-arduino-interrupts/">bouncing issues</a>.</p>
+<p>When you place the button, do not forget to deselect the <em>bounce</em> option to avoid <a href="https://www.luisllamas.es/en/debouncing-arduino-interrupts/">contact bounce</a>.</p>
 <p><img src="images/bounce.png" width="30%"></p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <ul>
-<li>What information is included in the <code>diagram.json</code> file? Did it change compared with the previous exercise?</li>
+<li>What information is included in the <code>diagram.json</code> file? Did it change compared to the previous exercise?</li>
 <li>Can you complete the exercise without using the <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a> condition? How?</li>
 </ul>
 </div>
@@ -3230,7 +3252,7 @@ Why did you need to do that? What are these instructions for?</p>
 <h4 id="241-blink">2.4.1. Blink<a class="headerlink" href="#241-blink" title="Permanent link">¶</a></h4>
 <ul>
 <li>
-<p>Using the same circuit as in the previous exercise, write a script that blinks the LED while the button is pressed.</p>
+<p>Using the same circuit as in the previous exercise, write a program that blinks the LED while the button is pressed.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You may need to use the <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/"><code>millis()</code></a> function.</p>
@@ -3240,10 +3262,10 @@ Why did you need to do that? What are these instructions for?</p>
 <h4 id="242-short-press-vs-long-press">2.4.2. Short Press vs. Long Press<a class="headerlink" href="#242-short-press-vs-long-press" title="Permanent link">¶</a></h4>
 <ul>
 <li>
-<p>Using the same circuit as in the previous exercise, write a script that does the following:</p>
+<p>Using the same circuit as in the previous exercise, write a program that does the following:</p>
 <ul>
-<li>Short press (&lt; 500 ms): Toggle the LED (if the LED is ON, turn it OFF, and vice versa).</li>
-<li>Long press (≥ 500 ms): Blink the LED.</li>
+<li>Short press (&lt; 500 ms): toggle the LED (if the LED is on, turn it off, and vice versa).</li>
+<li>Long press (≥ 500 ms): blink the LED.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -3273,7 +3295,7 @@ Why did you need to do that? What are these instructions for?</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 26, 2026 07:35:55 UTC"><span class="timeago" datetime="2026-08-26T07:35:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 26, 2026 07:35:55 UTC">2026-08-26</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 7, 2026 17:58:07 UTC"><span class="timeago" datetime="2026-09-07T17:58:07+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 7, 2026 17:58:07 UTC">2026-09-07</span>
   </span>
 
     

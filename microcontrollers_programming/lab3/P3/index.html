@@ -2714,7 +2714,7 @@
   <a href="#parte-1-generacion-de-pwm-con-un-led" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parte 1 - Generación de PWM con un LED
+        Parte 1: Generación de PWM con un LED
       
     </span>
   </a>
@@ -2722,10 +2722,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#parte-2-generacion-de-pwm-con-motor-cc" class="md-nav__link">
+  <a href="#parte-2-generacion-de-pwm-con-un-motor-cc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parte 2 - Generación de PWM con motor CC
+        Parte 2: Generación de PWM con un motor CC
       
     </span>
   </a>
@@ -2753,7 +2753,7 @@
   <a href="#parte-1-generacion-de-pwm-con-un-led_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parte 1 - Generación de PWM con un LED
+        Parte 1: Generación de PWM con un LED
       
     </span>
   </a>
@@ -2761,10 +2761,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#parte-2-generacion-de-pwm-con-un-motor-cc" class="md-nav__link">
+  <a href="#parte-2-generacion-de-pwm-con-un-motor-cc_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parte 2 - Generación de PWM con un motor CC
+        Parte 2: Generación de PWM con un motor CC
       
     </span>
   </a>
@@ -2815,32 +2815,29 @@ Universidad de Málaga<br>
 <a href="https://jmgandarias.com">Juan M. Gandarias</a><br>
 <a href="https://www.uma.es/isa/info/76432/cperez/">Carlos J. Pérez del Pulgar</a></p>
 <h1 id="sesion-de-laboratorio-3-pwm">Sesión de Laboratorio 3: PWM<a class="headerlink" href="#sesion-de-laboratorio-3-pwm" title="Permanent link">¶</a></h1>
-<p><strong>Tiempo estimado:</strong> 1,5 h (1 sesión)</p>
+<p><strong>Tiempo estimado:</strong> 1,5 h (una sesión)</p>
 <h2 id="descripcion">Descripción<a class="headerlink" href="#descripcion" title="Permanent link">¶</a></h2>
-<p>El objetivo de esta práctica es comprender la generación y el uso de señales PWM, así como el control de un motor mediante este tipo de señales. Para ello, se dispone de un motor de corriente continua (CC o DC, del inglés Direct Current), una controladora de motores (también conocida comúnmente como driver) basada en el puente H L298N y un M5Core2.</p>
+<p>El objetivo de esta práctica es comprender la generación y el uso de señales PWM, así como el control de un motor mediante este tipo de señales. Para ello, se dispone de un motor de corriente continua (CC; DC, por sus siglas en inglés), una controladora de motores basada en el puente H L298N y un M5Core2.</p>
 <h2 id="1-trabajo-con-hardware-real">1. Trabajo con hardware real<a class="headerlink" href="#1-trabajo-con-hardware-real" title="Permanent link">¶</a></h2>
-<h3 id="parte-1-generacion-de-pwm-con-un-led">Parte 1 - Generación de PWM con un LED<a class="headerlink" href="#parte-1-generacion-de-pwm-con-un-led" title="Permanent link">¶</a></h3>
-<p>Realizar una prueba para generar una señal PWM que permita variar el brillo de un
-LED conectado al pin 14 del M5Core2. Puedes encontrar información sobre la programación en la <a href="https://eii.cv.uma.es/pluginfile.php/41800/mod_resource/content/3/hoja_referencia.pdf">hoja de referencia</a> de la asignatura.</p>
-<p>El LED se tiene que encender de forma progresiva desde el estado completamente apagado (PWM de 0%) hasta el estado completamente encendido (PWM de 100%). Una vez en el 100%, deberá apagarse también de forma progresiva (desde un PWM de 100% hasta un PWM de 0%), siguiendo en ambos casos un perfil tipo "rampa", primero creciente y luego decreciente, como el de la siguiente figura:</p>
+<h3 id="parte-1-generacion-de-pwm-con-un-led">Parte 1: Generación de PWM con un LED<a class="headerlink" href="#parte-1-generacion-de-pwm-con-un-led" title="Permanent link">¶</a></h3>
+<p>Generar una señal PWM que permita variar el brillo de un LED conectado al GPIO14 del M5Core2. Puedes encontrar información sobre la programación en la <a href="https://eii.cv.uma.es/pluginfile.php/41800/mod_resource/content/3/hoja_referencia.pdf">hoja de referencia</a> de la asignatura.</p>
+<p>El LED debe encenderse de forma progresiva, desde el estado completamente apagado (ciclo de trabajo PWM del 0 %) hasta el estado completamente encendido (ciclo de trabajo PWM del 100 %). Una vez alcanzado el 100 %, debe apagarse también de forma progresiva, desde un ciclo de trabajo PWM del 100 % hasta el 0 %. En ambos casos, se seguirá un perfil de tipo "rampa", primero creciente y después decreciente, como el que se muestra en la siguiente figura:</p>
 <p><img src="images/PWM_profile.svg" width="80%"></p>
-<h3 id="parte-2-generacion-de-pwm-con-motor-cc">Parte 2 - Generación de PWM con motor CC<a class="headerlink" href="#parte-2-generacion-de-pwm-con-motor-cc" title="Permanent link">¶</a></h3>
+<h3 id="parte-2-generacion-de-pwm-con-un-motor-cc">Parte 2: Generación de PWM con un motor CC<a class="headerlink" href="#parte-2-generacion-de-pwm-con-un-motor-cc" title="Permanent link">¶</a></h3>
 <p>La siguiente figura muestra la ubicación de los conectores de la controladora:</p>
 <p><img src="images/L298n.png" width="60%"></p>
-<p>Esta controladora permite controlar hasta dos motores CC de forma simultánea. En la figura anterior, los puertos de color verde corresponden al motor A y los de color amarillo, al motor B.</p>
-<p>Realizar el conexionado del M5Core2 con la controladora de motores (puente H L298N) de la siguiente
-manera:</p>
+<p>Esta controladora permite controlar hasta dos motores CC de forma simultánea. En la figura anterior, los puertos verdes corresponden al motor A y los amarillos, al motor B.</p>
+<p>Conectar el M5Core2 a la controladora de motores (puente H L298N) como se indica a continuación:</p>
 <ul>
-<li>GPIO14 al pin IN1 de la controladora. Esta salida PWM permitirá establecer la potencia del sentido de giro positivo (sentido contrario a las agujas del reloj).</li>
-<li>GPIO13 al pin IN2 de la controladora. Esta salida PWM permitirá establecer la potencia del sentido de giro negativo (sentido de las agujas del reloj).</li>
-<li>Conectar GND y VS (en la controladora) a una fuente de alimentación de 9-12 V.</li>
+<li>Conectar GPIO14 al pin IN1 de la controladora. Esta salida PWM permitirá establecer la potencia en el sentido de giro positivo (sentido contrario a las agujas del reloj).</li>
+<li>Conectar GPIO13 al pin IN2 de la controladora. Esta salida PWM permitirá establecer la potencia en el sentido de giro negativo (sentido de las agujas del reloj).</li>
+<li>Conectar el terminal VS de la controladora al polo positivo de una fuente de alimentación de 9-12 V y el terminal GND al polo negativo.</li>
 <li>Conectar GND (M5Core2) a GND (controladora). Es imprescindible conectar las masas de la controladora y del microcontrolador; de lo contrario, no se conocería la referencia de las señales PWM.</li>
 <li>Conectar el motor a la controladora en los terminales del motor A.</li>
-<li>Es imprescindible que el pin ENA de la controladora esté alimentado; de lo contrario, la salida del motor A estaría deshabilitada. Para ello, se dispone de un <a href="https://es.wikipedia.org/wiki/Jumper_(inform%C3%A1tica)">jumper</a> que permite alimentar el pin ENA con el regulador de 5 V que incluye el propio driver.</li>
+<li>Es imprescindible que el pin ENA de la controladora esté alimentado; de lo contrario, la salida del motor A estaría deshabilitada. Para ello, se dispone de un <a href="https://es.wikipedia.org/wiki/Jumper_(inform%C3%A1tica)">jumper</a> que permite alimentar el pin ENA con el regulador de 5 V que incluye la propia controladora.</li>
 </ul>
-<p>Puedes encontrar un tutorial sencillo sobre el uso de este driver en <a href="https://naylampmechatronics.com/blog/11_tutorial-de-uso-del-modulo-l298n.html">este enlace</a>.</p>
-<p>Una vez conectado el microcontrolador al motor, modificar el código del tutorial para
-que el motor gire acelerando en el sentido de giro positivo desde un PWM de 0 % hasta uno de 100 %, y luego decelerando desde el PWM de 100 % hasta el 0 %. Cuando se haya completado la aceleración y deceleración en el sentido de giro positivo, se deberá hacer lo mismo en el sentido negativo y repetir esta secuencia indefinidamente, como se indica en la siguiente imagen:</p>
+<p>Puedes encontrar un tutorial sencillo sobre el uso de esta controladora en <a href="https://naylampmechatronics.com/blog/11_tutorial-de-uso-del-modulo-l298n.html">este enlace</a>.</p>
+<p>Una vez conectado el microcontrolador al motor, modificar el código del tutorial para que el motor gire acelerando en el sentido de giro positivo, desde un ciclo de trabajo PWM del 0 % hasta el 100 %, y después decelerando desde el 100 % hasta el 0 %. Cuando se hayan completado la aceleración y la deceleración en el sentido de giro positivo, hacer lo mismo en el sentido negativo y repetir esta secuencia indefinidamente, como se indica en la siguiente imagen:</p>
 <p><img src="images/motor_profile.svg" width="80%"></p>
 <p>::: note
 - ¿Qué ocurre cuando se cambia la frecuencia del PWM? Probar con frecuencias entre 1 y 10 kHz.
@@ -2848,13 +2845,13 @@ que el motor gire acelerando en el sentido de giro positivo desde un PWM de 0 % 
 - Si se cambia la resolución, ¿hay que cambiar algo más del código o basta con cambiar el valor de la resolución?
 :::</p>
 <h2 id="2-trabajo-en-simulacion">2. Trabajo en simulación<a class="headerlink" href="#2-trabajo-en-simulacion" title="Permanent link">¶</a></h2>
-<h3 id="parte-1-generacion-de-pwm-con-un-led_1">Parte 1 - Generación de PWM con un LED<a class="headerlink" href="#parte-1-generacion-de-pwm-con-un-led_1" title="Permanent link">¶</a></h3>
+<h3 id="parte-1-generacion-de-pwm-con-un-led_1">Parte 1: Generación de PWM con un LED<a class="headerlink" href="#parte-1-generacion-de-pwm-con-un-led_1" title="Permanent link">¶</a></h3>
 <p>El ejercicio se puede realizar exactamente igual en simulación que con hardware real.</p>
-<h3 id="parte-2-generacion-de-pwm-con-un-motor-cc">Parte 2 - Generación de PWM con un motor CC<a class="headerlink" href="#parte-2-generacion-de-pwm-con-un-motor-cc" title="Permanent link">¶</a></h3>
+<h3 id="parte-2-generacion-de-pwm-con-un-motor-cc_1">Parte 2: Generación de PWM con un motor CC<a class="headerlink" href="#parte-2-generacion-de-pwm-con-un-motor-cc_1" title="Permanent link">¶</a></h3>
 <p>Este ejercicio no se puede realizar exactamente igual en simulación que con hardware real porque en Wokwi no existe ningún componente de motor de corriente continua. Sin embargo, existen varias formas de trabajar en simulación para prototipar el código del motor.</p>
-<p>Una forma sencilla sería utilizar dos LED: el LED1 simularía el comportamiento del motor cuando gira en sentido horario, mientras que el LED2 simularía el comportamiento del motor cuando gira en sentido antihorario. De esta forma, se pueden programar las señales PWM de ambos LED de forma similar a las señales PWM que se enviarán a IN1 e IN2 de la controladora, que harán que el motor gire en sentido horario o antihorario.</p>
+<p>Una forma sencilla sería utilizar dos LED: el LED 1 simularía el comportamiento del motor cuando gira en sentido horario, mientras que el LED 2 simularía el comportamiento del motor cuando gira en sentido antihorario. De esta forma, se pueden programar las señales PWM de ambos LED de forma similar a las señales PWM que se enviarían a IN1 e IN2 de la controladora para controlar el sentido de giro del motor.</p>
 <p>::: tip
-- Para comprobar el correcto funcionamiento del código, es muy importante comprobar que ambos LED no estén encendidos a la vez.
+- Para comprobar el correcto funcionamiento del código, es muy importante verificar que los dos LED no estén encendidos a la vez.
 :::</p>
 <p>::: tip
 - Al trabajar con PWM en Wokwi, el rendimiento en tiempo real puede disminuir considerablemente, especialmente si se generan varias señales PWM y se cambia el ciclo de trabajo en cada paso del bucle. Para evitarlo, es aconsejable cambiar el ciclo de trabajo de forma escalonada cada varios pasos del bucle o introducir un tiempo de espera lo suficientemente largo.
@@ -2881,7 +2878,7 @@ que el motor gire acelerando en el sentido de giro positivo desde un PWM de 0 % 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 4, 2026 10:47:42 UTC"><span class="timeago" datetime="2026-09-04T10:47:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 4, 2026 10:47:42 UTC">2026-09-04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 7, 2026 17:58:07 UTC"><span class="timeago" datetime="2026-09-07T17:58:07+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 7, 2026 17:58:07 UTC">2026-09-07</span>
   </span>
 
     

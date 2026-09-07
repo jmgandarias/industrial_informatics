@@ -2714,7 +2714,7 @@
   <a href="#part-1-generating-pwm-with-an-led" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 1 - Generating PWM with an LED
+        Part 1: Generating PWM with an LED
       
     </span>
   </a>
@@ -2725,7 +2725,7 @@
   <a href="#part-2-generating-pwm-for-a-dc-motor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 2 - Generating PWM for a DC motor
+        Part 2: Generating PWM for a DC motor
       
     </span>
   </a>
@@ -2753,7 +2753,7 @@
   <a href="#part-1-generating-pwm-with-an-led_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 1 - Generating PWM with an LED
+        Part 1: Generating PWM with an LED
       
     </span>
   </a>
@@ -2764,7 +2764,7 @@
   <a href="#part-2-generating-pwm-for-a-dc-motor_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 2 - Generating PWM for a DC motor
+        Part 2: Generating PWM for a DC motor
       
     </span>
   </a>
@@ -2810,29 +2810,29 @@
 
 
 <div><h1 id="lab-session-3-pwm">Lab Session 3: PWM<a class="headerlink" href="#lab-session-3-pwm" title="Permanent link">¶</a></h1>
-<p><strong>Estimated time:</strong> 1.5 h (1 session)</p>
+<p><strong>Estimated time:</strong> 1.5 hours (1 session)</p>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">¶</a></h2>
 <p>The goal of this lab session is to understand the generation and use of PWM signals, as well as how to control a DC motor using these signals. For this lab, you will need a DC motor, an L298N-based motor driver, and an M5Core2.</p>
 <h2 id="1-working-with-real-hardware">1. Working with real hardware<a class="headerlink" href="#1-working-with-real-hardware" title="Permanent link">¶</a></h2>
-<h3 id="part-1-generating-pwm-with-an-led">Part 1 - Generating PWM with an LED<a class="headerlink" href="#part-1-generating-pwm-with-an-led" title="Permanent link">¶</a></h3>
-<p>Perform a test that generates a PWM signal to vary the brightness of an LED connected to pin 14 of the M5Core2. You can check the <a href="https://jmgandarias.com/industrial_informatics/intro/cheat_sheet/#pwm-control-with-ledc">Cheat Sheet</a> for coding info.</p>
-<p>The LED must smoothly increase brightness from completely off (0% PWM) to fully on (100% PWM). Once at 100%, it must smoothly dim back down to 0% PWM. Both the rising and falling phases should follow a "ramp" profile, like the figure below:</p>
+<h3 id="part-1-generating-pwm-with-an-led">Part 1: Generating PWM with an LED<a class="headerlink" href="#part-1-generating-pwm-with-an-led" title="Permanent link">¶</a></h3>
+<p>Generate a PWM signal to vary the brightness of an LED connected to GPIO14 of the M5Core2. You can check the <a href="https://jmgandarias.com/industrial_informatics/intro/cheat_sheet/#pwm-control-with-ledc">Cheat Sheet</a> for coding information.</p>
+<p>The LED must smoothly increase in brightness from completely off (a PWM duty cycle of 0%) to fully on (a duty cycle of 100%). Once it reaches 100%, it must smoothly dim back down to a duty cycle of 0%. Both the rising and falling phases should follow a "ramp" profile, like the one shown in the figure below:</p>
 <p><img src="images/PWM_profile.svg" width="80%"></p>
-<h3 id="part-2-generating-pwm-for-a-dc-motor">Part 2 - Generating PWM for a DC motor<a class="headerlink" href="#part-2-generating-pwm-for-a-dc-motor" title="Permanent link">¶</a></h3>
+<h3 id="part-2-generating-pwm-for-a-dc-motor">Part 2: Generating PWM for a DC motor<a class="headerlink" href="#part-2-generating-pwm-for-a-dc-motor" title="Permanent link">¶</a></h3>
 <p>The image below shows the connector layout of the motor driver:</p>
 <p><img src="images/L298n.png" width="60%"></p>
 <p>This driver can control up to two DC motors simultaneously. In the image above, the green ports correspond to motor A and the yellow ports to motor B.</p>
 <p>Wire the M5Core2 to the L298N motor driver as follows:</p>
 <ul>
-<li><code>GPIO14</code> to <code>IN1</code> on the driver. This PWM output will set the power for the positive rotation direction (counterclockwise).</li>
-<li><code>GPIO13</code> to <code>IN2</code> on the driver. This PWM output will set the power for the negative rotation direction (clockwise).</li>
-<li>Connect <code>GND</code> and <code>VS</code> (on the driver) to a 9–12 V power supply.</li>
+<li>Connect <code>GPIO14</code> to <code>IN1</code> on the driver. This PWM output will control the power in the positive rotation direction (counterclockwise).</li>
+<li>Connect <code>GPIO13</code> to <code>IN2</code> on the driver. This PWM output will control the power in the negative rotation direction (clockwise).</li>
+<li>Connect <code>VS</code> on the driver to the positive terminal of a 9–12 V power supply and <code>GND</code> to its negative terminal.</li>
 <li>Connect <code>GND</code> (M5Core2) to <code>GND</code> (driver). It is essential to share grounds; otherwise the PWM signal reference is undefined.</li>
 <li>Connect the motor to the motor A terminals on the driver.</li>
-<li>Ensure the <code>ENA</code> pin on the driver is powered/enabled; otherwise motor A output will be disabled. The driver includes a <a href="https://es.wikipedia.org/wiki/Jumper_(inform%C3%A1tica)">jumper</a> that can power <code>ENA</code> from its onboard 5 V regulator.</li>
+<li>Ensure that the <code>ENA</code> pin on the driver is powered/enabled; otherwise, the motor A output will be disabled. Use the <a href="https://es.wikipedia.org/wiki/Jumper_(inform%C3%A1tica)">jumper</a> to power <code>ENA</code> from the driver's onboard 5 V regulator.</li>
 </ul>
 <p>A simple tutorial on using this driver can be found <a href="https://naylampmechatronics.com/blog/11_tutorial-de-uso-del-modulo-l298n.html">here</a>.</p>
-<p>After wiring the microcontroller to the motor, modify the tutorial code so that the motor accelerates in the positive direction from 0% PWM to 100% PWM, then decelerates from 100% back to 0% PWM. After completing the acceleration and deceleration in the positive direction, repeat the same sequence in the negative direction, and then loop this sequence indefinitely. The profile should be similar to the following image:</p>
+<p>After wiring the microcontroller to the motor, modify the tutorial code so that the motor accelerates in the positive direction from a PWM duty cycle of 0% to 100%, then decelerates from 100% back to 0%. After completing the acceleration and deceleration in the positive direction, repeat the same sequence in the negative direction, and then loop this sequence indefinitely. The profile should be similar to the following image:</p>
 <p><img src="images/motor_profile.svg" width="80%"></p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
@@ -2843,15 +2843,15 @@
 </ul>
 </div>
 <h2 id="2-working-in-simulation">2. Working in simulation<a class="headerlink" href="#2-working-in-simulation" title="Permanent link">¶</a></h2>
-<h3 id="part-1-generating-pwm-with-an-led_1">Part 1 - Generating PWM with an LED<a class="headerlink" href="#part-1-generating-pwm-with-an-led_1" title="Permanent link">¶</a></h3>
+<h3 id="part-1-generating-pwm-with-an-led_1">Part 1: Generating PWM with an LED<a class="headerlink" href="#part-1-generating-pwm-with-an-led_1" title="Permanent link">¶</a></h3>
 <p>This exercise can be performed in simulation in the same way as on real hardware.</p>
-<h3 id="part-2-generating-pwm-for-a-dc-motor_1">Part 2 - Generating PWM for a DC motor<a class="headerlink" href="#part-2-generating-pwm-for-a-dc-motor_1" title="Permanent link">¶</a></h3>
+<h3 id="part-2-generating-pwm-for-a-dc-motor_1">Part 2: Generating PWM for a DC motor<a class="headerlink" href="#part-2-generating-pwm-for-a-dc-motor_1" title="Permanent link">¶</a></h3>
 <p>This exercise cannot be performed exactly the same way in simulation because Wokwi does not include a DC motor component. However, there are ways to prototype motor code in simulation.</p>
-<p>A simple approach is to use two LEDs: LED1 simulates the motor behavior when rotating clockwise, and LED2 simulates rotation counterclockwise. Program the PWM signals for both LEDs in the same way you would for IN1 and IN2 on the driver. This lets you validate the PWM logic that will be used for the real motor.</p>
+<p>A simple approach is to use two LEDs: LED 1 simulates the motor behavior when rotating clockwise, and LED 2 simulates rotation counterclockwise. Program the PWM signals for both LEDs in the same way you would for <code>IN1</code> and <code>IN2</code> on the driver. This lets you validate the PWM logic that will be used for the real motor.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
-<li>To verify correct operation, ensure that both simulated motor LEDs are never on at the same time.</li>
+<li>To verify correct operation, ensure that the two LEDs are never on at the same time.</li>
 </ul>
 </div>
 <div class="admonition tip">
@@ -2882,7 +2882,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 4, 2026 10:47:42 UTC"><span class="timeago" datetime="2026-09-04T10:47:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 4, 2026 10:47:42 UTC">2026-09-04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 7, 2026 17:58:07 UTC"><span class="timeago" datetime="2026-09-07T17:58:07+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 7, 2026 17:58:07 UTC">2026-09-07</span>
   </span>
 
     
