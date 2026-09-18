@@ -4,56 +4,76 @@
 
 ## Description
 
-To know the angular position of a motor shaft, incremental encoders are commonly used. The objective of this lab is to program the reading of this kind of sensor so we can know the exact position (subject to the encoder resolution) of the motor shaft at any instant.
+Incremental encoders are commonly used to determine the angular position of a motor shaft. The objective of this lab is to program an ESP32 to read the sensor so that we can determine the shaft's position at any instant, subject to the encoder's resolution.
 
-An incremental encoder usually provides 4 signals:
+An incremental encoder usually provides four signals:
 
 - GND: Ground.
-- Vcc: Supply (3–5 V).
+- Vcc: Supply voltage (3–5 V).
 - Channel A: Encoder channel A.
 - Channel B: Encoder channel B.
 
 !!! warning
-    In the lab, the encoder is powered directly from an internal 5 V regulator provided by the equipment electronics. That means it is not necessary to power the encoder externally. However, GND must be considered as the reference for the A and B signals.
+    GND must be used as the reference for signals A and B.
 
-If you connect both channels to an oscilloscope and rotate the motor shaft, you will see signals like those in the image:
+If you connect both channels to an oscilloscope and rotate the motor shaft, you will observe signals similar to those shown in the image below:
 
 <img src="images/osciloscopio.png" width="50%"/>
 
 !!! warning 
-    If the shaft is not moved, the signals will not change.
+    If the shaft does not move, the signals will not change.
 
-## Working with real hardware
+## Working with the real hardware
 
-### Part 1 - Signal identification
+### Part 1 - Identifying the signals
 
-Connect the oscilloscope to the encoder and identify the colour of each signal on the motor to be used. Record this colour-to-signal mapping for later use with the microcontroller. Connect channels A and B and ground to the oscilloscope and verify that the responses match the image above. It is recommended to use the oscilloscope Run/Stop button to freeze the waveform while the motor is turning so you can inspect it.
+Power the encoder by making the following connections:
 
-Connect the encoder ground (GND) to the microcontroller, and channels A and B to the digital inputs GPIO 27 and GPIO 19. This connection cannot be made directly as described below.
+| Motor cables       | M5 Core2 |
+|--------------------|----------|
+| Motor+ (red)       | -        |
+| Encoder- (black)   | GND      |
+| Channel A (yellow) | -        |
+| Channel B (green)  | -        |
+| Encoder+ (blue)    | 3.3V     |
+| Motor+ (white)     | -        |
+
 
 !!! warning
-    The encoder is powered at 5 V. That means the A and B signals, when high and unloaded, present 5 V. The ESP32 electronics works at 3.3 V, so you must not connect A and B directly to the microcontroller inputs. Use a voltage divider. Consider the encoder internal electronics (see image below).
+    Do not power the encoder with 5 V!
 
-<img src="images/encoder_pull_up.png" width="60%"/>
+!!! warning
+    Double-check the connections. Incorrect wiring may damage the encoder's electronics.
 
-The A and B channels already include a 3.3 kΩ pull-up resistor. Therefore, to build the divider you only need to add the lower resistor of the divider.
+Connect the oscilloscope to encoder signals A and B, and connect GND to the oscilloscope's ground. Verify that the waveforms match the image above. It is recommended to use the oscilloscope's Run/Stop button to freeze the waveform while the motor is turning so that you can inspect it.
 
-<img src="images/encoder_electronics.svg" width="80%"/>
+!!! note
+    Note that swapping the A and B signals on the oscilloscope reverses the apparent direction of rotation. For example, if you connect A to oscilloscope channel 1 and B to channel 2, signal A will change before signal B when you rotate the wheel clockwise, and signal B will change first when you rotate it counterclockwise. If you connect A to channel 2 and B to channel 1, signal B will appear before signal A during clockwise rotation, and signal A will appear first during counterclockwise rotation.
 
-!!! question
-    What is the theoretical value of the resistor R to place as the lower resistor of the divider so that the channels A and B go from 5 V to 3.3 V when high?
+Once you have identified the clockwise and counterclockwise rotations from signals A and B, connect the encoder ground (GND) to the microcontroller and connect channels A and B to the digital inputs GPIO 27 and GPIO 19.
 
-Assemble the circuit with the divider and verify with the oscilloscope that the high-level voltage on channels A and B does not exceed 3.3 V.
+| Motor cables       | M5 Core2 |
+|--------------------|----------|
+| Motor+ (red)       | -        |
+| Encoder- (black)   | GND      |
+| Channel A (yellow) | GPIO27   |
+| Channel B (green)  | GPIO26   |
+| Encoder+ (blue)    | 3.3V     |
+| Motor+ (white)     | -        |
+
+!!! note
+    The rotation direction will be important in the next lab session, so record it.
+
 
 ### Part 2 - Counting encoder pulses
 
-Develop Arduino code to count pulses generated by both signals. Store the count in a global variable and account for direction changes to increment or decrement the counter. Use interrupts on the digital inputs.
+Develop an Arduino program to count the pulses generated by both signals. Store the count in a global variable and account for changes in direction by incrementing or decrementing the counter. Use interrupts on the digital inputs.
 
-To count pulses you must consider rising and/or falling edges of each channel and read the state of the other channel after the edge. For example: if there is a rising edge on A, and both A and B are high after the edge, rotation is in one direction (positive — increment the counter). If after a rising edge on A, A is high and B is low, rotation is in the opposite direction (negative — decrement the counter). The figure below shows an example where B leads A (rotation in one direction). If rotation reversed, A would lead B. You can verify this on the oscilloscope or by turning the motor by hand.
+To count the pulses, consider the rising and/or falling edges of each channel and read the state of the other channel after each edge. For example, if a rising edge occurs on A and both A and B are high after the edge, the shaft is rotating in one direction (positive: increment the counter). If A is high and B is low after a rising edge on A, the shaft is rotating in the opposite direction (negative: decrement the counter). The figure below shows an example in which B leads A, corresponding to rotation in one direction. If the direction of rotation is reversed, A leads B. You can verify this with the oscilloscope or by turning the motor by hand.
 
 <img src="images/encoder_signal.svg" width="80%"/>
 
-Example of an interrupt handler implementation:
+An example of an interrupt handler implementation is shown below:
 
 ```cpp
 void IRAM_ATTR ISR_Example()
@@ -62,7 +82,7 @@ void IRAM_ATTR ISR_Example()
 }
 ```
 
-You can send the counter value over the Serial port as follows:
+You can send the counter value through the Serial port as follows:
 
 ```cpp
 void setup()
@@ -80,21 +100,24 @@ void loop()
 
 ### Part 3 - Pulses per revolution
 
-Check the pulses per revolution produced by the encoder. Find this information in the motor/encoder technical details and verify experimentally with the real encoder.
+Determine the number of pulses per revolution that can be read at the output shaft of the motor. Each pulse produces one rising edge and one falling edge.
+
+!!! note
+    Note that the encoder produces only 11 pulses per revolution at the encoder shaft. You must also account for the rising and falling edges of both channels.
 
 !!! question
-    - If only the rising edges of channel A are considered, how many pulses per revolution could we measure?
-    - What if rising edges of channels A and B are considered?
-    - What if rising and falling edges of channels A and B are considered?
+    - If only the rising edges of channel A are considered, how many pulses per revolution can be measured?
+    - What if the rising edges of channels A and B are considered?
+    - What if both the rising and falling edges of channels A and B are considered?
 
 !!! question
-    Could we send the position in degrees instead of encoder pulses over the serial port? How?
+    Could you send the position in degrees instead of encoder pulses through the Serial port? How?
 
 ## Working in simulation
 
-You can simulate an encoder in Wokwi using the Rotatory Encoder component: https://docs.wokwi.com/parts/wokwi-ky-040/. The simulation diagram would look like this:
+You can simulate an encoder in Wokwi using the Rotary Encoder component: https://docs.wokwi.com/parts/wokwi-ky-040/. The simulation diagram should look like this:
 
 <img src="images/encoder_circuit.png" width="50%"/>
 
 !!! question
-    What differences exist between the operation of this encoder and the encoder used with the motor in the lab?
+    What differences are there between the operation of this encoder and that of the encoder used with the motor in the lab?
