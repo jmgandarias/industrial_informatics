@@ -2699,22 +2699,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#working-with-real-hardware" class="md-nav__link">
+  <a href="#working-with-the-real-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Working with real hardware
+        Working with the real hardware
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Working with real hardware">
+    <nav class="md-nav" aria-label="Working with the real hardware">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#part-1-signal-identification" class="md-nav__link">
+  <a href="#part-1-identifying-the-signals" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 1 - Signal identification
+        Part 1 - Identifying the signals
       
     </span>
   </a>
@@ -2795,51 +2795,124 @@
 <div><h1 id="lab-session-4-encoder">Lab Session 4: Encoder<a class="headerlink" href="#lab-session-4-encoder" title="Permanent link">¶</a></h1>
 <p><strong>Estimated time:</strong> 1.5 h (1 session)</p>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">¶</a></h2>
-<p>To know the angular position of a motor shaft, incremental encoders are commonly used. The objective of this lab is to program the reading of this kind of sensor so we can know the exact position (subject to the encoder resolution) of the motor shaft at any instant.</p>
-<p>An incremental encoder usually provides 4 signals:</p>
+<p>Incremental encoders are commonly used to determine the angular position of a motor shaft. The objective of this lab is to program an ESP32 to read the sensor so that we can determine the shaft's position at any instant, subject to the encoder's resolution.</p>
+<p>An incremental encoder usually provides four signals:</p>
 <ul>
 <li>GND: Ground.</li>
-<li>Vcc: Supply (3–5 V).</li>
+<li>Vcc: Supply voltage (3–5 V).</li>
 <li>Channel A: Encoder channel A.</li>
 <li>Channel B: Encoder channel B.</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>In the lab, the encoder is powered directly from an internal 5 V regulator provided by the equipment electronics. That means it is not necessary to power the encoder externally. However, GND must be considered as the reference for the A and B signals.</p>
+<p>GND must be used as the reference for signals A and B.</p>
 </div>
-<p>If you connect both channels to an oscilloscope and rotate the motor shaft, you will see signals like those in the image:</p>
+<p>If you connect both channels to an oscilloscope and rotate the motor shaft, you will observe signals similar to those shown in the image below:</p>
 <p><img src="images/osciloscopio.png" width="50%"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If the shaft is not moved, the signals will not change.</p>
+<p>If the shaft does not move, the signals will not change.</p>
 </div>
-<h2 id="working-with-real-hardware">Working with real hardware<a class="headerlink" href="#working-with-real-hardware" title="Permanent link">¶</a></h2>
-<h3 id="part-1-signal-identification">Part 1 - Signal identification<a class="headerlink" href="#part-1-signal-identification" title="Permanent link">¶</a></h3>
-<p>Connect the oscilloscope to the encoder and identify the colour of each signal on the motor to be used. Record this colour-to-signal mapping for later use with the microcontroller. Connect channels A and B and ground to the oscilloscope and verify that the responses match the image above. It is recommended to use the oscilloscope Run/Stop button to freeze the waveform while the motor is turning so you can inspect it.</p>
-<p>Connect the encoder ground (GND) to the microcontroller, and channels A and B to the digital inputs GPIO 27 and GPIO 19. This connection cannot be made directly as described below.</p>
+<h2 id="working-with-the-real-hardware">Working with the real hardware<a class="headerlink" href="#working-with-the-real-hardware" title="Permanent link">¶</a></h2>
+<h3 id="part-1-identifying-the-signals">Part 1 - Identifying the signals<a class="headerlink" href="#part-1-identifying-the-signals" title="Permanent link">¶</a></h3>
+<p>Power the encoder by making the following connections:</p>
+<table>
+<thead>
+<tr>
+<th>Motor cables</th>
+<th>M5 Core2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Motor+ (red)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Encoder- (black)</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>Channel A (yellow)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Channel B (green)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Encoder+ (blue)</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>Motor+ (white)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The encoder is powered at 5 V. That means the A and B signals, when high and unloaded, present 5 V. The ESP32 electronics works at 3.3 V, so you must not connect A and B directly to the microcontroller inputs. Use a voltage divider. Consider the encoder internal electronics (see image below).</p>
+<p>Do not power the encoder with 5 V!</p>
 </div>
-<p><img src="images/encoder_pull_up.png" width="60%"></p>
-<p>The A and B channels already include a 3.3 kΩ pull-up resistor. Therefore, to build the divider you only need to add the lower resistor of the divider.</p>
-<p><img src="images/encoder_electronics.svg" width="80%"></p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>What is the theoretical value of the resistor R to place as the lower resistor of the divider so that the channels A and B go from 5 V to 3.3 V when high?</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Double-check the connections. Incorrect wiring may damage the encoder's electronics.</p>
 </div>
-<p>Assemble the circuit with the divider and verify with the oscilloscope that the high-level voltage on channels A and B does not exceed 3.3 V.</p>
+<p>Connect the oscilloscope to encoder signals A and B, and connect GND to the oscilloscope's ground. Verify that the waveforms match the image above. It is recommended to use the oscilloscope's Run/Stop button to freeze the waveform while the motor is turning so that you can inspect it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that swapping the A and B signals on the oscilloscope reverses the apparent direction of rotation. For example, if you connect A to oscilloscope channel 1 and B to channel 2, signal A will change before signal B when you rotate the wheel clockwise, and signal B will change first when you rotate it counterclockwise. If you connect A to channel 2 and B to channel 1, signal B will appear before signal A during clockwise rotation, and signal A will appear first during counterclockwise rotation.</p>
+</div>
+<p>Once you have identified the clockwise and counterclockwise rotations from signals A and B, connect the encoder ground (GND) to the microcontroller and connect channels A and B to the digital inputs GPIO 27 and GPIO 19.</p>
+<table>
+<thead>
+<tr>
+<th>Motor cables</th>
+<th>M5 Core2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Motor+ (red)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Encoder- (black)</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>Channel A (yellow)</td>
+<td>GPIO27</td>
+</tr>
+<tr>
+<td>Channel B (green)</td>
+<td>GPIO26</td>
+</tr>
+<tr>
+<td>Encoder+ (blue)</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>Motor+ (white)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The rotation direction will be important in the next lab session, so record it.</p>
+</div>
 <h3 id="part-2-counting-encoder-pulses">Part 2 - Counting encoder pulses<a class="headerlink" href="#part-2-counting-encoder-pulses" title="Permanent link">¶</a></h3>
-<p>Develop Arduino code to count pulses generated by both signals. Store the count in a global variable and account for direction changes to increment or decrement the counter. Use interrupts on the digital inputs.</p>
-<p>To count pulses you must consider rising and/or falling edges of each channel and read the state of the other channel after the edge. For example: if there is a rising edge on A, and both A and B are high after the edge, rotation is in one direction (positive — increment the counter). If after a rising edge on A, A is high and B is low, rotation is in the opposite direction (negative — decrement the counter). The figure below shows an example where B leads A (rotation in one direction). If rotation reversed, A would lead B. You can verify this on the oscilloscope or by turning the motor by hand.</p>
+<p>Develop an Arduino program to count the pulses generated by both signals. Store the count in a global variable and account for changes in direction by incrementing or decrementing the counter. Use interrupts on the digital inputs.</p>
+<p>To count the pulses, consider the rising and/or falling edges of each channel and read the state of the other channel after each edge. For example, if a rising edge occurs on A and both A and B are high after the edge, the shaft is rotating in one direction (positive: increment the counter). If A is high and B is low after a rising edge on A, the shaft is rotating in the opposite direction (negative: decrement the counter). The figure below shows an example in which B leads A, corresponding to rotation in one direction. If the direction of rotation is reversed, A leads B. You can verify this with the oscilloscope or by turning the motor by hand.</p>
 <p><img src="images/encoder_signal.svg" width="80%"></p>
-<p>Example of an interrupt handler implementation:</p>
+<p>An example of an interrupt handler implementation is shown below:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">IRAM_ATTR</span><span class="w"> </span><span class="nf">ISR_Example</span><span class="p">()</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p">...</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
 </code></pre></div>
-<p>You can send the counter value over the Serial port as follows:</p>
+<p>You can send the counter value through the Serial port as follows:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p">...</span>
@@ -2853,25 +2926,29 @@
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="part-3-pulses-per-revolution">Part 3 - Pulses per revolution<a class="headerlink" href="#part-3-pulses-per-revolution" title="Permanent link">¶</a></h3>
-<p>Check the pulses per revolution produced by the encoder. Find this information in the motor/encoder technical details and verify experimentally with the real encoder.</p>
+<p>Determine the number of pulses per revolution that can be read at the output shaft of the motor. Each pulse produces one rising edge and one falling edge.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the encoder produces only 11 pulses per revolution at the encoder shaft. You must also account for the rising and falling edges of both channels.</p>
+</div>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <ul>
-<li>If only the rising edges of channel A are considered, how many pulses per revolution could we measure?</li>
-<li>What if rising edges of channels A and B are considered?</li>
-<li>What if rising and falling edges of channels A and B are considered?</li>
+<li>If only the rising edges of channel A are considered, how many pulses per revolution can be measured?</li>
+<li>What if the rising edges of channels A and B are considered?</li>
+<li>What if both the rising and falling edges of channels A and B are considered?</li>
 </ul>
 </div>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Could we send the position in degrees instead of encoder pulses over the serial port? How?</p>
+<p>Could you send the position in degrees instead of encoder pulses through the Serial port? How?</p>
 </div>
 <h2 id="working-in-simulation">Working in simulation<a class="headerlink" href="#working-in-simulation" title="Permanent link">¶</a></h2>
-<p>You can simulate an encoder in Wokwi using the Rotatory Encoder component: https://docs.wokwi.com/parts/wokwi-ky-040/. The simulation diagram would look like this:</p>
+<p>You can simulate an encoder in Wokwi using the Rotary Encoder component: https://docs.wokwi.com/parts/wokwi-ky-040/. The simulation diagram should look like this:</p>
 <p><img src="images/encoder_circuit.png" width="50%"></p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>What differences exist between the operation of this encoder and the encoder used with the motor in the lab?</p>
+<p>What differences are there between the operation of this encoder and that of the encoder used with the motor in the lab?</p>
 </div></div>
 
 
@@ -2895,7 +2972,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 6, 2025 17:34:36 UTC"><span class="timeago" datetime="2025-11-06T17:34:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 6, 2025 17:34:36 UTC">2025-11-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 18, 2026 16:07:16 UTC"><span class="timeago" datetime="2026-09-18T16:07:16+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 18, 2026 16:07:16 UTC">2026-09-18</span>
   </span>
 
     

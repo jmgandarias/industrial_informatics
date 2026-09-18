@@ -2955,7 +2955,7 @@ Universidad de Málaga<br>
 <h2 id="1-trabajar-con-hardware-real">1. Trabajar con hardware real<a class="headerlink" href="#1-trabajar-con-hardware-real" title="Permanent link">¶</a></h2>
 <h3 id="11-preparar-el-entorno-de-arduino-ide">1.1. Preparar el entorno de Arduino IDE<a class="headerlink" href="#11-preparar-el-entorno-de-arduino-ide" title="Permanent link">¶</a></h3>
 <p>Sigue los pasos de instalación descritos en esta guía.</p>
-<p>::: note
+<p>::: info
 Ten en cuenta que solo necesitas completar estos pasos una vez y únicamente en tu propio ordenador. Si vas a utilizar el PC del departamento, no necesitas seguir estos pasos.
 :::</p>
 <ol>
@@ -3005,7 +3005,7 @@ Si durante la instalación aparece el siguiente error, significa que no tienes p
 <p>Descárgalo desde uno de los siguientes enlaces:
 - <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Windows.zip">Windows</a> (Descomprime el archivo y ejecuta <code>CP210xVCPInstaller_Win7_v5.40.24.exe</code>).
 - <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_MacOS.zip">macOS</a> (Descomprime el archivo y ejecuta <code>SiLabsUSBDriverDisk.dmg</code>).
-- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip">Linux</a> (Descomprime el archivo y sigue las instrucciones de compilación de <code>CP210x_VCP_Linux_4.x_Release_Notes.txt</code>).</p>
+- <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CP210x_VCP_Linux.zip">Linux</a> (Descomprime el archivo y sigue las instrucciones de compilación de <code>CP210x_VCP_Linux_4.x_Release_infos.txt</code>).</p>
 <p>Puedes encontrar más información sobre la instalación del controlador USB <a href="https://docs.m5stack.com/en/arduino/m5core2/program#2.usb%20driver%20installation">aquí</a>.</p>
 <p>Ahora, cuando conectes el M5Core2 al PC mediante el cable USB, podrás seleccionar el puerto en Arduino IDE.</p>
 <p><img src="images/select_serial_port.png" width="80%"></p>
@@ -3024,7 +3024,7 @@ Si ves varios dispositivos y no estás seguro de cuál es el M5Core2, puedes pro
     :::</p>
 </li>
 </ol>
-<p>::: note
+<p>::: info
 También debes seleccionar la placa correcta, como en el paso 2. Recuerda que siempre debes comprobar la placa y el puerto antes de subir un programa al dispositivo.
 :::</p>
 </li>
@@ -3045,7 +3045,7 @@ También debes seleccionar la placa correcta, como en el paso 2. Recuerda que si
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
 </code></pre></div>
-<p>::: note
+<p>::: info
 La primera vez que compiles un programa para M5Core2, puede tardar un poco.
 :::</p>
 <p>Puedes pulsar el botón <em>Upload</em> (en rojo) para compilar y cargar el programa en el dispositivo. Ten en cuenta que el botón <em>Verify</em> (en verde) compila el programa, pero no lo sube al dispositivo.</p>
@@ -3084,35 +3084,34 @@ Puedes encontrar más documentación sobre algunas de las funciones básicas de 
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
 </code></pre></div>
-<p>::: note
+<p>::: tip
 - ¿Qué hace la directiva <a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/define/"><code>#define</code></a>?
 - ¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/pinMode/"><code>pinMode()</code></a>?
 - ¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalwrite/"><code>digitalWrite()</code></a>?
 :::</p>
-<p>::: note
+<p>::: tip
 Ten en cuenta que tuviste que incluir la línea <code>#include &lt;M5Unified.h&gt;</code> y la instrucción <code>M5.begin(); // Initialize M5Core</code>.
 ¿Por qué necesitaste hacer eso? ¿Para qué sirven estas instrucciones?
 :::</p>
 <h3 id="13-ejercicios-adicionales">1.3. Ejercicios adicionales<a class="headerlink" href="#13-ejercicios-adicionales" title="Permanent link">¶</a></h3>
 <h4 id="131-parpadeo-a-una-frecuencia-determinada">1.3.1. Parpadeo a una frecuencia determinada<a class="headerlink" href="#131-parpadeo-a-una-frecuencia-determinada" title="Permanent link">¶</a></h4>
-<div class="highlight"><pre><span></span><code>- Usando el mismo circuito que en el ejercicio anterior, escribe un programa que haga parpadear el LED a una frecuencia de 10 Hz.
-
-::: note
+<ul>
+<li>Usando el mismo circuito que en el ejercicio anterior, escribe un programa que haga parpadear el LED a una frecuencia de 10 Hz.</li>
+</ul>
+<p>::: tip
 - ¿Durante cuánto tiempo debe estar el LED encendido o apagado en cada ciclo?
-:::
-</code></pre></div>
+:::</p>
 <h4 id="132-parpadeo-y-detenerse">1.3.2. Parpadeo y detenerse<a class="headerlink" href="#132-parpadeo-y-detenerse" title="Permanent link">¶</a></h4>
-<div class="highlight"><pre><span></span><code>- Usando el mismo circuito que en el ejercicio anterior, escribe un programa que haga parpadear el LED a una frecuencia de 2 Hz y deje de parpadear después de 5 segundos.
-
-::: note
+<ul>
+<li>Usando el mismo circuito que en el ejercicio anterior, escribe un programa que haga parpadear el LED a una frecuencia de 2 Hz y deje de parpadear después de 5 segundos.</li>
+</ul>
+<p>::: tip
 - ¿Cuántas veces parpadea el LED?
 - ¿Cuál es el estado final del LED cuando deja de parpadear: permanece encendido o apagado?
-:::
-
-::: tip
-Puede que necesites usar el bucle [```for```](https://docs.arduino.cc/language-reference/en/structure/control-structure/for/) o la condición [```if...else```](https://docs.arduino.cc/language-reference/en/structure/control-structure/else/).
-:::
-</code></pre></div>
+:::</p>
+<p>::: tip
+Puede que necesites usar el bucle <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/for/"><code>for</code></a> o la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>.
+:::</p>
 <h2 id="2-trabajar-en-simulacion">2. Trabajar en simulación<a class="headerlink" href="#2-trabajar-en-simulacion" title="Permanent link">¶</a></h2>
 <h3 id="21-simulacion-de-microcontroladores">2.1. Simulación de microcontroladores<a class="headerlink" href="#21-simulacion-de-microcontroladores" title="Permanent link">¶</a></h3>
 <h4 id="lanzar-un-ejemplo">Lanzar un ejemplo<a class="headerlink" href="#lanzar-un-ejemplo" title="Permanent link">¶</a></h4>
@@ -3142,11 +3141,11 @@ Abre la plantilla ESP32 desde <code>Starter Templates</code>, no desde <code>ESP
 <p>::: warning
 Aquí estás <em>simulando</em> el comportamiento del sistema. Wokwi compila el programa y ejecuta el código resultante en un modelo virtual del microcontrolador. Por tanto, el código debe ser compilable para que la simulación pueda ejecutarse.
 :::</p>
-<p>::: info
+<p>::: tip
 - Ten en cuenta que el factor de tiempo real en la esquina superior derecha debe ser lo más cercano posible a 100%. Este valor es una métrica del rendimiento de la simulación. Cuanto más cerca esté de 100%, mejor será la simulación. Un valor de 100% significa que la simulación se está ejecutando en tiempo real. Si baja, los tiempos de la simulación ya no serán fiables.
 - Fíjate en la instrucción <code>delay(10); // esto acelera la simulación</code>. Prueba a comentar esta línea y observa qué pasa. ¿Qué ocurre si usas <code>delay(1);</code> o <code>delay(5);</code>?
 :::</p>
-<p>::: note
+<p>::: tip
 - ¿Cuál es el propósito de la función <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/setup/"><code>setup()</code></a>?
 - ¿Cuál es el propósito de la función <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/loop/"><code>loop()</code></a>?
 - ¿Qué hace la función <a href="https://docs.arduino.cc/language-reference/en/functions/time/delay/"><code>delay()</code></a>?
@@ -3162,7 +3161,7 @@ Aquí estás <em>simulando</em> el comportamiento del sistema. Wokwi compila el 
 <li>
 <p>Conecta un LED a <code>GPIO 21</code> con una resistencia, como se muestra en el diagrama (gira los componentes con <code>r</code> y voltéalos con <code>p</code> si es necesario).</p>
 <p><img src="images/circuito_1.png" width="40%"></p>
-<p>::: note
+<p>::: tip
 - Comprueba de nuevo el <code>diagram.json</code>. ¿Qué ha pasado? ¿Puedes cambiar el color del LED a <em>verde</em> desde este archivo?
 - ¿Qué crees que puedes hacer con el <em>Library Manager</em>?
 :::</p>
@@ -3204,7 +3203,7 @@ Aquí estás <em>simulando</em> el comportamiento del sistema. Wokwi compila el 
 Cuando coloques el botón, no olvides desactivar la opción <em>bounce</em> para evitar <a href="https://www.luisllamas.es/en/debouncing-arduino-interrupts/">problemas de rebote</a>.</p>
 <p><img src="images/bounce.png" width="30%">
 :::</p>
-<p>::: note
+<p>::: tip
 - ¿Qué información se incluye en el archivo <code>diagram.json</code>? ¿Ha cambiado respecto al ejercicio anterior?
 - ¿Puedes completar el ejercicio sin usar la condición <a href="https://docs.arduino.cc/language-reference/en/structure/control-structure/else/"><code>if...else</code></a>? ¿Cómo?
 :::</p>
@@ -3255,7 +3254,7 @@ Puede que necesites usar la función <a href="https://docs.arduino.cc/language-r
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 7, 2026 17:58:07 UTC"><span class="timeago" datetime="2026-09-07T17:58:07+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 7, 2026 17:58:07 UTC">2026-09-07</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 18, 2026 16:07:16 UTC"><span class="timeago" datetime="2026-09-18T16:07:16+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 18, 2026 16:07:16 UTC">2026-09-18</span>
   </span>
 
     
