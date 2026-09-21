@@ -113,23 +113,29 @@ ledcWrite(pin, duty_value);
 
 **Button example with debouncing:**
 ```cpp
+```cpp
 const int BUTTON_PIN = 4;
+
 volatile int counter = 0;
 
-void IRAM_ATTR handleButtonPress() {
+void IRAM_ATTR handleButtonPress()
+{
     counter++;
 }
 
-void setup() {
+void setup()
+{
     Serial.begin(115200);
     pinMode(BUTTON_PIN, INPUT_PULLUP);
-    
+
     // Configure interrupt on falling edge
     attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), handleButtonPress, FALLING);
 }
 
-void loop() {
-    Serial.printf("Button presses: %d\n", counter);
+void loop()
+{
+    Serial.print("Button presses: ");
+    Serial.println(counter);
     delay(500);
 }
 ```
