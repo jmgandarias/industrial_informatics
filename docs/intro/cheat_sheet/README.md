@@ -99,6 +99,37 @@ ledcWrite(pin, duty_value);
 
 **Resolution:** Default 12 bits (0-4095)
 
+**LED fading:**
+```cpp
+const int LED_PIN = 25;
+
+const int frequency = 3000; // 3 kHz
+
+const int resolution = 8; // 8-bit resolution
+
+void setup()
+{
+    ledcAttach(LED_PIN, frequency, resolution);
+}
+
+void loop()
+{
+    for (int dutyCycle = 0; dutyCycle <= pow(2, resolution) - 1; dutyCycle++)
+    {
+        ledcWrite(LED_PIN, dutyCycle);
+        delay(10);
+    }
+
+    for (int dutyCycle = pow(2, resolution) - 1; dutyCycle >= 0; dutyCycle--)
+    {
+        ledcWrite(LED_PIN, dutyCycle);
+        delay(10);
+    }
+
+    delay(1000); // Wait for 1 second before starting the next cycle
+}
+```
+
 ---
 
 ## 2️⃣ Interrupts and Hardware Timers
@@ -112,7 +143,6 @@ ledcWrite(pin, duty_value);
 | **Available modes** | `RISING` (rising edge ↑) • `FALLING` (falling edge ↓) • `CHANGE` (any change) |
 
 **Button example with debouncing:**
-```cpp
 ```cpp
 const int BUTTON_PIN = 4;
 
